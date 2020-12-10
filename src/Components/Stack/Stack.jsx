@@ -26,9 +26,13 @@ const Div = styled.div`
   }
   img {
     max-width: 100px;
+    min-width: 100px;
+    width: 100px;
     padding: 10px;
     margin: 20px;
     max-height: 100px;
+    height: 100px;
+    min-height: 100px;
     transition: transform 250ms ease-out;
   }
 
