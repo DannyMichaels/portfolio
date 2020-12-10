@@ -12,6 +12,7 @@ const Div = styled.div`
   margin-top: 450px;
   position: relative;
   margin-left: 120px;
+  z-index: 9999;
   min-width: 161px;
   /* width: auto; */
   transition: transform 250ms ease-in;

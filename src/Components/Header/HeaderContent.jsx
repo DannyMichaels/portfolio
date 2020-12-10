@@ -7,19 +7,43 @@ import MoveInLeft from "../shared/Animations/MoveInLeft";
 import About from "../Home/About";
 import Stack from "../Stack/Stack";
 import styled from "styled-components";
-const CloudBig = styled.img``;
-const CloudSmall = styled.img`
+
+const CloudBig = styled.img`
   @keyframes float {
     0% {
-      /* box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6); */
       transform: translatey(0px);
     }
     50% {
-      /* box-shadow: 0 25px 15px 0px rgba(0, 0, 0, 0.2); */
       transform: translatey(-20px);
     }
     100% {
-      /* box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6); */
+      transform: translatey(0px);
+    }
+  }
+  /* margin-top: -200px; */
+  z-index: -1;
+  filter: blur(4px);
+  z-index: 0;
+  opacity: 0.5;
+  cursor: pointer;
+  transform: translatey(0px);
+  animation: float 6s ease-in-out infinite;
+  margin-top: -60px;
+`;
+
+const SmallCloudsContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+const CloudSmall = styled.img`
+  @keyframes float {
+    0% {
+      transform: translatey(0px);
+    }
+    50% {
+      transform: translatey(-20px);
+    }
+    100% {
       transform: translatey(0px);
     }
   }
@@ -27,19 +51,20 @@ const CloudSmall = styled.img`
   width: 150px;
   height: 150px;
   filter: blur(3.05px);
-  margin-top: -10px;
+  margin-top: -400px;
   z-index: 0;
   opacity: 0.7;
   cursor: pointer;
-  margin-left: 200px;
+  z-index: 2;
+  margin-left: 300px;
   transition: transform 2s ease-out;
 
   transform: translatey(0px);
   animation: float 6s ease-in-out infinite;
 
-  &:active {
-    transform: scale(0.5);
-    transition: transform 2s ease-in;
+  &:hover {
+    transform: scale(2);
+    transition: transform 250s ease-in;
   }
 `;
 
@@ -69,8 +94,16 @@ export default function HeaderContent() {
       <MoveInLeft className="animation1">
         <HeaderText />
         <Scroll />
-        <CloudSmall className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+        <SmallCloudsContainer>
+          {/* <CloudSmall className="cloud" src="https://i.imgur.com/UOQ3aCS.png" /> */}
+          {/* <CloudSmall className="cloud" src="https://i.imgur.com/UOQ3aCS.png" /> */}
+          {/* <CloudSmall className="cloud" src="https://i.imgur.com/UOQ3aCS.png" /> */}
+          {/* <CloudSmall className="cloud" src="https://i.imgur.com/UOQ3aCS.png" /> */}
+        </SmallCloudsContainer>
+
         <Fill1 fill1="https://anima-uploads.s3.amazonaws.com/projects/5fb14441119f80c2053ea467/releases/5fb14452ac34b30698d1c801/img/01maindemo-fill-1-3E925590-1D1F-4FAB-9036-050A24FF5082.png" />
+        <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+
         <Div class="crop">
           <Fill2 fill2="https://anima-uploads.s3.amazonaws.com/projects/5fb14441119f80c2053ea467/releases/5fb14452ac34b30698d1c801/img/01maindemo-fill-1-2D5D0138-9E96-48FA-B912-5523E3A31DAE.png" />
         </Div>
