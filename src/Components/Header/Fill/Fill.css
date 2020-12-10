@@ -1,0 +1,45 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css?family=Poppins:700,500,600|Playfair+Display:700,900|Roboto:400|Montserrat:700,500,400,600");
+
+.fill-1 {
+  background-color: transparent;
+  position: absolute;
+  height: 522px;
+  left: 0;
+  z-index: 0;
+  margin-top: 150px;
+  margin-left: -50px;
+  width: 516px;
+  transition: transform 250ms ease-in;
+  cursor: pointer;
+}
+.fill-1:hover {
+  transform: scale(1.3);
+  transition: transform 1s ease-in;
+}
+
+.fill-1:active {
+  transform: scale(0.5);
+  transition: transform 2s ease-in;
+}
+
+.fill-2 {
+  background-color: transparent;
+  position: absolute;
+  display: flex;
+  right: 0;
+  flex-shrink: 1;
+  height: 1230px;
+  margin-top: -350px;
+  margin-right: -315px;
+  z-index: 0;
+  opacity: 0.8;
+  transform: rotate(62deg);
+  width: 1293px;
+}
+
+@media screen and (max-width: 768px) {
+  .fill-2 {
+    display: none;
+  }
+}
