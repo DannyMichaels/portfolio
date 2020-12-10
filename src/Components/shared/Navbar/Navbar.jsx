@@ -21,6 +21,8 @@ const Nav = styled.nav`
     color: white;
     cursor: pointer;
     display: flex;
+    font-size: 1.2rem;
+    font-family: "Helvetica", sans-serif;
     visibility: none;
   }
 

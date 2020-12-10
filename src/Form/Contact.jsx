@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component, useState } from "react";
 import TextField from "@material-ui/core/TextField";
 import Input from "@material-ui/core/Input";
 import styled from "styled-components";
@@ -49,13 +49,31 @@ function Contact() {
           <div className="span">e</div>
         </h1>
       </div>
-      <form action="POST" data-netlify="true">
+
+      <form action="/contact" method="post" name="contact">
+        <input type="hidden" name="form-name" value="contact" />
         <div class="field">
           <div class="field-half">
-            <Input type="email" name="email" id="email" placeholder="Email" />
+            <Input
+              type="text"
+              name="name"
+              id="name"
+              required
+              placeholder="Name"
+            />
+          </div>
+          <div class="field-half">
+            <Input
+              type="email"
+              required
+              name="email"
+              id="email"
+              placeholder="Email"
+            />
           </div>
           <div class="field">
             <TextField
+              required
               name="message"
               id="message"
               placeholder="Message"
@@ -71,7 +89,7 @@ function Contact() {
               />
             </div>
             <div data-netlify-recaptcha="true" className="field"></div>
-            <input type="submit" value="Send Message" class="button primary" />
+            <button type="submit">Submit ^_^</button>
           </div>
         </div>
       </form>
