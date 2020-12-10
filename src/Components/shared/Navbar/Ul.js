@@ -43,7 +43,10 @@ const Ul = styled.ul`
     width: 60vw;
     padding-top: 3.5rem;
     padding-bottom: 100px;
-    box-shadow: -4px 2px 2px 2px var(--vivid-tangerine);
+    box-shadow: 2px 2px 2px 2px var(--vivid-tangerine);
+    box-shadow: ${({ open }) =>
+      open ? "2px 2px 2px 2px var(--vivid-tangerine);" : "inherit"};
+
     .mobile-link {
       display: flex;
     }
