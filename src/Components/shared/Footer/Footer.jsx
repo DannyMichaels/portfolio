@@ -7,7 +7,7 @@ class Footer extends Component {
   render() {
     return (
       <footer className="footer">
-        <SiLinkedin /> <SiGithub />
+        {/* <SiLinkedin /> <SiGithub /> */}
         <a
           style={{ textDecoration: "none", color: "white" }}
           href={"https://www.github.com/DannyMichaels/portfolio"}
