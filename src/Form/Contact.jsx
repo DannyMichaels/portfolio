@@ -35,7 +35,7 @@ const Div = styled.div`
 
 function Contact() {
   return (
-    <Div>
+    <Div className="contact">
       <div className="title-container">
         <h1>
           <div className="span">C</div>

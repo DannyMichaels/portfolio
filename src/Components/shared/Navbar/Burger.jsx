@@ -65,7 +65,7 @@ const StyledBurger = styled.div`
   }
 `;
 
-function Burger() {
+function Burger({ navBar }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -77,7 +77,7 @@ function Burger() {
           <div className="bar-line" />
         </StyledBurger>
       </Background>
-      <OpenNav open={open} setOpen={setOpen} />
+      <OpenNav navBar={navBar} open={open} setOpen={setOpen} />
     </>
   );
 }

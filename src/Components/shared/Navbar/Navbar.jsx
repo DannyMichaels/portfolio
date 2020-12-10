@@ -80,7 +80,7 @@ const Navbar = () => {
           Daniel Michael
         </Link>
       </div>
-      <Burger />
+      <Burger navBar={navBar} />
     </Nav>
   );
 };

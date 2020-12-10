@@ -9,6 +9,8 @@ const Div = styled.div`
   display: flex;
   justify-content: center;
   flex-flow: column wrap;
+  /* background-image: url("https://anima-uploads.s3.amazonaws.com/projects/5fb14441119f80c2053ea467/releases/5fb14452ac34b30698d1c801/img/01maindemo-rectangle-2-F05F0B6A-9C51-4A16-A795-BC7F67EC0F4E.png"); */
+
   .loading {
     display: flex;
     justify-content: center;
@@ -17,7 +19,7 @@ const Div = styled.div`
   }
 
   .card {
-    box-shadow: 2px 2px 2px 2px #999;
+    /* box-shadow: 2px 2px 2px 2px #999; */
     margin: 0 auto;
     margin-bottom: 50px;
     padding: 20px;
@@ -37,7 +39,15 @@ const Div = styled.div`
     display: flex;
     flex-direction: column;
     text-align: center;
-    font-family: "Roboto", sans-serif;
+    font-size: 36px;
+    color: #fff;
+    padding: 20px;
+    color: #fff;
+    font-family: "Helvetica", Helvetica, Arial, serif;
+    font-size: 70px;
+    cursor: default;
+    line-height: 84px;
+    z-index: 1;
   }
   @media (max-width: 600px) {
     .card {

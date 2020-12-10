@@ -37,6 +37,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     maxHeight: "100%",
     display: "flex",
+    textAlign: "left",
     flexFlow: "column nowrap",
     justifyContent: "flex-start",
   },
@@ -47,6 +48,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexFlow: "row nowrap",
     justifyContent: "center",
+    textAlign: "left",
   },
   div: {
     height: "100%",
@@ -54,6 +56,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexFlow: "row wrap",
     listStyle: "inherit",
+    textAlign: "left",
     color: "black",
   },
   expand: {
@@ -68,7 +71,7 @@ const useStyles = makeStyles((theme) => ({
   },
   techUsed: {
     fontWeight: "bold",
-    textAlign: "center",
+    textAlign: "left",
   },
 }));
 

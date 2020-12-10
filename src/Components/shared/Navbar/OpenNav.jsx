@@ -3,7 +3,7 @@ import Ul from "./Ul";
 import { onResize } from "../../../utils/onResize";
 import { Link } from "react-scroll";
 
-function OpenNav({ open, setOpen }) {
+function OpenNav({ navBar, open, setOpen }) {
   useEffect(() => {
     onResize();
 
@@ -40,7 +40,7 @@ function OpenNav({ open, setOpen }) {
   }, [open]);
 
   return (
-    <Ul id="menu" open={open} setOpen={setOpen}>
+    <Ul navBar={navBar} id="menu" open={open} setOpen={setOpen}>
       <Link
         className="desktop-link"
         activeClass="active"
