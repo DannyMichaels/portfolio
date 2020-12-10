@@ -28,7 +28,7 @@ const Ul = styled.ul`
   }
 
   @media (max-width: 768px) {
-    flex-flow: row nowrap;
+    flex-flow: column nowrap;
     background-color: white;
     align-items: flex-start;
     justify-content: space-around;
@@ -40,7 +40,7 @@ const Ul = styled.ul`
     top: 0;
     left: 0;
     height: 100vh;
-    width: 80vw;
+    width: 60vw;
     padding-top: 3.5rem;
     padding-bottom: 100px;
     box-shadow: -4px 2px 2px 2px var(--vivid-tangerine);

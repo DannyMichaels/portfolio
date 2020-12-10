@@ -6,7 +6,11 @@ import { Link } from "react-scroll";
 function OpenNav({ open, setOpen }) {
   useEffect(() => {
     onResize();
-    window.addEventListener("resize", onResize);
+
+    window.addEventListener("resize", () => {
+      setOpen(false);
+      onResize();
+    });
     return () => {
       window.removeEventListener("resize", onResize);
     };
