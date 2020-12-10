@@ -26,8 +26,12 @@ body {
   background-color: #f7f7f7;
   /*Fallback if gradeints don't work */
   background: #9b59b6;
-  /*Linear gradient... */
+
   background: radial-gradient(at center, #3498db, #9b59b6);
+
+  /* background: rgb(4,53,204);
+background: linear-gradient(90deg, rgba(4,53,204,1) 0%, rgba(11,48,160,1) 35%, rgba(26,39,76,1) 100%);
+} */
 }
 
 code {

@@ -5,7 +5,7 @@ import { Link } from "react-scroll";
 
 const Nav = styled.nav`
   width: 100%;
-  position: absolute;
+  position: fixed;
   height: 55px;
   background: none;
   padding: 0 20px;
@@ -15,9 +15,6 @@ const Nav = styled.nav`
   justify-content: space-between;
   align-items: center;
 
-  #hello {
-    background: red;
-  }
   .logo {
     padding: 15px 0;
     color: white;
@@ -40,14 +37,24 @@ const Navbar = () => {
   const [navBar, setNavBar] = React.useState(false);
   console.log(window.scrollY);
   const changeBackground = () => {
-    if (window.scrollY > 55) {
-      return setNavBar(true);
+    if (window.scrollY >= 198) {
+      setNavBar(true);
+    } else {
+      setNavBar(false);
     }
   };
-
   window.addEventListener("scroll", changeBackground);
+
   return (
-    <Nav id={navBar ? "hello" : "nav"}>
+    <Nav
+      style={
+        navBar
+          ? {
+              background: "rgba(148, 187, 233, 0.8)",
+            }
+          : { background: "inherit" }
+      }
+    >
       <div className="logo">
         <Link
           className="back-to-top"

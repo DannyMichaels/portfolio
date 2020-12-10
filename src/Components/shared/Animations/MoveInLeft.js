@@ -1,13 +1,14 @@
 import styled from "styled-components";
 
 const MoveInLeft = styled.div`
-  animation-name: moveInLeft;
+  /* animation-name: moveInLeft;
   animation-duration: 1.6s;
   animation-iteration-count: 1;
-  animation-timing-function: ease-out;
+  animation-timing-function: ease-out; */
   display: flex;
   flex-direction: column;
-
+  overflow-x: hidden;
+  overflow-y: hidden;
   @keyframes moveInLeft {
     0% {
       opacity: 0;
@@ -20,6 +21,9 @@ const MoveInLeft = styled.div`
     100% {
       opacity: 1;
       transform: translate(0);
+      overflow-x: hidden;
+      overflow-y: hidden;
+      /* width: 200px; */
     }
   }
 `;

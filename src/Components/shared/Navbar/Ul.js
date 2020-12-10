@@ -17,7 +17,7 @@ const Ul = styled.ul`
     color: white;
     padding: 20px 32px;
     text-align: center;
-    font-size: 16px;
+    font-size: 1.2rem;
     transition: 0.3s ease-in-out;
   }
 
@@ -39,8 +39,8 @@ const Ul = styled.ul`
     transition: transform 0.3s ease-in-out;
     top: 0;
     left: 0;
-    height: 10vh;
-    width: 100vw;
+    height: 100vh;
+    width: 80vw;
     padding-top: 3.5rem;
     padding-bottom: 100px;
     box-shadow: -4px 2px 2px 2px var(--vivid-tangerine);

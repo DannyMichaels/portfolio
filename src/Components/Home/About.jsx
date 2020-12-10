@@ -135,7 +135,7 @@ function About() {
                 <a
                   target="_blank"
                   rel="noreferrer"
-                  href={"https://www.google.com"}
+                  href={"https://www.linkedin.com/in/daniel-michael-718825155/"}
                 >
                   <SiLinkedin className="linkedin" />
                 </a>
