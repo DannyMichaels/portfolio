@@ -85,7 +85,6 @@ function Contact() {
                 name="myfile"
                 id="myfile"
                 placeholder="Upload File"
-                rows={7}
               />
             </div>
             <div data-netlify-recaptcha="true" className="field"></div>
