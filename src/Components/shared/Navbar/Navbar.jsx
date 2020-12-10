@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import Burger from "./Burger";
 import { Link } from "react-scroll";
+import { onResize } from "../../../utils/onResize";
 
 const Nav = styled.nav`
   width: 100%;
@@ -35,7 +36,7 @@ const Nav = styled.nav`
 
 const Navbar = () => {
   const [navBar, setNavBar] = React.useState(false);
-  console.log(window.scrollY);
+  // console.log(window.scrollY);
   const changeBackground = () => {
     if (window.scrollY >= 198) {
       setNavBar(true);
@@ -44,6 +45,18 @@ const Navbar = () => {
     }
   };
   window.addEventListener("scroll", changeBackground);
+
+  // useEffect(() => {
+  //   onResize();
+
+  //   window.addEventListener("resize", () => {
+  //     setNavBar(false);
+  //     onResize();
+  //   });
+  //   return () => {
+  //     window.removeEventListener("resize", onResize);
+  //   };
+  // }, []);
 
   return (
     <Nav

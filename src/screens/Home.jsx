@@ -6,6 +6,7 @@ import StyledScrollTop from "../Components/BackToTop/StyledScrollTop";
 import About from "../Components/Home/About";
 import ScrollToTopOnMount from "../Components/BackToTop/ScrollToTopOnMount";
 import styled from "styled-components";
+import Contact from "../Form/Contact";
 let Div = styled.div`
   display: flex;
   justify-content: space-evenly;
@@ -26,6 +27,7 @@ function Home() {
           <Stack id="about" />
         </Div>
         <Projects id="projects" />
+        <Contact />
       </Layout>
     </>
   );

@@ -25,17 +25,11 @@
 
 .fill-2 {
   background-color: transparent;
-  /* position: absolute; */
   display: flex;
-  /* right: 0; */
-  /* flex-shrink: 1; */
-  /* height: 1230px; */
-  /* margin-top: -350px; */
-  /* margin-right: -315px; */
   z-index: 0;
   opacity: 0.8;
   transform: rotate(62deg);
-  /* width: 1293px; */
+  filter: blur(0.5px);
 }
 
 @media screen and (max-width: 768px) {
