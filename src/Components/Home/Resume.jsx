@@ -3,8 +3,6 @@ import styled from "styled-components";
 import Button from "@material-ui/core/Button";
 
 const ResumeParent = styled.div`
-  @import url("https://fonts.googleapis.com/css?family=Poppins:700,500,600|Playfair+Display:700,900|Roboto:400|Montserrat:700,500,400,600");
-
   position: fixed;
   top: 0;
   left: 0;

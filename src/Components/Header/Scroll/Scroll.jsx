@@ -2,8 +2,6 @@ import styled from "styled-components";
 import { Link } from "react-scroll";
 
 const Div = styled.div`
-  @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
-  @import url("https://fonts.googleapis.com/css?family=Poppins:600,500,700|Playfair+Display:900,700|Roboto:400|Montserrat:600,500,400,700");
   align-items: center;
   background-color: transparent;
   display: inline-flex;

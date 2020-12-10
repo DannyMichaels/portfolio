@@ -1,9 +1,6 @@
 import styled from "styled-components";
 
 const Div = styled.div`
-  @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
-  @import url("https://fonts.googleapis.com/css?family=Poppins:700,500,600|Playfair+Display:700,900|Roboto:400|Montserrat:700,500,400,600");
-
   align-items: center;
   background-color: transparent;
   display: inline-flex;
@@ -25,7 +22,7 @@ const Div = styled.div`
     min-height: 0;
     text-align: left;
   }
-  
+
   .font-class-1 {
     color: #fff;
     font-family: "Helvetica", Helvetica, Arial, serif;
