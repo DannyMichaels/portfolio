@@ -11,12 +11,18 @@ import styled from "styled-components";
 const CloudBig = styled.img`
   @keyframes float {
     0% {
+      box-shadow: none;
+
       transform: translatey(0px);
     }
     50% {
+      box-shadow: none;
+
       transform: translatey(-20px);
     }
+
     100% {
+      box-shadow: none;
       transform: translatey(0px);
     }
   }
@@ -27,6 +33,7 @@ const CloudBig = styled.img`
   opacity: 0.5;
   cursor: pointer;
   transform: translatey(0px);
+  box-shadow: none;
   animation: float 6s ease-in-out infinite;
   margin-top: -60px;
 `;

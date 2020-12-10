@@ -1,6 +1,14 @@
 import styled from "styled-components";
 import { Link } from "react-scroll";
 
+const Scroll1 = styled.div`
+  @media screen and (max-width: 768px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -120px;
+  }
+`;
 const Div = styled.div`
   align-items: center;
   background-color: transparent;
@@ -14,9 +22,14 @@ const Div = styled.div`
   margin-left: 120px;
   z-index: 9999;
   min-width: 161px;
-  /* width: auto; */
   transition: transform 250ms ease-in;
 
+  @media screen and (max-width: 768px) {
+    /* margin-left: auto; */
+    align-self: center;
+    text-align: center;
+  }
+  /* width: auto; */
   .border-class-1 {
     border: 2px solid rgba(255, 255, 255, 1);
   }
@@ -80,13 +93,15 @@ function Scroll() {
       smooth={true}
       duration={1000}
     >
-      <Div className="scroll">
-        <div className="scroll-for-more font-class-2">Scroll For More</div>
-        <div className="group-3">
-          <div className="rectangle-5"></div>
-          <div className="rectangle-4 border-class-1"></div>
-        </div>
-      </Div>
+      <Scroll1>
+        <Div className="scroll">
+          <div className="scroll-for-more font-class-2">Scroll For More</div>
+          <div className="group-3">
+            <div className="rectangle-5"></div>
+            <div className="rectangle-4 border-class-1"></div>
+          </div>
+        </Div>
+      </Scroll1>
     </Link>
   );
 }

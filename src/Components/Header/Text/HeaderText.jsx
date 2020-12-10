@@ -13,16 +13,6 @@ const Div = styled.div`
   z-index: 1;
   flex-flow: row wrap;
 
-  .a-full-stack {
-    background-color: transparent;
-    flex-shrink: 1;
-    height: auto;
-    margin-left: 28px;
-    min-height: 156px;
-    min-height: 0;
-    text-align: left;
-  }
-
   .font-class-1 {
     color: #fff;
     font-family: "Helvetica", Helvetica, Arial, serif;
@@ -44,6 +34,15 @@ const Div = styled.div`
     transition: transform 250ms ease-out;
   }
 
+  .a-full-stack {
+    background-color: transparent;
+    flex-shrink: 1;
+    height: auto;
+    margin-left: 28px;
+    min-height: 156px;
+    min-height: 0;
+    text-align: left;
+  }
   .this-is-daniel {
     background-color: transparent;
     flex-shrink: 1;
@@ -97,26 +96,35 @@ const Div = styled.div`
     .this-is-daniel {
       min-height: 0;
       margin: 0 auto;
-      margin-left: 20px;
+      /* margin-left: 20px; */
     }
 
-    .a-full-stack {
-      margin: 0 auto;
-      min-height: 0;
-      margin-left: 20px;
-    }
+    @media screen and (max-width: 768px) {
+      .font-class-1 {
+        font-size: 60px;
+        line-height: 80px;
+      }
 
-    .rectangle-6 {
-      display: none;
-    }
+      .a-full-stack {
+        margin: 0 auto;
+        min-height: 0;
+        text-align: center;
+        /* margin-left: 20px; */
+      }
 
+      .rectangle-6 {
+        display: none;
+      }
+
+      .span2 {
+        display: inline-block;
+      }
+    }
+  }
+  @media screen and (max-width: 600px) {
     .font-class-1 {
       font-size: 50px;
       line-height: 80px;
-    }
-
-    .span2 {
-      display: inline-block;
     }
   }
 `;

@@ -57,6 +57,13 @@ const Div = styled.div`
     animation: float 6s ease-in-out infinite;
   }
 
+  @media screen and (max-width: 500px) {
+    img {
+      max-width: 85px;
+      min-width: 85px;
+    }
+  }
+
   img:hover {
     cursor: pointer;
   }

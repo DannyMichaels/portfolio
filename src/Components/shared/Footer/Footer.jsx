@@ -7,9 +7,10 @@ class Footer extends Component {
   render() {
     return (
       <footer className="footer">
-        CONTACT ME <SiLinkedin /> <SiGithub />
+        <SiLinkedin /> <SiGithub />
         <a
-          href={"https://www.github.com/DannyMichaels/daniel-portfolio"}
+          style={{ textDecoration: "none", color: "white" }}
+          href={"https://www.github.com/DannyMichaels/portfolio"}
           target="_blank"
           rel="noreferrer"
         >
