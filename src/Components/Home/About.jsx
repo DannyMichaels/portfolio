@@ -141,14 +141,21 @@ function About() {
                 </a>
               </div>
               <div className="button-container">
-                <Button
-                  onClick={handleClick}
-                  variant="contained"
-                  color="primary"
-                  className="resume-button"
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                  href="https://drive.google.com/file/d/1xgVibtb632Yd65f47_yQm__J2fjViwxo/view?usp=sharing"
                 >
-                  Resume
-                </Button>
+                  <Button
+                    // onClick={handleClick}
+                    variant="contained"
+                    color="primary"
+                    className="resume-button"
+                  >
+                    Resume
+                  </Button>
+                </a>
               </div>
             </div>
           </div>
