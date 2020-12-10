@@ -20,9 +20,25 @@ const Div = styled.div`
   justify-content: center;
   margin-bottom: 20px;
   flex-flow: column wrap;
+  color: white;
   h1 {
     font-family: montserrat, sans-serif;
     font-size: 36px;
+  }
+
+  @keyframes float {
+    0% {
+      /* box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6); */
+      transform: translatey(0px);
+    }
+    50% {
+      /* box-shadow: 0 25px 15px 0px rgba(0, 0, 0, 0.2); */
+      transform: translatey(-20px);
+    }
+    100% {
+      /* box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6); */
+      transform: translatey(0px);
+    }
   }
   img {
     max-width: 100px;
@@ -33,6 +49,7 @@ const Div = styled.div`
     max-height: 100px;
     height: 100px;
     min-height: 100px;
+    animation: float 6s ease-in-out infinite;
     transition: transform 250ms ease-out;
   }
 

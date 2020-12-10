@@ -11,19 +11,26 @@ const Div = styled.div`
   display: flex;
   flex-direction: column;
   align-self: center;
+  align-items: center;
   /* max-width: 1500px; */
   /* border: 2px solid green; */
 
   .github,
   .linkedin {
     font-size: 40px;
-    color: #3d4fb2;
+    color: #fff;
     margin-right: 20px;
     transition: transform 250ms ease-out;
   }
 
   .resume-button {
     transition: transform 250ms ease-out;
+    background: #fff;
+    color: black;
+  }
+  .resume-button:hover {
+    background: #fff;
+    color: black;
   }
 
   .github:hover,
@@ -45,9 +52,11 @@ const Div = styled.div`
     padding: 20px;
     font-size: 36px;
     font-family: montserrat, sans-serif;
+    color: white;
   }
   .text-container {
     display: flex;
+    color: white;
     font-size: 20px;
     flex-flow: row wrap;
     max-width: 450px;
