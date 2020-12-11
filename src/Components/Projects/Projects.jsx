@@ -24,6 +24,7 @@ const Div = styled.div`
     margin-bottom: 50px;
     padding: 20px;
   }
+
   a {
     text-decoration: none;
     color: inherit;
@@ -34,6 +35,12 @@ const Div = styled.div`
     flex-flow: row wrap;
     margin: 10px;
     padding: 10px;
+  }
+  @media screen and (max-width: 768px) {
+    .projects {
+      display: flex;
+      flex-flow: column no-wrap;
+    }
   }
   .title {
     display: flex;

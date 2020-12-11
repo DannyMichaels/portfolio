@@ -1,25 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import Tooltip from "@material-ui/core/Tooltip";
-import { makeStyles } from "@material-ui/core/styles";
-
-const useStyles = makeStyles((theme) => ({
-  fab: {
-    margin: theme.spacing(2),
-  },
-  absolute: {
-    position: "absolute",
-    bottom: theme.spacing(2),
-    right: theme.spacing(3),
-  },
-}));
 
 const Div = styled.div`
   /* border: 3px solid black; */
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
-  flex-flow: column wrap;
+  flex-flow: column nowrap;
   color: white;
   h1 {
     font-family: montserrat, sans-serif;
@@ -56,11 +44,18 @@ const Div = styled.div`
     transform: translatey(0px);
     animation: float 6s ease-in-out infinite;
   }
-
+  @media screen and (max-width: 768px) {
+    img {
+      max-width: 100px;
+      width: 100px;
+      min-width: 100px;
+    }
+  }
   @media screen and (max-width: 500px) {
     img {
-      max-width: 85px;
-      min-width: 85px;
+      width: 16vw;
+      max-width: 16vw;
+      min-width: 16vw;
     }
   }
 
@@ -77,8 +72,6 @@ const Div = styled.div`
 `;
 
 function Stack() {
-  const classes = useStyles();
-
   return (
     <Div className="stack">
       <div className="card">

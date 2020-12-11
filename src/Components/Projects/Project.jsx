@@ -15,9 +15,22 @@ import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    width: 400,
     maxWidth: 400,
     minWidth: 400,
     margin: "20px",
+    [theme.breakpoints.down("sm")]: {
+      width: 370,
+      maxWidth: 370,
+      minWidth: 370,
+      margin: "20px",
+    },
+    [theme.breakpoints.down("xs")]: {
+      width: "60vw",
+      maxWidth: "60vw",
+      minWidth: "60vw",
+      margin: "10px",
+    },
     display: "flex",
     height: "100%",
     flexDirection: "column",
