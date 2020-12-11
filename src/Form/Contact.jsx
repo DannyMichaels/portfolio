@@ -69,7 +69,16 @@ const Div = styled.div`
     margin-top: 200px;
   }
   @media screen and (max-width: 768px) {
-    font-size: 2rem;
+    .title-container {
+      font-size: 2.5rem;
+    }
+    .input1,
+    .input2 {
+      transition: transform 250ms ease-in;
+      width: 50vw;
+      margin-bottom: 20px;
+      color: white;
+    }
   }
   .input {
     background: rgba(102, 98, 171, 0.5);
