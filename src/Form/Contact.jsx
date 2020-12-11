@@ -2,7 +2,7 @@ import React, { Component, useState } from "react";
 import TextField from "@material-ui/core/TextField";
 import Input from "@material-ui/core/Input";
 import styled from "styled-components";
-
+import Button from "@material-ui/core/Button";
 const Div = styled.div`
   display: flex;
   justify-content: center;
@@ -11,10 +11,35 @@ const Div = styled.div`
   align-items: center;
   text-align: center;
 
+  .field {
+    /* padding: 20px; */
+    /* margin: 20px;
+     */
+    margin-bottom: 20px;
+  }
+
+  .button1 {
+    transition: transform 250ms ease-out;
+  }
+
+  .button1:hover {
+    transition: transform 250ms ease-in;
+    transform: scale(1.04);
+  }
+
+  .input1 {
+    transition: transform 250ms ease-in;
+  }
+  .input1:focus {
+    transform: scale(5);
+    transition: transform 250ms ease-in;
+  }
+
   .title-container {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 40px;
     color: #fff;
+    margin-bottom: 30px;
   }
   .span {
     transition: transform 250ms ease-out;
@@ -34,6 +59,7 @@ const Div = styled.div`
 `;
 
 function Contact() {
+  const textFieldStyles = {};
   return (
     <Div className="contact">
       <div className="title-container">
@@ -55,40 +81,46 @@ function Contact() {
         <div class="field">
           <div class="field-half">
             <Input
+              className="field"
               type="text"
               name="name"
               id="name"
+              className="input1"
               required
               placeholder="Name"
             />
           </div>
-          <div class="field-half">
+          <div class="field field-half">
             <Input
               type="email"
               required
               name="email"
+              className="input1"
               id="email"
               placeholder="Email"
             />
           </div>
-          <div class="field">
+          <div class="field field">
             <TextField
               required
               name="message"
               id="message"
+              className="input1"
+              multiline
+              style={textFieldStyles}
               placeholder="Message"
+              variant="filled"
               rows={7}
             />
-            <div className="field">
-              <input
-                type="file"
-                name="myfile"
-                id="myfile"
-                placeholder="Upload File"
-              />
-            </div>
             <div data-netlify-recaptcha="true" className="field"></div>
-            <button type="submit">Submit ^_^</button>
+            <Button
+              className="button1"
+              style={{ background: "white" }}
+              variant="containted"
+              type="submit"
+            >
+              Submit&nbsp; ^_^
+            </Button>
           </div>
         </div>
       </form>

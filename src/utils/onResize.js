@@ -4,7 +4,6 @@ export const onResize = () => {
   const menu = document.getElementById("menu");
   const width = menu?.clientWidth;
   menu.style.transition = "none";
-
   if (width <= 768) {
     if (timerId) {
       clearTimeout(timerId);

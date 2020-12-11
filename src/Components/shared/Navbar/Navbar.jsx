@@ -65,9 +65,13 @@ const Navbar = () => {
       style={
         navBar
           ? {
+              transition: "250ms ease-in-out",
               background: "rgba(148, 187, 233, 0.8)",
             }
-          : { background: "inherit" }
+          : {
+              transition: "250ms ease-in-out",
+              background: "inherit",
+            }
       }
     >
       <div className="logo">
