@@ -108,69 +108,71 @@ const Div = styled.div`
 function Contact() {
   return (
     <Div className="contact">
-      <div className="title-container">
-        <h1>
-          <div className="span">C</div>
-          <div className="span">o</div>
-          <div className="span">n</div>
-          <div className="span">t</div>
-          <div className="span">a</div>
-          <div className="span">c</div>
-          <div className="span">t</div>&nbsp;
-          <div className="span">m</div>
-          <div className="span">e</div>
-        </h1>
-      </div>
-
-      <form action="/contact" method="post" name="contact">
-        <input type="hidden" name="form-name" value="contact" />
-        <div class="field">
-          <div class="field-half">
-            <Input
-              className="field"
-              type="text"
-              name="name"
-              id="name"
-              variant="filled"
-              className="input1"
-              required
-              placeholder="Name"
-            />
-          </div>
-          <div class="field field-half">
-            <Input
-              type="email"
-              required
-              name="email"
-              className="input1"
-              id="email"
-              placeholder="Email"
-              variant="filled"
-            />
-          </div>
-          <div class="field field">
-            <TextField
-              required
-              name="message"
-              id="message"
-              className="input2"
-              multiline
-              placeholder="Message"
-              variant="filled"
-              rows={7}
-            />
-            <div data-netlify-recaptcha="true" className="field"></div>
-            <Button
-              className="button1"
-              style={{ background: "white" }}
-              variant="containted"
-              type="submit"
-            >
-              Submit&nbsp; ^_^
-            </Button>
-          </div>
+      <>
+        <div className="title-container">
+          <h1>
+            <div className="span">C</div>
+            <div className="span">o</div>
+            <div className="span">n</div>
+            <div className="span">t</div>
+            <div className="span">a</div>
+            <div className="span">c</div>
+            <div className="span">t</div>&nbsp;
+            <div className="span">m</div>
+            <div className="span">e</div>
+          </h1>
         </div>
-      </form>
+
+        <form action="/contact" method="post" name="contact">
+          <input type="hidden" name="form-name" value="contact" />
+          <div class="field">
+            <div class="field-half">
+              <Input
+                className="field"
+                type="text"
+                name="name"
+                id="name"
+                variant="filled"
+                className="input1"
+                required
+                placeholder="Name"
+              />
+            </div>
+            <div class="field field-half">
+              <Input
+                type="email"
+                required
+                name="email"
+                className="input1"
+                id="email"
+                placeholder="Email"
+                variant="filled"
+              />
+            </div>
+            <div class="field field">
+              <TextField
+                required
+                name="message"
+                id="message"
+                className="input2"
+                multiline
+                placeholder="Message"
+                variant="filled"
+                rows={7}
+              />
+              <div data-netlify-recaptcha="true" className="field"></div>
+              <Button
+                className="button1"
+                style={{ background: "white" }}
+                variant="containted"
+                type="submit"
+              >
+                Submit&nbsp; ^_^
+              </Button>
+            </div>
+          </div>
+        </form>
+      </>
     </Div>
   );
 }
