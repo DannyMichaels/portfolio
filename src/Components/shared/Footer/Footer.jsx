@@ -41,6 +41,9 @@ const CloudSmall = styled.img`
     transform: scale(2);
     transition: transform 250s ease-in;
   }
+  @media screen and (max-width: 768px) {
+    width: 20vw;
+  }
 `;
 
 class Footer extends Component {
