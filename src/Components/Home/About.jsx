@@ -12,8 +12,6 @@ const Div = styled.div`
   flex-direction: column;
   align-self: center;
   align-items: center;
-  /* max-width: 1500px; */
-  /* border: 2px solid green; */
 
   .github,
   .linkedin {
@@ -45,7 +43,6 @@ const Div = styled.div`
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
-    /* border: 1px solid black; */
   }
   .title-container {
     text-align: center;
@@ -60,7 +57,6 @@ const Div = styled.div`
     font-size: 20px;
     flex-flow: row wrap;
     max-width: 450px;
-    /* border: 1px solid black; */
     max-height: 500px;
     padding: 10px;
   }
@@ -75,7 +71,6 @@ const Div = styled.div`
   }
   .button-container {
     display: flex;
-    /* max-width: -5px; */
     flex-flow: row nowrap;
     align-self: flex-end;
     margin-bottom: 20px;
@@ -83,9 +78,6 @@ const Div = styled.div`
     position: relative;
     left: 50%;
     padding-top: 30px;
-
-    /* border: 1px solid red; */
-    /* margin-left: 20px; */
   }
   .buttons-container {
     padding-top: 30px;
@@ -145,7 +137,9 @@ function About() {
                   target="_blank"
                   rel="noreferrer"
                   style={{ textDecoration: "none", color: "inherit" }}
-                  href="https://drive.google.com/file/d/1xgVibtb632Yd65f47_yQm__J2fjViwxo/view?usp=sharing"
+                  href={
+                    "https://www.docdroid.net/kFMOCJo/daniel-michael-resume-v2-pdf"
+                  }
                 >
                   <Button
                     // onClick={handleClick}
