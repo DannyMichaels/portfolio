@@ -53,9 +53,9 @@ const Div = styled.div`
   }
   @media screen and (max-width: 500px) {
     img {
-      width: 16vw;
-      max-width: 16vw;
-      min-width: 16vw;
+      width: 17.5vw;
+      max-width: 17.5vw;
+      min-width: 17.5vw;
     }
   }
 
@@ -66,7 +66,7 @@ const Div = styled.div`
     /* box-shadow: 2px 2px 2px 2px #999; */
     /* margin: 20px 100px 20px 100px; */
     margin: 0 auto;
-    padding: 20px;
+    /* padding: 20px; */
     margin-top: 100px;
   }
 `;

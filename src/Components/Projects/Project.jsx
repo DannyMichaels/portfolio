@@ -26,9 +26,9 @@ const useStyles = makeStyles((theme) => ({
       margin: "20px",
     },
     [theme.breakpoints.down("xs")]: {
-      width: "60vw",
-      maxWidth: "60vw",
-      minWidth: "60vw",
+      width: "70vw",
+      maxWidth: "70vw",
+      minWidth: "70vw",
       margin: "10px",
     },
     display: "flex",
