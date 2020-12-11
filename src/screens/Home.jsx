@@ -29,7 +29,7 @@ function Home() {
           <Stack id="about" />
         </Div>
         <Projects id="projects" />
-        <Contact id="contact" />
+        {/* <Contact id="contact" /> */}
       </Layout>
     </>
   );

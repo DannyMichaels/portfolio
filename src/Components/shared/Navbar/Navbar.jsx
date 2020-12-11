@@ -48,18 +48,6 @@ const Navbar = () => {
   };
   window.addEventListener("scroll", changeBackground);
 
-  // useEffect(() => {
-  //   onResize();
-
-  //   window.addEventListener("resize", () => {
-  //     setNavBar(false);
-  //     onResize();
-  //   });
-  //   return () => {
-  //     window.removeEventListener("resize", onResize);
-  //   };
-  // }, []);
-
   return (
     <Nav
       style={

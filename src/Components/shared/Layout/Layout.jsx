@@ -4,7 +4,10 @@ import Navbar from "../Navbar/Navbar";
 const Layout = ({ children }) => (
   <div className="layout">
     <Navbar />
-    <div style={{ overflowX: "hidden" }} className="layout-children">
+    <div
+      style={{ overflowX: "hidden", overflowY: "hidden" }}
+      className="layout-children"
+    >
       {children}
     </div>
     <Footer />

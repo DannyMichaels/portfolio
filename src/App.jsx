@@ -4,6 +4,25 @@ import { Route, Switch } from "react-router-dom";
 import ProjectDetail from "./screens/ProjectDetail";
 import { getAllProjects } from "./services/projects";
 import { getSortedProjects } from "./utils/sortedProjects";
+import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
+
+const theme = createMuiTheme({
+  overrides: {
+    MuiInput: {
+      underline: {
+        // borderBottom: `1px solid ${"white"}`,
+        "&:before": {
+          //underline color when textfield is inactive
+          // borderBottom: `1px solid ${"red"}`,
+        },
+        "&:hover:not($disabled):before": {
+          //underline color when hovered
+          borderBottom: `.8px solid ${"white"}`,
+        },
+      },
+    },
+  },
+});
 
 function App() {
   const [allProjects, setAllProjects] = useState([]);
@@ -19,12 +38,14 @@ function App() {
 
   return (
     <div className="app">
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/projects/:id">
-          <ProjectDetail allProjects={allProjects} />
-        </Route>
-      </Switch>
+      <MuiThemeProvider theme={theme}>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          {/* <Route exact path="/projects/:id"> */}
+          {/* <ProjectDetail allProjects={allProjects} /> */}
+          {/* </Route> */}
+        </Switch>
+      </MuiThemeProvider>
     </div>
   );
 }

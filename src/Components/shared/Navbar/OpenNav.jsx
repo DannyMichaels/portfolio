@@ -30,7 +30,7 @@ function OpenNav({ navBar, open, setOpen }) {
         (document.querySelector(".layout-children").style.background =
           "rgba(0, 0, 0, 0.5)") &&
         (document.querySelector(".layout-children").style.userSelect = "none")
-      : (document.body.style.overflow = "inherit") &&
+      : (document.body.style.overflowY = "inherit") &&
         (document.querySelector(".layout-children").style.filter = "inherit") &&
         (document.querySelector(".layout-children").style.background =
           "inherit") &&

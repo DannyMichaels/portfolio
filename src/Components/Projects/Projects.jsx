@@ -43,6 +43,8 @@ const Div = styled.div`
     color: #fff;
     padding: 20px;
     color: #fff;
+    margin-top: 20px;
+    margin-bottom: -20px;
     font-family: "Helvetica", Helvetica, Arial, serif;
     font-size: 70px;
     cursor: default;
@@ -102,7 +104,7 @@ function Projects() {
 
   return (
     <>
-      <Div>
+      <Div className="projects">
         <div className="card">
           <div className="title">
             <h1>Projects</h1>

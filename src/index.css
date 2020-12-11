@@ -24,7 +24,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #f7f7f7;
+  overflow-x: hidden;
   /*Fallback if gradeints don't work */
+
   background: #9b59b6;
 
   background: radial-gradient(at center, #3498db, #9b59b6);
