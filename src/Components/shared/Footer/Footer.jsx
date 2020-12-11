@@ -66,15 +66,6 @@ class Footer extends Component {
               className="cloud"
               src="https://i.imgur.com/UOQ3aCS.png"
             />
-            <CloudSmall
-              className="cloud"
-              src="https://i.imgur.com/UOQ3aCS.png"
-            />
-
-            <CloudSmall
-              className="cloud"
-              src="https://i.imgur.com/UOQ3aCS.png"
-            />
           </SmallCloudsContainer>
 
           <Contact id="contact" />

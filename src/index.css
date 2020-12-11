@@ -25,6 +25,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #f7f7f7;
   overflow-x: hidden;
+  overflow-x: clip;
   /*Fallback if gradeints don't work */
 
   background: #9b59b6;

@@ -1,9 +1,8 @@
-import React, { Component, useState } from "react";
+import React from "react";
 import TextField from "@material-ui/core/TextField";
 import Input from "@material-ui/core/Input";
 import styled from "styled-components";
 import Button from "@material-ui/core/Button";
-import { makeStyles } from "@material-ui/styles";
 
 const Div = styled.div`
   display: flex;
@@ -106,21 +105,7 @@ const Div = styled.div`
   }
 `;
 
-const styles = (theme) => ({
-  underline: {
-    "&:hover": {
-      "&:before": {
-        borderBottom: ["rgba(0, 188, 212, 0.7)", "!important"],
-      },
-    },
-    "&:before": {
-      borderBottom: "rgba(0, 188, 212, 0.7)",
-    },
-  },
-});
-
 function Contact() {
-  const classes = styles();
   return (
     <Div className="contact">
       <div className="title-container">
