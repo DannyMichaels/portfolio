@@ -78,8 +78,14 @@ const CloudBig = styled.img`
 `;
 const Giv = styled.div`
   /* margin-top: 200px; */
-  margin-bottom: -250px;
+  margin-bottom: -200px;
+  justify-content: center;
+  display: flex;
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `;
+
 class Footer extends Component {
   render() {
     return (
@@ -104,13 +110,7 @@ class Footer extends Component {
             />
           </SmallCloudsContainer> */}
 
-          <Giv>
-            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+          <Giv className="desktop">
             <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
             <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
             <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
@@ -118,6 +118,22 @@ class Footer extends Component {
             <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
             <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
           </Giv>
+          <Giv className="desktop">
+            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+          </Giv>
+          {/* <Biv className="mobile">
+            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+          </Biv>
+          <Biv className="mobile">
+            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+          </Biv> */}
           <Contact id="contact" />
 
           {/* <div className="bg-image"></div> */}
