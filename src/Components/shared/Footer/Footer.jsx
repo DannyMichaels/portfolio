@@ -46,13 +46,46 @@ const CloudSmall = styled.img`
   }
 `;
 
+const CloudBig = styled.img`
+  @keyframes float {
+    0% {
+      box-shadow: none;
+
+      transform: translatey(0px);
+    }
+    50% {
+      box-shadow: none;
+
+      transform: translatey(-20px);
+    }
+
+    100% {
+      box-shadow: none;
+      transform: translatey(0px);
+    }
+  }
+
+  z-index: -1;
+  filter: blur(5px);
+  z-index: 0;
+  opacity: 0.4;
+  cursor: pointer;
+  margin: 10px;
+  transform: translatey(0px);
+  box-shadow: none;
+  animation: float 6s ease-in-out infinite;
+  margin-top: -60px;
+`;
+const Giv = styled.div`
+  /* margin-top: 200px; */
+  margin-bottom: -250px;
+`;
 class Footer extends Component {
   render() {
     return (
       <>
         <footer className="footer">
-          <SmallCloudsContainer>
-            {/* <SiLinkedin /> <SiGithub /> */}
+          {/* <SmallCloudsContainer>
             <CloudSmall
               className="cloud"
               src="https://i.imgur.com/UOQ3aCS.png"
@@ -69,8 +102,22 @@ class Footer extends Component {
               className="cloud"
               src="https://i.imgur.com/UOQ3aCS.png"
             />
-          </SmallCloudsContainer>
+          </SmallCloudsContainer> */}
 
+          <Giv>
+            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+          </Giv>
           <Contact id="contact" />
 
           {/* <div className="bg-image"></div> */}

@@ -21,6 +21,37 @@ let Div = styled.div`
   }
   /* background-image: url("https://anima-uploads.s3.amazonaws.com/projects/5fb14441119f80c2053ea467/releases/5fb14452ac34b30698d1c801/img/01maindemo-rectangle-2-F05F0B6A-9C51-4A16-A795-BC7F67EC0F4E.png"); */
 `;
+const CloudBig = styled.img`
+  @keyframes float {
+    0% {
+      box-shadow: none;
+
+      transform: translatey(0px);
+    }
+    50% {
+      box-shadow: none;
+
+      transform: translatey(-20px);
+    }
+
+    100% {
+      box-shadow: none;
+      transform: translatey(0px);
+    }
+  }
+  /* margin-top: -200px; */
+  z-index: -2;
+  filter: blur(4px);
+  z-index: 0;
+  opacity: 0.5;
+  user-select: none;
+  cursor: pointer;
+  margin: 10px;
+  transform: translatey(0px);
+  box-shadow: none;
+  animation: float 6s ease-in-out infinite;
+  margin-top: -60px;
+`;
 
 function Home() {
   return (
@@ -33,6 +64,20 @@ function Home() {
           <About id="about" />
           <Stack id="about" />
         </Div>
+        <div>
+          <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+          <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+          <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+          <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+          <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+          <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+          <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+          <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+          <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+          <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+          <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+          <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+        </div>
         <Projects id="projects" />
         {/* <Contact id="contact" /> */}
       </Layout>

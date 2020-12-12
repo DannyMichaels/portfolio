@@ -100,6 +100,7 @@ export default function HeaderContent() {
     <>
       <MoveInLeft className="animation1">
         <HeaderText />
+        {/* <About /> */}
         <Scroll />
         <SmallCloudsContainer>
           {/* <CloudSmall className="cloud" src="https://i.imgur.com/UOQ3aCS.png" /> */}
@@ -114,7 +115,6 @@ export default function HeaderContent() {
         ) : (
           <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
         )}
-
         <Div class="crop">
           <Fill2 fill2="https://anima-uploads.s3.amazonaws.com/projects/5fb14441119f80c2053ea467/releases/5fb14452ac34b30698d1c801/img/01maindemo-fill-1-2D5D0138-9E96-48FA-B912-5523E3A31DAE.png" />
         </Div>

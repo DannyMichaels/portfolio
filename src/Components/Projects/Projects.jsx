@@ -23,6 +23,14 @@ const Div = styled.div`
     margin: 0 auto;
     margin-bottom: 50px;
     padding: 20px;
+    margin-top: -50px;
+  }
+
+  .span:hover,
+  .span2:hover {
+    transform: translateY(-4.05px);
+    transition: transform 250ms ease-in;
+    cursor: pointer;
   }
 
   a {
@@ -50,7 +58,7 @@ const Div = styled.div`
     color: #fff;
     padding: 20px;
     color: #fff;
-    margin-top: 20px;
+    margin-top: 100px;
     margin-bottom: -20px;
     font-family: "Helvetica", Helvetica, Arial, serif;
     font-size: 70px;
@@ -58,6 +66,16 @@ const Div = styled.div`
     line-height: 84px;
     z-index: 1;
   }
+  .span {
+    transition: transform 250ms ease-out;
+    align-items: center;
+    background-color: transparent;
+    display: inline-flex;
+    flex-direction: row;
+    width: auto;
+    z-index: 1;
+  }
+
   @media (max-width: 600px) {
     .card {
       max-width: 100%;
@@ -114,7 +132,16 @@ function Projects() {
       <Div className="projects">
         <div className="card">
           <div className="title">
-            <h1>Projects</h1>
+            <h1>
+              <div className="span">P</div>
+              <div className="span">r</div>
+              <div className="span">o</div>
+              <div className="span">j</div>
+              <div className="span">e</div>
+              <div className="span">c</div>
+              <div className="span">t</div>
+              <div className="span">s</div>
+            </h1>
           </div>
           <div className="projects">{PROJECTS}</div>
         </div>

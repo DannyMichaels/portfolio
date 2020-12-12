@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
     minWidth: 320,
     maxWidth: 320,
     margin: "0 auto",
-    paddingTop: "52.62%", // 16:9
+    paddingTop: "100%", // 16:9
   },
   techContainer: {
     objectFit: "contain",
