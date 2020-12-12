@@ -52,7 +52,13 @@ const CloudBig = styled.img`
   animation: float 6s ease-in-out infinite;
   margin-top: -60px;
 `;
-
+let Giv = styled.div`
+  display: flex;
+  justify-content: center;
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+`;
 function Home() {
   return (
     <>
@@ -64,20 +70,22 @@ function Home() {
           <About id="about" />
           <Stack id="about" />
         </Div>
-        <div>
+        <Giv>
           <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
           <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
           <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
           <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
           <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
           <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+        </Giv>
+        <Giv className="desktop">
           <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
           <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
           <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
           <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
           <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
           <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-        </div>
+        </Giv>
         <Projects id="projects" />
         {/* <Contact id="contact" /> */}
       </Layout>
