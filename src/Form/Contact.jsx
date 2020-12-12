@@ -89,7 +89,7 @@ const Div = styled.div`
     display: inline-flex;
     flex-direction: row;
     width: auto;
-    z-index: 1;
+    z-index: 999;
   }
 
   .span:hover {
@@ -122,7 +122,6 @@ function Contact() {
             <div className="span">e</div>
           </h1>
         </div>
-
         <form action="/contact" method="post" name="contact">
           <input type="hidden" name="form-name" value="contact" />
           <div class="field">

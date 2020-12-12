@@ -7,7 +7,7 @@ import { onResize } from "../../../utils/onResize";
 const Nav = styled.nav`
   width: 100%;
   position: fixed;
-  height: 55px;
+  height: 60px;
   background: none;
   padding: 0 20px;
   display: flex;
