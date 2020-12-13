@@ -19,10 +19,8 @@ const Div = styled.div`
   }
 
   .card {
-    /* box-shadow: 2px 2px 2px 2px #999; */
     margin: 0 auto;
     margin-bottom: 50px;
-    padding: 20px;
     margin-top: -50px;
   }
 
@@ -56,9 +54,8 @@ const Div = styled.div`
     text-align: center;
     font-size: 36px;
     color: #fff;
-    padding: 20px;
     color: #fff;
-    margin-top: 100px;
+    margin-top: 110px;
     margin-bottom: -20px;
     font-family: "Helvetica", Helvetica, Arial, serif;
     font-size: 70px;

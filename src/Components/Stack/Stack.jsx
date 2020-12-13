@@ -45,6 +45,21 @@ const Div = styled.div`
     transform: translatey(0px);
     animation: float 6s ease-in-out infinite;
   }
+  .span {
+    transition: transform 250ms ease-out;
+    align-items: center;
+    background-color: transparent;
+    display: inline-flex;
+    flex-direction: row;
+    width: auto;
+    z-index: 1;
+  }
+
+  .span:hover {
+    transform: translateY(-4.05px);
+    transition: transform 250ms ease-in;
+    cursor: pointer;
+  }
   @media screen and (max-width: 768px) {
     img {
       max-width: 100px;
@@ -76,7 +91,26 @@ function Stack() {
   return (
     <Div className="stack">
       <div className="card">
-        <h1>Technologies I Use:</h1> <br />
+        <h1>
+          <div className="span"> T</div>
+          <div className="span"> e</div>
+          <div className="span"> c</div>
+          <div className="span"> h</div>
+          <div className="span"> n</div>
+          <div className="span"> o</div>
+          <div className="span"> l</div>
+          <div className="span"> o</div>
+          <div className="span"> g</div>
+          <div className="span"> i</div>
+          <div className="span"> e</div>
+          <div className="span"> s</div> &nbsp;
+          <div className="span"> I </div> &nbsp;
+          <div className="span"> U</div>
+          <div className="span"> s</div>
+          <div className="span"> e</div>
+          <div className="span"> :</div>
+        </h1>
+        <br />
         <Tooltip title="HTML5">
           <img
             src="https://cdn.iconscout.com/icon/free/png-256/html5-41-1175209.png"

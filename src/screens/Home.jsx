@@ -6,6 +6,7 @@ import StyledScrollTop from "../Components/BackToTop/StyledScrollTop";
 import About from "../Components/Home/About";
 import ScrollToTopOnMount from "../Components/BackToTop/ScrollToTopOnMount";
 import styled from "styled-components";
+import Contact from "../Form/Contact";
 let Div = styled.div`
   display: flex;
   justify-content: space-evenly;
@@ -65,6 +66,26 @@ let Biv = styled.div`
     margin-left: 40px;
   }
 `;
+
+let Hiv = styled.div`
+  display: flex;
+  justify-content: center;
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+`;
+
+let Ziv = styled.div`
+  display: none;
+  @media screen and (max-width: 768px) {
+    display: inline-flex;
+    margin-left: 40px;
+  }
+`;
+let Liv = styled.div`
+  margin-top: 100px;
+`;
+
 function Home() {
   return (
     <>
@@ -101,6 +122,34 @@ function Home() {
           <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
         </Biv>
         <Projects id="projects" />
+
+        <Liv>
+          <Giv className="desktop">
+            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+          </Giv>
+          <Hiv className="desktop">
+            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+          </Hiv>
+          <Ziv className="mobile">
+            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+          </Ziv>
+          <Ziv className="mobile">
+            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+          </Ziv>
+        </Liv>
+        <Contact id="contact" />
       </Layout>
     </>
   );

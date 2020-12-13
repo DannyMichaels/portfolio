@@ -7,12 +7,11 @@ import Button from "@material-ui/core/Button";
 const Div = styled.div`
   display: flex;
   justify-content: center;
-  padding: 200px;
-
+  padding-bottom: 100px;
+  margin-top: -100px;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  height: 500px;
   margin-bottom: 20px;
   .field {
     margin-bottom: 20px;

@@ -50,6 +50,9 @@ const Div = styled.div`
     font-size: 36px;
     font-family: montserrat, sans-serif;
     color: white;
+    display: inline-flex;
+    text-align: center;
+    justify-content: center;
   }
   .text-container {
     display: flex;
@@ -82,6 +85,22 @@ const Div = styled.div`
   .buttons-container {
     padding-top: 30px;
   }
+
+  .span {
+    transition: transform 250ms ease-out;
+    align-items: center;
+    background-color: transparent;
+    display: inline-flex;
+    flex-direction: row;
+    width: auto;
+    z-index: 1;
+  }
+
+  .span:hover {
+    transform: translateY(-4.05px);
+    transition: transform 250ms ease-in;
+    cursor: pointer;
+  }
 `;
 
 function About() {
@@ -105,10 +124,15 @@ function About() {
       >
         <Div>
           <div className="content-container">
-            {/* <div className="image-container">
-              <img src="https://i.imgur.com/rRGsY5c.jpeg" alt="about me" />
-            </div> */}
-            <div className="title-container">About Me</div>
+            <div className="title-container">
+              <div className="span"> A</div>
+              <div className="span"> b</div>
+              <div className="span"> o</div>
+              <div className="span"> u</div>
+              <div className="span"> t</div> &nbsp;
+              <div className="span"> M</div>
+              <div className="span"> e</div>
+            </div>
             <div className="text-container">
               I am a Junior Developer career pivoting from the music industry,
               with experience working with Rails, React, and more. My previous
@@ -142,7 +166,6 @@ function About() {
                   }
                 >
                   <Button
-                    // onClick={handleClick}
                     variant="contained"
                     color="primary"
                     className="resume-button"

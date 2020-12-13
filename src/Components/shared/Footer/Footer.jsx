@@ -56,33 +56,15 @@ class Footer extends Component {
     return (
       <>
         <footer className="footer">
-          <Giv className="desktop">
-            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-          </Giv>
-          <Giv className="desktop">
-            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-          </Giv>
-          <Biv className="mobile">
-            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-          </Biv>
-          <Biv className="mobile">
-            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-          </Biv>
-          <Contact id="contact" />
-
-          <div style={{ display: "none" }} className="bg-image"></div>
+          <a
+            target="_blank"
+            rel="no_refferrer"
+            href="https://www.linkedin.com/in/daniel-michael-718825155/"
+            style={{ textDecoration: "none", color: "#fff" }}
+          >
+            Webpage by Daniel Michael &copy; 2020
+          </a>
+          {/* <div style={{ display: "none" }} className="bg-image"></div> */}
         </footer>
       </>
     );
