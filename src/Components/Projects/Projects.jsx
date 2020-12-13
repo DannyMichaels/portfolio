@@ -59,7 +59,7 @@ const Div = styled.div`
     padding: 20px;
     color: #fff;
     margin-top: 100px;
-    margin-bottom: 20px;
+    margin-bottom: -20px;
     font-family: "Helvetica", Helvetica, Arial, serif;
     font-size: 70px;
     cursor: default;
