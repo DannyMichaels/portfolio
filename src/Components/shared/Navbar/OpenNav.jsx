@@ -29,13 +29,18 @@ function OpenNav({ navBar, open, setOpen }) {
           "brightness(0.4)") &&
         (document.querySelector(".layout-children").style.background =
           "rgba(0, 0, 0, 0.5)") &&
+        (document.querySelector(".footer").style.filter = "brightness(0.4)") &&
+        (document.querySelector(".footer").style.background =
+          "rgba(0, 0, 0, 0.5)") &&
         (document.querySelector(".layout-children").style.userSelect = "none")
-      : (document.body.style.overflowY = "inherit") &&
+      : (document.body.style.overflow = "inherit") &&
         (document.querySelector(".layout-children").style.filter = "inherit") &&
         (document.querySelector(".layout-children").style.background =
           "inherit") &&
         (document.querySelector(".layout-children").style.userSelect =
-          "inherit");
+          "inherit") &&
+        (document.querySelector(".footer").style.filter = "inherit") &&
+        (document.querySelector(".footer").style.background = "inherit");
   }, [open]);
 
   return (
