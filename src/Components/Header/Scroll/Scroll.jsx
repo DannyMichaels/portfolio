@@ -20,7 +20,7 @@ const Div = styled.div`
   margin-top: 450px;
   position: relative;
   margin-left: 120px;
-  z-index: 9999;
+  z-index: 9998;
   min-width: 161px;
   transition: transform 250ms ease-in;
 

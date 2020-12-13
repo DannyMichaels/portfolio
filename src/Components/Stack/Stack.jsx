@@ -92,23 +92,12 @@ function Stack() {
     <Div className="stack">
       <div className="card">
         <h1>
-          <div className="span"> T</div>
-          <div className="span"> e</div>
-          <div className="span"> c</div>
-          <div className="span"> h</div>
-          <div className="span"> n</div>
-          <div className="span"> o</div>
-          <div className="span"> l</div>
-          <div className="span"> o</div>
-          <div className="span"> g</div>
-          <div className="span"> i</div>
-          <div className="span"> e</div>
-          <div className="span"> s</div> &nbsp;
-          <div className="span"> I </div> &nbsp;
-          <div className="span"> U</div>
-          <div className="span"> s</div>
-          <div className="span"> e</div>
-          <div className="span"> :</div>
+          <div className="span">S</div>
+          <div className="span">k</div>
+          <div className="span">i</div>
+          <div className="span">l</div>
+          <div className="span">l</div>
+          <div className="span">s</div>
         </h1>
         <br />
         <Tooltip title="HTML5">
@@ -136,6 +125,19 @@ function Stack() {
             alt="React"
           />
         </Tooltip>
+        <Tooltip title="Material UI">
+          <img
+            src="https://material-ui.com/static/logo.png"
+            alt="Material UI"
+          />
+        </Tooltip>
+        <Tooltip title="Styled Components">
+          <img
+            src="https://avatars2.githubusercontent.com/u/20658825?s=200&v=4"
+            alt="styled components"
+          />
+        </Tooltip>
+        <br />
         <Tooltip title="Ruby">
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Ruby_logo.png"
@@ -148,13 +150,13 @@ function Stack() {
             alt="Rails"
           />
         </Tooltip>
-        <br />
         <Tooltip title="PostgreSQL">
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/1200px-Postgresql_elephant.svg.png"
             alt="postgresql"
           />
         </Tooltip>
+        <br />
         <Tooltip title="MongoDB">
           <img
             src="https://cdn.iconscout.com/icon/free/png-512/mongodb-3-1175138.png"
@@ -165,6 +167,12 @@ function Stack() {
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/1200px-Node.js_logo.svg.png"
             alt="node"
+          />
+        </Tooltip>
+        <Tooltip title="Express">
+          <img
+            src="https://img2.pngio.com/express-js-png-5-png-image-expressjs-png-800_800.png"
+            alt="Express"
           />
         </Tooltip>
         <br />
