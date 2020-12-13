@@ -96,7 +96,6 @@ const Div = styled.div`
     .this-is-daniel {
       min-height: 0;
       margin: 0 auto;
-      /* margin-left: 20px; */
     }
 
     @media screen and (max-width: 768px) {
@@ -109,7 +108,6 @@ const Div = styled.div`
         margin: 0 auto;
         min-height: 0;
         text-align: center;
-        /* margin-left: 20px; */
       }
 
       .rectangle-6 {

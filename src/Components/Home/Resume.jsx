@@ -114,105 +114,104 @@ const ResumeParent = styled.div`
 `;
 
 function Resume({ handleClick }) {
-  return (
-    <ResumeParent className="resume-parent">
-      <div className="resume">
-        <div className="text-container">
-          <h1>DANIEL MICHAEL</h1>
-          <br />
-          <p>
-            | Rockville Centre, NY | 516-444-6903 |
-            <a href="mailto:danielmichael@hey.com"> danielmichael@hey.com</a> |
-          </p>
-          <br />| &nbsp;
-          <a
-            target="_blank"
-            rel="noreferrer"
-            href="https://www.linkedin.com/in/daniel-michael-718825155/"
-          >
-            https://www.linkedin.com/in/daniel-michael-718825155/
-          </a>
-          &nbsp; | &nbsp;
-          <a
-            target="_blank"
-            rel="noreferrer"
-            href="https://github.com/DannyMichaels"
-          >
-            https://github.com/DannyMichaels
-          </a>
-          &nbsp; |
-          <br />
-          <br />
-          <h1> SUMMARY</h1>
-          <br />
-          Experienced in Front-End and Back-End based programming and a
-          background in music . <br /> Possess strong skills in collaborative
-          environments that will help companies achieve their goals. <br />
-          <br />
-          <h1>EXPERIENCE</h1>
-          <br />
-          <h2>Software Engineering Fellow at General Assembly | 2020 </h2>
-          <ul>
-            <li>
-              Participated in 420+ hours of applied training in software
-              engineering and web development concepts focusing on front-end and
-              back-end development. Worked with UX designers and led a team of
-              software engineers in the creation of a full-stack web
-              application.
-            </li>
-          </ul>
-          <br />
-          <br />
-          <h1>EDUCATION</h1>
-          <br />
-          <ul>
-            <h2>General Assembly Software Engineering Immersive | 2020 </h2>
-            <li>
-              Skills: HTML, CSS, JavaScript, React, Express, Mongoose & MongoDB,
-              Ruby and Ruby on Rails
-            </li>
-            <br />
-            <h2> Nassau Community College | 2018-2020 </h2>
-            <li>
-              Skills: Music Performance, Music Theory, and Audio Engineering.
-            </li>
-          </ul>
-        </div>
-        <div id="buttons-container">
-          <div id="button-container">
-            <Button variant="contained" color="primary">
-              <a
-                target="_blank"
-                rel="noreferrer"
-                href="https://drive.google.com/file/d/1xgVibtb632Yd65f47_yQm__J2fjViwxo/view?usp=sharing"
-              >
-                Download PDF
-              </a>
-            </Button>
-            <Button variant="contained" color="primary">
-              <a
-                target="_blank"
-                rel="noreferrer"
-                href="https://drive.google.com/file/d/1w1XvYFB-fkayGP5ROI-GxwKUYT82ijTZ/view?usp=sharing"
-              >
-                Open DOC
-              </a>
-            </Button>
-          </div>
-          <div id="exit-button-container">
-            <Button
-              id="resume-exit-button"
-              onClick={handleClick}
-              variant="contained"
-              color="secondary"
-            >
-              EXIT
-            </Button>
-          </div>
-        </div>
-      </div>
-    </ResumeParent>
-  );
+  return null;
+  // <ResumeParent className="resume-parent">
+  //   <div className="resume">
+  //     <div className="text-container">
+  //       <h1>DANIEL MICHAEL</h1>
+  //       <br />
+  //       <p>
+  //         | Rockville Centre, NY | 516-444-6903 |
+  //         <a href="mailto:danielmichael@hey.com"> danielmichael@hey.com</a> |
+  //       </p>
+  //       <br />| &nbsp;
+  //       <a
+  //         target="_blank"
+  //         rel="noreferrer"
+  //         href="https://www.linkedin.com/in/daniel-michael-718825155/"
+  //       >
+  //         https://www.linkedin.com/in/daniel-michael-718825155/
+  //       </a>
+  //       &nbsp; | &nbsp;
+  //       <a
+  //         target="_blank"
+  //         rel="noreferrer"
+  //         href="https://github.com/DannyMichaels"
+  //       >
+  //         https://github.com/DannyMichaels
+  //       </a>
+  //       &nbsp; |
+  //       <br />
+  //       <br />
+  //       <h1> SUMMARY</h1>
+  //       <br />
+  //       Experienced in Front-End and Back-End based programming and a
+  //       background in music . <br /> Possess strong skills in collaborative
+  //       environments that will help companies achieve their goals. <br />
+  //       <br />
+  //       <h1>EXPERIENCE</h1>
+  //       <br />
+  //       <h2>Software Engineering Fellow at General Assembly | 2020 </h2>
+  //       <ul>
+  //         <li>
+  //           Participated in 420+ hours of applied training in software
+  //           engineering and web development concepts focusing on front-end and
+  //           back-end development. Worked with UX designers and led a team of
+  //           software engineers in the creation of a full-stack web
+  //           application.
+  //         </li>
+  //       </ul>
+  //       <br />
+  //       <br />
+  //       <h1>EDUCATION</h1>
+  //       <br />
+  //       <ul>
+  //         <h2>General Assembly Software Engineering Immersive | 2020 </h2>
+  //         <li>
+  //           Skills: HTML, CSS, JavaScript, React, Express, Mongoose & MongoDB,
+  //           Ruby and Ruby on Rails
+  //         </li>
+  //         <br />
+  //         <h2> Nassau Community College | 2018-2020 </h2>
+  //         <li>
+  //           Skills: Music Performance, Music Theory, and Audio Engineering.
+  //         </li>
+  //       </ul>
+  //     </div>
+  //     <div id="buttons-container">
+  //       <div id="button-container">
+  //         <Button variant="contained" color="primary">
+  //           <a
+  //             target="_blank"
+  //             rel="noreferrer"
+  //             href="https://drive.google.com/file/d/1xgVibtb632Yd65f47_yQm__J2fjViwxo/view?usp=sharing"
+  //           >
+  //             Download PDF
+  //           </a>
+  //         </Button>
+  //         <Button variant="contained" color="primary">
+  //           <a
+  //             target="_blank"
+  //             rel="noreferrer"
+  //             href="https://drive.google.com/file/d/1w1XvYFB-fkayGP5ROI-GxwKUYT82ijTZ/view?usp=sharing"
+  //           >
+  //             Open DOC
+  //           </a>
+  //         </Button>
+  //       </div>
+  //       <div id="exit-button-container">
+  //         <Button
+  //           id="resume-exit-button"
+  //           onClick={handleClick}
+  //           variant="contained"
+  //           color="secondary"
+  //         >
+  //           EXIT
+  //         </Button>
+  //       </div>
+  //     </div>
+  //   </div>
+  // </ResumeParent>
 }
 
 export default Resume;

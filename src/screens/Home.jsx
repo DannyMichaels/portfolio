@@ -6,8 +6,6 @@ import StyledScrollTop from "../Components/BackToTop/StyledScrollTop";
 import About from "../Components/Home/About";
 import ScrollToTopOnMount from "../Components/BackToTop/ScrollToTopOnMount";
 import styled from "styled-components";
-import Contact from "../Form/Contact";
-import LinearProgress from "@material-ui/core/LinearProgress";
 let Div = styled.div`
   display: flex;
   justify-content: space-evenly;
@@ -19,7 +17,6 @@ let Div = styled.div`
     flex-direction: column;
     justify-content: center;
   }
-  /* background-image: url("https://anima-uploads.s3.amazonaws.com/projects/5fb14441119f80c2053ea467/releases/5fb14452ac34b30698d1c801/img/01maindemo-rectangle-2-F05F0B6A-9C51-4A16-A795-BC7F67EC0F4E.png"); */
 `;
 const CloudBig = styled.img`
   @keyframes float {
@@ -39,7 +36,6 @@ const CloudBig = styled.img`
       transform: translatey(0px);
     }
   }
-  /* margin-top: -200px; */
   z-index: -2;
   filter: blur(4px);
   z-index: 0;
@@ -51,12 +47,22 @@ const CloudBig = styled.img`
   box-shadow: none;
   animation: float 6s ease-in-out infinite;
   margin-top: -60px;
+  @media screen and (max-width: 768px) {
+    max-width: 200px;
+  }
 `;
 let Giv = styled.div`
   display: flex;
   justify-content: center;
   @media screen and (max-width: 768px) {
     display: none;
+  }
+`;
+let Biv = styled.div`
+  display: none;
+  @media screen and (max-width: 768px) {
+    display: inline-flex;
+    margin-left: 40px;
   }
 `;
 function Home() {
@@ -70,7 +76,7 @@ function Home() {
           <About id="about" />
           <Stack id="about" />
         </Div>
-        <Giv>
+        <Giv className="desktop">
           <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
           <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
           <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
@@ -86,8 +92,15 @@ function Home() {
           <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
           <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
         </Giv>
+        <Biv className="mobile">
+          <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+          <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+        </Biv>
+        <Biv className="mobile">
+          <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+          <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+        </Biv>
         <Projects id="projects" />
-        {/* <Contact id="contact" /> */}
       </Layout>
     </>
   );

@@ -12,6 +12,7 @@ const Div = styled.div`
   h1 {
     font-family: montserrat, sans-serif;
     font-size: 36px;
+    text-align: center;
   }
 
   @keyframes float {

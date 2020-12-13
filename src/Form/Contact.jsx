@@ -8,15 +8,13 @@ const Div = styled.div`
   display: flex;
   justify-content: center;
   padding: 200px;
+
   flex-direction: column;
   align-items: center;
   text-align: center;
   height: 500px;
   margin-bottom: 20px;
   .field {
-    /* padding: 20px; */
-    /* margin: 20px;
-     */
     margin-bottom: 20px;
   }
 
@@ -25,7 +23,6 @@ const Div = styled.div`
     margin-top: 10px;
     width: 120px;
     height: 40px;
-    /* margin-bottom: 40px; */
   }
 
   .button1:hover {
@@ -44,7 +41,6 @@ const Div = styled.div`
   .input1 {
     background: rgba(102, 98, 171, 0.5);
     border: 3px solid rgba(102, 98, 171, 0.1);
-    /* border-radius: 3px; */
   }
   .input1:focus {
     transform: scale(5);
@@ -69,7 +65,7 @@ const Div = styled.div`
   }
   @media screen and (max-width: 768px) {
     .title-container {
-      font-size: 2.5rem;
+      font-size: 3rem;
     }
     .input1,
     .input2 {

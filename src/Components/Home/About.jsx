@@ -12,7 +12,7 @@ const Div = styled.div`
   flex-direction: column;
   align-self: center;
   align-items: center;
-
+  margin-left: 20px;
   .github,
   .linkedin {
     font-size: 40px;

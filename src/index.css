@@ -1,8 +1,8 @@
 *,
 *:before,
 *:after {
-  margin: 0;
-  padding: 0;
+  /* margin: 0;
+  padding: 0; */
   box-sizing: border-box;
 }
 @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
@@ -17,10 +17,11 @@
 
 body,
 html {
-  /* overflow-x: hidden; */
   max-width: 100vw;
 }
-
+/* ::-webkit-scrollbar {
+  display: none;
+} */
 body {
   margin: 0;
   height: 100%;
@@ -34,7 +35,6 @@ body {
   background-color: #f7f7f7;
   overflow-y: auto;
 
-  /* overflow-x: clip; */
   /*Fallback if gradeints don't work */
 
   background: #9b59b6;
