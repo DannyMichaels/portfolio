@@ -85,6 +85,10 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "bold",
     textAlign: "left",
   },
+  UL: {
+    fontFamily: "Roboto",
+    margin: "10px",
+  },
 }));
 
 function Project(props) {
@@ -135,7 +139,7 @@ function Project(props) {
           </Button>
         </CardActions>
         <CardActions disableSpacing className={classes.techUsed}>
-          Tech Used:
+          More:
           <IconButton
             className={clsx(classes.expand, {
               [classes.expandOpen]: expanded,
@@ -149,8 +153,9 @@ function Project(props) {
         </CardActions>
         <Collapse in={expanded} timeout="auto" unmountOnExit>
           <CardContent className={classes.techContainer}>
+            <Typography className={classes.techUsed}>Tech Used:</Typography>{" "}
+            <br />
             {
-              // <div className={classes.div}>
               <Typography
                 className={classes}
                 text={props.techName1}
@@ -163,8 +168,110 @@ function Project(props) {
                   {props.techName4 && <li>{props.techName4} </li>}
                 </ul>
               </Typography>
-              // </div>
             }
+            <br />
+            {props.name === "Root" && (
+              <>
+                <Typography className={classes.techUsed}>The Team:</Typography>
+                <br />
+                <Typography className={classes.techUsed}>
+                  Developers:
+                </Typography>
+                <ul
+                  className={classes.UL}
+                  style={{ color: "black", listStyle: "inherit" }}
+                >
+                  <li>
+                    <a
+                      href="https://www.linkedin.com/in/daniel-michael-718825155/"
+                      target="_blank"
+                      rel="no_referrer"
+                    >
+                      Daniel Michael
+                    </a>
+                  </li>
+                  <br />
+                  <li>
+                    <a
+                      href="https://www.linkedin.com/in/eddie-didonato/"
+                      target="_blank"
+                      rel="no_referrer"
+                    >
+                      Eddie Didonato
+                    </a>
+                  </li>
+                  <br />
+                  <li>
+                    <a
+                      href="https://www.linkedin.com/in/allisonquiroz/"
+                      target="_blank"
+                      rel="no_referrer"
+                    >
+                      Allison Quiroz
+                    </a>
+                  </li>
+                  <br />
+                  <li>
+                    <a
+                      href="https://www.linkedin.com/in/nathan-wigen-6337121b0/"
+                      target="_blank"
+                      rel="no_referrer"
+                    >
+                      Nathan Wigen
+                    </a>
+                  </li>
+                  <br />
+                </ul>
+                <Typography className={classes.techUsed}>
+                  UX/UI Designers:
+                </Typography>
+                <ul
+                  className={classes.UL}
+                  style={{ color: "black", listStyle: "inherit" }}
+                >
+                  <li>
+                    <a
+                      href="https://www.claudiazacharias.com/"
+                      target="_blank"
+                      rel="no_referrer"
+                    >
+                      Claudia Zacharias
+                    </a>
+                  </li>
+                  <br />
+                  <li>
+                    <a
+                      href="https://www.linkedin.com/in/toni-marie-brown-b44b7696/"
+                      target="_blank"
+                      rel="no_referrer"
+                    >
+                      Toni Brown
+                    </a>
+                  </li>
+                  <br />
+                  <li>
+                    <a
+                      href="https://www.linkedin.com/in/kendallkessler/"
+                      target="_blank"
+                      rel="no_referrer"
+                    >
+                      Kendall Kessler
+                    </a>
+                  </li>
+                  <br />
+                  <li>
+                    <a
+                      href="https://www.linkedin.com/in/erica-cleary/"
+                      target="_blank"
+                      rel="no_referrer"
+                    >
+                      Erica Cleary
+                    </a>
+                  </li>
+                  <br />
+                </ul>
+              </>
+            )}
           </CardContent>
           <CardContent className={classes.techContainer2}></CardContent>
         </Collapse>
