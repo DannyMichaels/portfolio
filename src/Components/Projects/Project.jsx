@@ -89,6 +89,11 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Roboto",
     margin: "10px",
   },
+  LI: {
+    "&:hover": {
+      textDecoration: "underline",
+    },
+  },
 }));
 
 function Project(props) {
@@ -102,7 +107,6 @@ function Project(props) {
   return (
     <>
       <Card style={{ backgroundSize: "cover" }} className={classes.root}>
-        {/* <Link to={`/projects/${props.project.id}`}> */}
         <CardHeader title={props.name} subheader={props.date} />
         <CardMedia
           className={classes.media}
@@ -110,7 +114,6 @@ function Project(props) {
           alt={props.name}
         />
 
-        {/* </Link> */}
         <CardContent>
           <Typography variant="body2" color="textPrimary" component="p">
             {props.description}
@@ -181,7 +184,7 @@ function Project(props) {
                   className={classes.UL}
                   style={{ color: "black", listStyle: "inherit" }}
                 >
-                  <li>
+                  <li className={classes.LI}>
                     <a
                       href="https://www.linkedin.com/in/daniel-michael-718825155/"
                       target="_blank"
@@ -191,7 +194,7 @@ function Project(props) {
                     </a>
                   </li>
                   <br />
-                  <li>
+                  <li className={classes.LI}>
                     <a
                       href="https://www.linkedin.com/in/eddie-didonato/"
                       target="_blank"
@@ -201,7 +204,7 @@ function Project(props) {
                     </a>
                   </li>
                   <br />
-                  <li>
+                  <li className={classes.LI}>
                     <a
                       href="https://www.linkedin.com/in/allisonquiroz/"
                       target="_blank"
@@ -211,7 +214,7 @@ function Project(props) {
                     </a>
                   </li>
                   <br />
-                  <li>
+                  <li className={classes.LI}>
                     <a
                       href="https://www.linkedin.com/in/nathan-wigen-6337121b0/"
                       target="_blank"
@@ -229,7 +232,7 @@ function Project(props) {
                   className={classes.UL}
                   style={{ color: "black", listStyle: "inherit" }}
                 >
-                  <li>
+                  <li className={classes.LI}>
                     <a
                       href="https://www.claudiazacharias.com/"
                       target="_blank"
@@ -239,7 +242,7 @@ function Project(props) {
                     </a>
                   </li>
                   <br />
-                  <li>
+                  <li className={classes.LI}>
                     <a
                       href="https://www.linkedin.com/in/toni-marie-brown-b44b7696/"
                       target="_blank"
@@ -249,7 +252,7 @@ function Project(props) {
                     </a>
                   </li>
                   <br />
-                  <li>
+                  <li className={classes.LI}>
                     <a
                       href="https://www.linkedin.com/in/kendallkessler/"
                       target="_blank"
@@ -259,7 +262,7 @@ function Project(props) {
                     </a>
                   </li>
                   <br />
-                  <li>
+                  <li className={classes.LI}>
                     <a
                       href="https://www.linkedin.com/in/erica-cleary/"
                       target="_blank"
