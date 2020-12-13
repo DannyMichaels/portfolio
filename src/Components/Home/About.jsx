@@ -4,7 +4,6 @@ import Resume from "./Resume";
 import styled from "styled-components";
 import { SiGithub } from "react-icons/si";
 import { SiLinkedin } from "react-icons/si";
-import { Link } from "react-router-dom";
 
 const Div = styled.div`
   font-family: "montserrat", sans-serif;
@@ -12,7 +11,6 @@ const Div = styled.div`
   flex-direction: column;
   align-self: center;
   align-items: center;
-  margin-left: 20px;
   .github,
   .linkedin {
     font-size: 40px;
