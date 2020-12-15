@@ -41,7 +41,6 @@ const Navbar = () => {
   const changeBackground = () => {
     const menu = document.body;
     const width = menu?.clientWidth;
-    console.log(width);
     if (width <= 768) {
       setNavBar(false);
     } else if (window.scrollY >= 198) {
