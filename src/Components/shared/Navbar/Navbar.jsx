@@ -38,16 +38,20 @@ const Nav = styled.nav`
 
 const Navbar = () => {
   const [navBar, setNavBar] = React.useState(false);
-  // console.log(window.scrollY);
   const changeBackground = () => {
-    if (window.scrollY >= 198) {
+    const menu = document.body;
+    const width = menu?.clientWidth;
+    console.log(width);
+    if (width <= 768) {
+      setNavBar(false);
+    } else if (window.scrollY >= 198) {
       setNavBar(true);
     } else {
       setNavBar(false);
     }
   };
   window.addEventListener("scroll", changeBackground);
-
+  window.addEventListener("resize", changeBackground);
   return (
     <Nav
       style={

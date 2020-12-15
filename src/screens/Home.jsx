@@ -23,18 +23,16 @@ const CloudBig = styled.img`
   @keyframes float {
     0% {
       box-shadow: none;
-
-      transform: translatey(0px);
+      transform: translateY(0px);
     }
     50% {
       box-shadow: none;
-
-      transform: translatey(-20px);
+      transform: translateY(-20px);
     }
 
     100% {
       box-shadow: none;
-      transform: translatey(0px);
+      transform: translateY(0px);
     }
   }
   z-index: -2;
@@ -48,13 +46,15 @@ const CloudBig = styled.img`
   box-shadow: none;
   animation: float 6s ease-in-out infinite;
   margin-top: -60px;
+  object-fit: contain;
   @media screen and (max-width: 768px) {
-    max-width: 200px;
+    max-width: 150px;
+    object-fit: contain;
   }
 `;
 let Giv = styled.div`
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
   @media screen and (max-width: 768px) {
     display: none;
   }
@@ -63,15 +63,7 @@ let Biv = styled.div`
   display: none;
   @media screen and (max-width: 768px) {
     display: inline-flex;
-    margin-left: 40px;
-  }
-`;
-
-let Hiv = styled.div`
-  display: flex;
-  justify-content: center;
-  @media screen and (max-width: 768px) {
-    display: none;
+    flex-wrap: wrap;
   }
 `;
 
@@ -79,7 +71,7 @@ let Ziv = styled.div`
   display: none;
   @media screen and (max-width: 768px) {
     display: inline-flex;
-    margin-left: 40px;
+    flex-wrap: wrap;
   }
 `;
 let Liv = styled.div`
@@ -113,6 +105,7 @@ function Home() {
           <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
           <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
         </Giv>
+
         <Biv className="mobile">
           <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
           <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
@@ -121,6 +114,7 @@ function Home() {
           <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
           <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
         </Biv>
+
         <Projects id="projects" />
 
         <Liv>
@@ -132,14 +126,16 @@ function Home() {
             <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
             <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
           </Giv>
-          <Hiv className="desktop">
+
+          <Giv className="desktop">
             <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
             <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
             <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
             <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
             <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
             <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-          </Hiv>
+          </Giv>
+
           <Ziv className="mobile">
             <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
             <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />

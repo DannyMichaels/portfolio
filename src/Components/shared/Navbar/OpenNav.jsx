@@ -7,8 +7,11 @@ function OpenNav({ navBar, open, setOpen }) {
   useEffect(() => {
     onResize();
     window.addEventListener("resize", () => {
-      setOpen(false);
-      onResize();
+      let width = document.body.clientWidth;
+      if (width >= 768) {
+        setOpen(false);
+        onResize();
+      }
     });
     return () => {
       window.removeEventListener("resize", onResize);
