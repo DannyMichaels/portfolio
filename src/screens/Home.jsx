@@ -62,7 +62,8 @@ let Giv = styled.div`
 let Biv = styled.div`
   display: none;
   @media screen and (max-width: 768px) {
-    display: inline-flex;
+    display: flex;
+    justify-content: center;
     flex-wrap: wrap;
   }
 `;
@@ -70,7 +71,8 @@ let Biv = styled.div`
 let Ziv = styled.div`
   display: none;
   @media screen and (max-width: 768px) {
-    display: inline-flex;
+    display: flex;
+    justify-content: center;
     flex-wrap: wrap;
   }
 `;

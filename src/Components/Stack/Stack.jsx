@@ -3,7 +3,6 @@ import styled from "styled-components";
 import Tooltip from "@material-ui/core/Tooltip";
 
 const Div = styled.div`
-  /* border: 3px solid black; */
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
@@ -18,15 +17,15 @@ const Div = styled.div`
   @keyframes float {
     0% {
       box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
-      transform: translatey(0px);
+      transform: translateY(0px);
     }
     50% {
       box-shadow: 0 25px 15px 0px rgba(0, 0, 0, 0.2);
-      transform: translatey(-20px);
+      transform: translateY(-20px);
     }
     100% {
       box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
-      transform: translatey(0px);
+      transform: translateY(0px);
     }
   }
   img {
@@ -69,9 +68,9 @@ const Div = styled.div`
   }
   @media screen and (max-width: 500px) {
     img {
-      width: 17.5vw;
-      max-width: 17.5vw;
-      min-width: 17.5vw;
+      width: 18vw;
+      max-width: 18vw;
+      min-width: 18vw;
     }
   }
 
@@ -79,10 +78,7 @@ const Div = styled.div`
     cursor: pointer;
   }
   .card {
-    /* box-shadow: 2px 2px 2px 2px #999; */
-    /* margin: 20px 100px 20px 100px; */
     margin: 0 auto;
-    /* padding: 20px; */
     margin-top: 100px;
   }
 `;

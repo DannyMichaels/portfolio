@@ -52,15 +52,6 @@ const Div = styled.div`
     text-align: center;
     justify-content: center;
   }
-  .text-container {
-    display: flex;
-    color: white;
-    font-size: 20px;
-    flex-flow: row wrap;
-    max-width: 450px;
-    max-height: 500px;
-    padding: 10px;
-  }
 
   .image-container {
     margin-right: 20px;
@@ -98,6 +89,35 @@ const Div = styled.div`
     transform: translateY(-4.05px);
     transition: transform 250ms ease-in;
     cursor: pointer;
+  }
+
+  .text-container {
+    display: flex;
+    color: white;
+    font-size: 20px;
+    flex-flow: row wrap;
+    max-width: 450px;
+
+    max-height: 500px;
+    padding: 10px;
+  }
+  @media screen and (max-width: 600px) {
+    .text-container {
+      font-size: 18px;
+    }
+    .title-container {
+      font-size: 29px;
+      padding: 10px;
+    }
+    .button-container {
+      display: flex;
+      flex-flow: row nowrap;
+      align-self: flex-end;
+      margin-bottom: 20px;
+      position: relative;
+      left: 48%;
+      padding-top: 30px;
+    }
   }
 `;
 
