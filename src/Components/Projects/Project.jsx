@@ -188,7 +188,7 @@ function Project(props) {
                     <a
                       href="https://www.linkedin.com/in/daniel-michael-718825155/"
                       target="_blank"
-                      rel="no_referrer"
+                      rel="noreferrer"
                     >
                       Daniel Michael
                     </a>
