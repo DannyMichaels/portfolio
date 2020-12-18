@@ -156,7 +156,7 @@ function Project(props) {
         </CardActions>
         <Collapse in={expanded} timeout="auto" unmountOnExit>
           <CardContent className={classes.techContainer}>
-            <Typography className={classes.techUsed}>Tech Used:</Typography>{" "}
+            <Typography className={classes.techUsed}>Tech Used:</Typography>
             <br />
             {
               <Typography

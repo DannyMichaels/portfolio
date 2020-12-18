@@ -7,6 +7,9 @@ import About from "../Components/Home/About";
 import ScrollToTopOnMount from "../Components/BackToTop/ScrollToTopOnMount";
 import styled from "styled-components";
 import Contact from "../Form/Contact";
+import { onResize } from "../utils/onResize";
+import { useState } from "react";
+
 let Div = styled.div`
   display: flex;
   justify-content: space-evenly;
@@ -47,6 +50,7 @@ const CloudBig = styled.img`
   animation: float 6s ease-in-out infinite;
   margin-top: -60px;
   object-fit: contain;
+
   @media screen and (max-width: 768px) {
     max-width: 150px;
     object-fit: contain;
@@ -54,7 +58,7 @@ const CloudBig = styled.img`
 `;
 let Giv = styled.div`
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   @media screen and (max-width: 768px) {
     display: none;
   }
@@ -81,6 +85,26 @@ let Liv = styled.div`
 `;
 
 function Home() {
+  // const [row, setRow] = useState(false);
+
+  // let width = document.body.clientWidth;
+  // window.addEventListener("resize", function (event) {
+  //   console.log(width + " wide by " + document.body.clientHeight + " high");
+  // });
+
+  // const cloudLogic = () => {
+  //   if (width >= 1200) {
+  //     setRow(true);
+  //   } else {
+  //     setRow(false);
+  //   }
+  // };
+  // window.addEventListener("resize", cloudLogic);
+  // if (width) {
+  //   let log = console.log(width);
+  //   document.addEventListener("resize", log);
+  //   document.removeEventListener("resize", log);
+  // }
   return (
     <>
       <Layout>
