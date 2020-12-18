@@ -198,7 +198,7 @@ function Project(props) {
                     <a
                       href="https://www.linkedin.com/in/eddie-didonato/"
                       target="_blank"
-                      rel="no_referrer"
+                      rel="noreferrer"
                     >
                       Eddie Didonato
                     </a>
@@ -208,7 +208,7 @@ function Project(props) {
                     <a
                       href="https://www.linkedin.com/in/allisonquiroz/"
                       target="_blank"
-                      rel="no_referrer"
+                      rel="noreferrer"
                     >
                       Allison Quiroz
                     </a>
@@ -218,7 +218,7 @@ function Project(props) {
                     <a
                       href="https://www.linkedin.com/in/nathan-wigen-6337121b0/"
                       target="_blank"
-                      rel="no_referrer"
+                      rel="noreferrer"
                     >
                       Nathan Wigen
                     </a>
@@ -236,7 +236,7 @@ function Project(props) {
                     <a
                       href="https://www.claudiazacharias.com/"
                       target="_blank"
-                      rel="no_referrer"
+                      rel="noreferrer"
                     >
                       Claudia Zacharias
                     </a>
@@ -246,7 +246,7 @@ function Project(props) {
                     <a
                       href="https://www.linkedin.com/in/toni-marie-brown-b44b7696/"
                       target="_blank"
-                      rel="no_referrer"
+                      rel="noreferrer"
                     >
                       Toni Brown
                     </a>
@@ -256,7 +256,7 @@ function Project(props) {
                     <a
                       href="https://www.linkedin.com/in/kendallkessler/"
                       target="_blank"
-                      rel="no_referrer"
+                      rel="noreferrer"
                     >
                       Kendall Kessler
                     </a>
@@ -266,7 +266,7 @@ function Project(props) {
                     <a
                       href="https://www.linkedin.com/in/erica-cleary/"
                       target="_blank"
-                      rel="no_referrer"
+                      rel="noreferrer"
                     >
                       Erica Cleary
                     </a>
