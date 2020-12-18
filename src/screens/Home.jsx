@@ -85,26 +85,6 @@ let Liv = styled.div`
 `;
 
 function Home() {
-  // const [row, setRow] = useState(false);
-
-  // let width = document.body.clientWidth;
-  // window.addEventListener("resize", function (event) {
-  //   console.log(width + " wide by " + document.body.clientHeight + " high");
-  // });
-
-  // const cloudLogic = () => {
-  //   if (width >= 1200) {
-  //     setRow(true);
-  //   } else {
-  //     setRow(false);
-  //   }
-  // };
-  // window.addEventListener("resize", cloudLogic);
-  // if (width) {
-  //   let log = console.log(width);
-  //   document.addEventListener("resize", log);
-  //   document.removeEventListener("resize", log);
-  // }
   return (
     <>
       <Layout>
