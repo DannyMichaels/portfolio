@@ -36,6 +36,9 @@ function App() {
     fetchProjects();
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflowX = "hidden";
+  }, []);
   return (
     <div className="app">
       <MuiThemeProvider theme={theme}>

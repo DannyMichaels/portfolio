@@ -27,7 +27,7 @@ function OpenNav({ navBar, open, setOpen }) {
   }, []);
   useEffect(() => {
     open
-      ? (document.body.style.overflow = "hidden") &&
+      ? (document.body.style.overflowY = "hidden") &&
         (document.querySelector(".layout-children").style.filter =
           "brightness(0.4)") &&
         (document.querySelector(".layout-children").style.background =
@@ -36,7 +36,7 @@ function OpenNav({ navBar, open, setOpen }) {
         (document.querySelector(".footer").style.background =
           "rgba(0, 0, 0, 0.5)") &&
         (document.querySelector(".layout-children").style.userSelect = "none")
-      : (document.body.style.overflow = "inherit") &&
+      : (document.body.style.overflowY = "inherit") &&
         (document.querySelector(".layout-children").style.filter = "inherit") &&
         (document.querySelector(".layout-children").style.background =
           "inherit") &&
