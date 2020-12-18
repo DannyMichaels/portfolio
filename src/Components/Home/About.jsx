@@ -180,7 +180,7 @@ function About() {
                   rel="noreferrer"
                   style={{ textDecoration: "none", color: "inherit" }}
                   href={
-                    "https://www.docdroid.net/kFMOCJo/daniel-michael-resume-v2-pdf"
+                    "https://drive.google.com/file/d/1rjvP6GQkDtwfLTPUoGctdW2wl2ScA82W/view?usp=sharing"
                   }
                 >
                   <Button
