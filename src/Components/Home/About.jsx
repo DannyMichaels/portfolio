@@ -195,7 +195,7 @@ function About() {
             </div>
           </div>
         </Div>
-        {resumeAppearance ? <Resume handleClick={handleClick} /> : <></>}
+        {/* {resumeAppearance ? <Resume handleClick={handleClick} /> : <></>} */}
       </div>
     </>
   );
