@@ -83,16 +83,35 @@ const useStyles = makeStyles((theme) => ({
   },
   techUsed: {
     fontWeight: "bold",
+    textAlign: "center",
+    fontFamily: "Roboto",
+  },
+  techUsed1: {
+    fontWeight: "bold",
     textAlign: "left",
+    fontFamily: "Roboto",
   },
   UL: {
     fontFamily: "Roboto",
     margin: "10px",
   },
+  UL2: {
+    fontFamily: "Roboto",
+    margin: "10px",
+    color: "black",
+    marginLeft: "30px",
+  },
   LI: {
     "&:hover": {
       textDecoration: "underline",
     },
+  },
+  container1: {
+    display: "flex",
+    // justifyContent: "flex-start",
+    flexDirection: "column",
+    // listStyle: "inside",
+    textAlign: "left",
   },
 }));
 
@@ -115,9 +134,36 @@ function Project(props) {
         />
 
         <CardContent>
-          <Typography variant="body2" color="textPrimary" component="p">
+          <Typography
+            variant="body2"
+            color="textPrimary"
+            className={classes.description}
+            component="p"
+          >
             {props.description}
           </Typography>
+          <br />
+          <div className={classes.container1}>
+            <Typography className={classes.techUsed1}>
+              &nbsp;&nbsp;&nbsp;Tech Used:
+            </Typography>
+
+            <Typography
+              className={classes}
+              text={props.techName1}
+              alt="tech used"
+            >
+              <ul
+                className={classes.UL2}
+                style={{ color: "black", listStyle: "inherit" }}
+              >
+                {props.techName1 && <li>{props.techName1} </li>}
+                {props.techName2 && <li>{props.techName2}</li>}
+                {props.techName3 && <li>{props.techName3}</li>}
+                {props.techName4 && <li>{props.techName4} </li>}
+              </ul>
+            </Typography>
+          </div>
         </CardContent>
         <CardActions>
           <Button variant="text" size="small" color="link">
@@ -141,40 +187,25 @@ function Project(props) {
             </a>
           </Button>
         </CardActions>
-        <CardActions disableSpacing className={classes.techUsed}>
-          More:
-          <IconButton
-            className={clsx(classes.expand, {
-              [classes.expandOpen]: expanded,
-            })}
-            onClick={handleExpandClick}
-            aria-expanded={expanded}
-            aria-label="show more"
-          >
-            <ExpandMoreIcon />
-          </IconButton>
-        </CardActions>
-        <Collapse in={expanded} timeout="auto" unmountOnExit>
-          <CardContent className={classes.techContainer}>
-            <Typography className={classes.techUsed}>Tech Used:</Typography>
-            <br />
-            {
-              <Typography
-                className={classes}
-                text={props.techName1}
-                alt="tech used"
+
+        {props.name === "Root" && (
+          <>
+            <CardActions disableSpacing className={classes.techUsed}>
+              More:
+              <IconButton
+                className={clsx(classes.expand, {
+                  [classes.expandOpen]: expanded,
+                })}
+                onClick={handleExpandClick}
+                aria-expanded={expanded}
+                aria-label="show more"
               >
-                <ul style={{ color: "black", listStyle: "inherit" }}>
-                  {props.techName1 && <li>{props.techName1} </li>}
-                  {props.techName2 && <li>{props.techName2}</li>}
-                  {props.techName3 && <li>{props.techName3}</li>}
-                  {props.techName4 && <li>{props.techName4} </li>}
-                </ul>
-              </Typography>
-            }
-            <br />
-            {props.name === "Root" && (
-              <>
+                <ExpandMoreIcon />
+              </IconButton>
+            </CardActions>
+            <Collapse in={expanded} timeout="auto" unmountOnExit>
+              <CardContent className={classes.techContainer}>
+                <br />
                 <Typography className={classes.techUsed}>The Team:</Typography>
                 <br />
                 <Typography className={classes.techUsed}>
@@ -273,11 +304,10 @@ function Project(props) {
                   </li>
                   <br />
                 </ul>
-              </>
-            )}
-          </CardContent>
-          <CardContent className={classes.techContainer2}></CardContent>
-        </Collapse>
+              </CardContent>
+            </Collapse>
+          </>
+        )}
       </Card>
     </>
   );
