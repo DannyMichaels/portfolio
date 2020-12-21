@@ -61,16 +61,16 @@ const Div = styled.div`
   }
   @media screen and (max-width: 768px) {
     img {
-      max-width: 100px;
-      width: 100px;
-      min-width: 100px;
+      max-width: 80px;
+      width: 80px;
+      min-width: 80px;
     }
   }
   @media screen and (max-width: 500px) {
     img {
-      width: 18vw;
-      max-width: 18vw;
-      min-width: 18vw;
+      width: 15vw;
+      max-width: 15vw;
+      min-width: 15vw;
     }
   }
 
@@ -96,6 +96,8 @@ function Stack() {
           <div className="span">s</div>
         </h1>
         <br />
+        <br />
+
         <Tooltip title="HTML5">
           <img
             src="https://cdn.iconscout.com/icon/free/png-256/html5-41-1175209.png"
