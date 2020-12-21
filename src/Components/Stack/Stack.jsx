@@ -114,6 +114,9 @@ function Stack() {
             alt="JavaScript"
           />
         </Tooltip>
+        <Tooltip title="jQuery">
+          <img src="https://logodix.com/logo/941103.png" alt="jQuery" />
+        </Tooltip>
         <br />
         <Tooltip title="React.js">
           <img
@@ -127,12 +130,20 @@ function Stack() {
             alt="Material UI"
           />
         </Tooltip>
-        <Tooltip title="Styled Components">
+        <Tooltip title="Styled-Components">
           <img
             src="https://avatars2.githubusercontent.com/u/20658825?s=200&v=4"
             alt="styled components"
           />
         </Tooltip>
+        <Tooltip title="Bootstrap">
+          <img
+            src="https://camo.githubusercontent.com/a664defdd5c2ec93a3fbfb51e0f2aaafa5dc57bf1e13aa47456ced037b3cebe8/68747470733a2f2f676574626f6f7473747261702e636f6d2f646f63732f352e302f6173736574732f6272616e642f626f6f7473747261702d6c6f676f2d736861646f772e706e67"
+            alt="Bootstrap"
+          />
+        </Tooltip>
+        <br />
+
         <br />
         <Tooltip title="Ruby">
           <img
@@ -152,6 +163,12 @@ function Stack() {
             alt="postgresql"
           />
         </Tooltip>
+        <Tooltip title="Git">
+          <img
+            src="https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png"
+            alt="Git"
+          />
+        </Tooltip>
         <br />
         <Tooltip title="MongoDB">
           <img
@@ -169,6 +186,12 @@ function Stack() {
           <img
             src="https://img2.pngio.com/express-js-png-5-png-image-expressjs-png-800_800.png"
             alt="Express"
+          />
+        </Tooltip>
+        <Tooltip title="Axios">
+          <img
+            src="https://user-images.githubusercontent.com/8939680/57233882-20344080-6fe5-11e9-9086-d20a955bed59.png"
+            alt="Axios"
           />
         </Tooltip>
         <br />
