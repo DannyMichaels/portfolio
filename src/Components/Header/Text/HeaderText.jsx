@@ -16,7 +16,8 @@ const Div = styled.div`
   .font-class-1 {
     color: #fff;
     font-family: "Helvetica", Helvetica, Arial, serif;
-    font-size: 70px;
+    font-size: clamp(20px, 10vw, 70px);
+
     cursor: default;
     line-height: 84px;
     z-index: 1;
@@ -100,7 +101,8 @@ const Div = styled.div`
 
     @media screen and (max-width: 768px) {
       .font-class-1 {
-        font-size: 60px;
+        /* font-size: 60px; */
+
         line-height: 80px;
       }
 
@@ -121,7 +123,6 @@ const Div = styled.div`
   }
   @media screen and (max-width: 600px) {
     .font-class-1 {
-      font-size: 50px;
       line-height: 80px;
     }
   }

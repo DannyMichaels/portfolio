@@ -1,8 +1,6 @@
 *,
 *:before,
 *:after {
-  /* margin: 0;
-  padding: 0; */
   box-sizing: border-box;
 }
 @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
@@ -57,22 +55,3 @@ $color: #985bb7; // purple
 $highlight: #6878c8; // blue
 $alternate: #e49996; // orangish
 $pad: 10px;
-
-/* typography */
-@mixin loud-voice {
-  font-family: Sans-serif;
-  font-size: clamp(22px, 10vw, 80px);
-  /* https://developer.mozilla.org/en-US/docs/Web/CSS/clamp() */
-  color: black;
-}
-
-@mixin attention-voice {
-  font-family: Sans-serif;
-  font-size: clamp(19px, 10vw, 40px);
-  color: yellow;
-}
-
-@mixin calm-voice {
-  font-family: Sans-serif;
-  font-size: 16px;
-}
