@@ -8,18 +8,18 @@ $pad: 10px;
   font-family: Sans-serif;
   font-size: clamp(22px, 10vw, 80px);
   /* https://developer.mozilla.org/en-US/docs/Web/CSS/clamp() */
-  color: black;
+  color: #fff;
 }
 
 @mixin attention-voice {
-  font-family: Sans-serif;
+  font-family: "Helvetica", Helvetica, Arial, serif;
   font-size: clamp(19px, 10vw, 40px);
-  color: yellow;
+  color: #fff;
 }
 
 @mixin calm-voice {
-  font-family: Sans-serif;
   font-size: 16px;
+  font-family: "Helvetica", Helvetica, Arial, serif;
 }
 
 .page-section {
@@ -50,10 +50,8 @@ picture img {
   display: flex;
   text-align: center;
   font-size: 36px;
-  color: #fff;
-  color: #fff;
-  font-family: "Helvetica", Helvetica, Arial, serif;
-  font-size: 70px;
+  // font-family: "Helvetica", Helvetica, Arial, serif;
+  // font-size: 70px;
   cursor: default;
   line-height: 84px;
   z-index: 1;
@@ -62,6 +60,7 @@ picture img {
   padding: 20px;
   justify-content: center;
   align-items: center;
+  @include loud-voice();
 }
 /* components */
 project-card {
