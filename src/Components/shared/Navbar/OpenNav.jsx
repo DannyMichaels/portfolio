@@ -53,7 +53,6 @@ function OpenNav({ navBar, open, setOpen }) {
     setDisabled(true);
     if (disabled) {
       document.querySelector(".layout-children").style.pointerEvents = "none";
-    } else {
     }
     setTimeout(async () => {
       setDisabled(false);
