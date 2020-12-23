@@ -59,7 +59,7 @@ export default function HeaderContent() {
   const [disabled, setDisabled] = React.useState(false);
 
   function fillCheck() {
-    let width = document.body.clientWidth;
+    let width = window.innerWidth;
     if (width <= 768) {
       setDisabled(true);
     }
