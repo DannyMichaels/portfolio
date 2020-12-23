@@ -112,7 +112,6 @@ function Project(props) {
           title={props.name}
           subheader={props.date}
         />
-
         <picture className="thumbnail">
           <img src={props.projectImage} alt={props.name} />
         </picture>
@@ -195,6 +194,7 @@ function Project(props) {
                       href="https://www.linkedin.com/in/daniel-michael-718825155/"
                       target="_blank"
                       rel="noreferrer"
+                      style={{ textDecoration: "none", color: "black" }}
                     >
                       Daniel Michael
                     </a>
@@ -205,6 +205,7 @@ function Project(props) {
                       href="https://www.linkedin.com/in/eddie-didonato/"
                       target="_blank"
                       rel="noreferrer"
+                      style={{ textDecoration: "none", color: "black" }}
                     >
                       Eddie Didonato
                     </a>
@@ -215,6 +216,7 @@ function Project(props) {
                       href="https://www.linkedin.com/in/allisonquiroz/"
                       target="_blank"
                       rel="noreferrer"
+                      style={{ textDecoration: "none", color: "black" }}
                     >
                       Allison Quiroz
                     </a>
@@ -225,6 +227,7 @@ function Project(props) {
                       href="https://www.linkedin.com/in/nathan-wigen-6337121b0/"
                       target="_blank"
                       rel="noreferrer"
+                      style={{ textDecoration: "none", color: "black" }}
                     >
                       Nathan Wigen
                     </a>
@@ -236,13 +239,14 @@ function Project(props) {
                 </Typography>
                 <ul
                   className={classes.UL}
-                  style={{ color: "black", listStyle: "inherit" }}
+                  style={{ color: "black", listStyle: "disc" }}
                 >
                   <li className={classes.LI}>
                     <a
                       href="https://www.claudiazacharias.com/"
                       target="_blank"
                       rel="noreferrer"
+                      style={{ textDecoration: "none", color: "black" }}
                     >
                       Claudia Zacharias
                     </a>
@@ -252,6 +256,7 @@ function Project(props) {
                     <a
                       href="https://www.linkedin.com/in/toni-marie-brown-b44b7696/"
                       target="_blank"
+                      style={{ textDecoration: "none", color: "black" }}
                       rel="noreferrer"
                     >
                       Toni Brown
@@ -263,6 +268,7 @@ function Project(props) {
                       href="https://www.linkedin.com/in/kendallkessler/"
                       target="_blank"
                       rel="noreferrer"
+                      style={{ textDecoration: "none", color: "black" }}
                     >
                       Kendall Kessler
                     </a>
@@ -273,6 +279,7 @@ function Project(props) {
                       href="https://www.linkedin.com/in/erica-cleary/"
                       target="_blank"
                       rel="noreferrer"
+                      style={{ textDecoration: "none", color: "black" }}
                     >
                       Erica Cleary
                     </a>

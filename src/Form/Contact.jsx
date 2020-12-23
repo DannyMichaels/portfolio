@@ -37,6 +37,13 @@ const Div = styled.div`
     color: white;
   }
 
+  @media screen and (max-width: 768px) {
+    .input1,
+    .input2 {
+      min-width: 70vw;
+      max-width: 70vw;
+    }
+  }
   .input1 {
     background: rgba(102, 98, 171, 0.5);
     border: 3px solid rgba(102, 98, 171, 0.1);
@@ -122,12 +129,11 @@ function Contact() {
           <div class="field">
             <div class="field-half">
               <Input
-                className="field"
                 type="text"
                 name="name"
                 id="name"
                 variant="filled"
-                className="input1"
+                className="field input1"
                 required
                 placeholder="Name"
               />

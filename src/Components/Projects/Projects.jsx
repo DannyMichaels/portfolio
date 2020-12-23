@@ -38,7 +38,7 @@ function Projects() {
     <li className="project" key={project?.id}>
       <Project
         project={project}
-        name={project?.fields.name}
+        name={project?.fields.name.trim(" ")}
         date={project?.fields.date}
         projectImage={project?.fields.img_url}
         description={project?.fields.description}

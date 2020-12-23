@@ -8,8 +8,7 @@ const Background = styled.div`
   @media (max-width: 768px) {
     display: flex;
     width: 50px;
-    margin-top: -5px;
-
+    margin-top: -6px;
     margin-left: -20px;
     padding: 25px;
     position: relative;

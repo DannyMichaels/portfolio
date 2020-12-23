@@ -26,7 +26,9 @@ const Div = styled.div`
     background: #fff;
     color: black;
   }
-
+  a {
+    display: block;
+  }
   .github:hover,
   .linkedin:hover,
   .resume-button:hover {
@@ -71,6 +73,7 @@ const Div = styled.div`
   }
   .buttons-container {
     padding-top: 30px;
+    display: flex;
   }
 
   .span {
@@ -143,6 +146,7 @@ function About() {
               me to create great projects and build relationships along the way
               <div className="buttons-container">
                 <a
+                  className="link"
                   target="_blank"
                   rel="noreferrer"
                   href={"https://github.com/DannyMichaels/"}
@@ -150,6 +154,7 @@ function About() {
                   <SiGithub className="github" />
                 </a>
                 <a
+                  className="link"
                   target="_blank"
                   rel="noreferrer"
                   href={"https://www.linkedin.com/in/daniel-michael-718825155/"}
@@ -159,6 +164,7 @@ function About() {
               </div>
               <div className="button-container">
                 <a
+                  className="link"
                   target="_blank"
                   rel="noreferrer"
                   style={{ textDecoration: "none", color: "inherit" }}
