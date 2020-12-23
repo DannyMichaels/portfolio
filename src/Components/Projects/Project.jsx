@@ -106,20 +106,22 @@ function Project(props) {
 
   return (
     <>
-      <Card style={{ backgroundSize: "cover" }} className={classes.root}>
-        <CardHeader title={props.name} subheader={props.date} />
-        <CardMedia
-          className={classes.media}
-          image={props.projectImage}
-          alt={props.name}
+      <project-card>
+        <CardHeader
+          className="project-title"
+          title={props.name}
+          subheader={props.date}
         />
 
+        <picture className="thumbnail">
+          <img src={props.projectImage} alt={props.name} />
+        </picture>
         <CardContent>
           <Typography variant="body2" color="textPrimary" component="p">
             {props.description}
           </Typography>
         </CardContent>
-        <CardActions>
+        <footer className="actions">
           <Button variant="text" size="small" color="link">
             <a
               style={{ textDecoration: "none", color: "black" }}
@@ -140,7 +142,7 @@ function Project(props) {
               Live Website
             </a>
           </Button>
-        </CardActions>
+        </footer>
         <CardActions disableSpacing className={classes.techUsed}>
           <Typography
             style={{ fontFamily: "Roboto, Sans-Serif", fontWeight: "bold" }}
@@ -168,7 +170,7 @@ function Project(props) {
                 text={props.techName1}
                 alt="tech used"
               >
-                <ul style={{ color: "black", listStyle: "inherit" }}>
+                <ul style={{ color: "black", listStyle: "disc" }}>
                   {props.techName1 && <li>{props.techName1} </li>}
                   {props.techName2 && <li>{props.techName2}</li>}
                   {props.techName3 && <li>{props.techName3}</li>}
@@ -186,7 +188,7 @@ function Project(props) {
                 </Typography>
                 <ul
                   className={classes.UL}
-                  style={{ color: "black", listStyle: "inherit" }}
+                  style={{ color: "black", listStyle: "disc" }}
                 >
                   <li className={classes.LI}>
                     <a
@@ -280,9 +282,8 @@ function Project(props) {
               </>
             )}
           </CardContent>
-          <CardContent className={classes.techContainer2}></CardContent>
         </Collapse>
-      </Card>
+      </project-card>
     </>
   );
 }

@@ -1,0 +1,216 @@
+$color: #985bb7; // purple
+$highlight: #6878c8; // blue
+$alternate: #e49996; // orangish
+$pad: 10px;
+
+/* typography */
+@mixin loud-voice {
+  font-family: Sans-serif;
+  font-size: clamp(22px, 10vw, 80px);
+  /* https://developer.mozilla.org/en-US/docs/Web/CSS/clamp() */
+  color: black;
+}
+
+@mixin attention-voice {
+  font-family: Sans-serif;
+  font-size: clamp(19px, 10vw, 40px);
+  color: yellow;
+}
+
+@mixin calm-voice {
+  font-family: Sans-serif;
+  font-size: 16px;
+}
+
+.page-section {
+  inner-column {
+    display: block;
+    width: 98%;
+    max-width: 1100px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: $pad;
+  }
+}
+
+.page-content {
+  flex-grow: 1;
+}
+
+picture {
+  display: block;
+}
+
+picture img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.projects-h1 {
+  display: flex;
+  text-align: center;
+  font-size: 36px;
+  color: #fff;
+  color: #fff;
+  font-family: "Helvetica", Helvetica, Arial, serif;
+  font-size: 70px;
+  cursor: default;
+  line-height: 84px;
+  z-index: 1;
+  flex-direction: row;
+  text-align: center;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+}
+/* components */
+project-card {
+  display: block;
+  .title {
+    @include calm-voice();
+    text-transform: uppercase;
+  }
+  .picture {
+    margin: 0 auto;
+  }
+  .thumbnail {
+    max-width: 300px;
+    margin-top: $pad;
+    margin: 0 auto;
+    transform: scale(1.1);
+    transition: 3s;
+    &:hover {
+      transform: scale(1);
+      transition: 0.2s;
+    }
+  }
+  .description {
+    @include calm-voice();
+    margin-top: $pad;
+  }
+  .actions {
+    display: flex;
+    flex-direction: row;
+    margin-top: $pad;
+  }
+  a {
+    display: block;
+    padding: 10px;
+  }
+  @media (min-width: 0px) {
+    padding: $pad;
+    border-radius: 6px;
+    background-color: white;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+  }
+  @media (max-width: 594px) {
+    width: 64vw;
+  }
+
+  @media (max-width: 699px) {
+    width: 50vw;
+  }
+}
+
+.project-title {
+  text-align: center;
+}
+
+.section-header {
+  @include loud-voice();
+  padding-top: $pad * 2;
+  padding-bottom: $pad * 2;
+}
+
+.project-list {
+  display: grid;
+  grid-template-columns: repeat(1fr);
+  /* https://css-tricks.com/snippets/css/complete-guide-grid/ */
+  grid-gap: $pad * 3;
+}
+
+@media (min-width: 700px) {
+  .project-list {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-gap: $pad * 2;
+  }
+}
+
+@media (max-width: 699px) {
+  .project-list {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
+/* sections */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+
+  inner-column {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.welcome {
+  //
+  inner-column {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    //
+    position: relative; // for absolute boundery
+  }
+  .welcome-message {
+    @include loud-voice();
+    position: relative;
+  }
+  .sunburst {
+    position: absolute;
+    top: 0;
+    right: 0;
+    //
+    width: 80%;
+    max-width: 600px;
+    img {
+      opacity: 0.2;
+    }
+  }
+  .cloud {
+    position: absolute;
+    bottom: 20px;
+    right: 25%;
+    //
+    width: 50%;
+    max-width: 400px;
+    opacity: 0.8;
+  }
+}
+
+.about-me {
+  h2 {
+    @include attention-voice();
+  }
+  p {
+    border: 1px solid black;
+    padding-bottom: 40%;
+  }
+}
+
+/* global-style */
+
+.page-break {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: $pad * 2;
+  .cloud {
+    max-width: 400px;
+  }
+}

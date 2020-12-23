@@ -14,11 +14,9 @@ const Div = styled.div`
 `;
 function Header() {
   return (
-    <>
-      <Div className="header">
-        <HeaderContent />
-      </Div>
-    </>
+    <Div id="header">
+      <HeaderContent />
+    </Div>
   );
 }
 

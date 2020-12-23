@@ -1,4 +1,4 @@
-import "./Footer.css";
+import "./Footer.scss";
 import { Component } from "react";
 import styled from "styled-components";
 import Contact from "../../../Form/Contact";

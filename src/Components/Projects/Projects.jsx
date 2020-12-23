@@ -5,78 +5,19 @@ import { getAllProjects } from "../../services/projects.js";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { getSortedProjects } from "../../utils/sortedProjects.js";
 
-const Div = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-flow: column wrap;
-  /* background-image: url("https://anima-uploads.s3.amazonaws.com/projects/5fb14441119f80c2053ea467/releases/5fb14452ac34b30698d1c801/img/01maindemo-rectangle-2-F05F0B6A-9C51-4A16-A795-BC7F67EC0F4E.png"); */
+const Span = styled.div`
+  transition: transform 250ms ease-out;
+  align-items: center;
+  background-color: transparent;
+  display: inline-flex;
+  flex-direction: row;
+  width: auto;
+  z-index: 1;
 
-  .loading {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .card {
-    margin: 0 auto;
-    margin-bottom: 50px;
-    margin-top: -50px;
-  }
-
-  .span:hover,
-  .span2:hover {
+  &:hover {
     transform: translateY(-4.05px);
     transition: transform 250ms ease-in;
     cursor: pointer;
-  }
-
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-  .projects {
-    display: flex;
-    justify-content: center;
-    flex-flow: row wrap;
-    margin: 10px;
-    padding: 10px;
-  }
-  @media screen and (max-width: 768px) {
-    .projects {
-      display: flex;
-      flex-flow: column no-wrap;
-    }
-  }
-  .title {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    font-size: 36px;
-    color: #fff;
-    color: #fff;
-    margin-top: 110px;
-    margin-bottom: -20px;
-    font-family: "Helvetica", Helvetica, Arial, serif;
-    font-size: 70px;
-    cursor: default;
-    line-height: 84px;
-    z-index: 1;
-  }
-  .span {
-    transition: transform 250ms ease-out;
-    align-items: center;
-    background-color: transparent;
-    display: inline-flex;
-    flex-direction: row;
-    width: auto;
-    z-index: 1;
-  }
-
-  @media (max-width: 600px) {
-    .card {
-      max-width: 100%;
-    }
   }
 `;
 
@@ -94,7 +35,7 @@ function Projects() {
   }, []);
 
   const PROJECTS = allProjects?.map((project) => (
-    <React.Fragment key={project?.id}>
+    <li className="project" key={project?.id}>
       <Project
         project={project}
         name={project?.fields.name}
@@ -108,41 +49,39 @@ function Projects() {
         techName3={project?.fields.tech_name3}
         techName4={project?.fields.tech_name4}
       />
-    </React.Fragment>
+    </li>
   ));
 
   if (!loaded) {
     return (
-      <Div>
-        <div className="loading">
-          <div className="card">
-            <h1>Loading Projects</h1>
-            <CircularProgress />
-          </div>
+      <div className="loading">
+        <div className="card">
+          <h1>Loading Projects</h1>
+          <CircularProgress />
         </div>
-      </Div>
+      </div>
     );
   }
 
   return (
     <>
-      <Div className="projects">
-        <div className="card">
-          <div className="title">
-            <h1>
-              <div className="span">P</div>
-              <div className="span">r</div>
-              <div className="span">o</div>
-              <div className="span">j</div>
-              <div className="span">e</div>
-              <div className="span">c</div>
-              <div className="span">t</div>
-              <div className="span">s</div>
-            </h1>
-          </div>
-          <div className="projects">{PROJECTS}</div>
-        </div>
-      </Div>
+      <section class="page-section projects" id="projects">
+        <inner-column>
+          <header class="section-header projects">
+            <h2 className="projects-h1">
+              <Span className="span">P</Span>
+              <Span className="span">r</Span>
+              <Span className="span">o</Span>
+              <Span className="span">j</Span>
+              <Span className="span">e</Span>
+              <Span className="span">c</Span>
+              <Span className="span">t</Span>
+              <Span className="span">s</Span>
+            </h2>
+          </header>
+          <ol className="project-list">{PROJECTS}</ol>
+        </inner-column>
+      </section>
     </>
   );
 }

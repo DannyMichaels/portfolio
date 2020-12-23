@@ -1,6 +1,4 @@
-import React, { useState } from "react";
 import Button from "@material-ui/core/Button";
-import Resume from "./Resume";
 import styled from "styled-components";
 import { SiGithub } from "react-icons/si";
 import { SiLinkedin } from "react-icons/si";
@@ -122,24 +120,9 @@ const Div = styled.div`
 `;
 
 function About() {
-  const [resumeAppearance, setResumeAppearance] = useState(false);
-
-  const handleClick = (e) => {
-    e.preventDefault();
-    setResumeAppearance(!resumeAppearance);
-  };
-
   return (
     <>
-      <div
-        id="about"
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          paddingTop: "100px",
-          flexDirection: "column",
-        }}
-      >
+      <section class="text">
         <Div>
           <div className="content-container">
             <div className="title-container">
@@ -195,8 +178,7 @@ function About() {
             </div>
           </div>
         </Div>
-        {/* {resumeAppearance ? <Resume handleClick={handleClick} /> : <></>} */}
-      </div>
+      </section>
     </>
   );
 }

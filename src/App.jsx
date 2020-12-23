@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Home from "./screens/Home";
 import { Route, Switch } from "react-router-dom";
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
-import "./app.scss";
+import "./App.scss";
 
 const theme = createMuiTheme({
   overrides: {

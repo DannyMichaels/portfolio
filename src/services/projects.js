@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const airtableURL = `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE}/projects`;
+const airtableURL = `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE}/projects1`;
 
 export const getAllProjects = async () => {
   try {

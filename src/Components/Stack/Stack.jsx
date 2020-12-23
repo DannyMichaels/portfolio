@@ -1,91 +1,10 @@
 import React from "react";
-import styled from "styled-components";
 import Tooltip from "@material-ui/core/Tooltip";
-
-const Div = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
-  flex-flow: column nowrap;
-  color: white;
-  h1 {
-    font-family: montserrat, sans-serif;
-    font-size: 36px;
-    text-align: center;
-  }
-
-  @keyframes float {
-    0% {
-      box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
-      transform: translateY(0px);
-    }
-    50% {
-      box-shadow: 0 25px 15px 0px rgba(0, 0, 0, 0.2);
-      transform: translateY(-20px);
-    }
-    100% {
-      box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
-      transform: translateY(0px);
-    }
-  }
-  img {
-    max-width: 100px;
-    min-width: 100px;
-    width: 100px;
-    padding: 20px;
-    margin: 20px;
-    max-height: 100px;
-    height: 100px;
-    border-radius: 36px;
-    min-height: 100px;
-    width: 100%;
-    height: auto;
-    background: #fff;
-    transform: translatey(0px);
-    animation: float 6s ease-in-out infinite;
-  }
-  .span {
-    transition: transform 250ms ease-out;
-    align-items: center;
-    background-color: transparent;
-    display: inline-flex;
-    flex-direction: row;
-    width: auto;
-    z-index: 1;
-  }
-
-  .span:hover {
-    transform: translateY(-4.05px);
-    transition: transform 250ms ease-in;
-    cursor: pointer;
-  }
-  @media screen and (max-width: 768px) {
-    img {
-      max-width: 80px;
-      width: 80px;
-      min-width: 80px;
-    }
-  }
-  @media screen and (max-width: 500px) {
-    img {
-      width: 15vw;
-      max-width: 15vw;
-      min-width: 15vw;
-    }
-  }
-
-  img:hover {
-    cursor: pointer;
-  }
-  .card {
-    margin: 0 auto;
-    margin-top: 100px;
-  }
-`;
+import "./Stack.scss";
 
 function Stack() {
   return (
-    <Div className="stack">
+    <section className="language">
       <div className="card">
         <h1>
           <div className="span">S</div>
@@ -198,7 +117,7 @@ function Stack() {
         </Tooltip>
         <br />
       </div>
-    </Div>
+    </section>
   );
 }
 
