@@ -88,7 +88,7 @@ function Scroll() {
   return (
     <Link
       activeClass="active"
-      to="stack"
+      to="about"
       spy={true}
       smooth={true}
       duration={1000}
