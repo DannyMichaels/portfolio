@@ -16,7 +16,7 @@ function OpenNav({ navBar, open, setOpen }) {
     return () => {
       window.removeEventListener("resize", onResize);
     };
-  }, []);
+  }, [setOpen]);
 
   useEffect(() => {
     onResize();
