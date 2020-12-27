@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Ul from "./Ul";
 import { onResize } from "../../../utils/onResize";
 import { Link } from "react-scroll";
+import { blockBodyOnCondition } from "../../../utils/blockBodyOnCondition";
 
 function OpenNav({ navBar, open, setOpen }) {
   useEffect(() => {
@@ -26,26 +27,9 @@ function OpenNav({ navBar, open, setOpen }) {
     };
   }, []);
   useEffect(() => {
-    open
-      ? (document.body.style.overflowY = "hidden") &&
-        (document.querySelector(".layout-children").style.filter =
-          "brightness(0.4)") &&
-        (document.querySelector(".layout-children").style.background =
-          "rgba(0, 0, 0, 0.5)") &&
-        (document.querySelector(".footer").style.filter = "brightness(0.4)") &&
-        (document.querySelector(".footer").style.background =
-          "rgba(0, 0, 0, 0.5)") &&
-        (document.querySelector(".layout-children").style.pointerEvents =
-          "none")
-      : (document.body.style.overflowY = "inherit") &&
-        (document.querySelector(".layout-children").style.filter = "inherit") &&
-        (document.querySelector(".layout-children").style.background =
-          "inherit") &&
-        (document.querySelector(".layout-children").style.pointerEvents =
-          "inherit") &&
-        (document.querySelector(".footer").style.filter = "inherit") &&
-        (document.querySelector(".footer").style.background = "inherit");
+    blockBodyOnCondition(open);
   }, [open]);
+
   const [disabled, setDisabled] = useState(false);
 
   const handleDisable = (e) => {
