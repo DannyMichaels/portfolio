@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
-import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
 import Typography from "@material-ui/core/Typography";
@@ -180,6 +178,7 @@ function Project(props) {
             <br />
             {props.name === "Root" && (
               <>
+                <br />
                 <Typography className={classes.techUsed}>The Team:</Typography>
                 <br />
                 <Typography className={classes.techUsed}>
@@ -285,6 +284,21 @@ function Project(props) {
                     </a>
                   </li>
                   <br />
+                </ul>
+              </>
+            )}
+            {props.name === "Care" && (
+              <>
+                <br />
+                <Typography className={classes.techUsed}>
+                  Test Account:
+                </Typography>
+                <ul
+                  className={classes.UL}
+                  style={{ color: "black", listStyle: "disc" }}
+                >
+                  <li className={classes.LI}>Email: test@email.com</li>
+                  <li className={classes.LI}>Password: 12345678</li>
                 </ul>
               </>
             )}
