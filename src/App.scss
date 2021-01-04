@@ -91,6 +91,7 @@ project-card {
     display: flex;
     flex-direction: row;
     margin-top: $pad;
+    flex-wrap: wrap;
   }
   a {
     display: block;
