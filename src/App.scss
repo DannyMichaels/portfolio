@@ -102,7 +102,8 @@ project-card {
     border-radius: 6px;
     background-color: white;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
-  }
+    min-height: 630px;
+}
 
   @media (max-width: 699px) {
     width: 62vw;
