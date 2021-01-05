@@ -124,8 +124,7 @@ function Project(props) {
               style={{ textDecoration: "none", color: "black" }}
               rel="noreferrer"
               target="_blank"
-              href={props.github}
-            >
+              href={props.github}>
               GitHub Repo
             </a>
           </Button>
@@ -134,16 +133,14 @@ function Project(props) {
               style={{ textDecoration: "none", color: "black" }}
               rel="noreferrer"
               target="_blank"
-              href={props.website}
-            >
+              href={props.website}>
               Live Website
             </a>
           </Button>
         </footer>
         <CardActions disableSpacing className={classes.techUsed}>
           <Typography
-            style={{ fontFamily: "Roboto, Sans-Serif", fontWeight: "bold" }}
-          >
+            style={{ fontFamily: "Roboto, Sans-Serif", fontWeight: "bold" }}>
             More:
           </Typography>
           <IconButton
@@ -152,8 +149,7 @@ function Project(props) {
             })}
             onClick={handleExpandClick}
             aria-expanded={expanded}
-            aria-label="show more"
-          >
+            aria-label="show more">
             <ExpandMoreIcon />
           </IconButton>
         </CardActions>
@@ -165,8 +161,7 @@ function Project(props) {
               <Typography
                 className={classes}
                 text={props.techName1}
-                alt="tech used"
-              >
+                alt="tech used">
                 <ul style={{ color: "black", listStyle: "disc" }}>
                   {props.techName1 && <li>{props.techName1} </li>}
                   {props.techName2 && <li>{props.techName2}</li>}
@@ -186,15 +181,13 @@ function Project(props) {
                 </Typography>
                 <ul
                   className={classes.UL}
-                  style={{ color: "black", listStyle: "disc" }}
-                >
+                  style={{ color: "black", listStyle: "disc" }}>
                   <li className={classes.LI}>
                     <a
                       href="https://www.linkedin.com/in/daniel-michael-718825155/"
                       target="_blank"
                       rel="noreferrer"
-                      style={{ textDecoration: "none", color: "black" }}
-                    >
+                      style={{ textDecoration: "none", color: "black" }}>
                       Daniel Michael
                     </a>
                   </li>
@@ -204,8 +197,7 @@ function Project(props) {
                       href="https://www.linkedin.com/in/eddie-didonato/"
                       target="_blank"
                       rel="noreferrer"
-                      style={{ textDecoration: "none", color: "black" }}
-                    >
+                      style={{ textDecoration: "none", color: "black" }}>
                       Eddie Didonato
                     </a>
                   </li>
@@ -215,8 +207,7 @@ function Project(props) {
                       href="https://www.linkedin.com/in/allisonquiroz/"
                       target="_blank"
                       rel="noreferrer"
-                      style={{ textDecoration: "none", color: "black" }}
-                    >
+                      style={{ textDecoration: "none", color: "black" }}>
                       Allison Quiroz
                     </a>
                   </li>
@@ -226,8 +217,7 @@ function Project(props) {
                       href="https://www.linkedin.com/in/nathan-wigen-6337121b0/"
                       target="_blank"
                       rel="noreferrer"
-                      style={{ textDecoration: "none", color: "black" }}
-                    >
+                      style={{ textDecoration: "none", color: "black" }}>
                       Nathan Wigen
                     </a>
                   </li>
@@ -238,15 +228,13 @@ function Project(props) {
                 </Typography>
                 <ul
                   className={classes.UL}
-                  style={{ color: "black", listStyle: "disc" }}
-                >
+                  style={{ color: "black", listStyle: "disc" }}>
                   <li className={classes.LI}>
                     <a
                       href="https://www.claudiazacharias.com/"
                       target="_blank"
                       rel="noreferrer"
-                      style={{ textDecoration: "none", color: "black" }}
-                    >
+                      style={{ textDecoration: "none", color: "black" }}>
                       Claudia Zacharias
                     </a>
                   </li>
@@ -256,8 +244,7 @@ function Project(props) {
                       href="https://www.linkedin.com/in/toni-marie-brown-b44b7696/"
                       target="_blank"
                       style={{ textDecoration: "none", color: "black" }}
-                      rel="noreferrer"
-                    >
+                      rel="noreferrer">
                       Toni Brown
                     </a>
                   </li>
@@ -267,8 +254,7 @@ function Project(props) {
                       href="https://www.linkedin.com/in/kendallkessler/"
                       target="_blank"
                       rel="noreferrer"
-                      style={{ textDecoration: "none", color: "black" }}
-                    >
+                      style={{ textDecoration: "none", color: "black" }}>
                       Kendall Kessler
                     </a>
                   </li>
@@ -278,8 +264,7 @@ function Project(props) {
                       href="https://www.linkedin.com/in/erica-cleary/"
                       target="_blank"
                       rel="noreferrer"
-                      style={{ textDecoration: "none", color: "black" }}
-                    >
+                      style={{ textDecoration: "none", color: "black" }}>
                       Erica Cleary
                     </a>
                   </li>
@@ -295,10 +280,86 @@ function Project(props) {
                 </Typography>
                 <ul
                   className={classes.UL}
-                  style={{ color: "black", listStyle: "disc" }}
-                >
+                  style={{ color: "black", listStyle: "disc" }}>
                   <li className={classes.LI}>Email: test@email.com</li>
                   <li className={classes.LI}>Password: 12345678</li>
+                </ul>
+              </>
+            )}
+            {props.name === "Challenge.me" && (
+              <>
+                <br />
+                <Typography className={classes.techUsed}>The Team:</Typography>
+                <br />
+                <Typography className={classes.techUsed}>
+                  Developers:
+                </Typography>
+                <ul
+                  className={classes.UL}
+                  style={{ color: "black", listStyle: "disc" }}>
+                  <li className={classes.LI}>
+                    <a
+                      href="https://www.linkedin.com/in/daniel-michael-718825155/"
+                      target="_blank"
+                      rel="noreferrer"
+                      style={{ textDecoration: "none", color: "black" }}>
+                      Daniel Michael
+                    </a>
+                  </li>
+                  <br />
+                  <li className={classes.LI}>
+                    <a
+                      href="https://www.linkedin.com/in/kristina-timkova/"
+                      target="_blank"
+                      rel="noreferrer"
+                      style={{ textDecoration: "none", color: "black" }}>
+                      Kristina Timkova
+                    </a>
+                  </li>
+                  <br />
+                </ul>
+                <Typography className={classes.techUsed}>
+                  UX/UI Designers:
+                </Typography>
+                <ul
+                  className={classes.UL}
+                  style={{ color: "black", listStyle: "disc" }}>
+                  <li className={classes.LI}>
+                    <a
+                      href="https://www.linkedin.com/in/phoenix-ehmann/"
+                      target="_blank"
+                      rel="noreferrer"
+                      style={{ textDecoration: "none", color: "black" }}>
+                      Phoenix Ehmann
+                    </a>
+                  </li>
+                  <br />
+                  <li className={classes.LI}>
+                    <a
+                      href="https://www.linkedin.com/in/k-alarcon/"
+                      target="_blank"
+                      style={{ textDecoration: "none", color: "black" }}
+                      rel="noreferrer">
+                      Karen Alarcon
+                    </a>
+                  </li>
+                  <br />
+                </ul>
+                <Typography className={classes.techUsed}>
+                  Data Scientist:
+                </Typography>
+                <ul
+                  className={classes.UL}
+                  style={{ color: "black", listStyle: "disc" }}>
+                  <li className={classes.LI}>
+                    <a
+                      href="https://www.linkedin.com/in/cristinasahoo/"
+                      target="_blank"
+                      rel="noreferrer"
+                      style={{ textDecoration: "none", color: "black" }}>
+                      Cristina Sahoo
+                    </a>
+                  </li>
                 </ul>
               </>
             )}
