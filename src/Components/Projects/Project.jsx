@@ -9,6 +9,7 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import IconButton from "@material-ui/core/IconButton";
 import Collapse from "@material-ui/core/Collapse";
 import Button from "@material-ui/core/Button";
+import Video from "../Dialogs/Video";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -97,6 +98,15 @@ const useStyles = makeStyles((theme) => ({
 function Project(props) {
   const classes = useStyles();
   const [expanded, setExpanded] = useState(false);
+  const [openVideo, setOpenVideo] = useState(false);
+
+  const handleOpen = () => {
+    setOpenVideo(true);
+  };
+
+  const handleClose = () => {
+    setOpenVideo(false);
+  };
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -107,7 +117,7 @@ function Project(props) {
       <project-card>
         <CardHeader
           className="project-title"
-          title={props.name}
+          title={<p className="project-title">{props.name}</p>}
           subheader={props.date}
         />
         <picture className="thumbnail">
@@ -137,6 +147,15 @@ function Project(props) {
               Live Website
             </a>
           </Button>
+          {props.video && (
+            <Button
+              variant="text"
+              size="small"
+              color="link"
+              onClick={handleOpen}>
+              Video Walkthrough
+            </Button>
+          )}
         </footer>
         <CardActions disableSpacing className={classes.techUsed}>
           <Typography
@@ -366,6 +385,14 @@ function Project(props) {
           </CardContent>
         </Collapse>
       </project-card>
+
+      <Video
+        video={props.video}
+        handleOpen={handleOpen}
+        handleClose={handleClose}
+        openVideo={openVideo}
+        name={props.name}
+      />
     </>
   );
 }

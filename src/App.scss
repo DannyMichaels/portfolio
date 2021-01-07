@@ -65,6 +65,8 @@ picture img {
 /* components */
 project-card {
   display: block;
+  min-height: 630px;
+
   .title {
     @include calm-voice();
     text-transform: uppercase;
@@ -92,7 +94,14 @@ project-card {
     flex-direction: row;
     margin-top: $pad;
     flex-wrap: wrap;
+    justify-content: center;
+
+    @media screen and (min-width: 500px) {
+      flex-wrap: nowrap;
+      justify-content: space-evenly;
+    }
   }
+
   a {
     display: block;
     padding: 10px;
@@ -119,7 +128,14 @@ project-card {
 }
 
 .project-title {
-  text-align: center;
+  text-align: left;
+  @include calm-voice;
+  @media screen and (min-width: 250px) {
+    @include attention-voice();
+    color: black;
+    font-family: roboto;
+    text-align: center;
+  }
 }
 
 .section-header {

@@ -44,6 +44,7 @@ function Projects() {
         description={project?.fields.description}
         website={project?.fields.website}
         github={project?.fields.github}
+        video={project?.fields?.video}
         techName1={project.fields.tech_name1}
         techName2={project?.fields.tech_name2}
         techName3={project?.fields.tech_name3}
