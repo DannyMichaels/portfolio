@@ -38,18 +38,6 @@ function Projects() {
     <li className="project" key={project?.id}>
       <Project
         project={project}
-<<<<<<< HEAD
-        name={project?.fields?.name?.trim()}
-        date={project?.fields?.date}
-        projectImage={project?.fields?.img_url}
-        description={project?.fields?.description}
-        website={project?.fields?.website}
-        github={project?.fields?.github}
-        techName1={project?.fields?.tech_name1}
-        techName2={project?.fields?.tech_name2}
-        techName3={project?.fields?.tech_name3}
-        techName4={project?.fields?.tech_name4}
-=======
         name={project?.fields.name.trim()}
         date={project?.fields.date}
         projectImage={project?.fields.img_url}
@@ -61,7 +49,6 @@ function Projects() {
         techName2={project?.fields.tech_name2}
         techName3={project?.fields.tech_name3}
         techName4={project?.fields.tech_name4}
->>>>>>> develop
       />
     </li>
   ));
