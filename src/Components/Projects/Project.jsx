@@ -10,6 +10,7 @@ import IconButton from "@material-ui/core/IconButton";
 import Collapse from "@material-ui/core/Collapse";
 import Button from "@material-ui/core/Button";
 import Video from "../Dialogs/Video";
+import ProjectDetail from "../Dialogs/ProjectDetail";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -96,17 +97,25 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Project(props) {
-  const classes = useStyles();
+  const classes = useStyles(props);
   const [expanded, setExpanded] = useState(false);
   const [openVideo, setOpenVideo] = useState(false);
   const [openDetail, setOpenDetail] = useState(false);
 
-  const handleOpen = () => {
+  const handleVideoOpen = () => {
     setOpenVideo(true);
   };
 
-  const handleClose = () => {
+  const handleVideoClose = () => {
     setOpenVideo(false);
+  };
+
+  const handleDetailOpen = () => {
+    setOpenDetail(true);
+  };
+
+  const handleDetailClose = () => {
+    setOpenDetail(false);
   };
 
   const handleExpandClick = () => {
@@ -121,10 +130,12 @@ function Project(props) {
           title={<p className="project-title">{props.name}</p>}
           subheader={props.date}
         />
-        <picture
-          onClick={() => setOpenDetail(!openDetail)}
-          className="thumbnail">
-          <img src={props.projectImage} alt={props.name} />
+        <picture className="thumbnail">
+          <img
+            src={props.projectImage}
+            onClick={handleDetailOpen}
+            alt={props.name}
+          />
         </picture>
         <CardContent>
           <Typography variant="body2" color="textPrimary" component="p">
@@ -155,7 +166,7 @@ function Project(props) {
               variant="text"
               size="small"
               color="link"
-              onClick={handleOpen}>
+              onClick={handleVideoOpen}>
               Video Walkthrough
             </Button>
           )}
@@ -177,7 +188,7 @@ function Project(props) {
         </CardActions>
         <Collapse in={expanded} timeout="auto" unmountOnExit>
           <CardContent className={classes.techContainer}>
-            <Typography className={classes.techUsed}>Tech Used:</Typography>
+            {/* <Typography className={classes.techUsed}>Tech Used:</Typography>
             <br />
             {
               <Typography
@@ -384,17 +395,31 @@ function Project(props) {
                   </li>
                 </ul>
               </>
-            )}
+            )} */}
           </CardContent>
         </Collapse>
       </project-card>
 
       <Video
         video={props.video}
-        handleOpen={handleOpen}
-        handleClose={handleClose}
+        handleOpen={handleVideoOpen}
+        handleClose={handleVideoClose}
         openVideo={openVideo}
         name={props.name}
+        handleDetailOpen={handleDetailOpen}
+        handleDetailClose={handleDetailClose}
+      />
+
+      <ProjectDetail
+        techName1={props.techName1}
+        techName2={props.techName2}
+        techName3={props.techName3}
+        techName4={props.techName4}
+        techName5={props.techName5}
+        handleDetailClose={handleDetailClose}
+        name={props.name}
+        classes={classes}
+        openDetail={openDetail}
       />
     </>
   );
