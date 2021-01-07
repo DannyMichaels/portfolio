@@ -99,6 +99,7 @@ function Project(props) {
   const classes = useStyles();
   const [expanded, setExpanded] = useState(false);
   const [openVideo, setOpenVideo] = useState(false);
+  const [openDetail, setOpenDetail] = useState(false);
 
   const handleOpen = () => {
     setOpenVideo(true);
@@ -120,7 +121,9 @@ function Project(props) {
           title={<p className="project-title">{props.name}</p>}
           subheader={props.date}
         />
-        <picture className="thumbnail">
+        <picture
+          onClick={() => setOpenDetail(!openDetail)}
+          className="thumbnail">
           <img src={props.projectImage} alt={props.name} />
         </picture>
         <CardContent>
