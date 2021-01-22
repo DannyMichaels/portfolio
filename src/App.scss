@@ -46,16 +46,12 @@ picture img {
   width: 100%;
   height: auto;
 }
-
-// for videos
-.MuiDialog-paperWidthSm {
-  width: 90vw;
-}
-
 .projects-h1 {
   display: flex;
   text-align: center;
   font-size: 36px;
+  // font-family: "Helvetica", Helvetica, Arial, serif;
+  // font-size: 70px;
   cursor: default;
   line-height: 84px;
   z-index: 1;
@@ -108,18 +104,12 @@ project-card {
     display: block;
     padding: 10px;
   }
-
-  picture {
-    cursor: pointer;
-  }
-
   @media (min-width: 0px) {
     padding: $pad;
     border-radius: 6px;
     background-color: white;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
-    min-height: 610px;
-    padding: 20px;
+    min-height: 650px;
   }
 
   @media (max-width: 699px) {
