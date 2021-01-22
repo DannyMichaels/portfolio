@@ -186,9 +186,10 @@ function Project(props) {
             <ExpandMoreIcon />
           </IconButton>
         </CardActions>
+
         <Collapse in={expanded} timeout="auto" unmountOnExit>
           <CardContent className={classes.techContainer}>
-            {/* <Typography className={classes.techUsed}>Tech Used:</Typography>
+            <Typography className={classes.techUsed}>Tech Used:</Typography>
             <br />
             {
               <Typography
@@ -395,7 +396,7 @@ function Project(props) {
                   </li>
                 </ul>
               </>
-            )} */}
+            )}
           </CardContent>
         </Collapse>
       </project-card>
@@ -419,7 +420,7 @@ function Project(props) {
         handleDetailClose={handleDetailClose}
         name={props.name}
         classes={classes}
-        openDetail={openDetail}
+        openDetail={false} //openDetail instead of false once I want this
       />
     </>
   );

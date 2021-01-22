@@ -108,12 +108,18 @@ project-card {
     display: block;
     padding: 10px;
   }
+
+  picture {
+    cursor: pointer;
+  }
+
   @media (min-width: 0px) {
     padding: $pad;
     border-radius: 6px;
     background-color: white;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
-    min-height: 650px;
+    min-height: 610px;
+    padding: 20px;
   }
 
   @media (max-width: 699px) {
