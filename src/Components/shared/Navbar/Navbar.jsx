@@ -36,7 +36,7 @@ const Nav = styled.nav`
   }
 `;
 
-const Navbar = () => {
+const Navbar = ({ open, setOpen, isBody }) => {
   const [navBar, setNavBar] = React.useState(false);
 
   const changeBackground = () => {
@@ -63,8 +63,7 @@ const Navbar = () => {
               transition: "250ms ease-in-out",
               background: "inherit",
             }
-      }
-    >
+      }>
       <div className="logo">
         <Link
           className="back-to-top"
@@ -72,12 +71,11 @@ const Navbar = () => {
           to="header"
           spy={true}
           smooth={true}
-          duration={1000}
-        >
+          duration={1000}>
           Daniel Michael
         </Link>
       </div>
-      <Burger navBar={navBar} />
+      <Burger isBody={isBody} navBar={navBar} open={open} setOpen={setOpen} />
     </Nav>
   );
 };

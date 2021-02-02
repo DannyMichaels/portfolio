@@ -4,7 +4,7 @@ import { onResize } from "../../../utils/onResize";
 import { Link } from "react-scroll";
 import { blockBodyOnCondition } from "../../../utils/blockBodyOnCondition";
 
-function OpenNav({ navBar, open, setOpen }) {
+function OpenNav({ navBar, open, setOpen, isBody }) {
   useEffect(() => {
     onResize();
     window.addEventListener("resize", () => {
@@ -27,7 +27,7 @@ function OpenNav({ navBar, open, setOpen }) {
     };
   }, []);
   useEffect(() => {
-    blockBodyOnCondition(open);
+    blockBodyOnCondition(open, isBody);
   }, [open]);
 
   const [disabled, setDisabled] = useState(false);
@@ -51,8 +51,7 @@ function OpenNav({ navBar, open, setOpen }) {
       navBar={navBar}
       id="menu"
       open={open}
-      setOpen={setOpen}
-    >
+      setOpen={setOpen}>
       <Link
         className="desktop-link"
         activeClass="active"
@@ -60,8 +59,7 @@ function OpenNav({ navBar, open, setOpen }) {
         spy={true}
         smooth={true}
         duration={1000}
-        onClick={handleDisable}
-      >
+        onClick={handleDisable}>
         <li>Home</li>
       </Link>
 
@@ -72,8 +70,7 @@ function OpenNav({ navBar, open, setOpen }) {
         to="header"
         spy={true}
         smooth={true}
-        duration={1000}
-      >
+        duration={1000}>
         <li>Home</li>
       </Link>
 
@@ -84,8 +81,7 @@ function OpenNav({ navBar, open, setOpen }) {
         spy={true}
         smooth={true}
         duration={1000}
-        onClick={handleDisable}
-      >
+        onClick={handleDisable}>
         <li>About</li>
       </Link>
 
@@ -96,8 +92,7 @@ function OpenNav({ navBar, open, setOpen }) {
         to="about"
         spy={true}
         smooth={true}
-        duration={1000}
-      >
+        duration={1000}>
         <li>About</li>
       </Link>
 
@@ -108,8 +103,7 @@ function OpenNav({ navBar, open, setOpen }) {
         spy={true}
         smooth={true}
         duration={1000}
-        onClick={handleDisable}
-      >
+        onClick={handleDisable}>
         <li>Projects</li>
       </Link>
 
@@ -120,8 +114,7 @@ function OpenNav({ navBar, open, setOpen }) {
         to="projects"
         spy={true}
         smooth={true}
-        duration={1000}
-      >
+        duration={1000}>
         <li>Projects</li>
       </Link>
 
@@ -132,8 +125,7 @@ function OpenNav({ navBar, open, setOpen }) {
         spy={true}
         smooth={true}
         duration={1000}
-        onClick={handleDisable}
-      >
+        onClick={handleDisable}>
         <li>Contact</li>
       </Link>
       <Link
@@ -143,8 +135,7 @@ function OpenNav({ navBar, open, setOpen }) {
         to="contact"
         spy={true}
         smooth={true}
-        duration={1000}
-      >
+        duration={1000}>
         <li>Contact</li>
       </Link>
     </Ul>
