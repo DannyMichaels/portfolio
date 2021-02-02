@@ -24,6 +24,10 @@ const Div = styled.div`
     background: #fff;
     color: black;
     margin-left: -50px;
+
+    @media screen and (max-width: 600px) {
+      margin-left: -60px;
+    }
   }
   .resume-button:hover {
     background: #fff;
@@ -182,7 +186,7 @@ function About() {
                   rel="noreferrer"
                   style={{ textDecoration: "none", color: "inherit" }}
                   href={
-                    "https://drive.google.com/file/d/1rjvP6GQkDtwfLTPUoGctdW2wl2ScA82W/view?usp=sharing"
+                    "https://drive.google.com/file/d/1Wjfz8E9NeW4QMK_nhpwSicwg9_pDA5JD/view?usp=sharing"
                   }>
                   <Button
                     variant="contained"
