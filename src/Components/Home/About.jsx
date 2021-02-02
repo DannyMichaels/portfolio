@@ -24,6 +24,10 @@ const Div = styled.div`
     background: #fff;
     color: black;
     margin-left: -50px;
+
+    @media screen and (max-width: 600px) {
+      margin-left: -60px;
+    }
   }
   .resume-button:hover {
     background: #fff;
