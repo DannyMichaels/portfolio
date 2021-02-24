@@ -1,8 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Burger from "./Burger";
 import { Link } from "react-scroll";
-import { onResize } from "../../../utils/onResize";
 
 const Nav = styled.nav`
   width: 100%;
@@ -37,7 +36,7 @@ const Nav = styled.nav`
 `;
 
 const Navbar = () => {
-  const [navBar, setNavBar] = React.useState(false);
+  const [navBar, setNavBar] = useState(false);
 
   const changeBackground = () => {
     const width = window?.innerWidth;
@@ -49,8 +48,16 @@ const Navbar = () => {
       setNavBar(false);
     }
   };
-  window.addEventListener("scroll", changeBackground);
-  window.addEventListener("resize", changeBackground);
+
+  useEffect(() => {
+    window.addEventListener("scroll", changeBackground);
+    window.addEventListener("resize", changeBackground);
+    return () => {
+      window.removeEventListener("scroll", changeBackground);
+      window.removeEventListener("resize", changeBackground);
+    };
+  }, []);
+
   return (
     <Nav
       style={
@@ -63,8 +70,7 @@ const Navbar = () => {
               transition: "250ms ease-in-out",
               background: "inherit",
             }
-      }
-    >
+      }>
       <div className="logo">
         <Link
           className="back-to-top"
@@ -72,8 +78,7 @@ const Navbar = () => {
           to="header"
           spy={true}
           smooth={true}
-          duration={1000}
-        >
+          duration={1000}>
           Daniel Michael
         </Link>
       </div>

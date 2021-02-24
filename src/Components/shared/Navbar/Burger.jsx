@@ -69,14 +69,14 @@ function Burger({ navBar }) {
 
   return (
     <>
-      <Background id="burger-bg">
-        <StyledBurger open={open} onClick={() => setOpen(!open)}>
-          <div className="bar-line" />
-          <div className="bar-line" />
-          <div className="bar-line" />
+      <Background id="burger-bg" value="burger">
+        <StyledBurger open={open} onClick={() => setOpen(!open)} value="burger">
+          <div className="bar-line" value="burger" />
+          <div className="bar-line" value="burger" />
+          <div className="bar-line" value="burger" />
         </StyledBurger>
       </Background>
-      <OpenNav navBar={navBar} open={open} setOpen={setOpen} />
+      <OpenNav navBar={navBar} open={open} setOpen={setOpen} value="burger" />
     </>
   );
 }

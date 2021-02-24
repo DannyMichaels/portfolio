@@ -6,8 +6,7 @@ const Layout = ({ children }) => (
     <Navbar />
     <div
       style={{ overflowX: "hidden", overflowY: "hidden" }}
-      className="layout-children"
-    >
+      className="layout-children">
       {children}
     </div>
     <Footer />

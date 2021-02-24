@@ -3,6 +3,7 @@ import Ul from "./Ul";
 import { onResize } from "../../../utils/onResize";
 import { Link } from "react-scroll";
 import { blockBodyOnCondition } from "../../../utils/blockBodyOnCondition";
+import ClickAwayListener from "./ClickAwayListener";
 
 function OpenNav({ navBar, open, setOpen }) {
   useEffect(() => {
@@ -44,110 +45,103 @@ function OpenNav({ navBar, open, setOpen }) {
   };
 
   return (
-    <Ul
-      style={
-        disabled ? { pointerEvents: "none" } : { pointerEvents: "inherit" }
-      }
-      navBar={navBar}
-      id="menu"
-      open={open}
-      setOpen={setOpen}
-    >
-      <Link
-        className="desktop-link"
-        activeClass="active"
-        to="header"
-        spy={true}
-        smooth={true}
-        duration={1000}
-        onClick={handleDisable}
-      >
-        <li>Home</li>
-      </Link>
+    <>
+      <Ul
+        style={
+          disabled ? { pointerEvents: "none" } : { pointerEvents: "inherit" }
+        }
+        navBar={navBar}
+        id="menu"
+        open={open}
+        setOpen={setOpen}>
+        <Link
+          className="desktop-link"
+          activeClass="active"
+          to="header"
+          spy={true}
+          smooth={true}
+          duration={1000}
+          onClick={handleDisable}>
+          <li>Home</li>
+        </Link>
 
-      <Link
-        onClick={() => setOpen(!open)}
-        className="mobile-link"
-        activeClass="active"
-        to="header"
-        spy={true}
-        smooth={true}
-        duration={1000}
-      >
-        <li>Home</li>
-      </Link>
+        <Link
+          onClick={() => setOpen(!open)}
+          className="mobile-link"
+          activeClass="active"
+          to="header"
+          spy={true}
+          smooth={true}
+          duration={1000}>
+          <li>Home</li>
+        </Link>
 
-      <Link
-        className="desktop-link"
-        activeClass="active"
-        to="about"
-        spy={true}
-        smooth={true}
-        duration={1000}
-        onClick={handleDisable}
-      >
-        <li>About</li>
-      </Link>
+        <Link
+          className="desktop-link"
+          activeClass="active"
+          to="about"
+          spy={true}
+          smooth={true}
+          duration={1000}
+          onClick={handleDisable}>
+          <li>About</li>
+        </Link>
 
-      <Link
-        onClick={() => setOpen(!open)}
-        className="mobile-link"
-        activeClass="active"
-        to="about"
-        spy={true}
-        smooth={true}
-        duration={1000}
-      >
-        <li>About</li>
-      </Link>
+        <Link
+          onClick={() => setOpen(!open)}
+          className="mobile-link"
+          activeClass="active"
+          to="about"
+          spy={true}
+          smooth={true}
+          duration={1000}>
+          <li>About</li>
+        </Link>
 
-      <Link
-        className="desktop-link"
-        activeClass="active"
-        to="projects"
-        spy={true}
-        smooth={true}
-        duration={1000}
-        onClick={handleDisable}
-      >
-        <li>Projects</li>
-      </Link>
+        <Link
+          className="desktop-link"
+          activeClass="active"
+          to="projects"
+          spy={true}
+          smooth={true}
+          duration={1000}
+          onClick={handleDisable}>
+          <li>Projects</li>
+        </Link>
 
-      <Link
-        onClick={() => setOpen(!open)}
-        className="mobile-link"
-        activeClass="active"
-        to="projects"
-        spy={true}
-        smooth={true}
-        duration={1000}
-      >
-        <li>Projects</li>
-      </Link>
+        <Link
+          onClick={() => setOpen(!open)}
+          className="mobile-link"
+          activeClass="active"
+          to="projects"
+          spy={true}
+          smooth={true}
+          duration={1000}>
+          <li>Projects</li>
+        </Link>
 
-      <Link
-        className="desktop-link"
-        activeClass="active"
-        to="contact"
-        spy={true}
-        smooth={true}
-        duration={1000}
-        onClick={handleDisable}
-      >
-        <li>Contact</li>
-      </Link>
-      <Link
-        onClick={() => setOpen(!open)}
-        className="mobile-link"
-        activeClass="active"
-        to="contact"
-        spy={true}
-        smooth={true}
-        duration={1000}
-      >
-        <li>Contact</li>
-      </Link>
-    </Ul>
+        <Link
+          className="desktop-link"
+          activeClass="active"
+          to="contact"
+          spy={true}
+          smooth={true}
+          duration={1000}
+          onClick={handleDisable}>
+          <li>Contact</li>
+        </Link>
+        <Link
+          onClick={() => setOpen(!open)}
+          className="mobile-link"
+          activeClass="active"
+          to="contact"
+          spy={true}
+          smooth={true}
+          duration={1000}>
+          <li>Contact</li>
+        </Link>
+      </Ul>
+    </>
   );
 }
 
