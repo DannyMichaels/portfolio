@@ -44,9 +44,36 @@ function OpenNav({ navBar, open, setOpen }) {
     }, 600);
   };
 
+  const handleClickAway = () => {
+    let menu = document.getElementById("menu");
+
+    if ((menu.value = "open")) {
+      console.log(menu.value);
+      setOpen(false);
+    } else {
+      return;
+    }
+  };
+
+  const [value, setValue] = useState("closed");
+
+  useEffect(() => {
+    console.log("test", value);
+    if (open) {
+      setTimeout(async () => {
+        setValue("open");
+      }, 300);
+    } else {
+      setTimeout(async () => {
+        setValue("closed");
+      }, 300);
+    }
+  }, [value, open]);
+
   return (
-    <>
+    <ClickAwayListener onClickAway={handleClickAway} isMenuShowing={open}>
       <Ul
+        value={value}
         style={
           disabled ? { pointerEvents: "none" } : { pointerEvents: "inherit" }
         }
@@ -141,7 +168,7 @@ function OpenNav({ navBar, open, setOpen }) {
           <li>Contact</li>
         </Link>
       </Ul>
-    </>
+    </ClickAwayListener>
   );
 }
 
