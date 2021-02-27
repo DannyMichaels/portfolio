@@ -5,8 +5,6 @@ import HeaderContent from "./HeaderContent";
 const Div = styled.div`
   flex-shrink: 1;
   overflow: hidden;
-  height: 100vh;
-  width: 100vw;
   min-height: 90vh;
   display: ${({ isFireFox }) => !isFireFox && "flex"};
   flex-direction: ${({ isFireFox }) => !isFireFox && "column"};

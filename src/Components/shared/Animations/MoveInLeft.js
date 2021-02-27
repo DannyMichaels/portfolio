@@ -7,8 +7,8 @@ const MoveInLeft = styled.div`
   animation-timing-function: ease-out;
   display: flex;
   flex-direction: column;
-  overflow-x: hidden;
-  overflow-y: hidden;
+  /* overflow-x: hidden; */
+  /* overflow-y: hidden; */
   width: 100vw;
   @keyframes moveInLeft {
     0% {
@@ -22,8 +22,8 @@ const MoveInLeft = styled.div`
     100% {
       opacity: 1;
       transform: translate(0);
-      overflow-x: hidden;
-      overflow-y: hidden;
+      /* overflow-x: hidden; */
+      /* overflow-y: hidden; */
       /* width: 200px; */
     }
   }

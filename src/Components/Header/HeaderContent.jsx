@@ -32,13 +32,22 @@ const CloudBig = styled.img`
   transform: translatey(0px);
   box-shadow: none;
   animation: float 6s ease-in-out infinite;
-  margin-top: -60px;
+
+  position: absolute;
+  width: 50%;
+  right: 25%;
+  max-width: 50%;
+  bottom: 20px;
+  @media screen and (max-width: 600px) {
+    position: absolute;
+    max-width: 400px;
+  }
 `;
 
 const Div = styled.div`
   width: 955px;
   height: 1000px;
-  overflow: hidden;
+  /* overflow: hidden; */
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -55,6 +64,19 @@ const Div = styled.div`
     margin-top: -350px;
   }
 `;
+
+const InnerColumn = styled.div`
+  display: block;
+  width: 98%;
+  max-width: 1100px;
+  margin-right: auto;
+  margin-left: auto;
+
+  picture {
+    display: block;
+  }
+`;
+
 export default function HeaderContent({ isFireFox }) {
   const [disabled, setDisabled] = React.useState(false);
 
@@ -82,13 +104,20 @@ export default function HeaderContent({ isFireFox }) {
     <>
       <MoveInLeft className="animation1">
         <HeaderText />
-        <Scroll />
         <Fill1 fill1="https://anima-uploads.s3.amazonaws.com/projects/5fb14441119f80c2053ea467/releases/5fb14452ac34b30698d1c801/img/01maindemo-fill-1-3E925590-1D1F-4FAB-9036-050A24FF5082.png" />
-        {isFireFox ? (
-          <></>
-        ) : (
-          <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-        )}
+        <InnerColumn>
+          <Scroll />
+          {isFireFox ? (
+            <></>
+          ) : (
+            <picture>
+              <CloudBig
+                className="cloud"
+                src="https://i.imgur.com/UOQ3aCS.png"
+              />
+            </picture>
+          )}
+        </InnerColumn>
         {!disabled && (
           <Div class="crop">
             <Fill2 fill2="https://anima-uploads.s3.amazonaws.com/projects/5fb14441119f80c2053ea467/releases/5fb14452ac34b30698d1c801/img/01maindemo-fill-1-2D5D0138-9E96-48FA-B912-5523E3A31DAE.png" />

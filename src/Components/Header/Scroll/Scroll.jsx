@@ -19,17 +19,19 @@ const Div = styled.div`
   justify-content: flex-start;
   margin-top: 450px;
   position: relative;
-  margin-left: 120px;
   z-index: 9998;
   min-width: 161px;
   transition: transform 250ms ease-in;
 
+  @media screen and (max-width: 1200px) {
+    margin-left: 120px;
+  }
+
   @media screen and (max-width: 768px) {
-    /* margin-left: auto; */
     align-self: center;
     text-align: center;
   }
-  /* width: auto; */
+
   .border-class-1 {
     border: 2px solid rgba(255, 255, 255, 1);
   }
@@ -84,6 +86,7 @@ const Div = styled.div`
     cursor: pointer;
   }
 `;
+
 function Scroll() {
   return (
     <Link
@@ -91,11 +94,10 @@ function Scroll() {
       to="about"
       spy={true}
       smooth={true}
-      duration={1000}
-    >
+      duration={1000}>
       <Scroll1>
         <Div className="scroll">
-          <div className="scroll-for-more font-class-2">Scroll For More</div>
+          <p className="scroll-for-more font-class-2">Scroll For More</p>
           <div className="group-3">
             <div className="rectangle-5"></div>
             <div className="rectangle-4 border-class-1"></div>
