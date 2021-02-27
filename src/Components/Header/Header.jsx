@@ -4,18 +4,12 @@ import HeaderContent from "./HeaderContent";
 
 const Div = styled.div`
   flex-shrink: 1;
-  overflow: hidden;
-  height: 100vh;
+  height: 1012px;
   width: 100vw;
-  min-height: 90vh;
   display: ${({ isFireFox }) => !isFireFox && "flex"};
   flex-direction: ${({ isFireFox }) => !isFireFox && "column"};
   justify-content: ${({ isFireFox }) => !isFireFox && "center"};
   position: ${({ isFireFox }) => !isFireFox && "relative"};
-
-  @media screen and (max-width: 813px) {
-    height: 1012px;
-  }
 `;
 
 function Header() {
