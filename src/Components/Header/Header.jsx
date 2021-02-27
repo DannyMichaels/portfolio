@@ -13,8 +13,8 @@ const Div = styled.div`
   justify-content: ${({ isFireFox }) => !isFireFox && "center"};
   position: ${({ isFireFox }) => !isFireFox && "relative"};
 
-  @media screen and (max-width: 600px) {
-    height: 990px;
+  @media screen and (max-width: 1100px) {
+    height: 1012px;
     min-height: 100vh;
   }
 `;
