@@ -55,7 +55,7 @@ const Div = styled.div`
     margin-top: -350px;
   }
 `;
-export default function HeaderContent() {
+export default function HeaderContent({ isFireFox }) {
   const [disabled, setDisabled] = React.useState(false);
 
   function fillCheck() {
@@ -84,7 +84,7 @@ export default function HeaderContent() {
         <HeaderText />
         <Scroll />
         <Fill1 fill1="https://anima-uploads.s3.amazonaws.com/projects/5fb14441119f80c2053ea467/releases/5fb14452ac34b30698d1c801/img/01maindemo-fill-1-3E925590-1D1F-4FAB-9036-050A24FF5082.png" />
-        {navigator?.userAgent?.indexOf("Firefox") !== -1 ? (
+        {isFireFox ? (
           <></>
         ) : (
           <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
