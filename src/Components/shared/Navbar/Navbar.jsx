@@ -36,16 +36,16 @@ const Nav = styled.nav`
 `;
 
 const Navbar = () => {
-  const [navBar, setNavBar] = useState(false);
+  const [isCyanShowing, setCyanShowing] = useState(false);
 
   const changeBackground = () => {
     const width = window?.innerWidth;
     if (width <= 768) {
-      setNavBar(false);
+      setCyanShowing(false);
     } else if (window.scrollY >= 198) {
-      setNavBar(true);
+      setCyanShowing(true);
     } else {
-      setNavBar(false);
+      setCyanShowing(false);
     }
   };
 
@@ -61,7 +61,7 @@ const Navbar = () => {
   return (
     <Nav
       style={
-        navBar
+        isCyanShowing
           ? {
               transition: "250ms ease-in-out",
               background: "rgba(148, 187, 233, 0.8)",
@@ -82,7 +82,7 @@ const Navbar = () => {
           Daniel Michael
         </Link>
       </div>
-      <Burger navBar={navBar} />
+      <Burger />
     </Nav>
   );
 };

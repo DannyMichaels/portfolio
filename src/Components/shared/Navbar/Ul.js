@@ -15,12 +15,11 @@ const Ul = styled.ul`
     cursor: pointer;
     font-family: "Helvetica", Helvetica, Arial, serif;
     border: none;
-    /* color: white; */
+    color: white;
     padding: 20px 32px;
     text-align: center;
     font-size: 1.3rem;
     transition: 0.3s ease-in-out;
-    color: ${({ navBar }) => (navBar ? "white" : "white")};
   }
 
   li:hover {

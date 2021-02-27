@@ -3,9 +3,8 @@ import Ul from "./Ul";
 import { onResize } from "../../../utils/onResize";
 import { Link } from "react-scroll";
 import { blockBodyOnCondition } from "../../../utils/blockBodyOnCondition";
-import ClickAwayListener from "./ClickAwayListener";
 
-function OpenNav({ navBar, open, setOpen }) {
+function OpenNav({ open, setOpen }) {
   useEffect(() => {
     onResize();
     window.addEventListener("resize", () => {
@@ -50,7 +49,6 @@ function OpenNav({ navBar, open, setOpen }) {
         style={
           disabled ? { pointerEvents: "none" } : { pointerEvents: "inherit" }
         }
-        navBar={navBar}
         id="menu"
         open={open}
         setOpen={setOpen}>
