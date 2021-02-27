@@ -12,6 +12,11 @@ const Div = styled.div`
   flex-direction: ${({ isFireFox }) => !isFireFox && "column"};
   justify-content: ${({ isFireFox }) => !isFireFox && "center"};
   position: ${({ isFireFox }) => !isFireFox && "relative"};
+
+  @media screen and (max-width: 600px) {
+    height: 990px;
+    min-height: 100vh;
+  }
 `;
 
 function Header() {

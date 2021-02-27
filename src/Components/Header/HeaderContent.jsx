@@ -7,30 +7,13 @@ import MoveInLeft from "../shared/Animations/MoveInLeft";
 import styled from "styled-components";
 
 const CloudBig = styled.img`
-  @keyframes float {
-    0% {
-      box-shadow: none;
-
-      transform: translatey(0px);
-    }
-    50% {
-      box-shadow: none;
-
-      transform: translatey(-20px);
-    }
-
-    100% {
-      box-shadow: none;
-      transform: translatey(0px);
-    }
-  }
   z-index: -1;
   filter: blur(4px);
   z-index: 0;
   opacity: 0.5;
   cursor: pointer;
   transform: translatey(0px);
-  box-shadow: none;
+  filter: drop-shadow(0 5px 15px 0px rgba(0, 0, 0, 0.6));
   animation: float 6s ease-in-out infinite;
   margin-top: -60px;
 `;

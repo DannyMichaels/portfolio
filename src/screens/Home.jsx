@@ -21,21 +21,6 @@ let Div = styled.div`
   }
 `;
 const CloudBig = styled.img`
-  @keyframes float {
-    0% {
-      box-shadow: none;
-      transform: translateY(0px);
-    }
-    50% {
-      box-shadow: none;
-      transform: translateY(-20px);
-    }
-
-    100% {
-      box-shadow: none;
-      transform: translateY(0px);
-    }
-  }
   z-index: -2;
   filter: blur(4px);
   z-index: 0;
