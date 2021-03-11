@@ -53,17 +53,6 @@ function Projects() {
     </li>
   ));
 
-  if (!loaded) {
-    return (
-      <div className="loading">
-        <div className="card">
-          <h1>Loading Projects</h1>
-          <CircularProgress />
-        </div>
-      </div>
-    );
-  }
-
   return (
     <>
       <section class="page-section projects" id="projects">
@@ -80,7 +69,9 @@ function Projects() {
               <Span className="span">s</Span>
             </h2>
           </header>
-          <ol className="project-list">{PROJECTS}</ol>
+          <ol className="project-list">
+            {loaded ? PROJECTS : <CircularProgress />}
+          </ol>
         </inner-column>
       </section>
     </>
