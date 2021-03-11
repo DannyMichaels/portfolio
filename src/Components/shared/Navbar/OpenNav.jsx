@@ -1,10 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Ul from "./Ul";
 import { onResize } from "../../../utils/onResize";
 import { Link } from "react-scroll";
 import { blockBodyOnCondition } from "../../../utils/blockBodyOnCondition";
+import { IconButton } from "@material-ui/core";
+import CloudOn from "@material-ui/icons/Cloud";
+import CloudOff from "@material-ui/icons/CloudOff";
+import { CloudStateContext } from "../../../context/animationContext";
 
-function OpenNav({ open, setOpen }) {
+function OpenNav({ open, setOpen, toggleCloudMode }) {
+  const [cloudMode] = useContext(CloudStateContext);
+
   useEffect(() => {
     onResize();
     window.addEventListener("resize", () => {
@@ -138,6 +144,13 @@ function OpenNav({ open, setOpen }) {
           duration={1000}>
           <li>Contact</li>
         </Link>
+        <IconButton onClick={toggleCloudMode}>
+          {cloudMode ? (
+            <CloudOn style={{ color: "#fff" }} />
+          ) : (
+            <CloudOff style={{ color: "#fff" }} />
+          )}
+        </IconButton>
       </Ul>
     </>
   );

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-scroll";
 
-const Scroll1 = styled.div`
+const Wrapper = styled.div`
   @media screen and (max-width: 768px) {
     display: flex;
     justify-content: center;
@@ -23,7 +23,6 @@ const Div = styled.div`
   z-index: 9998;
   min-width: 161px;
   transition: transform 250ms ease-in;
-
   @media screen and (max-width: 768px) {
     /* margin-left: auto; */
     align-self: center;
@@ -39,7 +38,6 @@ const Div = styled.div`
     font-size: 18px;
     line-height: 22px;
   }
-
   .group-3 {
     background-color: transparent;
     flex-shrink: 0;
@@ -66,7 +64,6 @@ const Div = styled.div`
     top: 10px;
     width: 2px;
   }
-
   .scroll-for-more {
     background-color: transparent;
     flex-shrink: 0;
@@ -84,25 +81,25 @@ const Div = styled.div`
     cursor: pointer;
   }
 `;
+
 function Scroll() {
   return (
-    <Link
-      activeClass="active"
-      to="about"
-      spy={true}
-      smooth={true}
-      duration={1000}
-    >
-      <Scroll1>
+    <Wrapper>
+      <Link
+        activeClass="active"
+        to="about"
+        spy={true}
+        smooth={true}
+        duration={1000}>
         <Div className="scroll">
-          <div className="scroll-for-more font-class-2">Scroll For More</div>
+          <p className="scroll-for-more font-class-2">Scroll For More</p>
           <div className="group-3">
             <div className="rectangle-5"></div>
             <div className="rectangle-4 border-class-1"></div>
           </div>
         </Div>
-      </Scroll1>
-    </Link>
+      </Link>
+    </Wrapper>
   );
 }
 

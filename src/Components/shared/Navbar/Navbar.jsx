@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import Burger from "./Burger";
 import { Link } from "react-scroll";
+import { CloudStateContext } from "../../../context/animationContext";
+import CloudBtn from "./CloudBtn";
 
 const Nav = styled.nav`
   width: 100%;
@@ -37,6 +39,17 @@ const Nav = styled.nav`
 
 const Navbar = () => {
   const [isCyanShowing, setCyanShowing] = useState(false);
+  const [cloudMode, setCloudMode] = useContext(CloudStateContext);
+
+  const toggleCloudMode = () => {
+    if (cloudMode) {
+      setCloudMode(false);
+      localStorage.setItem("cloudMode", "false");
+    } else {
+      setCloudMode(true);
+      localStorage.setItem("cloudMode", "true");
+    }
+  };
 
   const changeBackground = () => {
     const width = window?.innerWidth;
@@ -82,7 +95,10 @@ const Navbar = () => {
           Daniel Michael
         </Link>
       </div>
-      <Burger />
+
+      <Burger toggleCloudMode={toggleCloudMode} />
+
+      <CloudBtn toggleCloudMode={toggleCloudMode} cloudMode={cloudMode} />
     </Nav>
   );
 };

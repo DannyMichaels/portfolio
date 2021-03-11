@@ -133,7 +133,7 @@ const Div = styled.div`
 function About() {
   return (
     <>
-      <section class="text">
+      <section class="page-section text">
         <Div>
           <div className="content-container">
             <div className="title-container">

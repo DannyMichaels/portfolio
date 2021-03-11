@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import Stack from "../Components/Stack/Stack";
 import Projects from "../Components/Projects/Projects";
 import Layout from "../Components/shared/Layout/Layout";
@@ -7,6 +8,9 @@ import About from "../Components/Home/About";
 import ScrollToTopOnMount from "../Components/BackToTop/ScrollToTopOnMount";
 import styled from "styled-components";
 import Contact from "../Form/Contact";
+import Testimonials from "../Components/Testimonials/Testimonials";
+import { Clouds1, Clouds2 } from "../Components/Clouds/Clouds";
+import { CloudStateContext } from "../context/animationContext";
 
 let Div = styled.div`
   display: flex;
@@ -20,54 +24,16 @@ let Div = styled.div`
     justify-content: center;
   }
 `;
-const CloudBig = styled.img`
-  z-index: -2;
-  filter: blur(4px);
-  z-index: 0;
-  opacity: 0.5;
-  user-select: none;
-  cursor: pointer;
-  margin: 10px;
-  transform: translatey(0px);
-  box-shadow: none;
-  animation: float 6s ease-in-out infinite;
-  margin-top: -60px;
-  object-fit: contain;
-
-  @media screen and (max-width: 768px) {
-    max-width: 150px;
-    object-fit: contain;
-  }
-`;
-let Giv = styled.div`
-  display: flex;
-  flex-wrap: nowrap;
-  @media screen and (max-width: 768px) {
-    display: none;
-  }
-`;
-let Biv = styled.div`
-  display: none;
-  @media screen and (max-width: 768px) {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-`;
-
-let Ziv = styled.div`
-  display: none;
-  @media screen and (max-width: 768px) {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-`;
-let Liv = styled.div`
-  margin-top: 100px;
-`;
 
 function Home() {
+  const [cloudMode] = useContext(CloudStateContext);
+
+  const space = (
+    <>
+      <br /> <br />
+    </>
+  );
+
   return (
     <>
       <Layout>
@@ -76,117 +42,20 @@ function Home() {
         <main class="page-content">
           <Header id="header" />
           <Div id="about">
-            {/* <section class="page-section about-me" id="about-me"> */}
-            {/* <inner-column> */}
             <About />
             <Stack />
-            {/* </inner-column> */}
-            {/* </section> */}
           </Div>
-          <Giv className="desktop">
-            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-          </Giv>
-          <Giv className="desktop">
-            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-          </Giv>
 
-          <Biv className="mobile">
-            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-          </Biv>
-          <Biv className="mobile">
-            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-            <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-          </Biv>
+          {cloudMode ? <Clouds1 /> : space}
 
           <Projects id="projects" />
 
-          <Liv>
-            <Giv className="desktop">
-              <CloudBig
-                className="cloud"
-                src="https://i.imgur.com/UOQ3aCS.png"
-              />
-              <CloudBig
-                className="cloud"
-                src="https://i.imgur.com/UOQ3aCS.png"
-              />
-              <CloudBig
-                className="cloud"
-                src="https://i.imgur.com/UOQ3aCS.png"
-              />
-              <CloudBig
-                className="cloud"
-                src="https://i.imgur.com/UOQ3aCS.png"
-              />
-              <CloudBig
-                className="cloud"
-                src="https://i.imgur.com/UOQ3aCS.png"
-              />
-              <CloudBig
-                className="cloud"
-                src="https://i.imgur.com/UOQ3aCS.png"
-              />
-            </Giv>
+          {cloudMode ? <Clouds2 /> : space}
 
-            <Giv className="desktop">
-              <CloudBig
-                className="cloud"
-                src="https://i.imgur.com/UOQ3aCS.png"
-              />
-              <CloudBig
-                className="cloud"
-                src="https://i.imgur.com/UOQ3aCS.png"
-              />
-              <CloudBig
-                className="cloud"
-                src="https://i.imgur.com/UOQ3aCS.png"
-              />
-              <CloudBig
-                className="cloud"
-                src="https://i.imgur.com/UOQ3aCS.png"
-              />
-              <CloudBig
-                className="cloud"
-                src="https://i.imgur.com/UOQ3aCS.png"
-              />
-              <CloudBig
-                className="cloud"
-                src="https://i.imgur.com/UOQ3aCS.png"
-              />
-            </Giv>
+          <Testimonials id="testimonials" />
 
-            <Ziv className="mobile">
-              <CloudBig
-                className="cloud"
-                src="https://i.imgur.com/UOQ3aCS.png"
-              />
-              <CloudBig
-                className="cloud"
-                src="https://i.imgur.com/UOQ3aCS.png"
-              />
-            </Ziv>
-            <Ziv className="mobile">
-              <CloudBig
-                className="cloud"
-                src="https://i.imgur.com/UOQ3aCS.png"
-              />
-              <CloudBig
-                className="cloud"
-                src="https://i.imgur.com/UOQ3aCS.png"
-              />
-            </Ziv>
-          </Liv>
+          {cloudMode ? <Clouds2 /> : space}
+
           <Contact id="contact" />
         </main>
       </Layout>

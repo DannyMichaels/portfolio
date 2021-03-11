@@ -1,10 +1,114 @@
-import React from "react";
+import React, { useContext } from "react";
 import Tooltip from "@material-ui/core/Tooltip";
-import "./Stack.scss";
+import styled from "styled-components";
+import { CloudStateContext } from "../../context/animationContext";
+const Section = styled.section`
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  flex-flow: column nowrap;
+  color: white;
+  h1 {
+    font-family: montserrat, sans-serif;
+    font-size: clamp(19px, 10vw, 40px);
+    text-align: center;
+  }
 
+  @keyframes stackFloat {
+    0% {
+      box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+      transform: translateY(0px);
+    }
+    50% {
+      box-shadow: 0 25px 15px 0px rgba(0, 0, 0, 0.2);
+      transform: translateY(-20px);
+    }
+    100% {
+      box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+      transform: translateY(0px);
+    }
+  }
+  img {
+    max-width: 100px;
+    min-width: 100px;
+    width: 100px;
+    padding: 20px;
+    margin: 20px;
+    max-height: 100px;
+    height: 100px;
+    border-radius: 36px;
+    min-height: 100px;
+    width: 100%;
+    height: auto;
+    background: #fff;
+    transform: translatey(0px);
+    animation: ${({ cloudMode }) =>
+      cloudMode && "stackFloat 6s ease-in-out infinite"};
+  }
+
+  .span {
+    transition: transform 250ms ease-out;
+    align-items: center;
+    background-color: transparent;
+    display: inline-flex;
+    flex-direction: row;
+    width: auto;
+    z-index: 1;
+  }
+
+  .span:hover {
+    transform: translateY(-4.05px);
+    transition: transform 250ms ease-in;
+    cursor: pointer;
+  }
+  @media screen and (max-width: 768px) {
+    img {
+      width: 15vw;
+      max-width: 15vw;
+      min-width: 8vw;
+    }
+  }
+
+  @media screen and (max-width: 533px) {
+    img {
+      width: 15vw;
+      margin: 10px;
+      max-width: 15vw;
+      min-width: 15vw;
+    }
+  }
+
+  @media screen and (max-width: 433px) {
+    img {
+      width: 18vw;
+      margin: 5px;
+      max-width: 18vw;
+      min-width: 18vw;
+    }
+  }
+
+  @media screen and (max-width: 330px) {
+    img {
+      width: 17vw;
+      margin: 4px;
+      max-width: 17vw;
+      min-width: 17vw;
+    }
+  }
+
+  img:hover {
+    cursor: pointer;
+  }
+  .card {
+    margin: 0 auto;
+    margin-top: 100px;
+  }
+`;
 function Stack() {
+  const [cloudMode] = useContext(CloudStateContext);
+
   return (
-    <section className="language">
+    <Section className="language" cloudMode={cloudMode}>
       <div className="card">
         <h1>
           <div className="span">S</div>
@@ -117,7 +221,7 @@ function Stack() {
         </Tooltip>
         <br />
       </div>
-    </section>
+    </Section>
   );
 }
 

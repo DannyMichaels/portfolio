@@ -64,7 +64,7 @@ const StyledBurger = styled.div`
   }
 `;
 
-function Burger() {
+function Burger({ toggleCloudMode }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -76,7 +76,12 @@ function Burger() {
           <div className="bar-line" value="burger" />
         </StyledBurger>
       </Background>
-      <OpenNav open={open} setOpen={setOpen} value="burger" />
+      <OpenNav
+        toggleCloudMode={toggleCloudMode}
+        open={open}
+        setOpen={setOpen}
+        value="burger"
+      />
     </>
   );
 }
