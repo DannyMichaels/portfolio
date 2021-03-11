@@ -89,13 +89,13 @@ const Div = styled.div`
 
 function Scroll() {
   return (
-    <Link
-      activeClass="active"
-      to="about"
-      spy={true}
-      smooth={true}
-      duration={1000}>
-      <Scroll1>
+    <Scroll1>
+      <Link
+        activeClass="active"
+        to="about"
+        spy={true}
+        smooth={true}
+        duration={1000}>
         <Div className="scroll">
           <p className="scroll-for-more font-class-2">Scroll For More</p>
           <div className="group-3">
@@ -103,8 +103,8 @@ function Scroll() {
             <div className="rectangle-4 border-class-1"></div>
           </div>
         </Div>
-      </Scroll1>
-    </Link>
+      </Link>
+    </Scroll1>
   );
 }
 

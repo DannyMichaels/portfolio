@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import styled from "styled-components";
 import { getAllTestimonials } from "../../services/testimonials.js";
 import CircularProgress from "@material-ui/core/CircularProgress";
@@ -6,14 +6,33 @@ import { getSortedProjects as getSortedTestimonials } from "../../utils/sortedPr
 import getRating from "../../utils/getRating.js";
 import { Box, Typography } from "@material-ui/core";
 import QuoteIcon from "@material-ui/icons/FormatQuote";
+import { CloudStateContext } from "../../context/animationContext.js";
 
 const Testimonial = styled.li`
+  @keyframes cardFloat {
+    0% {
+      box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+      transform: translateY(0px);
+    }
+    50% {
+      box-shadow: 0 25px 15px 0px rgba(0, 0, 0, 0.2);
+      transform: translateY(-20px);
+    }
+    100% {
+      box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+      transform: translateY(0px);
+    }
+  }
+
   background-color: #fff;
   border-radius: 20px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   overflow: hidden;
   max-width: 100%;
   width: 400px;
+  transform: translatey(0px);
+  animation: ${(props) =>
+    props.cloudMode && "cardFloat 6s ease-in-out infinite"};
 
   .testimonial-body {
     padding: 40px 40px 80px;
@@ -86,6 +105,7 @@ const List = styled.ol`
 function Testimonials() {
   const [allTestimonials, setAllTestimonials] = useState([]);
   const [loaded, setLoaded] = useState(false);
+  const [cloudMode] = useContext(CloudStateContext);
 
   useEffect(() => {
     const fetchTestimonials = async () => {
@@ -104,7 +124,10 @@ function Testimonials() {
     // https://www.florin-pop.com/blog/2019/07/testimonial-card/
 
     return (
-      <Testimonial className="project" key={testimonial?.id}>
+      <Testimonial
+        className="testimonial"
+        key={testimonial?.id}
+        cloudMode={cloudMode}>
         <div className="testimonial-body">
           <P>{content}</P>
           <QuoteIcon className="quote-icon" />
@@ -147,6 +170,7 @@ function Testimonials() {
               <Span className="span">s</Span>
             </h2>
           </header>
+          <br />
           {loaded ? (
             <List count={allTestimonials.length} className="testimonial-list">
               {TESTIMONIALS}

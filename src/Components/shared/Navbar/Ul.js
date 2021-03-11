@@ -42,6 +42,7 @@ const Ul = styled.ul`
     left: 0;
     height: 100vh;
     width: 60vw;
+    min-width: 150px;
     padding-top: 3.5rem;
     padding-bottom: 100px;
     box-shadow: 2px 2px 2px 2px var(--vivid-tangerine);

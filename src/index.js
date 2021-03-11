@@ -4,10 +4,14 @@ import "./index.scss";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router } from "react-router-dom";
+import { CloudStateProvider } from "./context/animationContext";
+
 ReactDOM.render(
   <Router>
     <React.StrictMode>
-      <App />
+      <CloudStateProvider>
+        <App />
+      </CloudStateProvider>
     </React.StrictMode>
   </Router>,
   document.getElementById("root")

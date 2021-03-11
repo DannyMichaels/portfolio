@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import Fill1 from "./Fill/Fill1";
 import Fill2 from "./Fill/Fill2";
 import HeaderText from "./Text/HeaderText";
 import Scroll from "./Scroll/Scroll";
 import MoveInLeft from "../shared/Animations/MoveInLeft";
 import styled from "styled-components";
+import { CloudStateContext } from "../../context/animationContext";
 
 const CloudBig = styled.img`
   @keyframes float {
@@ -79,6 +80,7 @@ const InnerColumn = styled.div`
 
 export default function HeaderContent({ isFireFox }) {
   const [disabled, setDisabled] = React.useState(false);
+  const [cloudMode] = useContext(CloudStateContext);
 
   function fillCheck() {
     let width = window.innerWidth;
@@ -107,7 +109,7 @@ export default function HeaderContent({ isFireFox }) {
         <Fill1 fill1="https://anima-uploads.s3.amazonaws.com/projects/5fb14441119f80c2053ea467/releases/5fb14452ac34b30698d1c801/img/01maindemo-fill-1-3E925590-1D1F-4FAB-9036-050A24FF5082.png" />
         <InnerColumn>
           <Scroll />
-          {isFireFox ? (
+          {isFireFox || !cloudMode ? (
             <></>
           ) : (
             <picture>
