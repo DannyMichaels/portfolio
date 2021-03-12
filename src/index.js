@@ -1,4 +1,4 @@
-import React from "react";
+import { StrictMode } from "react";
 import ReactDOM from "react-dom";
 import "./index.scss";
 import App from "./App";
@@ -8,11 +8,11 @@ import { CloudStateProvider } from "./context/animationContext";
 
 ReactDOM.render(
   <Router>
-    <React.StrictMode>
+    <StrictMode>
       <CloudStateProvider>
         <App />
       </CloudStateProvider>
-    </React.StrictMode>
+    </StrictMode>
   </Router>,
   document.getElementById("root")
 );
