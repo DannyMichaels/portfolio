@@ -14,9 +14,9 @@ const Background = styled.div`
     position: absolute;
     background: white;
     border: 2px solid var(--vivid-tangerine);
-    border-radius: 0 0 5px 0;
+    border-radius: 0px 0px 0px 5px;
     right: 0;
-    top: 0;
+    top: 6px;
   }
 `;
 
