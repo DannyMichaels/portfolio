@@ -1,12 +1,12 @@
-import React, { useState, useEffect, useContext } from "react";
-import styled from "styled-components";
-import { getAllTestimonials } from "../../services/testimonials.js";
-import CircularProgress from "@material-ui/core/CircularProgress";
-import { getSortedProjects as getSortedTestimonials } from "../../utils/sortedProjects";
-import getRating from "../../utils/getRating.js";
-import { Box, Typography } from "@material-ui/core";
-import QuoteIcon from "@material-ui/icons/FormatQuote";
-import { CloudStateContext } from "../../context/animationContext.js";
+import React, { useState, useEffect, useContext } from 'react';
+import styled from 'styled-components';
+import { getAllTestimonials } from '../../services/testimonials.js';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import { getSortedProjects as getSortedTestimonials } from '../../utils/sortedProjects';
+import getRating from '../../utils/getRating.js';
+import { Box, Typography } from '@material-ui/core';
+import QuoteIcon from '@material-ui/icons/FormatQuote';
+import { CloudStateContext } from '../../context/animationContext.js';
 
 const Testimonial = styled.li`
   @keyframes cardFloat {
@@ -32,10 +32,14 @@ const Testimonial = styled.li`
   width: 400px;
   transform: translatey(0px);
   animation: ${(props) =>
-    props.cloudMode && "cardFloat 6s ease-in-out infinite"};
+    props.cloudMode && 'cardFloat 6s ease-in-out infinite'};
 
   .testimonial-body {
     padding: 40px 40px 80px;
+    max-height: 340px;
+    min-height: 340px;
+    overflow-y: scroll;
+
     .quote-icon {
       color: #eee;
       font-size: 40px;
@@ -59,7 +63,7 @@ const Testimonial = styled.li`
 `;
 
 const Span = styled.div`
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   transition: transform 250ms ease-out;
   align-items: center;
   background-color: transparent;
@@ -83,7 +87,7 @@ const P = styled(Typography)`
 `;
 
 const List = styled.ol`
-  display: ${({ count }) => (count > 1 ? "grid" : "flex")};
+  display: ${({ count }) => (count > 1 ? 'grid' : 'flex')};
   align-items: center;
   justify-content: center;
   grid-template-columns: repeat(1fr);
@@ -141,7 +145,7 @@ function Testimonials() {
           {rating && (
             <>
               <Typography>Rating provided by Upwork™</Typography>
-              <Box my={1}>{getRating(rating, "⭐")}</Box>
+              <Box my={1}>{getRating(rating, '⭐')}</Box>
               <Typography>{date}</Typography>
             </>
           )}
