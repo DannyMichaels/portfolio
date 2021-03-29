@@ -39,11 +39,74 @@ const Testimonial = styled.li`
     max-height: 340px;
     min-height: 340px;
     overflow-y: scroll;
-
     .quote-icon {
       color: #eee;
       font-size: 40px;
       float: right;
+    }
+  }
+
+  .modal__sectionDivider {
+    position: relative;
+    width: 100%;
+    height: 6em;
+    border-bottom: 2px solid #404040;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    margin: auto;
+    box-sizing: inherit;
+    &.collapsed {
+      z-index: -1;
+      margin-top: -6em;
+      background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        from(#181818),
+        color-stop(20%, rgba(24, 24, 24, 0.7)),
+        color-stop(30%, rgba(24, 24, 24, 0.4)),
+        color-stop(50%, transparent)
+      );
+      background-image: -webkit-linear-gradient(
+        bottom,
+        #181818 0,
+        rgba(24, 24, 24, 0.7) 20%,
+        rgba(24, 24, 24, 0.4) 30%,
+        transparent 50%
+      );
+      background-image: -moz-
+        oldlinear-gradient(
+          bottom,
+          #181818 0,
+          rgba(24, 24, 24, 0.7) 20%,
+          rgba(24, 24, 24, 0.4) 30%,
+          transparent 50%
+        );
+      background-image: -o-linear-gradient(
+        bottom,
+        #181818 0,
+        rgba(24, 24, 24, 0.7) 20%,
+        rgba(24, 24, 24, 0.4) 30%,
+        transparent 50%
+      );
+      background-image: linear-gradient(
+        to top,
+        #181818 0,
+        rgba(24, 24, 24, 0.7) 20%,
+        rgba(24, 24, 24, 0.4) 30%,
+        transparent 50%
+      );
     }
   }
 
@@ -52,12 +115,14 @@ const Testimonial = styled.li`
     color: #fff;
     padding: 40px;
     text-align: center;
+    z-index: 4;
     img {
       border-radius: 50%;
       border: 5px solid #fff;
       height: 120px;
       width: 120px;
       margin-top: -100px;
+      position: relative;
     }
   }
 `;
@@ -138,6 +203,7 @@ function Testimonials() {
         </div>
         <br />
 
+        <div className={'modal__sectionDivider collapsed'} />
         <footer>
           <img src={image} alt={company} />
           <Typography>{`${person} @ ${company}`}</Typography>
