@@ -24,6 +24,10 @@ const Testimonial = styled.li`
     }
   }
 
+  @media screen and (max-width: 699px) {
+    margin: 20px;
+  }
+
   background-color: #fff;
   border-radius: 20px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
@@ -168,8 +172,7 @@ const List = styled.ol`
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin: 20px; /// fallback for non-gap supporting
-    gap: 30px;
+    gap: 10px;
   }
 `;
 
