@@ -1,97 +1,97 @@
-import React, { useState } from "react";
-import clsx from "clsx";
-import { makeStyles } from "@material-ui/core/styles";
-import CardHeader from "@material-ui/core/CardHeader";
-import CardContent from "@material-ui/core/CardContent";
-import CardActions from "@material-ui/core/CardActions";
-import Typography from "@material-ui/core/Typography";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import IconButton from "@material-ui/core/IconButton";
-import Collapse from "@material-ui/core/Collapse";
-import Button from "@material-ui/core/Button";
-import Video from "../Dialogs/Video";
-import ProjectDetail from "../Dialogs/ProjectDetail";
+import React, { useState } from 'react';
+import clsx from 'clsx';
+import { makeStyles } from '@material-ui/core/styles';
+import CardHeader from '@material-ui/core/CardHeader';
+import CardContent from '@material-ui/core/CardContent';
+import CardActions from '@material-ui/core/CardActions';
+import Typography from '@material-ui/core/Typography';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import IconButton from '@material-ui/core/IconButton';
+import Collapse from '@material-ui/core/Collapse';
+import Button from '@material-ui/core/Button';
+import Video from '../Dialogs/Video';
+import ProjectDetail from '../Dialogs/ProjectDetail';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     width: 400,
     maxWidth: 400,
     minWidth: 400,
-    margin: "20px",
-    [theme.breakpoints.down("sm")]: {
+    margin: '20px',
+    [theme.breakpoints.down('sm')]: {
       width: 370,
       maxWidth: 370,
       minWidth: 370,
-      margin: "20px",
+      margin: '20px',
     },
-    [theme.breakpoints.down("xs")]: {
-      width: "70vw",
-      maxWidth: "70vw",
-      minWidth: "70vw",
-      margin: "10px",
+    [theme.breakpoints.down('xs')]: {
+      width: '70vw',
+      maxWidth: '70vw',
+      minWidth: '70vw',
+      margin: '10px',
     },
-    display: "flex",
-    height: "100%",
-    flexDirection: "column",
-    textAlign: "center",
-    zIndex: "0",
+    display: 'flex',
+    height: '100%',
+    flexDirection: 'column',
+    textAlign: 'center',
+    zIndex: '0',
   },
   media: {
     height: 0,
     minWidth: 320,
     maxWidth: 320,
-    margin: "0 auto",
-    paddingTop: "100%", // 16:9
+    margin: '0 auto',
+    paddingTop: '100%', // 16:9
   },
   techContainer: {
-    objectFit: "contain",
-    maxWidth: "100%",
-    alignItems: "center",
-    maxHeight: "100%",
-    display: "flex",
-    textAlign: "left",
-    flexFlow: "column nowrap",
-    justifyContent: "flex-start",
+    objectFit: 'contain',
+    maxWidth: '100%',
+    alignItems: 'center',
+    maxHeight: '100%',
+    display: 'flex',
+    textAlign: 'left',
+    flexFlow: 'column nowrap',
+    justifyContent: 'flex-start',
   },
   techContainer2: {
-    maxWidth: "100%",
-    alignItems: "center",
-    maxHeight: "100%",
-    display: "flex",
-    flexFlow: "row nowrap",
-    justifyContent: "center",
-    textAlign: "left",
+    maxWidth: '100%',
+    alignItems: 'center',
+    maxHeight: '100%',
+    display: 'flex',
+    flexFlow: 'row nowrap',
+    justifyContent: 'center',
+    textAlign: 'left',
   },
   div: {
-    height: "100%",
-    width: "100%",
-    display: "flex",
-    flexFlow: "row wrap",
-    listStyle: "inherit",
-    textAlign: "left",
-    color: "black",
+    height: '100%',
+    width: '100%',
+    display: 'flex',
+    flexFlow: 'row wrap',
+    listStyle: 'inherit',
+    textAlign: 'left',
+    color: 'black',
   },
   expand: {
-    transform: "rotate(0deg)",
-    marginLeft: "auto",
-    transition: theme.transitions.create("transform", {
+    transform: 'rotate(0deg)',
+    marginLeft: 'auto',
+    transition: theme.transitions.create('transform', {
       duration: theme.transitions.duration.shortest,
     }),
   },
   expandOpen: {
-    transform: "rotate(180deg)",
+    transform: 'rotate(180deg)',
   },
   techUsed: {
-    fontWeight: "bold",
-    textAlign: "left",
+    fontWeight: 'bold',
+    textAlign: 'left',
   },
   UL: {
-    fontFamily: "Roboto",
-    margin: "10px",
+    fontFamily: 'Roboto',
+    margin: '10px',
   },
   LI: {
-    "&:hover": {
-      textDecoration: "underline",
+    '&:hover': {
+      textDecoration: 'underline',
     },
   },
 }));
@@ -100,7 +100,7 @@ function Project(props) {
   const classes = useStyles(props);
   const [expanded, setExpanded] = useState(false);
   const [openVideo, setOpenVideo] = useState(false);
-  const [openDetail, setOpenDetail] = useState(false);
+  const [, setOpenDetail] = useState(false);
 
   const handleVideoOpen = () => {
     setOpenVideo(true);
@@ -145,7 +145,7 @@ function Project(props) {
         <footer className="actions">
           <Button variant="text" size="small" color="link">
             <a
-              style={{ textDecoration: "none", color: "black" }}
+              style={{ textDecoration: 'none', color: 'black' }}
               rel="noreferrer"
               target="_blank"
               href={props.github}>
@@ -154,7 +154,7 @@ function Project(props) {
           </Button>
           <Button variant="text" size="small" color="link">
             <a
-              style={{ textDecoration: "none", color: "black" }}
+              style={{ textDecoration: 'none', color: 'black' }}
               rel="noreferrer"
               target="_blank"
               href={props.website}>
@@ -173,7 +173,7 @@ function Project(props) {
         </footer>
         <CardActions disableSpacing className={classes.techUsed}>
           <Typography
-            style={{ fontFamily: "Roboto, Sans-Serif", fontWeight: "bold" }}>
+            style={{ fontFamily: 'Roboto, Sans-Serif', fontWeight: 'bold' }}>
             More:
           </Typography>
           <IconButton
@@ -196,7 +196,7 @@ function Project(props) {
                 className={classes}
                 text={props.techName1}
                 alt="tech used">
-                <ul style={{ color: "black", listStyle: "disc" }}>
+                <ul style={{ color: 'black', listStyle: 'disc' }}>
                   {props.techName1 && <li>{props.techName1} </li>}
                   {props.techName2 && <li>{props.techName2}</li>}
                   {props.techName3 && <li>{props.techName3}</li>}
@@ -205,7 +205,7 @@ function Project(props) {
               </Typography>
             }
             <br />
-            {props.name === "Root" && (
+            {props.name === 'Root' && (
               <>
                 <br />
                 <Typography className={classes.techUsed}>The Team:</Typography>
@@ -215,13 +215,13 @@ function Project(props) {
                 </Typography>
                 <ul
                   className={classes.UL}
-                  style={{ color: "black", listStyle: "disc" }}>
+                  style={{ color: 'black', listStyle: 'disc' }}>
                   <li className={classes.LI}>
                     <a
                       href="https://www.linkedin.com/in/daniel-michael-718825155/"
                       target="_blank"
                       rel="noreferrer"
-                      style={{ textDecoration: "none", color: "black" }}>
+                      style={{ textDecoration: 'none', color: 'black' }}>
                       Daniel Michael
                     </a>
                   </li>
@@ -231,7 +231,7 @@ function Project(props) {
                       href="https://www.linkedin.com/in/eddie-didonato/"
                       target="_blank"
                       rel="noreferrer"
-                      style={{ textDecoration: "none", color: "black" }}>
+                      style={{ textDecoration: 'none', color: 'black' }}>
                       Eddie Didonato
                     </a>
                   </li>
@@ -241,7 +241,7 @@ function Project(props) {
                       href="https://www.linkedin.com/in/allisonquiroz/"
                       target="_blank"
                       rel="noreferrer"
-                      style={{ textDecoration: "none", color: "black" }}>
+                      style={{ textDecoration: 'none', color: 'black' }}>
                       Allison Quiroz
                     </a>
                   </li>
@@ -251,7 +251,7 @@ function Project(props) {
                       href="https://www.linkedin.com/in/nathan-wigen-6337121b0/"
                       target="_blank"
                       rel="noreferrer"
-                      style={{ textDecoration: "none", color: "black" }}>
+                      style={{ textDecoration: 'none', color: 'black' }}>
                       Nathan Wigen
                     </a>
                   </li>
@@ -262,13 +262,13 @@ function Project(props) {
                 </Typography>
                 <ul
                   className={classes.UL}
-                  style={{ color: "black", listStyle: "disc" }}>
+                  style={{ color: 'black', listStyle: 'disc' }}>
                   <li className={classes.LI}>
                     <a
                       href="https://www.claudiazacharias.com/"
                       target="_blank"
                       rel="noreferrer"
-                      style={{ textDecoration: "none", color: "black" }}>
+                      style={{ textDecoration: 'none', color: 'black' }}>
                       Claudia Zacharias
                     </a>
                   </li>
@@ -277,7 +277,7 @@ function Project(props) {
                     <a
                       href="https://www.linkedin.com/in/toni-marie-brown-b44b7696/"
                       target="_blank"
-                      style={{ textDecoration: "none", color: "black" }}
+                      style={{ textDecoration: 'none', color: 'black' }}
                       rel="noreferrer">
                       Toni Brown
                     </a>
@@ -288,7 +288,7 @@ function Project(props) {
                       href="https://www.linkedin.com/in/kendallkessler/"
                       target="_blank"
                       rel="noreferrer"
-                      style={{ textDecoration: "none", color: "black" }}>
+                      style={{ textDecoration: 'none', color: 'black' }}>
                       Kendall Kessler
                     </a>
                   </li>
@@ -298,7 +298,7 @@ function Project(props) {
                       href="https://www.linkedin.com/in/erica-cleary/"
                       target="_blank"
                       rel="noreferrer"
-                      style={{ textDecoration: "none", color: "black" }}>
+                      style={{ textDecoration: 'none', color: 'black' }}>
                       Erica Cleary
                     </a>
                   </li>
@@ -306,7 +306,7 @@ function Project(props) {
                 </ul>
               </>
             )}
-            {props.name === "Care" && (
+            {props.name === 'Care' && (
               <>
                 <br />
                 <Typography className={classes.techUsed}>
@@ -314,13 +314,13 @@ function Project(props) {
                 </Typography>
                 <ul
                   className={classes.UL}
-                  style={{ color: "black", listStyle: "disc" }}>
+                  style={{ color: 'black', listStyle: 'disc' }}>
                   <li className={classes.LI}>Email: test@email.com</li>
                   <li className={classes.LI}>Password: 12345678</li>
                 </ul>
               </>
             )}
-            {props.name === "Challenge.me" && (
+            {props.name === 'Challenge.me' && (
               <>
                 <br />
                 <Typography className={classes.techUsed}>The Team:</Typography>
@@ -330,13 +330,13 @@ function Project(props) {
                 </Typography>
                 <ul
                   className={classes.UL}
-                  style={{ color: "black", listStyle: "disc" }}>
+                  style={{ color: 'black', listStyle: 'disc' }}>
                   <li className={classes.LI}>
                     <a
                       href="https://www.linkedin.com/in/daniel-michael-718825155/"
                       target="_blank"
                       rel="noreferrer"
-                      style={{ textDecoration: "none", color: "black" }}>
+                      style={{ textDecoration: 'none', color: 'black' }}>
                       Daniel Michael
                     </a>
                   </li>
@@ -346,7 +346,7 @@ function Project(props) {
                       href="https://www.linkedin.com/in/kristina-timkova/"
                       target="_blank"
                       rel="noreferrer"
-                      style={{ textDecoration: "none", color: "black" }}>
+                      style={{ textDecoration: 'none', color: 'black' }}>
                       Kristina Timkova
                     </a>
                   </li>
@@ -357,13 +357,13 @@ function Project(props) {
                 </Typography>
                 <ul
                   className={classes.UL}
-                  style={{ color: "black", listStyle: "disc" }}>
+                  style={{ color: 'black', listStyle: 'disc' }}>
                   <li className={classes.LI}>
                     <a
                       href="https://www.linkedin.com/in/phoenix-ehmann/"
                       target="_blank"
                       rel="noreferrer"
-                      style={{ textDecoration: "none", color: "black" }}>
+                      style={{ textDecoration: 'none', color: 'black' }}>
                       Phoenix Ehmann
                     </a>
                   </li>
@@ -372,7 +372,7 @@ function Project(props) {
                     <a
                       href="https://www.linkedin.com/in/k-alarcon/"
                       target="_blank"
-                      style={{ textDecoration: "none", color: "black" }}
+                      style={{ textDecoration: 'none', color: 'black' }}
                       rel="noreferrer">
                       Karen Alarcon
                     </a>
@@ -384,13 +384,13 @@ function Project(props) {
                 </Typography>
                 <ul
                   className={classes.UL}
-                  style={{ color: "black", listStyle: "disc" }}>
+                  style={{ color: 'black', listStyle: 'disc' }}>
                   <li className={classes.LI}>
                     <a
                       href="https://www.linkedin.com/in/cristinasahoo/"
                       target="_blank"
                       rel="noreferrer"
-                      style={{ textDecoration: "none", color: "black" }}>
+                      style={{ textDecoration: 'none', color: 'black' }}>
                       Cristina Sahoo
                     </a>
                   </li>
