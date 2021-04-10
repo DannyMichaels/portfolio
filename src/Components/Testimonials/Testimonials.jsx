@@ -168,6 +168,7 @@ const List = styled.ol`
     display: flex;
     align-items: center;
     flex-direction: column;
+    margin: 20px; /// fallback for non-gap supporting
     gap: 30px;
   }
 `;
