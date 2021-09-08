@@ -134,9 +134,9 @@ project-card {
 
 .project-title {
   text-align: left;
-  @include title-font;
+  @include title-font();
   @media screen and (min-width: 250px) {
-    @include attention-voice();
+  @include title-font();
     color: black;
     font-family: roboto;
     text-align: center;
