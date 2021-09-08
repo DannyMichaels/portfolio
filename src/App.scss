@@ -20,7 +20,7 @@ $pad: 10px;
 @mixin title-font {
   font-family: "Helvetica", Helvetica, Arial, serif;
   font-size: clamp(19px, 10vw, 32px);
-  color: #fff;
+  color: #000;
 }
 
 @mixin calm-voice {
