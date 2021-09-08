@@ -17,6 +17,12 @@ $pad: 10px;
   color: #fff;
 }
 
+@mixin title-font {
+  font-family: "Helvetica", Helvetica, Arial, serif;
+  font-size: clamp(19px, 10vw, 32px);
+  color: #fff;
+}
+
 @mixin calm-voice {
   font-size: 16px;
   font-family: "Helvetica", Helvetica, Arial, serif;
@@ -128,7 +134,7 @@ project-card {
 
 .project-title {
   text-align: left;
-  @include calm-voice;
+  @include title-font;
   @media screen and (min-width: 250px) {
     @include attention-voice();
     color: black;
