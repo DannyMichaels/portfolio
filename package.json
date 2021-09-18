@@ -24,6 +24,7 @@
     "react-scroll": "^1.8.1",
     "react-scrolltop-button": "^0.1.6",
     "styled-components": "^5.2.1",
+    "use-sound": "^4.0.1",
     "web-vitals": "^0.2.4"
   },
   "scripts": {

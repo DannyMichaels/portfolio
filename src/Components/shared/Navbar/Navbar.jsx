@@ -1,9 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
-import styled from "styled-components";
-import Burger from "./Burger";
-import { Link } from "react-scroll";
-import { CloudStateContext } from "../../../context/animationContext";
-import CloudBtn from "./CloudBtn";
+import React, { useContext, useEffect, useState, useMemo } from 'react';
+import styled from 'styled-components';
+import Burger from './Burger';
+import { Link } from 'react-scroll';
+import { CloudStateContext } from '../../../context/animationContext';
+import CloudBtn from './CloudBtn';
+import lightSwitchSFX from '../../../assets/sounds/lightswitch.wav';
+import useSound from 'use-sound';
 
 const Nav = styled.nav`
   width: 100%;
@@ -23,7 +25,7 @@ const Nav = styled.nav`
     cursor: pointer;
     display: flex;
     font-size: 1.2rem;
-    font-family: "Helvetica", sans-serif;
+    font-family: 'Helvetica', sans-serif;
     visibility: none;
   }
 
@@ -41,13 +43,26 @@ const Navbar = () => {
   const [isCyanShowing, setCyanShowing] = useState(false);
   const [cloudMode, setCloudMode] = useContext(CloudStateContext);
 
+  const [playOn] = useSound(lightSwitchSFX, {
+    volume: 0.25,
+  });
+
+  const [playOff] = useSound(lightSwitchSFX, {
+    volume: 0.25,
+    playbackRate: 0.75,
+  });
+
   const toggleCloudMode = () => {
+    //  turn it off
     if (cloudMode) {
+      playOff();
       setCloudMode(false);
-      localStorage.setItem("cloudMode", "false");
+      localStorage.setItem('cloudMode', 'false');
     } else {
+      // turn it on
+      playOn();
       setCloudMode(true);
-      localStorage.setItem("cloudMode", "true");
+      localStorage.setItem('cloudMode', 'true');
     }
   };
 
@@ -63,11 +78,11 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", changeBackground);
-    window.addEventListener("resize", changeBackground);
+    window.addEventListener('scroll', changeBackground);
+    window.addEventListener('resize', changeBackground);
     return () => {
-      window.removeEventListener("scroll", changeBackground);
-      window.removeEventListener("resize", changeBackground);
+      window.removeEventListener('scroll', changeBackground);
+      window.removeEventListener('resize', changeBackground);
     };
   }, []);
 
@@ -76,12 +91,12 @@ const Navbar = () => {
       style={
         isCyanShowing
           ? {
-              transition: "250ms ease-in-out",
-              background: "rgba(148, 187, 233, 0.8)",
+              transition: '250ms ease-in-out',
+              background: 'rgba(148, 187, 233, 0.8)',
             }
           : {
-              transition: "250ms ease-in-out",
-              background: "inherit",
+              transition: '250ms ease-in-out',
+              background: 'inherit',
             }
       }>
       <div className="logo">
