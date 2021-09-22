@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import Project from "./Project";
-import styled from "styled-components";
-import { getAllProjects } from "../../services/projects.js";
-import CircularProgress from "@material-ui/core/CircularProgress";
-import { getSortedProjects } from "../../utils/sortedProjects.js";
+import React, { useState, useEffect } from 'react';
+import Project from './Project';
+import styled from 'styled-components';
+import { getAllProjects } from '../../services/projects.js';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import { getSortedProjects } from '../../utils/sortedProjects.js';
 
 const Span = styled.div`
   transition: transform 250ms ease-out;
@@ -59,14 +59,13 @@ function Projects() {
         <inner-column>
           <header class="section-header projects">
             <h2 className="projects-h1">
-              <Span className="span">P</Span>
-              <Span className="span">r</Span>
-              <Span className="span">o</Span>
-              <Span className="span">j</Span>
-              <Span className="span">e</Span>
-              <Span className="span">c</Span>
-              <Span className="span">t</Span>
-              <Span className="span">s</Span>
+              {[...'Personal'].map((text, key) => (
+                <Span key={key}>{text}</Span>
+              ))}
+              &nbsp;
+              {[...'Projects'].map((text, key) => (
+                <Span key={key}>{text}</Span>
+              ))}
             </h2>
           </header>
           <ol className="project-list">
