@@ -121,6 +121,8 @@ const Testimonial = styled.li`
     text-align: center;
     z-index: 4;
     img {
+      background: #fff; // png fallback
+      object-fit: contain;
       border-radius: 50%;
       border: 5px solid #fff;
       height: 120px;
