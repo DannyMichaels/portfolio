@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useRef } from 'react';
 import styled from 'styled-components';
 import { getAllTestimonials } from '../../services/testimonials.js';
 import CircularProgress from '@material-ui/core/CircularProgress';
@@ -39,10 +39,26 @@ const Testimonial = styled.li`
     props.cloudMode && 'cardFloat 6s ease-in-out infinite'};
 
   .testimonial-body {
-    padding: 40px 40px 80px;
+    padding: 20px 20px 80px;
+
     max-height: 340px;
     min-height: 340px;
-    overflow-y: scroll;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
+      border-radius: 100px;
+      background: linear-gradient(180deg, #d0368a 0%, #708ad4 99%);
+    }
+
     .quote-icon {
       color: #eee;
       font-size: 40px;
@@ -50,7 +66,7 @@ const Testimonial = styled.li`
     }
   }
 
-  .modal__sectionDivider {
+  .testimonial__darkShadow {
     position: relative;
     width: 100%;
     height: 6em;
@@ -70,7 +86,12 @@ const Testimonial = styled.li`
     box-shadow: none;
     margin: auto;
     box-sizing: inherit;
-    &.collapsed {
+
+    &.hidden {
+      display: none;
+    }
+
+    &.overflown {
       z-index: -1;
       margin-top: -6em;
       background-image: -webkit-gradient(
@@ -121,6 +142,7 @@ const Testimonial = styled.li`
     text-align: center;
     z-index: 4;
     img {
+      // company logo
       background: #fff; // png fallback
       object-fit: contain;
       border-radius: 50%;
@@ -155,6 +177,7 @@ const P = styled(Typography)`
   font-size: 20px;
   line-height: 36px;
   margin: 0;
+  padding: 10px;
 `;
 
 const List = styled.ol`
@@ -179,7 +202,17 @@ const List = styled.ol`
 `;
 
 function Testimonials() {
+  Element.prototype.isOverflowing = function () {
+    console.log('this', this);
+    return (
+      this.scrollHeight > this.clientHeight ||
+      this.scrollWidth > this.clientWidth
+    );
+  };
+
   const [allTestimonials, setAllTestimonials] = useState([]);
+  const containerDiv = useRef();
+
   const [loaded, setLoaded] = useState(false);
   const [cloudMode] = useContext(CloudStateContext);
 
@@ -192,7 +225,7 @@ function Testimonials() {
     fetchTestimonials();
   }, []);
 
-  const TESTIMONIALS = allTestimonials?.map((testimonial) => {
+  const TESTIMONIALS = allTestimonials?.map((testimonial, idx) => {
     const {
       fields: { content, date, rating, company, person, image },
     } = testimonial;
@@ -206,11 +239,13 @@ function Testimonials() {
         cloudMode={cloudMode}>
         <div className="testimonial-body">
           <P>{content}</P>
-          <QuoteIcon className="quote-icon" />
+          <div className="quote-icon-container">
+            <QuoteIcon className="quote-icon" />
+          </div>
         </div>
         <br />
+        <div className={'testimonial__darkShadow overflown'} />
 
-        <div className={'modal__sectionDivider collapsed'} />
         <footer>
           <img src={image} alt={company} />
           <Typography>{`${person} @ ${company}`}</Typography>
@@ -249,7 +284,10 @@ function Testimonials() {
           </header>
           <br />
           {loaded ? (
-            <List count={allTestimonials.length} className="testimonial-list">
+            <List
+              count={allTestimonials.length}
+              className="testimonial-list"
+              ref={containerDiv}>
               {TESTIMONIALS}
             </List>
           ) : (
