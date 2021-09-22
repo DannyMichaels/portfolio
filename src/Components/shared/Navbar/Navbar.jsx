@@ -57,12 +57,10 @@ const Navbar = () => {
     if (cloudMode) {
       playOff();
       setCloudMode(false);
-      localStorage.setItem('cloudMode', 'false');
     } else {
       // turn it on
       playOn();
       setCloudMode(true);
-      localStorage.setItem('cloudMode', 'true');
     }
   };
 

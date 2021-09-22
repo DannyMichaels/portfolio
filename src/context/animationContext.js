@@ -1,17 +1,24 @@
-import React, { useState, createContext } from "react";
+import React, { useState, createContext } from 'react';
 
 const CloudStateContext = createContext();
 
+// context that controls moving clouds and some shadows
 function CloudStateProvider({ children }) {
-  const [cloudMode, setCloudMode] = useState(() => {
-    const state = localStorage.getItem("cloudMode");
+  const [cloudMode, rawSetCloudMode] = useState(() => {
+    const state = localStorage.getItem('cloudMode');
     if (state !== null) {
       return state.match(/^false$/i) ? false : true;
     } else {
-      localStorage.setItem("cloudMode", "true");
+      localStorage.setItem('cloudMode', 'true');
       return true;
     }
   });
+
+  const setCloudMode = (value) => {
+    rawSetCloudMode(value);
+
+    localStorage.setItem('cloudMode', value);
+  };
 
   return (
     <CloudStateContext.Provider value={[cloudMode, setCloudMode]}>
