@@ -67,14 +67,14 @@ let Liv = styled.div`
 export const CloudsSection = () => (
   <>
     <Giv className="desktop clouds-row">
-      {new Array(6).fill().map((_, idx) => (
-        <BigCloud className="cloud" src={CloudImg} key={idx} alt="cloud" />
+      {new Array(6).fill().map((_, key) => (
+        <BigCloud className="cloud" src={CloudImg} key={key} alt="cloud" />
       ))}
     </Giv>
 
     <Giv className="desktop clouds-row">
-      {new Array(6).fill().map((_, idx) => (
-        <BigCloud className="cloud" src={CloudImg} key={idx} alt="cloud" />
+      {new Array(6).fill().map((_, key) => (
+        <BigCloud className="cloud" src={CloudImg} key={key} alt="cloud" />
       ))}
     </Giv>
 
@@ -92,24 +92,24 @@ export const CloudsSection = () => (
 export const CloudsSectionAlt = () => (
   <Liv>
     <Giv className="desktop">
-      {new Array(6).fill().map((_, idx) => (
-        <BigCloud className="cloud" src={CloudImg} key={idx} alt="cloud" />
+      {new Array(6).fill().map((_, key) => (
+        <BigCloud className="cloud" src={CloudImg} key={key} alt="cloud" />
       ))}
     </Giv>
 
     <Giv className="desktop">
-      {new Array(6).fill().map((_, idx) => (
-        <BigCloud className="cloud" src={CloudImg} key={idx} alt="cloud" />
+      {new Array(6).fill().map((_, key) => (
+        <BigCloud className="cloud" src={CloudImg} key={key} alt="cloud" />
       ))}
     </Giv>
 
     <Ziv className="mobile">
-      <BigCloud className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-      <BigCloud className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+      <BigCloud className="cloud" src={CloudImg} alt="cloud" />
+      <BigCloud className="cloud" src={CloudImg} alt="cloud" />
     </Ziv>
     <Ziv className="mobile">
-      <BigCloud className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-      <BigCloud className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+      <BigCloud className="cloud" src={CloudImg} alt="cloud" />
+      <BigCloud className="cloud" src={CloudImg} alt="cloud" />
     </Ziv>
   </Liv>
 );
