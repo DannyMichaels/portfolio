@@ -68,9 +68,18 @@ function Projects() {
               ))}
             </h2>
           </header>
-          <ol className="project-list">
-            {loaded ? PROJECTS : <CircularProgress />}
-          </ol>
+          {loaded ? (
+            <ol className="project-list">{PROJECTS}</ol>
+          ) : (
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}>
+              <CircularProgress size={80} />
+            </div>
+          )}
         </inner-column>
       </section>
     </>

@@ -272,7 +272,14 @@ function Testimonials() {
               {TESTIMONIALS}
             </List>
           ) : (
-            <CircularProgress />
+            <div
+              style={{
+                alignItems: 'center',
+                justifyContent: 'center',
+                display: 'flex',
+              }}>
+              <CircularProgress size={80} />
+            </div>
           )}
         </inner-column>
       </section>
