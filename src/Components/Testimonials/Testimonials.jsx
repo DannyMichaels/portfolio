@@ -259,8 +259,10 @@ function Testimonials() {
         <inner-column>
           <header class="section-header testimonials">
             <h2 className="projects-h1">
-              {[...'Testimonials'].map((letter) => (
-                <Span className="span">{letter}</Span>
+              {[...'Testimonials'].map((letter, key) => (
+                <Span className="span" key={key}>
+                  {letter}
+                </Span>
               ))}
             </h2>
           </header>
