@@ -3,6 +3,8 @@ import styled, { keyframes } from 'styled-components';
 import { useRandomInterval } from './../../../hooks/useRandomInterval';
 import usePrefersReducedMotion from './../../../hooks/usePrefersReducedMotion';
 
+// thanks to https://www.joshwcomeau.com/react/animated-sparkles-in-react/
+
 const range = (start, end, step = 1) => {
   let output = [];
   if (typeof end === 'undefined') {
