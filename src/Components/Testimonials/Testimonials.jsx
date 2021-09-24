@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, useRef } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import styled from 'styled-components';
 import { getAllTestimonials } from '../../services/testimonials.js';
 import CircularProgress from '@material-ui/core/CircularProgress';
@@ -202,16 +202,7 @@ const List = styled.ol`
 `;
 
 function Testimonials() {
-  Element.prototype.isOverflowing = function () {
-    console.log('this', this);
-    return (
-      this.scrollHeight > this.clientHeight ||
-      this.scrollWidth > this.clientWidth
-    );
-  };
-
   const [allTestimonials, setAllTestimonials] = useState([]);
-  const containerDiv = useRef();
 
   const [loaded, setLoaded] = useState(false);
   const [cloudMode] = useContext(CloudStateContext);
@@ -225,7 +216,7 @@ function Testimonials() {
     fetchTestimonials();
   }, []);
 
-  const TESTIMONIALS = allTestimonials?.map((testimonial, idx) => {
+  const TESTIMONIALS = allTestimonials?.map((testimonial) => {
     const {
       fields: { content, date, rating, company, person, image },
     } = testimonial;
@@ -268,26 +259,14 @@ function Testimonials() {
         <inner-column>
           <header class="section-header testimonials">
             <h2 className="projects-h1">
-              <Span className="span">T</Span>
-              <Span className="span">e</Span>
-              <Span className="span">s</Span>
-              <Span className="span">t</Span>
-              <Span className="span">i</Span>
-              <Span className="span">m</Span>
-              <Span className="span">o</Span>
-              <Span className="span">n</Span>
-              <Span className="span">i</Span>
-              <Span className="span">a</Span>
-              <Span className="span">l</Span>
-              <Span className="span">s</Span>
+              {[...'Testimonials'].map((letter) => (
+                <Span className="span">{letter}</Span>
+              ))}
             </h2>
           </header>
           <br />
           {loaded ? (
-            <List
-              count={allTestimonials.length}
-              className="testimonial-list"
-              ref={containerDiv}>
+            <List count={allTestimonials.length} className="testimonial-list">
               {TESTIMONIALS}
             </List>
           ) : (
