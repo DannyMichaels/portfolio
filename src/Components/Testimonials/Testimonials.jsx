@@ -7,6 +7,95 @@ import getRating from '../../utils/getRating.js';
 import { Box, Typography } from '@material-ui/core';
 import QuoteIcon from '@material-ui/icons/FormatQuote';
 import { CloudStateContext } from '../../context/animationContext.js';
+import Sparkles from '../shared/Animations/Sparkles.jsx';
+
+function Testimonials() {
+  const [allTestimonials, setAllTestimonials] = useState([]);
+
+  const [loaded, setLoaded] = useState(false);
+  const [cloudMode] = useContext(CloudStateContext);
+
+  useEffect(() => {
+    const fetchTestimonials = async () => {
+      const testimonials = await getAllTestimonials();
+      setAllTestimonials(getSortedTestimonials(testimonials));
+      setLoaded(true);
+    };
+    fetchTestimonials();
+  }, []);
+
+  const TESTIMONIALS = allTestimonials?.map((testimonial) => {
+    const {
+      fields: { content, date, rating, company, person, image },
+    } = testimonial;
+
+    // https://www.florin-pop.com/blog/2019/07/testimonial-card/
+
+    return (
+      <Testimonial
+        className="testimonial"
+        key={testimonial?.id}
+        cloudMode={cloudMode}>
+        <div className="testimonial-body">
+          <P>{content}</P>
+          <div className="quote-icon-container">
+            <QuoteIcon className="quote-icon" />
+          </div>
+        </div>
+        <br />
+        <div className={'testimonial__darkShadow overflown'} />
+
+        <footer>
+          <img src={image} alt={company} />
+          <Typography>{`${person} @ ${company}`}</Typography>
+          <br />
+          {rating && (
+            <>
+              <Typography>Rating provided by Upwork™</Typography>
+              <Box my={1}>{getRating(rating, '⭐')}</Box>
+              <Typography>{date}</Typography>
+            </>
+          )}
+        </footer>
+      </Testimonial>
+    );
+  });
+
+  return (
+    <>
+      <section class="page-section testimonials" id="testimonials">
+        <inner-column>
+          <header class="section-header testimonials">
+            <h2 className="projects-h1">
+              <Sparkles>
+                {[...'Testimonials'].map((letter, key) => (
+                  <Span className="span" key={key}>
+                    {letter}
+                  </Span>
+                ))}
+              </Sparkles>
+            </h2>
+          </header>
+          <br />
+          {loaded ? (
+            <List count={allTestimonials.length} className="testimonial-list">
+              {TESTIMONIALS}
+            </List>
+          ) : (
+            <div
+              style={{
+                alignItems: 'center',
+                justifyContent: 'center',
+                display: 'flex',
+              }}>
+              <CircularProgress size={80} />
+            </div>
+          )}
+        </inner-column>
+      </section>
+    </>
+  );
+}
 
 const Testimonial = styled.li`
   @keyframes cardFloat {
@@ -200,91 +289,5 @@ const List = styled.ol`
     gap: 10px;
   }
 `;
-
-function Testimonials() {
-  const [allTestimonials, setAllTestimonials] = useState([]);
-
-  const [loaded, setLoaded] = useState(false);
-  const [cloudMode] = useContext(CloudStateContext);
-
-  useEffect(() => {
-    const fetchTestimonials = async () => {
-      const testimonials = await getAllTestimonials();
-      setAllTestimonials(getSortedTestimonials(testimonials));
-      setLoaded(true);
-    };
-    fetchTestimonials();
-  }, []);
-
-  const TESTIMONIALS = allTestimonials?.map((testimonial) => {
-    const {
-      fields: { content, date, rating, company, person, image },
-    } = testimonial;
-
-    // https://www.florin-pop.com/blog/2019/07/testimonial-card/
-
-    return (
-      <Testimonial
-        className="testimonial"
-        key={testimonial?.id}
-        cloudMode={cloudMode}>
-        <div className="testimonial-body">
-          <P>{content}</P>
-          <div className="quote-icon-container">
-            <QuoteIcon className="quote-icon" />
-          </div>
-        </div>
-        <br />
-        <div className={'testimonial__darkShadow overflown'} />
-
-        <footer>
-          <img src={image} alt={company} />
-          <Typography>{`${person} @ ${company}`}</Typography>
-          <br />
-          {rating && (
-            <>
-              <Typography>Rating provided by Upwork™</Typography>
-              <Box my={1}>{getRating(rating, '⭐')}</Box>
-              <Typography>{date}</Typography>
-            </>
-          )}
-        </footer>
-      </Testimonial>
-    );
-  });
-
-  return (
-    <>
-      <section class="page-section testimonials" id="testimonials">
-        <inner-column>
-          <header class="section-header testimonials">
-            <h2 className="projects-h1">
-              {[...'Testimonials'].map((letter, key) => (
-                <Span className="span" key={key}>
-                  {letter}
-                </Span>
-              ))}
-            </h2>
-          </header>
-          <br />
-          {loaded ? (
-            <List count={allTestimonials.length} className="testimonial-list">
-              {TESTIMONIALS}
-            </List>
-          ) : (
-            <div
-              style={{
-                alignItems: 'center',
-                justifyContent: 'center',
-                display: 'flex',
-              }}>
-              <CircularProgress size={80} />
-            </div>
-          )}
-        </inner-column>
-      </section>
-    </>
-  );
-}
 
 export default Testimonials;
