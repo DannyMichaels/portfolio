@@ -1,37 +1,27 @@
-import React, { useState, useEffect, useContext } from "react";
-import Ul from "./Ul";
-import { onResize } from "../../../utils/onResize";
-import { Link } from "react-scroll";
-import { blockBodyOnCondition } from "../../../utils/blockBodyOnCondition";
-import { IconButton } from "@material-ui/core";
-import CloudOn from "@material-ui/icons/Cloud";
-import CloudOff from "@material-ui/icons/CloudOff";
-import { CloudStateContext } from "../../../context/animationContext";
+import React, { useState, useEffect, useContext } from 'react';
+import Ul from './Ul';
+import { onResize } from '../../../utils/onResize';
+import { Link } from 'react-scroll';
+import { blockBodyOnCondition } from '../../../utils/blockBodyOnCondition';
+import { IconButton } from '@material-ui/core';
+import CloudOn from '@material-ui/icons/Cloud';
+import CloudOff from '@material-ui/icons/CloudOff';
+import { CloudStateContext } from '../../../context/animationContext';
+import useResize from './../../../hooks/useResize';
 
 function OpenNav({ open, setOpen, toggleCloudMode }) {
   const [cloudMode] = useContext(CloudStateContext);
 
-  useEffect(() => {
-    onResize();
-    window.addEventListener("resize", () => {
-      let width = window.innerWidth;
-      if (width >= 768) {
-        setOpen(false);
-        onResize();
-      }
-    });
-    return () => {
-      window.removeEventListener("resize", onResize);
-    };
-  }, [setOpen]);
+  useResize(() => {
+    let width = window.innerWidth;
+    if (width > 768) {
+      // close navbar when it's open and user is resizing to greater  width than 768px
+      setOpen(false);
+    }
+  });
 
-  useEffect(() => {
-    onResize();
-    window.addEventListener("resize", onResize);
-    return () => {
-      window.removeEventListener("resize", onResize);
-    };
-  }, []);
+  useResize(onResize); // check for akward animations with navbar when resizing
+
   useEffect(() => {
     blockBodyOnCondition(open);
   }, [open]);
@@ -42,7 +32,7 @@ function OpenNav({ open, setOpen, toggleCloudMode }) {
     e.preventDefault();
     setDisabled(true);
     if (disabled) {
-      document.querySelector(".layout-children").style.pointerEvents = "none";
+      document.querySelector('.layout-children').style.pointerEvents = 'none';
     }
     setTimeout(async () => {
       setDisabled(false);
@@ -53,7 +43,7 @@ function OpenNav({ open, setOpen, toggleCloudMode }) {
     <>
       <Ul
         style={
-          disabled ? { pointerEvents: "none" } : { pointerEvents: "inherit" }
+          disabled ? { pointerEvents: 'none' } : { pointerEvents: 'inherit' }
         }
         id="menu"
         open={open}
@@ -146,9 +136,9 @@ function OpenNav({ open, setOpen, toggleCloudMode }) {
         </Link>
         <IconButton onClick={toggleCloudMode}>
           {cloudMode ? (
-            <CloudOn style={{ color: "#fff" }} />
+            <CloudOn style={{ color: '#fff' }} />
           ) : (
-            <CloudOff style={{ color: "#fff" }} />
+            <CloudOff style={{ color: '#fff' }} />
           )}
         </IconButton>
       </Ul>
