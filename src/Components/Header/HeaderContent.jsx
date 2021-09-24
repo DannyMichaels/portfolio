@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState } from 'react';
 import Fill1 from './Fill/Fill1';
 import Fill2 from './Fill/Fill2';
 import HeaderText from './Text/HeaderText';
@@ -6,6 +6,7 @@ import Scroll from './Scroll/Scroll';
 import MoveInLeft from '../shared/Animations/MoveInLeft';
 import styled from 'styled-components';
 import { CloudStateContext } from '../../context/animationContext';
+import useResize from './../../hooks/useResize';
 
 const CloudBig = styled.img`
   z-index: -1;
@@ -62,15 +63,7 @@ export default function HeaderContent({ isFireFox }) {
     }
   }
 
-  useEffect(() => {
-    fillCheck();
-    window.addEventListener('resize', () => {
-      fillCheck();
-      return () => {
-        window.removeEventListener('resize', fillCheck);
-      };
-    });
-  }, []);
+  useResize(fillCheck);
 
   return (
     <>

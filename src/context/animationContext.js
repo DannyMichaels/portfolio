@@ -2,7 +2,7 @@ import React, { useState, createContext } from 'react';
 
 const CloudStateContext = createContext();
 
-// context that controls moving clouds and some shadows
+// context that controls clouds, floatly hover animations and some shadows
 function CloudStateProvider({ children }) {
   const [cloudMode, rawSetCloudMode] = useState(() => {
     const state = localStorage.getItem('cloudMode');
