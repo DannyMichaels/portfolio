@@ -6,6 +6,7 @@ import { CloudStateContext } from '../../../context/animationContext';
 import CloudBtn from './CloudBtn';
 import lightSwitchSFX from '../../../assets/sounds/lightswitch.wav';
 import useSound from 'use-sound';
+import { Hidden } from '@material-ui/core';
 
 const Nav = styled.nav`
   width: 100%;
@@ -98,15 +99,17 @@ const Navbar = () => {
             }
       }>
       <div className="logo">
-        <Link
-          className="back-to-top"
-          activeClass="active"
-          to="header"
-          spy={true}
-          smooth={true}
-          duration={1000}>
-          Daniel Michael
-        </Link>
+        <Hidden smDown>
+          <Link
+            className="back-to-top"
+            activeClass="active"
+            to="header"
+            spy={true}
+            smooth={true}
+            duration={1000}>
+            Daniel Michael
+          </Link>
+        </Hidden>
       </div>
 
       <Burger toggleCloudMode={toggleCloudMode} />

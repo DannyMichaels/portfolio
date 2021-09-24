@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import Stack from '../Components/Stack/Stack';
+import Skills from '../Components/Skills/Skills';
 import Projects from '../Components/Projects/Projects';
 import Layout from '../Components/shared/Layout/Layout';
 import Header from '../Components/Header/Header';
@@ -43,7 +43,7 @@ function Home() {
           <Header id="header" />
           <Div id="about">
             <About />
-            <Stack />
+            <Skills />
           </Div>
 
           {cloudMode ? <CloudsSection /> : emptySpaceJSX}

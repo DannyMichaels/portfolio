@@ -1,7 +1,8 @@
-import React, { useContext } from "react";
-import Tooltip from "@material-ui/core/Tooltip";
-import styled from "styled-components";
-import { CloudStateContext } from "../../context/animationContext";
+import React, { useContext } from 'react';
+import Tooltip from '@material-ui/core/Tooltip';
+import styled from 'styled-components';
+import { CloudStateContext } from '../../context/animationContext';
+import Sparkles from '../shared/Animations/Sparkles';
 const Section = styled.section`
   display: flex;
   justify-content: center;
@@ -43,7 +44,7 @@ const Section = styled.section`
     background: #fff;
     transform: translatey(0px);
     animation: ${({ cloudMode }) =>
-      cloudMode && "stackFloat 6s ease-in-out infinite"};
+      cloudMode && 'stackFloat 6s ease-in-out infinite'};
   }
 
   .span {
@@ -104,19 +105,21 @@ const Section = styled.section`
     margin-top: 100px;
   }
 `;
-function Stack() {
+function Skills() {
   const [cloudMode] = useContext(CloudStateContext);
 
   return (
     <Section className="language" cloudMode={cloudMode}>
       <div className="card">
         <h1>
-          <div className="span">S</div>
-          <div className="span">k</div>
-          <div className="span">i</div>
-          <div className="span">l</div>
-          <div className="span">l</div>
-          <div className="span">s</div>
+          <Sparkles>
+            <div className="span">S</div>
+            <div className="span">k</div>
+            <div className="span">i</div>
+            <div className="span">l</div>
+            <div className="span">l</div>
+            <div className="span">s</div>
+          </Sparkles>
         </h1>
         <br />
         <br />
@@ -225,4 +228,4 @@ function Stack() {
   );
 }
 
-export default Stack;
+export default Skills;

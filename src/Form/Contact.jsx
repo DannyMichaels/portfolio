@@ -1,8 +1,8 @@
-import React from "react";
-import TextField from "@material-ui/core/TextField";
-import Input from "@material-ui/core/Input";
-import styled from "styled-components";
-import Button from "@material-ui/core/Button";
+import React from 'react';
+import TextField from '@material-ui/core/TextField';
+import Input from '@material-ui/core/Input';
+import styled from 'styled-components';
+import Button from '@material-ui/core/Button';
 
 const Div = styled.div`
   display: flex;
@@ -163,10 +163,9 @@ function Contact() {
               <div data-netlify-recaptcha="true" className="field"></div>
               <Button
                 className="button1"
-                style={{ background: "white" }}
+                style={{ background: 'white' }}
                 variant="containted"
-                type="submit"
-              >
+                type="submit">
                 Submit&nbsp; ^_^
               </Button>
             </div>

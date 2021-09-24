@@ -117,6 +117,27 @@ function OpenNav({ open, setOpen, toggleCloudMode }) {
         <Link
           className="desktop-link"
           activeClass="active"
+          to="testimonials"
+          spy={true}
+          smooth={true}
+          duration={1000}
+          onClick={handleDisable}>
+          <li>Testimonials</li>
+        </Link>
+        <Link
+          onClick={() => setOpen(!open)}
+          className="mobile-link"
+          activeClass="active"
+          to="testimonials"
+          spy={true}
+          smooth={true}
+          duration={1000}>
+          <li>Testimonials</li>
+        </Link>
+
+        <Link
+          className="desktop-link"
+          activeClass="active"
           to="contact"
           spy={true}
           smooth={true}
