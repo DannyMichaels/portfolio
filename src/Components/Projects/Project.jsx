@@ -10,7 +10,6 @@ import IconButton from '@material-ui/core/IconButton';
 import Collapse from '@material-ui/core/Collapse';
 import Button from '@material-ui/core/Button';
 import Video from '../Dialogs/Video';
-import ProjectDetail from '../Dialogs/ProjectDetail';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -100,7 +99,6 @@ function Project(props) {
   const classes = useStyles(props);
   const [expanded, setExpanded] = useState(false);
   const [openVideo, setOpenVideo] = useState(false);
-  const [, setOpenDetail] = useState(false);
 
   const handleVideoOpen = () => {
     setOpenVideo(true);
@@ -108,14 +106,6 @@ function Project(props) {
 
   const handleVideoClose = () => {
     setOpenVideo(false);
-  };
-
-  const handleDetailOpen = () => {
-    setOpenDetail(true);
-  };
-
-  const handleDetailClose = () => {
-    setOpenDetail(false);
   };
 
   const handleExpandClick = () => {
@@ -131,11 +121,7 @@ function Project(props) {
           subheader={props.date}
         />
         <picture className="thumbnail">
-          <img
-            src={props.projectImage}
-            onClick={handleDetailOpen}
-            alt={props.name}
-          />
+          <img src={props.projectImage} alt={props.name} />
         </picture>
         <CardContent>
           <Typography variant="body2" color="textPrimary" component="p">
@@ -407,20 +393,6 @@ function Project(props) {
         handleClose={handleVideoClose}
         openVideo={openVideo}
         name={props.name}
-        handleDetailOpen={handleDetailOpen}
-        handleDetailClose={handleDetailClose}
-      />
-
-      <ProjectDetail
-        techName1={props.techName1}
-        techName2={props.techName2}
-        techName3={props.techName3}
-        techName4={props.techName4}
-        techName5={props.techName5}
-        handleDetailClose={handleDetailClose}
-        name={props.name}
-        classes={classes}
-        openDetail={false} //openDetail instead of false once I want this
       />
     </>
   );
