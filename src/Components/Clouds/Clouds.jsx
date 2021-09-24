@@ -1,7 +1,8 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
+import CloudImg from '../../assets/images/cloud.png';
 
-const CloudBig = styled.img`
+const BigCloud = styled.img`
   @keyframes float {
     0% {
       box-shadow: none;
@@ -63,63 +64,52 @@ let Liv = styled.div`
   margin-top: 100px;
 `;
 
-export const Clouds1 = () => (
+export const CloudsSection = () => (
   <>
-    <Giv className="desktop">
-      <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-      <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-      <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-      <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-      <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-      <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-    </Giv>
-    <Giv className="desktop">
-      <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-      <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-      <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-      <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-      <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-      <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+    <Giv className="desktop clouds-row">
+      {new Array(6).fill().map((_, idx) => (
+        <BigCloud className="cloud" src={CloudImg} key={idx} alt="cloud" />
+      ))}
     </Giv>
 
-    <Biv className="mobile">
-      <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-      <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+    <Giv className="desktop clouds-row">
+      {new Array(6).fill().map((_, idx) => (
+        <BigCloud className="cloud" src={CloudImg} key={idx} alt="cloud" />
+      ))}
+    </Giv>
+
+    <Biv className="mobile clouds-row">
+      <BigCloud className="cloud" src={CloudImg} alt="cloud" />
+      <BigCloud className="cloud" src={CloudImg} alt="cloud" />
     </Biv>
-    <Biv className="mobile">
-      <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-      <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+    <Biv className="mobile clouds-row">
+      <BigCloud className="cloud" src={CloudImg} alt="cloud" />
+      <BigCloud className="cloud" src={CloudImg} alt="cloud" />
     </Biv>
   </>
 );
 
-export const Clouds2 = () => (
+export const CloudsSectionAlt = () => (
   <Liv>
     <Giv className="desktop">
-      <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-      <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-      <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-      <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-      <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-      <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+      {new Array(6).fill().map((_, idx) => (
+        <BigCloud className="cloud" src={CloudImg} key={idx} alt="cloud" />
+      ))}
     </Giv>
 
     <Giv className="desktop">
-      <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-      <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-      <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-      <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-      <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-      <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+      {new Array(6).fill().map((_, idx) => (
+        <BigCloud className="cloud" src={CloudImg} key={idx} alt="cloud" />
+      ))}
     </Giv>
 
     <Ziv className="mobile">
-      <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-      <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+      <BigCloud className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+      <BigCloud className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
     </Ziv>
     <Ziv className="mobile">
-      <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
-      <CloudBig className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+      <BigCloud className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
+      <BigCloud className="cloud" src="https://i.imgur.com/UOQ3aCS.png" />
     </Ziv>
   </Liv>
 );

@@ -1,16 +1,16 @@
-import { useContext } from "react";
-import Stack from "../Components/Stack/Stack";
-import Projects from "../Components/Projects/Projects";
-import Layout from "../Components/shared/Layout/Layout";
-import Header from "../Components/Header/Header";
-import StyledScrollTop from "../Components/BackToTop/StyledScrollTop";
-import About from "../Components/Home/About";
-import ScrollToTopOnMount from "../Components/BackToTop/ScrollToTopOnMount";
-import styled from "styled-components";
-import Contact from "../Form/Contact";
-import Testimonials from "../Components/Testimonials/Testimonials";
-import { Clouds1, Clouds2 } from "../Components/Clouds/Clouds";
-import { CloudStateContext } from "../context/animationContext";
+import { useContext } from 'react';
+import Stack from '../Components/Stack/Stack';
+import Projects from '../Components/Projects/Projects';
+import Layout from '../Components/shared/Layout/Layout';
+import Header from '../Components/Header/Header';
+import StyledScrollTop from '../Components/BackToTop/StyledScrollTop';
+import About from '../Components/Home/About';
+import ScrollToTopOnMount from '../Components/BackToTop/ScrollToTopOnMount';
+import styled from 'styled-components';
+import Contact from '../Form/Contact';
+import Testimonials from '../Components/Testimonials/Testimonials';
+import { CloudsSection, CloudsSectionAlt } from '../Components/Clouds/Clouds';
+import { CloudStateContext } from '../context/animationContext';
 
 let Div = styled.div`
   display: flex;
@@ -28,9 +28,9 @@ let Div = styled.div`
 function Home() {
   const [cloudMode] = useContext(CloudStateContext);
 
-  const space = (
+  const emptySpaceJSX = (
     <>
-      <br /> <br />
+      <div className="page-break" />
     </>
   );
 
@@ -46,15 +46,15 @@ function Home() {
             <Stack />
           </Div>
 
-          {cloudMode ? <Clouds1 /> : space}
+          {cloudMode ? <CloudsSection /> : emptySpaceJSX}
 
           <Projects id="projects" />
 
-          {cloudMode ? <Clouds2 /> : space}
+          {cloudMode ? <CloudsSectionAlt /> : emptySpaceJSX}
 
           <Testimonials id="testimonials" />
 
-          {cloudMode ? <Clouds2 /> : space}
+          {cloudMode ? <CloudsSectionAlt /> : emptySpaceJSX}
 
           <Contact id="contact" />
         </main>
