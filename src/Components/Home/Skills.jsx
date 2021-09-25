@@ -7,7 +7,9 @@ import {
   Checkbox,
   FormControlLabel,
   FormGroup,
+  IconButton,
   Input,
+  InputAdornment,
 } from '@material-ui/core';
 
 // logos
@@ -30,6 +32,7 @@ import MongoDBLogo from '../../assets/images/tech_skills/mongodb.png';
 import NodeLogo from '../../assets/images/tech_skills/node.png';
 import ExpressLogo from '../../assets/images/tech_skills/express.png';
 import AxiosLogo from '../../assets/images/tech_skills/axios.png';
+import { CloseOutlined } from '@material-ui/icons';
 
 class Skill {
   constructor(name, logo, ...categories) {
@@ -144,6 +147,15 @@ export default function Skills() {
             value={search}
             name="searchName"
             onChange={(e) => setSearch(e.target.value)}
+            endAdornment={
+              <InputAdornment>
+                {search && (
+                  <IconButton onClick={() => setSearch('')}>
+                    <CloseOutlined />
+                  </IconButton>
+                )}
+              </InputAdornment>
+            }
           />
         </FormGroup>
       </div>
@@ -182,8 +194,11 @@ const Wrapper = styled.div`
     input[name='searchName'] {
       color: #fff;
     }
-    display: inline-block;
-    margin: 15px 0; // put underline and text closer together
+    display: flex;
+    margin: 10px 10px; // put underline and text closer together (15px), margin left 10px
+    button {
+      color: #fff;
+    }
   }
 
   h1 {
