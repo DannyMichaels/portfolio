@@ -39,7 +39,7 @@ const CATEGORIES = {
   BACK_END: 'Back-End',
   DATABASE: 'Database',
   UI: 'UI Frameworks & Libraries',
-  MISC: 'Miscellaneous',
+  MISC: 'Misc.',
 };
 
 const { FRONT_END, BACK_END, UI, DATABASE, MISC } = CATEGORIES;
@@ -51,16 +51,16 @@ const getSkills = () => [
   new Skill('jQuery', JQueryLogo, [FRONT_END]),
 
   new Skill('React.js', ReactLogo, [FRONT_END]), // ❤️
-  new Skill('Material UI', MuiLogo, [FRONT_END]),
+  new Skill('Material UI', MuiLogo, [FRONT_END, UI]),
   new Skill('styled-components', StyledComponentsLogo, [FRONT_END, UI]),
   new Skill('Bootstrap', BootstrapLogo, [FRONT_END, UI]),
 
   new Skill('Ruby', RubyLogo, [BACK_END]),
-  new Skill('Ruby on Rails', RubyOnRailsLogo, [FRONT_END, BACK_END]),
+  new Skill('Ruby on Rails', RubyOnRailsLogo, [BACK_END, FRONT_END]),
   new Skill('PostgreSQL', PostgresLogo, [BACK_END, DATABASE]),
   new Skill('Git', GitLogo, [MISC]),
 
-  new Skill('MongoDB', MongoDBLogo, [DATABASE, BACK_END]),
+  new Skill('MongoDB', MongoDBLogo, [BACK_END, DATABASE]),
   new Skill('Node.js', NodeLogo, [BACK_END, FRONT_END]),
   new Skill('Express', ExpressLogo, [BACK_END]),
   new Skill('Axios', AxiosLogo, [MISC]),
@@ -86,16 +86,17 @@ export default function Skills() {
     return;
   };
 
-  console.log({ filteredCategories });
-
   const getFilteredSkills = () => {
-    return skills.filter(({ categories }) => {
+    return [...skills].filter(({ categories }) => {
       return filteredCategories.includes(...categories);
     });
   };
 
   return (
-    <Wrapper className="language" cloudMode={cloudMode}>
+    <Wrapper
+      skillsCount={getFilteredSkills().length}
+      className="language"
+      cloudMode={cloudMode}>
       <div className="card">
         <h1>
           <Sparkles>
@@ -111,32 +112,22 @@ export default function Skills() {
           <FormGroup
             row
             className="text-white"
-            style={{ justifyContent: 'center' }}>
-            <FormControlLabel
-              control={
-                <Checkbox
-                  checked={filteredCategories.includes(FRONT_END)}
-                  color="primary"
-                  onChange={() => toggleFilterCategories(FRONT_END)}
-                  name={FRONT_END}
-                />
-              }
-              label="Front-End"
-              labelPlacement="top"
-            />
-
-            <FormControlLabel
-              control={
-                <Checkbox
-                  checked={filteredCategories.includes(BACK_END)}
-                  color="primary"
-                  onChange={() => toggleFilterCategories(BACK_END)}
-                  name={BACK_END}
-                />
-              }
-              label="Back-End"
-              labelPlacement="top"
-            />
+            style={{ justifyContent: 'center', marginBottom: '20px' }}>
+            {[FRONT_END, BACK_END, MISC].map((value, key) => (
+              <FormControlLabel
+                key={key}
+                control={
+                  <Checkbox
+                    checked={filteredCategories.includes(value)}
+                    color="primary"
+                    onChange={() => toggleFilterCategories(value)}
+                    name={value}
+                  />
+                }
+                label={value}
+                labelPlacement="top"
+              />
+            ))}
           </FormGroup>
         </div>
 
@@ -161,6 +152,12 @@ const Wrapper = styled.div`
   flex-flow: column nowrap;
   color: white;
 
+  .MuiCheckbox-colorPrimary {
+    svg {
+      color: #fff !important;
+    }
+  }
+
   h1 {
     font-family: montserrat, sans-serif;
     font-size: clamp(19px, 10vw, 40px);
@@ -170,10 +167,16 @@ const Wrapper = styled.div`
 
   .skills-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: ${({ skillsCount }) =>
+      skillsCount >= 4
+        ? `1fr 1fr 1fr 1fr`
+        : '1fr 1fr'}; // center it if there are less than enough skills to fill 4 fr of col
 
     @media (max-width: 600px) {
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: ${({ skillsCount }) =>
+        skillsCount >= 4
+          ? `1fr 1fr 1fr`
+          : '1fr 1fr'}; // center it if there are less than enough skills to fill 3 fr of col
     }
   }
 
