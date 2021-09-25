@@ -215,6 +215,7 @@ const Wrapper = styled.div`
   .skills-container {
     max-height: 350px;
     overflow-y: auto;
+    overflow-x: hidden;
     border-radius: 30px;
 
     &::-webkit-scrollbar {
