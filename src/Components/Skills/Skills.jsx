@@ -1,8 +1,9 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useMemo } from 'react';
 import Tooltip from '@material-ui/core/Tooltip';
 import styled from 'styled-components';
 import { CloudStateContext } from '../../context/animationContext';
 import Sparkles from '../shared/Animations/Sparkles';
+import { Checkbox, FormControlLabel, FormGroup } from '@material-ui/core';
 
 // logos
 import HtmlLogo from '../../assets/images/tech_skills/html.png';
@@ -29,7 +30,7 @@ class Skill {
   constructor(name, logo, ...categories) {
     this.name = name;
     this.logo = logo;
-    this.categories = categories || [];
+    this.categories = [].concat(...categories);
   }
 }
 
@@ -43,7 +44,7 @@ const CATEGORIES = {
 
 const { FRONT_END, BACK_END, UI, DATABASE, MISC } = CATEGORIES;
 
-const INITIAL_SKILLS_STATE = [
+const getSkills = () => [
   new Skill('HTML5', HtmlLogo, [FRONT_END]),
   new Skill('CSS3 (Cascading Style Sheets)', CSSLogo, [FRONT_END]),
   new Skill('JavaScript', JavaScriptLogo, [FRONT_END, BACK_END]),
@@ -67,7 +68,31 @@ const INITIAL_SKILLS_STATE = [
 
 export default function Skills() {
   const [cloudMode] = useContext(CloudStateContext);
-  const [skills, setSkills] = useState(INITIAL_SKILLS_STATE);
+  const skills = getSkills();
+
+  const [filteredCategories, setFilteredCategories] = useState([
+    ...Object.values(CATEGORIES),
+  ]);
+
+  const toggleFilterCategories = (value) => {
+    if (filteredCategories.includes(value)) {
+      setFilteredCategories((prevState) =>
+        prevState.filter((category) => category !== value)
+      );
+      return;
+    }
+
+    setFilteredCategories((prevState) => [...prevState, value]);
+    return;
+  };
+
+  console.log({ filteredCategories });
+
+  const getFilteredSkills = () => {
+    return skills.filter(({ categories }) => {
+      return filteredCategories.includes(...categories);
+    });
+  };
 
   return (
     <Wrapper className="language" cloudMode={cloudMode}>
@@ -82,8 +107,41 @@ export default function Skills() {
           </Sparkles>
         </h1>
 
+        <div className="filter-checkboxes">
+          <FormGroup
+            row
+            className="text-white"
+            style={{ justifyContent: 'center' }}>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={filteredCategories.includes(FRONT_END)}
+                  color="primary"
+                  onChange={() => toggleFilterCategories(FRONT_END)}
+                  name={FRONT_END}
+                />
+              }
+              label="Front-End"
+              labelPlacement="top"
+            />
+
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={filteredCategories.includes(BACK_END)}
+                  color="primary"
+                  onChange={() => toggleFilterCategories(BACK_END)}
+                  name={BACK_END}
+                />
+              }
+              label="Back-End"
+              labelPlacement="top"
+            />
+          </FormGroup>
+        </div>
+
         <div className="skills-container">
-          {skills.map((skill, key) => (
+          {getFilteredSkills().map((skill, key) => (
             <Tooltip arrow placement="top" title={skill.name} key={key}>
               <img className="tech-logo" src={skill.logo} alt={skill.name} />
             </Tooltip>
