@@ -1,19 +1,59 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Tooltip from '@material-ui/core/Tooltip';
 import styled from 'styled-components';
 import { CloudStateContext } from '../../context/animationContext';
 import Sparkles from '../shared/Animations/Sparkles';
 
 // logos
+import HtmlLogo from '../../assets/images/tech_skills/html.png';
+import CSSLogo from '../../assets/images/tech_skills/css3.png';
+import JavaScriptLogo from '../../assets/images/tech_skills/javascript.png';
+import JQueryLogo from '../../assets/images/tech_skills/jQuery.png';
+
+import ReactLogo from '../../assets/images/tech_skills/react.png';
 import MuiLogo from '../../assets/images/tech_skills/Mui.png';
 import StyledComponentsLogo from '../../assets/images/tech_skills/styled-components.png';
+import BootstrapLogo from '../../assets/images/tech_skills/bootstrap.png';
+
 import RubyLogo from '../../assets/images/tech_skills/ruby.png';
 import RubyOnRailsLogo from '../../assets/images/tech_skills/ruby-on-rails.png';
-import BootstrapLogo from '../../assets/images/tech_skills/bootstrap.png';
-import JavaScriptLogo from '../../assets/images/tech_skills/javascript.png';
+import PostgresLogo from '../../assets/images/tech_skills/postgresql.png';
+
+import ExpressLogo from '../../assets/images/tech_skills/express.png';
+
+class Skill {
+  constructor(name, logo, categories) {
+    this.name = name;
+    this.logo = logo;
+    this.categories = categories;
+  }
+}
+
+const CATEGORIES = {
+  FRONT_END: 'Front-End',
+  BACK_END: 'Back-End',
+  DATABASE: 'Database',
+  VERSION_CONTROL: 'Version Control',
+  UI_FRAMEWORKS: 'UI Frameworks & Libraries',
+};
 
 export default function Skills() {
   const [cloudMode] = useContext(CloudStateContext);
+  const [skills, setSkills] = useState([
+    new Skill('HTML5', HtmlLogo),
+    new Skill('CSS3 (Cascading Style Sheets)', CSSLogo),
+    new Skill('JavaScript', JavaScriptLogo),
+    new Skill('jQuery', JQueryLogo),
+
+    new Skill('React.js', ReactLogo), // ❤️
+    new Skill('Material UI', MuiLogo),
+    new Skill('styled-components', StyledComponentsLogo),
+    new Skill('Bootstrap', BootstrapLogo),
+
+    new Skill('Ruby', RubyLogo),
+    new Skill('Ruby on Rails', RubyOnRailsLogo),
+    new Skill('PostgreSQL', PostgresLogo),
+  ]);
 
   return (
     <Section className="language" cloudMode={cloudMode}>
@@ -100,10 +140,7 @@ export default function Skills() {
           />
         </Tooltip>
         <Tooltip arrow placement="top" title="Express">
-          <img
-            src="https://img2.pngio.com/express-js-png-5-png-image-expressjs-png-800_800.png"
-            alt="Express"
-          />
+          <img src={ExpressLogo} alt="Express" />
         </Tooltip>
         <Tooltip arrow placement="top" title="Axios">
           <img
