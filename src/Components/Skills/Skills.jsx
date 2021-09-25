@@ -44,7 +44,7 @@ export default function Skills() {
           />
         </Tooltip>
         <Tooltip arrow placement="top" title="JavaScript">
-          <img src={JavasScriptLogo} alt="JavaScript" />
+          <img src={JavaScriptLogo} alt="JavaScript" />
         </Tooltip>
         <Tooltip arrow placement="top" title="jQuery">
           <img src="https://logodix.com/logo/941103.png" alt="jQuery" />

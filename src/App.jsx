@@ -1,24 +1,24 @@
-import React, { useEffect } from "react";
-import Home from "./screens/Home";
-import { Route, Switch } from "react-router-dom";
-import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
-import "./App.scss";
+import React, { useEffect } from 'react';
+import Home from './screens/Home';
+import { Route, Switch } from 'react-router-dom';
+import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
+import './App.scss';
 
 const theme = createMuiTheme({
   overrides: {
     MuiInput: {
       underline: {
-        "&:hover:not($disabled):before": {
-          borderBottom: `.8px solid ${"white"}`,
+        '&:hover:not($disabled):before': {
+          borderBottom: `.8px solid white`,
         },
       },
     },
   },
 });
 
-function App() {
+export default function App() {
   useEffect(() => {
-    document.body.style.overflowX = "hidden";
+    document.body.style.overflowX = 'hidden';
   }, []);
 
   return (
@@ -31,5 +31,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
