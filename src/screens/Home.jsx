@@ -18,11 +18,13 @@ let Div = styled.div`
   flex-flow: row wrap;
   align-items: center;
   min-height: 90vh;
-  @media screen and (max-width: 1030px) {
+
+  @media screen and (max-width: 1100px) {
     margin-top: 100px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding-bottom: 100px;
   }
 `;
 

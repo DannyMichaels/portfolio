@@ -180,9 +180,13 @@ const Wrapper = styled.div`
   margin-bottom: 20px;
   flex-flow: column nowrap;
   color: white;
+  margin-top: 50px;
 
-  position: relative;
-  top: -30px;
+  @media screen and (min-width: 1100px) {
+    margin-top: 0;
+    position: relative;
+    top: -30px;
+  }
 
   .MuiCheckbox-colorPrimary {
     svg {
