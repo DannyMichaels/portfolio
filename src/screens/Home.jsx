@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import Skills from '../Components/Skills/Skills';
+import Skills from '../Components/Home/Skills';
 import Projects from '../Components/Projects/Projects';
 import Layout from '../Components/shared/Layout/Layout';
 import Header from '../Components/Header/Header';
@@ -8,7 +8,7 @@ import About from '../Components/Home/About';
 import ScrollToTopOnMount from '../Components/BackToTop/ScrollToTopOnMount';
 import styled from 'styled-components';
 import Contact from '../Form/Contact';
-import Testimonials from '../Components/Testimonials/Testimonials';
+import Testimonials from '../Components/Home/Testimonials';
 import { CloudsSection, CloudsSectionAlt } from '../Components/Clouds/Clouds';
 import { CloudStateContext } from '../context/animationContext';
 

@@ -1,9 +1,14 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useMemo } from 'react';
 import Tooltip from '@material-ui/core/Tooltip';
 import styled from 'styled-components';
 import { CloudStateContext } from '../../context/animationContext';
 import Sparkles from '../shared/Animations/Sparkles';
-import { Checkbox, FormControlLabel, FormGroup } from '@material-ui/core';
+import {
+  Checkbox,
+  FormControlLabel,
+  FormGroup,
+  Input,
+} from '@material-ui/core';
 
 // logos
 import HtmlLogo from '../../assets/images/tech_skills/html.png';
@@ -74,6 +79,8 @@ export default function Skills() {
     ...Object.values(CATEGORIES),
   ]);
 
+  const [search, setSearch] = useState('');
+
   const toggleFilterCategories = (value) => {
     if (filteredCategories.includes(value)) {
       setFilteredCategories((prevState) =>
@@ -86,15 +93,19 @@ export default function Skills() {
     return;
   };
 
-  const getFilteredSkills = () => {
-    return [...skills].filter(({ categories }) => {
-      return filteredCategories.includes(...categories);
+  const filteredSkills = useMemo(() => {
+    return [...skills].filter(({ name, categories }) => {
+      return (
+        // filter by search input (skill.name) and by category
+        name.toLowerCase().includes(search.toLowerCase()) &&
+        filteredCategories.includes(...categories)
+      );
     });
-  };
+  }, [filteredCategories, search, skills]);
 
   return (
     <Wrapper
-      skillsCount={getFilteredSkills().length}
+      skillsCount={filteredSkills.length}
       className="language"
       cloudMode={cloudMode}>
       <h1>
@@ -127,11 +138,18 @@ export default function Skills() {
               labelPlacement="top"
             />
           ))}
+          <Input
+            placeholder="Search by name"
+            type="text"
+            value={search}
+            name="searchName"
+            onChange={(e) => setSearch(e.target.value)}
+          />
         </FormGroup>
       </div>
 
       <div className="skills-container">
-        {getFilteredSkills().map((skill, key) => (
+        {filteredSkills.map((skill, key) => (
           <Tooltip arrow placement="top" title={skill.name} key={key}>
             <img className="tech-logo" src={skill.logo} alt={skill.name} />
           </Tooltip>
@@ -158,6 +176,14 @@ const Wrapper = styled.div`
     svg {
       color: #fff !important;
     }
+  }
+
+  .MuiInputBase-root {
+    input[name='searchName'] {
+      color: #fff;
+    }
+    display: inline-block;
+    margin: 15px 0; // put underline and text closer together
   }
 
   h1 {
