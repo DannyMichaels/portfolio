@@ -96,6 +96,7 @@ const comeInOut = keyframes`
     transform: scale(0);
   }
 `;
+
 const spin = keyframes`
   0% {
     transform: rotate(0deg);
@@ -109,6 +110,7 @@ const Wrapper = styled.span`
   display: inline-block;
   position: relative;
 `;
+
 const SparkleWrapper = styled.span`
   position: absolute;
   display: block;

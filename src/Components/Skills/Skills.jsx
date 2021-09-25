@@ -3,6 +3,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 import styled from 'styled-components';
 import { CloudStateContext } from '../../context/animationContext';
 import Sparkles from '../shared/Animations/Sparkles';
+
 const Section = styled.section`
   display: flex;
   justify-content: center;
