@@ -33,6 +33,7 @@ const generateSparkle = (color) => {
   };
   return sparkle;
 };
+
 const Sparkles = ({ color = DEFAULT_COLOR, children, ...delegated }) => {
   const [sparkles, setSparkles] = useState(() => {
     return range(3).map(() => generateSparkle(color));
@@ -42,12 +43,18 @@ const Sparkles = ({ color = DEFAULT_COLOR, children, ...delegated }) => {
     () => {
       const sparkle = generateSparkle(color);
       const now = Date.now();
-      const nextSparkles = sparkles.filter((sp) => {
-        const delta = now - sp.createdAt;
-        return delta < 750;
+
+      setSparkles((prevState) => {
+        let nextSparkles = prevState.filter((sp) => {
+          /* filter sparkles where the difference between now and when they were created is 
+         less than 750ms */
+          const timeDifferenceMS = now - sp.createdAt;
+          return timeDifferenceMS < 750;
+        });
+        nextSparkles.push(sparkle); // add the new generated sparkle
+
+        return nextSparkles; // return the new state.
       });
-      nextSparkles.push(sparkle);
-      setSparkles(nextSparkles);
     },
     prefersReducedMotion ? null : 50,
     prefersReducedMotion ? null : 450
@@ -77,6 +84,7 @@ const Sparkle = ({ size, color, style }) => {
     </SparkleWrapper>
   );
 };
+
 const comeInOut = keyframes`
   0% {
     transform: scale(0);
@@ -96,6 +104,7 @@ const spin = keyframes`
     transform: rotate(180deg);
   }
 `;
+
 const Wrapper = styled.span`
   display: inline-block;
   position: relative;
@@ -107,12 +116,14 @@ const SparkleWrapper = styled.span`
     animation: ${comeInOut} 700ms forwards;
   }
 `;
+
 const SparkleSvg = styled.svg`
   display: block;
   @media (prefers-reduced-motion: no-preference) {
     animation: ${spin} 1000ms linear;
   }
 `;
+
 const ChildWrapper = styled.strong`
   position: relative;
   z-index: 1;
