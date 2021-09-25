@@ -6,7 +6,7 @@ import { getSortedProjects as getSortedTestimonials } from '../../utils/sortedPr
 import getRating from '../../utils/getRating.js';
 import { Box, Typography } from '@material-ui/core';
 import QuoteIcon from '@material-ui/icons/FormatQuote';
-import { CloudStateContext } from '../../context/animationContext.js';
+import { CloudStateContext } from '../../context/cloudContext.js';
 import Sparkles from '../shared/Animations/Sparkles.jsx';
 
 function Testimonials() {

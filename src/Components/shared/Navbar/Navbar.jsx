@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Burger from './Burger';
 import { Link } from 'react-scroll';
-import { CloudStateContext } from '../../../context/animationContext';
+import { CloudStateContext } from '../../../context/cloudContext';
 import CloudBtn from './CloudBtn';
 import lightSwitchSFX from '../../../assets/sounds/lightswitch.wav';
 import useSound from 'use-sound';

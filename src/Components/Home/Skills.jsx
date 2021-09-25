@@ -1,7 +1,7 @@
 import React, { useContext, useState, useMemo } from 'react';
 import Tooltip from '@material-ui/core/Tooltip';
 import styled from 'styled-components';
-import { CloudStateContext } from '../../context/animationContext';
+import { CloudStateContext } from '../../context/cloudContext';
 import Sparkles from '../shared/Animations/Sparkles';
 import {
   Checkbox,

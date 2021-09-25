@@ -10,7 +10,7 @@ import styled from 'styled-components';
 import Contact from '../Form/Contact';
 import Testimonials from '../Components/Home/Testimonials';
 import { CloudsSection, CloudsSectionAlt } from '../Components/Clouds/Clouds';
-import { CloudStateContext } from '../context/animationContext';
+import { CloudStateContext } from '../context/cloudContext';
 
 let Div = styled.div`
   display: flex;

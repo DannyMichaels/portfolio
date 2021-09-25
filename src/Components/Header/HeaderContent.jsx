@@ -5,7 +5,7 @@ import HeaderText from './Text/HeaderText';
 import Scroll from './Scroll/Scroll';
 import MoveInLeft from '../shared/Animations/MoveInLeft';
 import styled from 'styled-components';
-import { CloudStateContext } from '../../context/animationContext';
+import { CloudStateContext } from '../../context/cloudContext';
 import useResize from './../../hooks/useResize';
 
 const CloudBig = styled.img`

@@ -6,7 +6,7 @@ import { blockBodyOnCondition } from '../../../utils/blockBodyOnCondition';
 import { IconButton } from '@material-ui/core';
 import CloudOn from '@material-ui/icons/Cloud';
 import CloudOff from '@material-ui/icons/CloudOff';
-import { CloudStateContext } from '../../../context/animationContext';
+import { CloudStateContext } from '../../../context/cloudContext';
 import useResize from './../../../hooks/useResize';
 
 function OpenNav({ open, setOpen, toggleCloudMode }) {
