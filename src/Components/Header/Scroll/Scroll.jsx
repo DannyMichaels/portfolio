@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { Link } from "react-scroll";
+import styled from 'styled-components';
+import { Link } from 'react-scroll';
 
 const Wrapper = styled.div`
   @media screen and (max-width: 768px) {
@@ -34,7 +34,7 @@ const Div = styled.div`
   }
   .font-class-2 {
     color: white;
-    font-family: "Helvetica", Helvetica, Arial, serif;
+    font-family: 'Helvetica', Helvetica, Arial, serif;
     font-size: 18px;
     line-height: 22px;
   }

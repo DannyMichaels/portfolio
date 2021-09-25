@@ -36,7 +36,7 @@ function Home() {
       <Layout>
         <ScrollToTopOnMount />
         <StyledScrollTop breakpoint={768} distance={800} />
-        <main class="page-content">
+        <main className="page-content">
           <Header id="header" />
 
           <Div id="about">

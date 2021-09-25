@@ -26,7 +26,7 @@ import ExpressLogo from '../../assets/images/tech_skills/express.png';
 import AxiosLogo from '../../assets/images/tech_skills/axios.png';
 
 class Skill {
-  constructor(name, logo, categories) {
+  constructor(name, logo, ...categories) {
     this.name = name;
     this.logo = logo;
     this.categories = categories || [];
@@ -37,33 +37,37 @@ const CATEGORIES = {
   FRONT_END: 'Front-End',
   BACK_END: 'Back-End',
   DATABASE: 'Database',
-  VERSION_CONTROL: 'Version Control',
-  UI_FRAMEWORKS: 'UI Frameworks & Libraries',
+  UI: 'UI Frameworks & Libraries',
+  MISC: 'Miscellaneous',
 };
+
+const { FRONT_END, BACK_END, UI, DATABASE, MISC } = CATEGORIES;
+
+const INITIAL_SKILLS_STATE = [
+  new Skill('HTML5', HtmlLogo, [FRONT_END]),
+  new Skill('CSS3 (Cascading Style Sheets)', CSSLogo, [FRONT_END]),
+  new Skill('JavaScript', JavaScriptLogo, [FRONT_END, BACK_END]),
+  new Skill('jQuery', JQueryLogo, [FRONT_END]),
+
+  new Skill('React.js', ReactLogo, [FRONT_END]), // ❤️
+  new Skill('Material UI', MuiLogo, [FRONT_END]),
+  new Skill('styled-components', StyledComponentsLogo, [FRONT_END, UI]),
+  new Skill('Bootstrap', BootstrapLogo, [FRONT_END, UI]),
+
+  new Skill('Ruby', RubyLogo, [BACK_END]),
+  new Skill('Ruby on Rails', RubyOnRailsLogo, [FRONT_END, BACK_END]),
+  new Skill('PostgreSQL', PostgresLogo, [BACK_END, DATABASE]),
+  new Skill('Git', GitLogo, [MISC]),
+
+  new Skill('MongoDB', MongoDBLogo, [DATABASE, BACK_END]),
+  new Skill('Node.js', NodeLogo, [BACK_END, FRONT_END]),
+  new Skill('Express', ExpressLogo, [BACK_END]),
+  new Skill('Axios', AxiosLogo, [MISC]),
+];
 
 export default function Skills() {
   const [cloudMode] = useContext(CloudStateContext);
-  const [skills, setSkills] = useState([
-    new Skill('HTML5', HtmlLogo),
-    new Skill('CSS3 (Cascading Style Sheets)', CSSLogo),
-    new Skill('JavaScript', JavaScriptLogo),
-    new Skill('jQuery', JQueryLogo),
-
-    new Skill('React.js', ReactLogo), // ❤️
-    new Skill('Material UI', MuiLogo),
-    new Skill('styled-components', StyledComponentsLogo),
-    new Skill('Bootstrap', BootstrapLogo),
-
-    new Skill('Ruby', RubyLogo),
-    new Skill('Ruby on Rails', RubyOnRailsLogo),
-    new Skill('PostgreSQL', PostgresLogo),
-    new Skill('Git', GitLogo),
-
-    new Skill('MongoDB', MongoDBLogo),
-    new Skill('Node.js', NodeLogo),
-    new Skill('Node.js', ExpressLogo),
-    new Skill('Axios', AxiosLogo),
-  ]);
+  const [skills, setSkills] = useState(INITIAL_SKILLS_STATE);
 
   return (
     <Wrapper className="language" cloudMode={cloudMode}>
@@ -77,8 +81,6 @@ export default function Skills() {
             ))}
           </Sparkles>
         </h1>
-        {/* <br />
-        <br /> */}
 
         <div className="skills-container">
           {skills.map((skill, key) => (

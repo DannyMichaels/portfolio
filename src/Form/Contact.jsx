@@ -126,8 +126,8 @@ function Contact() {
         </div>
         <form action="/contact" method="post" name="contact">
           <input type="hidden" name="form-name" value="contact" />
-          <div class="field">
-            <div class="field-half">
+          <div className="field">
+            <div className="field-half">
               <Input
                 type="text"
                 name="name"
@@ -138,7 +138,7 @@ function Contact() {
                 placeholder="Name"
               />
             </div>
-            <div class="field field-half">
+            <div className="field field-half">
               <Input
                 type="email"
                 required
@@ -149,7 +149,7 @@ function Contact() {
                 variant="filled"
               />
             </div>
-            <div class="field field">
+            <div className="field field">
               <TextField
                 required
                 name="message"

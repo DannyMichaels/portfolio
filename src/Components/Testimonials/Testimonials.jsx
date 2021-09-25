@@ -63,9 +63,9 @@ function Testimonials() {
 
   return (
     <>
-      <section class="page-section testimonials" id="testimonials">
+      <section className="page-section testimonials" id="testimonials">
         <inner-column>
-          <header class="section-header testimonials">
+          <header className="section-header testimonials">
             <h2 className="projects-h1">
               <Sparkles>
                 {[...'Testimonials'].map((letter, key) => (

@@ -55,9 +55,9 @@ function Projects() {
 
   return (
     <>
-      <section class="page-section projects" id="projects">
+      <section className="page-section projects" id="projects">
         <inner-column>
-          <header class="section-header projects">
+          <header className="section-header projects">
             <h2 className="projects-h1">
               {[...'Personal'].map((text, key) => (
                 <Span key={key}>{text}</Span>
