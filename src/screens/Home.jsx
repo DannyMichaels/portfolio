@@ -15,9 +15,9 @@ import { CloudStateContext } from '../context/animationContext';
 let Div = styled.div`
   display: flex;
   justify-content: space-evenly;
-  padding-bottom: 100px;
   flex-flow: row wrap;
   align-items: center;
+  min-height: 90vh;
   @media screen and (max-width: 1030px) {
     margin-top: 100px;
     display: flex;
@@ -38,6 +38,9 @@ function Home() {
         <StyledScrollTop breakpoint={768} distance={800} />
         <main className="page-content">
           <Header id="header" />
+
+          {/* spacer */}
+          <div className="page-break" />
 
           <Div id="about">
             <About />

@@ -1,4 +1,4 @@
-import React, { useContext, useState, useMemo } from 'react';
+import React, { useContext, useState } from 'react';
 import Tooltip from '@material-ui/core/Tooltip';
 import styled from 'styled-components';
 import { CloudStateContext } from '../../context/animationContext';
@@ -97,50 +97,48 @@ export default function Skills() {
       skillsCount={getFilteredSkills().length}
       className="language"
       cloudMode={cloudMode}>
-      <div className="card">
-        <h1>
-          <Sparkles>
-            {[...'Skills'].map((letter, key) => (
-              <div key={key} className="text-letter">
-                {letter}
-              </div>
-            ))}
-          </Sparkles>
-        </h1>
-
-        <div className="filter-checkboxes">
-          <FormGroup
-            row
-            className="text-white"
-            style={{ justifyContent: 'center', marginBottom: '20px' }}>
-            {[FRONT_END, BACK_END, MISC].map((value, key) => (
-              <FormControlLabel
-                key={key}
-                control={
-                  <Checkbox
-                    checked={filteredCategories.includes(value)}
-                    color="primary"
-                    onChange={() => toggleFilterCategories(value)}
-                    name={value}
-                  />
-                }
-                label={value}
-                labelPlacement="top"
-              />
-            ))}
-          </FormGroup>
-        </div>
-
-        <div className="skills-container">
-          {getFilteredSkills().map((skill, key) => (
-            <Tooltip arrow placement="top" title={skill.name} key={key}>
-              <img className="tech-logo" src={skill.logo} alt={skill.name} />
-            </Tooltip>
+      <h1>
+        <Sparkles>
+          {[...'Skills'].map((letter, key) => (
+            <div key={key} className="text-letter">
+              {letter}
+            </div>
           ))}
-        </div>
+        </Sparkles>
+      </h1>
 
-        <br />
+      <div className="filter-checkboxes">
+        <FormGroup
+          row
+          className="text-white"
+          style={{ justifyContent: 'center', marginBottom: '20px' }}>
+          {[FRONT_END, BACK_END, MISC].map((value, key) => (
+            <FormControlLabel
+              key={key}
+              control={
+                <Checkbox
+                  checked={filteredCategories.includes(value)}
+                  color="primary"
+                  onChange={() => toggleFilterCategories(value)}
+                  name={value}
+                />
+              }
+              label={value}
+              labelPlacement="top"
+            />
+          ))}
+        </FormGroup>
       </div>
+
+      <div className="skills-container">
+        {getFilteredSkills().map((skill, key) => (
+          <Tooltip arrow placement="top" title={skill.name} key={key}>
+            <img className="tech-logo" src={skill.logo} alt={skill.name} />
+          </Tooltip>
+        ))}
+      </div>
+
+      <br />
     </Wrapper>
   );
 }
@@ -148,9 +146,13 @@ export default function Skills() {
 const Wrapper = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-bottom: 20px;
   flex-flow: column nowrap;
   color: white;
+
+  position: relative;
+  top: -30px;
 
   .MuiCheckbox-colorPrimary {
     svg {
@@ -166,6 +168,25 @@ const Wrapper = styled.div`
   }
 
   .skills-container {
+    max-height: 350px;
+    overflow-y: auto;
+    border-radius: 30px;
+
+    &::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      cursor: pointer !important;
+      box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
+      border-radius: 100px;
+      background: linear-gradient(180deg, #d0368a 0%, #708ad4 99%);
+    }
+
     display: grid;
     grid-template-columns: ${({ skillsCount }) =>
       skillsCount >= 4
@@ -256,9 +277,5 @@ const Wrapper = styled.div`
 
   .tech-logo:hover {
     cursor: pointer;
-  }
-
-  .card {
-    margin: 100px auto;
   }
 `;

@@ -11,6 +11,11 @@ const Div = styled.div`
   align-self: center;
   align-items: center;
 
+  @media screen and (min-width: 1100px) {
+    position: relative;
+    top: -30px;
+  }
+
   .github,
   .linkedin,
   .upwork {
@@ -108,9 +113,14 @@ const Div = styled.div`
     flex-flow: row wrap;
     max-width: 450px;
 
+    p {
+      line-height: 1.5em;
+    }
+
     max-height: 500px;
     padding: 10px;
   }
+
   @media screen and (max-width: 600px) {
     .text-container {
       font-size: 18px;
@@ -147,12 +157,15 @@ function About() {
               <div className="span"> e</div>
             </div>
             <div className="text-container">
-              I am a Junior Developer career pivoting from the music industry,
-              with experience working with Rails, React, and more. My previous
-              career as a musician allowed me to be collaborative and creative,
-              which is something I now enjoy bringing to my code. I am
-              empathetic, approachable and an active listener; traits that allow
-              me to create great projects and build relationships along the way
+              <p>
+                I am a Junior Developer career pivoting from the music industry,
+                with experience working with Rails, React, and more. My previous
+                career as a musician allowed me to be collaborative and
+                creative, which is something I now enjoy bringing to my code. I
+                am empathetic, approachable and an active listener; traits that
+                allow me to create great projects and build relationships along
+                the way
+              </p>
               <div className="buttons-container">
                 <a
                   className="link"
