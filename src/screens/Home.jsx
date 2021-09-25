@@ -18,7 +18,8 @@ let Div = styled.div`
   padding-bottom: 100px;
   flex-flow: row wrap;
   align-items: center;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1030px) {
+    margin-top: 100px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -28,11 +29,7 @@ let Div = styled.div`
 function Home() {
   const [cloudMode] = useContext(CloudStateContext);
 
-  const emptySpaceJSX = (
-    <>
-      <div className="page-break" />
-    </>
-  );
+  const emptySpaceJSX = <div className="page-break" />;
 
   return (
     <>
@@ -41,6 +38,7 @@ function Home() {
         <StyledScrollTop breakpoint={768} distance={800} />
         <main class="page-content">
           <Header id="header" />
+
           <Div id="about">
             <About />
             <Skills />

@@ -1,15 +1,16 @@
-import Button from "@material-ui/core/Button";
-import styled from "styled-components";
-import { SiGithub } from "react-icons/si";
-import { SiLinkedin } from "react-icons/si";
-import { SiUpwork } from "react-icons/si";
+import Button from '@material-ui/core/Button';
+import styled from 'styled-components';
+import { SiGithub } from 'react-icons/si';
+import { SiLinkedin } from 'react-icons/si';
+import { SiUpwork } from 'react-icons/si';
 
 const Div = styled.div`
-  font-family: "montserrat", sans-serif;
+  font-family: 'montserrat', sans-serif;
   display: flex;
   flex-direction: column;
   align-self: center;
   align-items: center;
+
   .github,
   .linkedin,
   .upwork {
@@ -133,8 +134,8 @@ const Div = styled.div`
 function About() {
   return (
     <>
-      <section class="page-section text">
-        <Div>
+      <Div className="page-section about">
+        <>
           <div className="content-container">
             <div className="title-container">
               <div className="span"> A</div>
@@ -157,7 +158,7 @@ function About() {
                   className="link"
                   target="_blank"
                   rel="noreferrer"
-                  href={"https://github.com/DannyMichaels/"}>
+                  href={'https://github.com/DannyMichaels/'}>
                   <SiGithub className="github" />
                 </a>
                 <a
@@ -165,7 +166,7 @@ function About() {
                   target="_blank"
                   rel="noreferrer"
                   href={
-                    "https://www.linkedin.com/in/daniel-michael-718825155/"
+                    'https://www.linkedin.com/in/daniel-michael-718825155/'
                   }>
                   <SiLinkedin className="linkedin" />
                 </a>
@@ -174,7 +175,7 @@ function About() {
                   target="_blank"
                   rel="noreferrer"
                   href={
-                    "https://www.upwork.com/o/profiles/users/~019a9afd0f1e94fc80/"
+                    'https://www.upwork.com/o/profiles/users/~019a9afd0f1e94fc80/'
                   }>
                   <SiUpwork className="upwork" />
                 </a>
@@ -184,9 +185,9 @@ function About() {
                   className="link"
                   target="_blank"
                   rel="noreferrer"
-                  style={{ textDecoration: "none", color: "inherit" }}
+                  style={{ textDecoration: 'none', color: 'inherit' }}
                   href={
-                    "https://drive.google.com/file/d/1Wjfz8E9NeW4QMK_nhpwSicwg9_pDA5JD/view?usp=sharing"
+                    'https://drive.google.com/file/d/1Wjfz8E9NeW4QMK_nhpwSicwg9_pDA5JD/view?usp=sharing'
                   }>
                   <Button
                     variant="contained"
@@ -198,8 +199,8 @@ function About() {
               </div>
             </div>
           </div>
-        </Div>
-      </section>
+        </>
+      </Div>
     </>
   );
 }
