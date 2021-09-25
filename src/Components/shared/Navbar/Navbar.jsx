@@ -92,10 +92,12 @@ const Navbar = () => {
           ? {
               transition: '250ms ease-in-out',
               background: 'rgba(148, 187, 233, 0.8)',
+              backdropFilter: 'blur(8px)',
             }
           : {
               transition: '250ms ease-in-out',
               background: 'inherit',
+              backdropFilter: 'inherit',
             }
       }>
       <div className="logo">
