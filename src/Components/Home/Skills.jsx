@@ -54,7 +54,7 @@ const { FRONT_END, BACK_END, UI, DATABASE, MISC } = CATEGORIES;
 
 const getSkills = () => [
   new Skill('HTML5', HtmlLogo, [FRONT_END]),
-  new Skill('CSS3 (Cascading Style Sheets)', CSSLogo, [FRONT_END]),
+  new Skill('CSS3', CSSLogo, [FRONT_END]),
   new Skill('JavaScript', JavaScriptLogo, [FRONT_END, BACK_END]),
   new Skill('jQuery', JQueryLogo, [FRONT_END]),
 
@@ -213,7 +213,7 @@ const Wrapper = styled.div`
   }
 
   .skills-container {
-    max-height: 350px;
+    max-height: 280px;
     min-height: 250px;
     overflow-y: auto;
     overflow-x: hidden;
