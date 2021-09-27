@@ -82,10 +82,10 @@ project-card {
     max-width: 300px;
     margin-top: $pad;
     margin: 0 auto;
-    transform: scale(1.1);
+    transform: scale(1);
     transition: 3s;
     &:hover {
-      transform: scale(1);
+      transform: scale(1.1);
       transition: 0.2s;
     }
   }
