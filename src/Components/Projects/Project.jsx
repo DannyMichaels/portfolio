@@ -35,6 +35,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     zIndex: '0',
   },
+
   media: {
     height: 0,
     minWidth: 320,
@@ -42,6 +43,7 @@ const useStyles = makeStyles((theme) => ({
     margin: '0 auto',
     paddingTop: '100%', // 16:9
   },
+
   techContainer: {
     objectFit: 'contain',
     maxWidth: '100%',
@@ -123,7 +125,7 @@ function Project(props) {
         <picture className="thumbnail">
           <img src={props.projectImage} alt={props.name} />
         </picture>
-        <CardContent>
+        <CardContent className="project-description">
           <Typography variant="body2" color="textPrimary" component="p">
             {props.description}
           </Typography>

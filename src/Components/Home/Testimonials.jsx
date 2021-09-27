@@ -134,20 +134,6 @@ const Testimonial = styled.li`
     min-height: 340px;
     overflow-y: auto;
 
-    &::-webkit-scrollbar {
-      width: 10px;
-    }
-
-    &::-webkit-scrollbar-track {
-      background: #f1f1f1;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
-      border-radius: 100px;
-      background: linear-gradient(180deg, #d0368a 0%, #708ad4 99%);
-    }
-
     .quote-icon {
       color: #eee;
       font-size: 40px;

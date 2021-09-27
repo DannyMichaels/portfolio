@@ -3,6 +3,21 @@ $highlight: #6878c8; // blue
 $alternate: #e49996; // orangish
 $pad: 10px;
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  cursor: pointer !important;
+  box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
+  border-radius: 100px;
+  background: linear-gradient(180deg, #d0368a 0%, #708ad4 99%);
+}
+
 /* typography */
 @mixin loud-voice {
   font-family: Sans-serif;
@@ -12,20 +27,20 @@ $pad: 10px;
 }
 
 @mixin attention-voice {
-  font-family: "Helvetica", Helvetica, Arial, serif;
+  font-family: 'Helvetica', Helvetica, Arial, serif;
   font-size: clamp(19px, 10vw, 40px);
   color: #fff;
 }
 
 @mixin title-font {
-  font-family: "Helvetica", Helvetica, Arial, serif;
+  font-family: 'Helvetica', Helvetica, Arial, serif;
   font-size: clamp(19px, 10vw, 32px);
   color: #000;
 }
 
 @mixin calm-voice {
   font-size: 16px;
-  font-family: "Helvetica", Helvetica, Arial, serif;
+  font-family: 'Helvetica', Helvetica, Arial, serif;
 }
 
 .page-section {
@@ -82,17 +97,36 @@ project-card {
     max-width: 300px;
     margin-top: $pad;
     margin: 0 auto;
-    transform: scale(1);
-    transition: 3s;
+    transform: scale(0.98);
+    transition: 350ms ease-in-out;
+
+    img {
+      -moz-box-shadow: 10px 10px 5px #ccc;
+      -webkit-box-shadow: 10px 10px 5px #ccc;
+      box-shadow: 10px 10px 5px #ccc;
+      -moz-border-radius: 4px;
+      -webkit-border-radius: 4px;
+      border-radius: 4px;
+    }
+
     &:hover {
-      transform: scale(1.1);
-      transition: 0.2s;
+      transform: scale(1);
     }
   }
-  .description {
-    @include calm-voice();
+
+  .project-description {
     margin-top: $pad;
+
+    min-height: 160px;
+    max-height: 160px;
+
+    overflow-y: auto;
+
+    p {
+      @include calm-voice();
+    }
   }
+
   .actions {
     display: flex;
     flex-direction: row;
@@ -136,7 +170,7 @@ project-card {
   text-align: left;
   @include title-font();
   @media screen and (min-width: 250px) {
-  @include title-font();
+    @include title-font();
     color: black;
     font-family: roboto;
     text-align: center;

@@ -219,21 +219,6 @@ const Wrapper = styled.div`
     overflow-x: hidden;
     border-radius: 30px;
 
-    &::-webkit-scrollbar {
-      width: 10px;
-    }
-
-    &::-webkit-scrollbar-track {
-      background: #f1f1f1;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      cursor: pointer !important;
-      box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
-      border-radius: 100px;
-      background: linear-gradient(180deg, #d0368a 0%, #708ad4 99%);
-    }
-
     display: grid;
     grid-template-columns: ${({ skillsCount }) =>
       skillsCount >= 4
