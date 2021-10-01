@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { getAllProjects } from '../../services/projects.js';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { getSortedProjects } from '../../utils/sortedProjects.js';
+import Sparkles from '../shared/Animations/Sparkles';
 
 const Span = styled.div`
   transition: transform 250ms ease-out;
@@ -59,13 +60,15 @@ function Projects() {
         <inner-column>
           <header className="section-header projects">
             <h2 className="projects-h1">
-              {[...'Personal'].map((text, key) => (
-                <Span key={key}>{text}</Span>
-              ))}
-              &nbsp;
-              {[...'Projects'].map((text, key) => (
-                <Span key={key}>{text}</Span>
-              ))}
+              <Sparkles>
+                {[...'Personal'].map((text, key) => (
+                  <Span key={key}>{text}</Span>
+                ))}
+                &nbsp;
+                {[...'Projects'].map((text, key) => (
+                  <Span key={key}>{text}</Span>
+                ))}
+              </Sparkles>
             </h2>
           </header>
           {loaded ? (

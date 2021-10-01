@@ -16,26 +16,21 @@ import HtmlLogo from '../../assets/images/tech_skills/html.png';
 import CSSLogo from '../../assets/images/tech_skills/css3.png';
 import JavaScriptLogo from '../../assets/images/tech_skills/javascript.png';
 import JQueryLogo from '../../assets/images/tech_skills/jQuery.png';
-
 import ReactLogo from '../../assets/images/tech_skills/react.png';
 import MuiLogo from '../../assets/images/tech_skills/Mui.png';
 import StyledComponentsLogo from '../../assets/images/tech_skills/styled-components.png';
 import BootstrapLogo from '../../assets/images/tech_skills/bootstrap.png';
-
 import RubyLogo from '../../assets/images/tech_skills/ruby.png';
 import RubyOnRailsLogo from '../../assets/images/tech_skills/ruby-on-rails.png';
 import PostgresLogo from '../../assets/images/tech_skills/postgresql.png';
 import GitLogo from '../../assets/images/tech_skills/git.png';
-
 import MongoDBLogo from '../../assets/images/tech_skills/mongodb.png';
 import NodeLogo from '../../assets/images/tech_skills/node.png';
 import ExpressLogo from '../../assets/images/tech_skills/express.png';
 import AxiosLogo from '../../assets/images/tech_skills/axios.png';
 import ReduxLogo from '../../assets/images/tech_skills/redux.png';
-
-const SCSSLogo = 'https://miro.medium.com/max/512/1*9U1toerFxB8aiFRreLxEUQ.png';
-const VueLogo =
-  'https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/2367px-Vue.js_Logo_2.svg.png';
+import SCSSLogo from '../../assets/images/tech_skills/SCSS.png';
+import VueLogo from '../../assets/images/tech_skills/vue.png';
 
 const IMAGES = {
   'Ruby on Rails': RubyOnRailsLogo,
@@ -106,7 +101,9 @@ function TestimonialMore({ testimonial, open, onClose }) {
       </StyledDialogContent>
 
       <StyledDialogContent dividers>
-        <Typography variant="h6" style={{ marginLeft: '20px' }}>
+        <Typography
+          variant="h6"
+          style={{ marginLeft: '20px', marginBottom: '10px' }}>
           Tech Used:
         </Typography>
 
@@ -136,7 +133,6 @@ function TestimonialMore({ testimonial, open, onClose }) {
 const StyledDialogContent = styled(DialogContent)`
   .skills-list {
     max-height: 280px;
-    min-height: 250px;
     overflow-y: auto;
     overflow-x: hidden;
 
