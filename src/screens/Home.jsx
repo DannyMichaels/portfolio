@@ -11,6 +11,54 @@ import Contact from '../Form/Contact';
 import Testimonials from '../Components/Home/Testimonials';
 import { CloudsSection, CloudsSectionAlt } from '../Components/Clouds/Clouds';
 import { CloudStateContext } from '../context/cloudContext';
+import { Fade } from 'react-awesome-reveal';
+
+export default function Home() {
+  const [cloudMode] = useContext(CloudStateContext);
+
+  const emptySpaceJSX = <div className="page-break" />;
+
+  return (
+    <>
+      <ScrollToTopOnMount />
+
+      <Layout>
+        <StyledScrollTop breakpoint={768} distance={800} />
+        <main className="page-content">
+          <Header id="header" />
+
+          {/* spacer */}
+          <div className="page-break" />
+
+          <Div id="about">
+            <Fade direction="left" triggerOnce delay={80} fraction={0.3}>
+              <About />
+            </Fade>
+            <Fade direction="right" triggerOnce delay={80} fraction={0.3}>
+              <Skills />
+            </Fade>
+          </Div>
+
+          {cloudMode ? <CloudsSection /> : emptySpaceJSX}
+          <Fade triggerOnce>
+            <Projects id="projects" />
+          </Fade>
+
+          {cloudMode ? <CloudsSectionAlt /> : emptySpaceJSX}
+
+          <Fade triggerOnce>
+            <Testimonials id="testimonials" />
+          </Fade>
+          {cloudMode ? <CloudsSectionAlt /> : emptySpaceJSX}
+
+          <Fade triggerOnce>
+            <Contact id="contact" />
+          </Fade>
+        </main>
+      </Layout>
+    </>
+  );
+}
 
 let Div = styled.div`
   display: flex;
@@ -27,43 +75,3 @@ let Div = styled.div`
     padding-bottom: 100px;
   }
 `;
-
-function Home() {
-  const [cloudMode] = useContext(CloudStateContext);
-
-  const emptySpaceJSX = <div className="page-break" />;
-
-  return (
-    <>
-      <Layout>
-        <ScrollToTopOnMount />
-        <StyledScrollTop breakpoint={768} distance={800} />
-        <main className="page-content">
-          <Header id="header" />
-
-          {/* spacer */}
-          <div className="page-break" />
-
-          <Div id="about">
-            <About />
-            <Skills />
-          </Div>
-
-          {cloudMode ? <CloudsSection /> : emptySpaceJSX}
-
-          <Projects id="projects" />
-
-          {cloudMode ? <CloudsSectionAlt /> : emptySpaceJSX}
-
-          <Testimonials id="testimonials" />
-
-          {cloudMode ? <CloudsSectionAlt /> : emptySpaceJSX}
-
-          <Contact id="contact" />
-        </main>
-      </Layout>
-    </>
-  );
-}
-
-export default Home;
