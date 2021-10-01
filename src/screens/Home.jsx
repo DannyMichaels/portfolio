@@ -31,10 +31,10 @@ export default function Home() {
           <div className="page-break" />
 
           <Div id="about">
-            <Fade direction="left" triggerOnce delay={80} fraction={0.3}>
+            <Fade direction="left" triggerOnce delay={50} fraction={0.3}>
               <About />
             </Fade>
-            <Fade direction="right" triggerOnce delay={80} fraction={0.3}>
+            <Fade direction="right" triggerOnce delay={50} fraction={0.3}>
               <Skills />
             </Fade>
           </Div>
