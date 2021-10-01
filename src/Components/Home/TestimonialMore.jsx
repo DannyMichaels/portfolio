@@ -1,5 +1,7 @@
+import { memo } from 'react';
 import styled from 'styled-components';
 import withStyles from '@material-ui/styles/withStyles';
+import { Tooltip } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -8,6 +10,7 @@ import MuiDialogActions from '@material-ui/core/DialogActions';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import Typography from '@material-ui/core/Typography';
+
 // logos
 import HtmlLogo from '../../assets/images/tech_skills/html.png';
 import CSSLogo from '../../assets/images/tech_skills/css3.png';
@@ -28,9 +31,10 @@ import MongoDBLogo from '../../assets/images/tech_skills/mongodb.png';
 import NodeLogo from '../../assets/images/tech_skills/node.png';
 import ExpressLogo from '../../assets/images/tech_skills/express.png';
 import AxiosLogo from '../../assets/images/tech_skills/axios.png';
-import { Tooltip } from '@material-ui/core';
 
 const SCSSLogo = 'https://miro.medium.com/max/512/1*9U1toerFxB8aiFRreLxEUQ.png';
+const VueLogo =
+  'https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/2367px-Vue.js_Logo_2.svg.png';
 
 const IMAGES = {
   'Ruby on Rails': RubyOnRailsLogo,
@@ -47,9 +51,13 @@ const IMAGES = {
   'styled-components': StyledComponentsLogo,
   Axios: AxiosLogo,
   Git: GitLogo,
+  Express: ExpressLogo,
+  Node: NodeLogo,
+  MongoDB: MongoDBLogo,
+  Vue: VueLogo,
 };
 
-export default function TestimonialMore({ testimonial, open, onClose }) {
+function TestimonialMore({ testimonial, open, onClose }) {
   const {
     fields: {
       content,
@@ -60,6 +68,7 @@ export default function TestimonialMore({ testimonial, open, onClose }) {
       image,
       jobDescription,
       techStack,
+      website,
     },
   } = testimonial;
 
@@ -76,8 +85,34 @@ export default function TestimonialMore({ testimonial, open, onClose }) {
         Job Description: {jobDescription}
       </DialogTitle>
 
+      <StyledDialogContent
+        dividers
+        style={{ borderBottom: 0, display: 'flex', alignItems: 'center' }}>
+        {website ? (
+          <Typography variant="h6" style={{ marginLeft: '20px' }}>
+            Company / Client: &nbsp;
+            <Tooltip arrow placement="top" title="Visit company website">
+              <a
+                className="link"
+                target="_blank"
+                rel="noreferrer"
+                href={website}
+                alt={company + ' website'}>
+                {company}
+              </a>
+            </Tooltip>
+          </Typography>
+        ) : (
+          <Typography variant="h6" style={{ marginLeft: '20px', flex: 1 }}>
+            Company / Client: {company}
+          </Typography>
+        )}
+      </StyledDialogContent>
+
       <StyledDialogContent dividers>
-        <Typography variant="h6">Tech Used:</Typography>
+        <Typography variant="h6" style={{ marginLeft: '20px' }}>
+          Tech Used:
+        </Typography>
 
         <div className="skills-list">
           {techStack.split(',').map((techSkill) => {
@@ -108,31 +143,33 @@ const StyledDialogContent = styled(DialogContent)`
     min-height: 250px;
     overflow-y: auto;
     overflow-x: hidden;
-    border-radius: 30px;
+
+    grid-gap: 20px;
+    align-items: center;
 
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
 
-    @media (max-width: 600px) {
-      grid-template-columns: 1fr 1fr 1fr;
-    }
+    padding: 20px;
 
     img {
       object-fit: contain;
-      max-width: 100px;
       min-width: 100px;
-      padding: 20px;
-      margin: 20px;
       max-height: 100px;
       height: 100px;
-      border-radius: 36px;
+      border-radius: 20px;
       min-height: 100px;
       width: 100%;
       height: auto;
       background: #fff;
       cursor: help;
-      border: 1px solid #000;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      padding: 10px;
     }
+  }
+
+  .link {
+    color: #000;
   }
 `;
 
@@ -174,3 +211,5 @@ const DialogActions = withStyles((theme) => ({
     padding: theme.spacing(1),
   },
 }))(MuiDialogActions);
+
+export default memo(TestimonialMore);
