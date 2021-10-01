@@ -31,24 +31,22 @@ export default function Home() {
           <div className="page-break" />
 
           <Div id="about">
-            <Fade direction="left" triggerOnce delay={50} fraction={0.3}>
+            <Fade direction="left" triggerOnce delay={20} fraction={0.25}>
               <About />
             </Fade>
-            <Fade direction="right" triggerOnce delay={50} fraction={0.3}>
+            <Fade direction="right" triggerOnce delay={20} fraction={0.25}>
               <Skills />
             </Fade>
           </Div>
 
           {cloudMode ? <CloudsSection /> : emptySpaceJSX}
-          <Fade triggerOnce>
-            <Projects id="projects" />
-          </Fade>
+
+          <Projects id="projects" />
 
           {cloudMode ? <CloudsSectionAlt /> : emptySpaceJSX}
 
-          <Fade triggerOnce>
-            <Testimonials id="testimonials" />
-          </Fade>
+          <Testimonials id="testimonials" />
+
           {cloudMode ? <CloudsSectionAlt /> : emptySpaceJSX}
 
           <Fade triggerOnce>

@@ -5,6 +5,7 @@ import { getAllProjects } from '../../services/projects.js';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { getSortedProjects } from '../../utils/sortedProjects.js';
 import Sparkles from '../shared/Animations/Sparkles';
+import { Fade } from 'react-awesome-reveal';
 
 const Span = styled.div`
   transition: transform 250ms ease-out;
@@ -72,7 +73,9 @@ function Projects() {
             </h2>
           </header>
           {loaded ? (
-            <ol className="project-list">{PROJECTS}</ol>
+            <Fade triggerOnce delay={50}>
+              <ol className="project-list">{PROJECTS}</ol>
+            </Fade>
           ) : (
             <div
               style={{

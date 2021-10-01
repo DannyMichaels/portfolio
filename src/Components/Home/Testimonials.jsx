@@ -9,6 +9,7 @@ import QuoteIcon from '@material-ui/icons/FormatQuote';
 import { CloudStateContext } from '../../context/cloudContext.js';
 import Sparkles from '../shared/Animations/Sparkles.jsx';
 import TestimonialMore from './TestimonialMore';
+import { Fade } from 'react-awesome-reveal';
 
 function Testimonials() {
   const [allTestimonials, setAllTestimonials] = useState([]);
@@ -29,16 +30,7 @@ function Testimonials() {
 
   const TESTIMONIALS = allTestimonials?.map((testimonial) => {
     const {
-      fields: {
-        content,
-        date,
-        rating,
-        company,
-        person,
-        image,
-        jobDescription,
-        techStack,
-      },
+      fields: { content, date, rating, company, person, image },
     } = testimonial;
 
     // https://www.florin-pop.com/blog/2019/07/testimonial-card/
@@ -114,9 +106,11 @@ function Testimonials() {
           </header>
           <br />
           {loaded ? (
-            <List count={allTestimonials.length} className="testimonial-list">
-              {TESTIMONIALS}
-            </List>
+            <Fade triggerOnce delay={30}>
+              <List count={allTestimonials.length} className="testimonial-list">
+                {TESTIMONIALS}
+              </List>
+            </Fade>
           ) : (
             <div
               style={{
