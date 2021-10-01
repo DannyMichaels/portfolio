@@ -73,7 +73,7 @@ function Projects() {
             </h2>
           </header>
           {loaded ? (
-            <Fade triggerOnce delay={50}>
+            <Fade triggerOnce>
               <ol className="project-list">{PROJECTS}</ol>
             </Fade>
           ) : (

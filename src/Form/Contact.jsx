@@ -3,7 +3,6 @@ import TextField from '@material-ui/core/TextField';
 import Input from '@material-ui/core/Input';
 import styled from 'styled-components';
 import Button from '@material-ui/core/Button';
-import { Fade } from 'react-awesome-reveal';
 
 const Div = styled.div`
   display: flex;
@@ -126,55 +125,53 @@ function Contact() {
           </h1>
         </div>
 
-        <Fade triggerOnce delay={20}>
-          <form action="/contact" method="post" name="contact">
-            <input type="hidden" name="form-name" value="contact" />
-            <div className="field">
-              <div className="field-half">
-                <Input
-                  type="text"
-                  name="name"
-                  id="name"
-                  variant="filled"
-                  className="field input1"
-                  required
-                  placeholder="Name"
-                />
-              </div>
-              <div className="field field-half">
-                <Input
-                  type="email"
-                  required
-                  name="email"
-                  className="input1"
-                  id="email"
-                  placeholder="Email"
-                  variant="filled"
-                />
-              </div>
-              <div className="field field">
-                <TextField
-                  required
-                  name="message"
-                  id="message"
-                  className="input2"
-                  multiline
-                  placeholder="Message"
-                  variant="filled"
-                  rows={7}
-                />
-                <div data-netlify-recaptcha="true" className="field"></div>
-                <Button
-                  className="button1"
-                  style={{ background: 'white' }}
-                  variant="containted"
-                  type="submit">
-                  Submit&nbsp; ^_^
-                </Button>
-              </div>
+        <form action="/contact" method="post" name="contact">
+          <input type="hidden" name="form-name" value="contact" />
+          <div className="field">
+            <div className="field-half">
+              <Input
+                type="text"
+                name="name"
+                id="name"
+                variant="filled"
+                className="field input1"
+                required
+                placeholder="Name"
+              />
             </div>
-          </form>
-        </Fade>
+            <div className="field field-half">
+              <Input
+                type="email"
+                required
+                name="email"
+                className="input1"
+                id="email"
+                placeholder="Email"
+                variant="filled"
+              />
+            </div>
+            <div className="field field">
+              <TextField
+                required
+                name="message"
+                id="message"
+                className="input2"
+                multiline
+                placeholder="Message"
+                variant="filled"
+                rows={7}
+              />
+              <div data-netlify-recaptcha="true" className="field"></div>
+              <Button
+                className="button1"
+                style={{ background: 'white' }}
+                variant="containted"
+                type="submit">
+                Submit&nbsp; ^_^
+              </Button>
+            </div>
+          </div>
+        </form>
       </>
     </Div>
   );

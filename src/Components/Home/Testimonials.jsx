@@ -106,7 +106,7 @@ function Testimonials() {
           </header>
           <br />
           {loaded ? (
-            <Fade triggerOnce delay={30}>
+            <Fade triggerOnce>
               <List count={allTestimonials.length} className="testimonial-list">
                 {TESTIMONIALS}
               </List>
