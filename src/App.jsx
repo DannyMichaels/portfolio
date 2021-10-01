@@ -6,6 +6,15 @@ import './App.scss';
 
 const theme = createMuiTheme({
   overrides: {
+    MuiButton: {
+      containedSecondary: {
+        backgroundColor: '#fff',
+        color: '#000',
+        '&:hover': {
+          backgroundColor: '#fff',
+        },
+      },
+    },
     MuiInput: {
       underline: {
         '&:hover:not($disabled):before': {

@@ -4,16 +4,19 @@ import { getAllTestimonials } from '../../services/testimonials.js';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { getSortedProjects as getSortedTestimonials } from '../../utils/sortedProjects';
 import getRating from '../../utils/getRating.js';
-import { Box, Typography } from '@material-ui/core';
+import { Box, Button, Tooltip, Typography } from '@material-ui/core';
 import QuoteIcon from '@material-ui/icons/FormatQuote';
 import { CloudStateContext } from '../../context/cloudContext.js';
 import Sparkles from '../shared/Animations/Sparkles.jsx';
+import TestimonialMore from './TestimonialMore';
 
 function Testimonials() {
   const [allTestimonials, setAllTestimonials] = useState([]);
 
   const [loaded, setLoaded] = useState(false);
   const [cloudMode] = useContext(CloudStateContext);
+
+  const [viewMore, setViewMore] = useState(false);
 
   useEffect(() => {
     const fetchTestimonials = async () => {
@@ -26,7 +29,16 @@ function Testimonials() {
 
   const TESTIMONIALS = allTestimonials?.map((testimonial) => {
     const {
-      fields: { content, date, rating, company, person, image },
+      fields: {
+        content,
+        date,
+        rating,
+        company,
+        person,
+        image,
+        jobDescription,
+        techStack,
+      },
     } = testimonial;
 
     // https://www.florin-pop.com/blog/2019/07/testimonial-card/
@@ -47,8 +59,13 @@ function Testimonials() {
 
         <footer>
           <img src={image} alt={company} />
-          <Typography>{`${person} @ ${company}`}</Typography>
+
+          <div className="testimonial__credits ">
+            <Typography>{`${person} @ ${company}`}</Typography>
+          </div>
+
           <br />
+
           {rating && (
             <>
               <Typography>Rating provided by Upwork™</Typography>
@@ -56,7 +73,26 @@ function Testimonials() {
               <Typography>{date}</Typography>
             </>
           )}
+
+          <Tooltip
+            title="See job position and tech stack"
+            arrow
+            placement="top">
+            <Button
+              onClick={() => setViewMore(testimonial?.id)}
+              className="testimonial__more--button"
+              variant="contained"
+              color="secondary">
+              View More
+            </Button>
+          </Tooltip>
         </footer>
+
+        <TestimonialMore
+          testimonial={testimonial}
+          open={viewMore === testimonial?.id}
+          onClose={() => setViewMore(false)}
+        />
       </Testimonial>
     );
   });
@@ -216,6 +252,22 @@ const Testimonial = styled.li`
     padding: 40px;
     text-align: center;
     z-index: 4;
+
+    .testimonial__person {
+      margin: 10px 0;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .testimonial__more--button {
+      transition: transform 250ms ease-in-out;
+
+      &:hover {
+        transform: scale(1.05);
+        cursor: pointer;
+      }
+    }
+
     img {
       // company logo
       background: #fff; // png fallback

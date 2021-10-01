@@ -2,6 +2,7 @@ import React, { useContext, useState, useMemo } from 'react';
 import Tooltip from '@material-ui/core/Tooltip';
 import styled from 'styled-components';
 import { CloudStateContext } from '../../context/cloudContext';
+import { CloseOutlined } from '@material-ui/icons';
 import Sparkles from '../shared/Animations/Sparkles';
 import {
   Checkbox,
@@ -32,7 +33,6 @@ import MongoDBLogo from '../../assets/images/tech_skills/mongodb.png';
 import NodeLogo from '../../assets/images/tech_skills/node.png';
 import ExpressLogo from '../../assets/images/tech_skills/express.png';
 import AxiosLogo from '../../assets/images/tech_skills/axios.png';
-import { CloseOutlined } from '@material-ui/icons';
 
 class Skill {
   constructor(name, logo, ...categories) {
@@ -308,6 +308,6 @@ const Wrapper = styled.div`
   }
 
   .tech-logo:hover {
-    cursor: pointer;
+    cursor: help;
   }
 `;
