@@ -31,6 +31,7 @@ import MongoDBLogo from '../../assets/images/tech_skills/mongodb.png';
 import NodeLogo from '../../assets/images/tech_skills/node.png';
 import ExpressLogo from '../../assets/images/tech_skills/express.png';
 import AxiosLogo from '../../assets/images/tech_skills/axios.png';
+import ReduxLogo from '../../assets/images/tech_skills/redux.png';
 
 const SCSSLogo = 'https://miro.medium.com/max/512/1*9U1toerFxB8aiFRreLxEUQ.png';
 const VueLogo =
@@ -55,17 +56,14 @@ const IMAGES = {
   Node: NodeLogo,
   MongoDB: MongoDBLogo,
   Vue: VueLogo,
+  Redux: ReduxLogo,
 };
 
 function TestimonialMore({ testimonial, open, onClose }) {
   const {
     fields: {
-      content,
-      date,
-      rating,
       company,
-      person,
-      image,
+
       jobDescription,
       techStack,
       website,
@@ -89,7 +87,7 @@ function TestimonialMore({ testimonial, open, onClose }) {
         dividers
         style={{ borderBottom: 0, display: 'flex', alignItems: 'center' }}>
         {website ? (
-          <Typography variant="h6" style={{ marginLeft: '20px' }}>
+          <Typography variant="h6">
             Company / Client: &nbsp;
             <Tooltip arrow placement="top" title="Visit company website">
               <a
@@ -103,9 +101,7 @@ function TestimonialMore({ testimonial, open, onClose }) {
             </Tooltip>
           </Typography>
         ) : (
-          <Typography variant="h6" style={{ marginLeft: '20px', flex: 1 }}>
-            Company / Client: {company}
-          </Typography>
+          <Typography variant="h6">Company / Client: {company}</Typography>
         )}
       </StyledDialogContent>
 
