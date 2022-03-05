@@ -12,7 +12,6 @@ import {
   Input,
   InputAdornment,
 } from '@material-ui/core';
-import FlipMove from 'react-flip-move';
 
 // logos
 import HtmlLogo from '../../assets/images/tech_skills/html.png';
@@ -169,13 +168,13 @@ export default function Skills() {
         </FormGroup>
       </div>
 
-      <FlipMove className="skills-container" duration={250}>
+      <div className="skills-container">
         {filteredSkills.map((skill) => (
           <Tooltip arrow placement="top" title={skill.name} key={skill.name}>
             <img className="tech-logo" src={skill.logo} alt={skill.name} />
           </Tooltip>
         ))}
-      </FlipMove>
+      </div>
 
       <br />
     </Wrapper>
