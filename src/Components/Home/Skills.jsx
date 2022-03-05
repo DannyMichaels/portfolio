@@ -12,6 +12,7 @@ import {
   Input,
   InputAdornment,
 } from '@material-ui/core';
+import FlipMove from 'react-flip-move';
 
 // logos
 import HtmlLogo from '../../assets/images/tech_skills/html.png';
@@ -34,6 +35,11 @@ import NodeLogo from '../../assets/images/tech_skills/node.png';
 import ExpressLogo from '../../assets/images/tech_skills/express.png';
 import AxiosLogo from '../../assets/images/tech_skills/axios.png';
 
+import MysqlLogo from '../../assets/images/tech_skills/mysql.png';
+import ScssLogo from '../../assets/images/tech_skills/SCSS.png';
+import FirebaseLogo from '../../assets/images/tech_skills/firebase.png';
+import NextjsLogo from '../../assets/images/tech_skills/nextjs.png';
+
 class Skill {
   constructor(name, logo, ...categories) {
     this.name = name;
@@ -45,12 +51,10 @@ class Skill {
 const CATEGORIES = {
   FRONT_END: 'Front-End',
   BACK_END: 'Back-End',
-  DATABASE: 'Database',
-  UI: 'UI Frameworks & Libraries',
   MISC: 'Misc.',
 };
 
-const { FRONT_END, BACK_END, UI, DATABASE, MISC } = CATEGORIES;
+const { FRONT_END, BACK_END, MISC } = CATEGORIES;
 
 const getSkills = () => [
   new Skill('HTML5', HtmlLogo, [FRONT_END]),
@@ -59,19 +63,24 @@ const getSkills = () => [
   new Skill('jQuery', JQueryLogo, [FRONT_END]),
 
   new Skill('React.js', ReactLogo, [FRONT_END]), // ❤️
-  new Skill('Material UI', MuiLogo, [FRONT_END, UI]),
-  new Skill('styled-components', StyledComponentsLogo, [FRONT_END, UI]),
-  new Skill('Bootstrap', BootstrapLogo, [FRONT_END, UI]),
+  new Skill('Material UI', MuiLogo, [FRONT_END]),
+  new Skill('styled-components', StyledComponentsLogo, [FRONT_END]),
+  new Skill('Bootstrap', BootstrapLogo, [FRONT_END]),
 
   new Skill('Ruby', RubyLogo, [BACK_END]),
   new Skill('Ruby on Rails', RubyOnRailsLogo, [BACK_END, FRONT_END]),
-  new Skill('PostgreSQL', PostgresLogo, [BACK_END, DATABASE]),
+  new Skill('PostgreSQL', PostgresLogo, [BACK_END]),
   new Skill('Git', GitLogo, [MISC]),
 
-  new Skill('MongoDB', MongoDBLogo, [BACK_END, DATABASE]),
+  new Skill('MongoDB', MongoDBLogo, [BACK_END]),
   new Skill('Node.js', NodeLogo, [BACK_END, FRONT_END]),
   new Skill('Express', ExpressLogo, [BACK_END]),
   new Skill('Axios', AxiosLogo, [MISC]),
+
+  new Skill('MySQL', MysqlLogo, [BACK_END]),
+  new Skill('SCSS', ScssLogo, [FRONT_END]),
+  new Skill('Firebase', FirebaseLogo, [BACK_END]),
+  new Skill('Next.js', NextjsLogo, [FRONT_END]),
 ];
 
 export default function Skills() {
@@ -101,7 +110,7 @@ export default function Skills() {
       return (
         // filter by search input (skill.name) and by category
         name.toLowerCase().includes(search.toLowerCase()) &&
-        filteredCategories.includes(...categories)
+        categories.some((cat) => filteredCategories.includes(cat))
       );
     });
   }, [filteredCategories, search, skills]);
@@ -160,13 +169,13 @@ export default function Skills() {
         </FormGroup>
       </div>
 
-      <div className="skills-container">
-        {filteredSkills.map((skill, key) => (
-          <Tooltip arrow placement="top" title={skill.name} key={key}>
+      <FlipMove className="skills-container" duration={250}>
+        {filteredSkills.map((skill) => (
+          <Tooltip arrow placement="top" title={skill.name} key={skill.name}>
             <img className="tech-logo" src={skill.logo} alt={skill.name} />
           </Tooltip>
         ))}
-      </div>
+      </FlipMove>
 
       <br />
     </Wrapper>
