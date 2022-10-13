@@ -200,7 +200,7 @@ function About() {
                   rel="noreferrer"
                   style={{ textDecoration: 'none', color: 'inherit' }}
                   href={
-                    'https://drive.google.com/file/d/1Wjfz8E9NeW4QMK_nhpwSicwg9_pDA5JD/view?usp=sharing'
+                    'https://drive.google.com/file/d/1sstPomtfMSs-5ci4tltEJyHIVkcZRgD4/view?usp=sharing'
                   }>
                   <Button
                     variant="contained"
