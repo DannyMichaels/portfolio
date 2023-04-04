@@ -158,7 +158,7 @@ function About() {
             </div>
             <div className="text-container">
               <p>
-                I am a Junior Developer career pivoting from the music industry,
+                I am a Full-Stack career pivoting from the music industry,
                 with experience working with Rails, React, and more. My previous
                 career as a musician allowed me to be collaborative and
                 creative, which is something I now enjoy bringing to my code. I
