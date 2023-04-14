@@ -88,22 +88,22 @@ export default function Skills() {
   const [cloudMode] = useContext(CloudStateContext);
   const skills = getSkills();
 
-  const [filteredCategories, setFilteredCategories] = useState([
-    ...Object.values(CATEGORIES),
-  ]);
+  const [selectedCategories, setSelectedCategories] = useState(
+    Object.values(CATEGORIES)
+  );
 
   const [search, setSearch] = useState('');
 
   const uncheckCategory = (value) =>
-    setFilteredCategories((prevState) =>
+    setSelectedCategories((prevState) =>
       prevState.filter((category) => category !== value)
     );
 
   const checkCategory = (value) =>
-    setFilteredCategories((prevState) => [...prevState, value]);
+    setSelectedCategories((prevState) => [...prevState, value]);
 
   const onCategoryClick = (value) => {
-    if (filteredCategories.includes(value)) {
+    if (selectedCategories.includes(value)) {
       return uncheckCategory(value);
     }
 
@@ -115,10 +115,10 @@ export default function Skills() {
       return (
         // filter by search input (skill.name) and by category
         name.toLowerCase().includes(search.toLowerCase()) &&
-        categories.some((cat) => filteredCategories.includes(cat))
+        categories.some((cat) => selectedCategories.includes(cat))
       );
     });
-  }, [filteredCategories, search, skills]);
+  }, [selectedCategories, search, skills]);
 
   return (
     <Wrapper
@@ -145,7 +145,7 @@ export default function Skills() {
               key={key}
               control={
                 <Checkbox
-                  checked={filteredCategories.includes(value)}
+                  checked={selectedCategories.includes(value)}
                   color="primary"
                   onChange={() => onCategoryClick(value)}
                   name={value}
