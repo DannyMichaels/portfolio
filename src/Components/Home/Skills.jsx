@@ -94,20 +94,20 @@ export default function Skills() {
 
   const [search, setSearch] = useState('');
 
-  const removeCategory = (value) =>
+  const uncheckCategory = (value) =>
     setFilteredCategories((prevState) =>
       prevState.filter((category) => category !== value)
     );
 
-  const addCategory = (value) =>
+  const checkCategory = (value) =>
     setFilteredCategories((prevState) => [...prevState, value]);
 
-  const toggleFilterCategories = (value) => {
+  const onCategoryClick = (value) => {
     if (filteredCategories.includes(value)) {
-      return removeCategory(value);
+      return uncheckCategory(value);
     }
 
-    addCategory(value);
+    checkCategory(value);
   };
 
   const filteredSkills = useMemo(() => {
@@ -147,7 +147,7 @@ export default function Skills() {
                 <Checkbox
                   checked={filteredCategories.includes(value)}
                   color="primary"
-                  onChange={() => toggleFilterCategories(value)}
+                  onChange={() => onCategoryClick(value)}
                   name={value}
                 />
               }
