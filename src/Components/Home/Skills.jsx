@@ -62,9 +62,8 @@ const getSkills = () => [
   new Skill('JavaScript', JavaScriptLogo, [FRONT_END, BACK_END]),
   new Skill('jQuery', JQueryLogo, [FRONT_END]),
 
+  new Skill('Angular', AngularLogo, [FRONT_END]),
   new Skill('React.js', ReactLogo, [FRONT_END]), // ❤️
-  new Skill('Angular', AngularLogo, [FRONT_END]), // ❤️
-
   new Skill('Material UI', MuiLogo, [FRONT_END]),
   new Skill('styled-components', StyledComponentsLogo, [FRONT_END]),
   new Skill('Bootstrap', BootstrapLogo, [FRONT_END]),
