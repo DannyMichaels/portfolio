@@ -23,6 +23,7 @@ import ReactLogo from '../../assets/images/tech_skills/react.png';
 import MuiLogo from '../../assets/images/tech_skills/Mui.png';
 import StyledComponentsLogo from '../../assets/images/tech_skills/styled-components.png';
 import BootstrapLogo from '../../assets/images/tech_skills/bootstrap.png';
+import AngularLogo from '../../assets/images/tech_skills/angular.png';
 
 import RubyLogo from '../../assets/images/tech_skills/ruby.png';
 import RubyOnRailsLogo from '../../assets/images/tech_skills/ruby-on-rails.png';
@@ -62,6 +63,8 @@ const getSkills = () => [
   new Skill('jQuery', JQueryLogo, [FRONT_END]),
 
   new Skill('React.js', ReactLogo, [FRONT_END]), // ❤️
+  new Skill('Angular', AngularLogo, [FRONT_END]), // ❤️
+
   new Skill('Material UI', MuiLogo, [FRONT_END]),
   new Skill('styled-components', StyledComponentsLogo, [FRONT_END]),
   new Skill('Bootstrap', BootstrapLogo, [FRONT_END]),
@@ -92,16 +95,20 @@ export default function Skills() {
 
   const [search, setSearch] = useState('');
 
+  const removeCategory = (value) =>
+    setFilteredCategories((prevState) =>
+      prevState.filter((category) => category !== value)
+    );
+
+  const addCategory = (value) =>
+    setFilteredCategories((prevState) => [...prevState, value]);
+
   const toggleFilterCategories = (value) => {
     if (filteredCategories.includes(value)) {
-      setFilteredCategories((prevState) =>
-        prevState.filter((category) => category !== value)
-      );
-      return;
+      return removeCategory(value);
     }
 
-    setFilteredCategories((prevState) => [...prevState, value]);
-    return;
+    addCategory(value);
   };
 
   const filteredSkills = useMemo(() => {
