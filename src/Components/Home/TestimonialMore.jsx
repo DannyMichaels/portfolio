@@ -31,6 +31,9 @@ import AxiosLogo from '../../assets/images/tech_skills/axios.png';
 import ReduxLogo from '../../assets/images/tech_skills/redux.png';
 import SCSSLogo from '../../assets/images/tech_skills/SCSS.png';
 import VueLogo from '../../assets/images/tech_skills/vue.png';
+import GraphqlLogo from '../../assets/images/tech_skills/graphql.png';
+import ContentfulLogo from '../../assets/images/tech_skills/contentful.png';
+import GatsbyLogo from '../../assets/images/tech_skills/gatsby.png';
 
 const IMAGES = {
   'Ruby on Rails': RubyOnRailsLogo,
@@ -52,17 +55,14 @@ const IMAGES = {
   MongoDB: MongoDBLogo,
   Vue: VueLogo,
   Redux: ReduxLogo,
+  GraphQL: GraphqlLogo,
+  Gatsby: GatsbyLogo,
+  Contentful: ContentfulLogo,
 };
 
 function TestimonialMore({ testimonial, open, onClose }) {
   const {
-    fields: {
-      company,
-
-      jobDescription,
-      techStack,
-      website,
-    },
+    fields: { company, jobDescription, techStack, website },
   } = testimonial;
 
   return (
@@ -108,11 +108,15 @@ function TestimonialMore({ testimonial, open, onClose }) {
         </Typography>
 
         <div className="skills-list">
-          {techStack.split(',').map((techSkill) => {
+          {techStack.split(',').map((techSkill, key) => {
             let trimmedTechSkillName = techSkill.trim();
 
             return (
-              <Tooltip title={trimmedTechSkillName} placement="top" arrow>
+              <Tooltip
+                title={trimmedTechSkillName}
+                placement="top"
+                arrow
+                key={key}>
                 <img src={IMAGES[trimmedTechSkillName]} alt={techSkill} />
               </Tooltip>
             );

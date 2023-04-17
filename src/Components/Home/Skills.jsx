@@ -16,35 +16,38 @@ import {
 // logos
 import HtmlLogo from '../../assets/images/tech_skills/html.png';
 import CSSLogo from '../../assets/images/tech_skills/css3.png';
+import ScssLogo from '../../assets/images/tech_skills/SCSS.png';
 import JavaScriptLogo from '../../assets/images/tech_skills/javascript.png';
 import JQueryLogo from '../../assets/images/tech_skills/jQuery.png';
-
 import ReactLogo from '../../assets/images/tech_skills/react.png';
 import MuiLogo from '../../assets/images/tech_skills/Mui.png';
 import StyledComponentsLogo from '../../assets/images/tech_skills/styled-components.png';
 import BootstrapLogo from '../../assets/images/tech_skills/bootstrap.png';
 import AngularLogo from '../../assets/images/tech_skills/angular.png';
-
+import VueLogo from '../../assets/images/tech_skills/vue.png';
+import NextjsLogo from '../../assets/images/tech_skills/nextjs.png';
+import ReduxLogo from '../../assets/images/tech_skills/redux.png';
+import GraphqlLogo from '../../assets/images/tech_skills/graphql.png';
 import RubyLogo from '../../assets/images/tech_skills/ruby.png';
 import RubyOnRailsLogo from '../../assets/images/tech_skills/ruby-on-rails.png';
 import PostgresLogo from '../../assets/images/tech_skills/postgresql.png';
 import GitLogo from '../../assets/images/tech_skills/git.png';
-
 import MongoDBLogo from '../../assets/images/tech_skills/mongodb.png';
 import NodeLogo from '../../assets/images/tech_skills/node.png';
 import ExpressLogo from '../../assets/images/tech_skills/express.png';
 import AxiosLogo from '../../assets/images/tech_skills/axios.png';
-
 import MysqlLogo from '../../assets/images/tech_skills/mysql.png';
-import ScssLogo from '../../assets/images/tech_skills/SCSS.png';
 import FirebaseLogo from '../../assets/images/tech_skills/firebase.png';
-import NextjsLogo from '../../assets/images/tech_skills/nextjs.png';
+import ContentfulLogo from '../../assets/images/tech_skills/contentful.png';
+import GatsbyLogo from '../../assets/images/tech_skills/gatsby.png';
+import SequelizeLogo from '../../assets/images/tech_skills/sequelize.png';
 
 class Skill {
-  constructor(name, logo, ...categories) {
+  constructor(name, logo, categories, website = null) {
     this.name = name;
     this.logo = logo;
     this.categories = [].concat(...categories);
+    this.website = website;
   }
 }
 
@@ -59,18 +62,17 @@ const { FRONT_END, BACK_END, MISC } = CATEGORIES;
 const getSkills = () => [
   new Skill('HTML5', HtmlLogo, [FRONT_END]),
   new Skill('CSS3', CSSLogo, [FRONT_END]),
+  new Skill('SCSS', ScssLogo, [FRONT_END]),
   new Skill('JavaScript', JavaScriptLogo, [FRONT_END, BACK_END]),
-  new Skill('jQuery', JQueryLogo, [FRONT_END]),
 
-  new Skill('Angular', AngularLogo, [FRONT_END]),
   new Skill('React.js', ReactLogo, [FRONT_END]), // ❤️
-  new Skill('Material UI', MuiLogo, [FRONT_END]),
-  new Skill('styled-components', StyledComponentsLogo, [FRONT_END]),
-  new Skill('Bootstrap', BootstrapLogo, [FRONT_END]),
+  new Skill('Next.js', NextjsLogo, [FRONT_END], 'https://nextjs.org/'),
+  new Skill('Gatsby', GatsbyLogo, [FRONT_END], 'https://www.gatsbyjs.com/'),
+  new Skill('Redux', ReduxLogo, [FRONT_END], 'https://redux.js.org'),
 
-  new Skill('Ruby', RubyLogo, [BACK_END]),
-  new Skill('Ruby on Rails', RubyOnRailsLogo, [BACK_END, FRONT_END]),
+  new Skill('GraphQL', GraphqlLogo, [FRONT_END, BACK_END]),
   new Skill('PostgreSQL', PostgresLogo, [BACK_END]),
+  new Skill('MySQL', MysqlLogo, [BACK_END]),
   new Skill('Git', GitLogo, [MISC]),
 
   new Skill('MongoDB', MongoDBLogo, [BACK_END]),
@@ -78,10 +80,29 @@ const getSkills = () => [
   new Skill('Express', ExpressLogo, [BACK_END]),
   new Skill('Axios', AxiosLogo, [MISC]),
 
-  new Skill('MySQL', MysqlLogo, [BACK_END]),
-  new Skill('SCSS', ScssLogo, [FRONT_END]),
+  new Skill('jQuery', JQueryLogo, [FRONT_END]),
+  new Skill('Ruby', RubyLogo, [BACK_END]),
+  new Skill('Ruby on Rails', RubyOnRailsLogo, [BACK_END, FRONT_END]),
   new Skill('Firebase', FirebaseLogo, [BACK_END]),
-  new Skill('Next.js', NextjsLogo, [FRONT_END]),
+
+  new Skill('Contentful', ContentfulLogo, [BACK_END]),
+  new Skill(
+    'Bootstrap',
+    BootstrapLogo,
+    [FRONT_END],
+    'https://getbootstrap.com/'
+  ),
+  new Skill('Material UI', MuiLogo, [FRONT_END], 'https://mui.com/'),
+  new Skill(
+    'styled-components',
+    StyledComponentsLogo,
+    [FRONT_END],
+    'https://styled-components.com/'
+  ),
+
+  new Skill('Angular', AngularLogo, [FRONT_END], 'https://angular.io/'),
+  new Skill('Vue', VueLogo, [FRONT_END], 'https://vuejs.org/'),
+  new Skill('Sequelize', SequelizeLogo, [BACK_END], 'https://sequelize.org/'),
 ];
 
 export default function Skills() {
@@ -177,7 +198,18 @@ export default function Skills() {
       <div className="skills-container">
         {filteredSkills.map((skill) => (
           <Tooltip arrow placement="top" title={skill.name} key={skill.name}>
-            <img className="tech-logo" src={skill.logo} alt={skill.name} />
+            <img
+              className="tech-logo"
+              src={skill.logo}
+              alt={skill.name}
+              onClick={() =>
+                window.open(
+                  skill.website ??
+                    `https://en.wikipedia.org/wiki/${skill.name}`,
+                  '_blank'
+                )
+              }
+            />
           </Tooltip>
         ))}
       </div>

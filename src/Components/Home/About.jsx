@@ -90,7 +90,7 @@ const Div = styled.div`
     display: flex;
   }
 
-  .span {
+  .fun-letter {
     transition: transform 250ms ease-out;
     align-items: center;
     background-color: transparent;
@@ -100,7 +100,7 @@ const Div = styled.div`
     z-index: 1;
   }
 
-  .span:hover {
+  .fun-letter:hover {
     transform: translateY(-4.05px);
     transition: transform 250ms ease-in;
     cursor: pointer;
@@ -111,7 +111,7 @@ const Div = styled.div`
     color: white;
     font-size: 20px;
     flex-flow: row wrap;
-    max-width: 450px;
+    max-width: 500px;
 
     p {
       line-height: 1.5em;
@@ -148,23 +148,23 @@ function About() {
         <>
           <div className="content-container">
             <div className="title-container">
-              <div className="span"> A</div>
-              <div className="span"> b</div>
-              <div className="span"> o</div>
-              <div className="span"> u</div>
-              <div className="span"> t</div> &nbsp;
-              <div className="span"> M</div>
-              <div className="span"> e</div>
+              {[...'Summary'].map((char, key) => (
+                <div className="fun-letter" key={key}>
+                  {char}
+                </div>
+              ))}
             </div>
             <div className="text-container">
               <p>
-                I am a Full-Stack career pivoting from the music industry,
-                with experience working with Rails, React, and more. My previous
-                career as a musician allowed me to be collaborative and
-                creative, which is something I now enjoy bringing to my code. I
-                am empathetic, approachable and an active listener; traits that
-                allow me to create great projects and build relationships along
-                the way
+                Knowledgeable Web Developer brings superior front-end and
+                back-end design to promote organization-specific website
+                presence. Thorough comprehension of complex HTML, CSS and
+                JavaScript programming languages to generate custom webpage
+                design. Extensive collaboration with frontend to ascertain
+                company expectations and oversee site creation, from initial
+                planning through rollout and support. Detail-oriented approach
+                to maintaining website responsiveness, effectiveness and
+                security
               </p>
               <div className="buttons-container">
                 <a
