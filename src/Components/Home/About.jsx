@@ -156,7 +156,7 @@ function About() {
             </div>
             <div className="text-container">
               <p>
-                Knowledgeable Full-Stack Developer brings superior front-end and
+                Knowledgeable Full Stack Developer brings superior front-end and
                 back-end design to promote organization-specific website
                 presence. Thorough comprehension of complex HTML, CSS and
                 JavaScript programming languages to generate custom webpage
