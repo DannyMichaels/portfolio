@@ -69,7 +69,7 @@ export default function HeaderContent({ isFireFox }) {
     <>
       <MoveInLeft className="animation1">
         <HeaderText />
-        <Fill1 fill1="https://anima-uploads.s3.amazonaws.com/projects/5fb14441119f80c2053ea467/releases/5fb14452ac34b30698d1c801/img/01maindemo-fill-1-3E925590-1D1F-4FAB-9036-050A24FF5082.png" />
+        <Fill1 fill1="https://i.imgur.com/mpPmjOy.png" />
         <Scroll />
         {isFireFox || !cloudMode ? (
           <></>
@@ -80,7 +80,7 @@ export default function HeaderContent({ isFireFox }) {
         )}
         {!isBigFillHidden && (
           <Div className="crop">
-            <Fill2 fill2="https://anima-uploads.s3.amazonaws.com/projects/5fb14441119f80c2053ea467/releases/5fb14452ac34b30698d1c801/img/01maindemo-fill-1-2D5D0138-9E96-48FA-B912-5523E3A31DAE.png" />
+            <Fill2 fill2="https://i.imgur.com/gfeP1mj.png" />
           </Div>
         )}
       </MoveInLeft>
