@@ -174,7 +174,7 @@ function About() {
                   href={'https://github.com/DannyMichaels/'}>
                   <SiGithub className="github" />
                 </a>
-                <a
+{/*                 <a
                   className="link"
                   target="_blank"
                   rel="noreferrer"
@@ -182,7 +182,7 @@ function About() {
                     'https://www.linkedin.com/in/daniel-michael-718825155/'
                   }>
                   <SiLinkedin className="linkedin" />
-                </a>
+                </a> */}
                 <a
                   className="link"
                   target="_blank"
