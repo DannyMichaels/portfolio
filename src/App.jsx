@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import Home from './screens/Home';
 import { Route, Switch } from 'react-router-dom';
-import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
+import { createTheme, ThemeProvider } from '@material-ui/core/styles';
+import { DockProvider } from './Components/shared/MacOSDialog/MacOSDialog';
 import './App.scss';
 
-const theme = createMuiTheme({
+const theme = createTheme({
   overrides: {
     MuiButton: {
       containedSecondary: {
@@ -32,11 +33,13 @@ export default function App() {
 
   return (
     <div className="app">
-      <MuiThemeProvider theme={theme}>
-        <Switch>
-          <Route exact path="/" component={Home} />
-        </Switch>
-      </MuiThemeProvider>
+      <ThemeProvider theme={theme}>
+        <DockProvider>
+          <Switch>
+            <Route exact path="/" component={Home} />
+          </Switch>
+        </DockProvider>
+      </ThemeProvider>
     </div>
   );
 }

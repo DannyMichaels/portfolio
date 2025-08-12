@@ -2,7 +2,7 @@ import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import Input from '@material-ui/core/Input';
 import styled from 'styled-components';
-import Button from '@material-ui/core/Button';
+import GlassButton from '../Components/shared/GlassButton/GlassButton';
 
 const Div = styled.div`
   display: flex;
@@ -159,16 +159,16 @@ function Contact() {
                 multiline
                 placeholder="Message"
                 variant="filled"
-                rows={7}
+                minRows={7}
               />
               <div data-netlify-recaptcha="true" className="field"></div>
-              <Button
+              <GlassButton
                 className="button1"
-                style={{ background: 'white' }}
-                variant="containted"
+                variant="highlight"
+                size="medium"
                 type="submit">
-                Submit&nbsp; ^_^
-              </Button>
+                Submit ^_^
+              </GlassButton>
             </div>
           </div>
         </form>

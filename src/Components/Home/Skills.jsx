@@ -185,7 +185,7 @@ export default function Skills() {
             name="searchName"
             onChange={(e) => setSearch(e.target.value)}
             endAdornment={
-              <InputAdornment>
+              <InputAdornment position="end">
                 {search && (
                   <IconButton onClick={() => setSearch('')}>
                     <CloseOutlined />

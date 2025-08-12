@@ -1,90 +1,48 @@
-import { withStyles } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
-import Dialog from "@material-ui/core/Dialog";
-import DialogContent from "@material-ui/core/DialogContent";
-import MuiDialogTitle from "@material-ui/core/DialogTitle";
-import MuiDialogActions from "@material-ui/core/DialogActions";
-import IconButton from "@material-ui/core/IconButton";
-import CloseIcon from "@material-ui/icons/Close";
-import Typography from "@material-ui/core/Typography";
+import React from "react";
+import styled from "styled-components";
+import GlassButton from '../shared/GlassButton/GlassButton';
+import MacOSDialog from '../shared/MacOSDialog/MacOSDialog';
 
-const styles = (theme) => ({
-  root: {
-    margin: 0,
-    padding: theme.spacing(2),
-    marginLeft: 10,
-  },
-  closeButton: {
-    position: "absolute",
-    right: theme.spacing(1),
-    top: theme.spacing(1),
-    color: theme.palette.grey[500],
-  },
-});
 
-// code for dialog referenced from Material-ui's docs
-const DialogTitle = withStyles(styles)((props) => {
-  const { children, classes, onClose, ...other } = props;
-  return (
-    <MuiDialogTitle disableTypography className={classes.root} {...other}>
-      <Typography variant="h6">{children}</Typography>
-      {onClose ? (
-        <IconButton
-          aria-label="close"
-          className={classes.closeButton}
-          onClick={onClose}>
-          <CloseIcon />
-        </IconButton>
-      ) : null}
-    </MuiDialogTitle>
-  );
-});
 
-const DialogActions = withStyles((theme) => ({
-  root: {
-    margin: 0,
-    padding: theme.spacing(1),
-  },
-}))(MuiDialogActions);
 
 export default function Video({ name, video, handleClose, openVideo }) {
+  const [isMaximized, setIsMaximized] = React.useState(false);
+  
   if (!openVideo) return null;
 
   return (
-    <Dialog
-      onClose={handleClose}
-      aria-labelledby="customized-dialog-title"
+    <MacOSDialog
+      title={name}
       open={openVideo}
-      id="video-card">
-      <DialogTitle
-        style={{ minWidth: "200px" }}
-        id="customized-dialog-title"
-        onClose={handleClose}>
-        {name}
-      </DialogTitle>
-      <DialogContent>
-        <iframe
-          title={name}
-          width="100%"
-          className="movie-frame"
-          height="315"
-          frameborder="0"
-          src={video}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen="allowfullscreen"
-          mozallowfullscreen="mozallowfullscreen"
-          msallowfullscreen="msallowfullscreen"
-          oallowfullscreen="oallowfullscreen"
-          webkitallowfullscreen="webkitallowfullscreen">
-          {video}
-        </iframe>
-      </DialogContent>
-      <DialogActions
-        style={{ display: "flex", justifyContent: "space-evenly" }}>
-        <Button variant="contained" color="primary" onClick={handleClose}>
-          Exit
-        </Button>
-      </DialogActions>
-    </Dialog>
+      onClose={handleClose}
+      width="700px"
+      id={`video-${name}`}
+      onMaximizeChange={setIsMaximized}
+      dockColor="linear-gradient(135deg, #f093fb 0%, #f5576c 100%)"
+      actions={[
+        {
+          label: 'Close Video',
+          onClick: handleClose,
+          size: 'medium'
+        }
+      ]}>
+      
+      <iframe
+        title={name}
+        width="100%"
+        className="movie-frame"
+        height={isMaximized ? "50vh" : "400"}
+        frameBorder="0"
+        src={video}
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+        style={{
+          borderRadius: '12px',
+          boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3)',
+          border: '1px solid rgba(255, 255, 255, 0.1)'
+        }}>
+      </iframe>
+    </MacOSDialog>
   );
 }

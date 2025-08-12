@@ -1,15 +1,9 @@
-import { memo } from 'react';
+import React, { memo } from 'react';
 import styled from 'styled-components';
-import withStyles from '@material-ui/styles/withStyles';
 import { Tooltip } from '@material-ui/core';
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import DialogContent from '@material-ui/core/DialogContent';
-import MuiDialogTitle from '@material-ui/core/DialogTitle';
-import MuiDialogActions from '@material-ui/core/DialogActions';
-import IconButton from '@material-ui/core/IconButton';
-import CloseIcon from '@material-ui/icons/Close';
 import Typography from '@material-ui/core/Typography';
+import GlassButton from '../shared/GlassButton/GlassButton';
+import MacOSDialog from '../shared/MacOSDialog/MacOSDialog';
 
 // logos
 import HtmlLogo from '../../assets/images/tech_skills/html.png';
@@ -62,31 +56,33 @@ const IMAGES = {
 
 function TestimonialMore({ testimonial, open, onClose }) {
   const {
-    fields: { company, jobDescription, techStack, website },
+    fields: { company, jobDescription, techStack, website, jobLogo },
   } = testimonial;
 
   return (
-    <Dialog
-      onClose={onClose}
-      aria-labelledby="customized-dialog-title"
+    <MacOSDialog
+      title={`Job: ${jobDescription}`}
       open={open}
-      id="video-card">
-      <DialogTitle
-        style={{ minWidth: '200px' }}
-        id="customized-dialog-title"
-        onClose={onClose}>
-        Job Description: {jobDescription}
-      </DialogTitle>
-
-      <StyledDialogContent
-        dividers
-        style={{ borderBottom: 0, display: 'flex', alignItems: 'center' }}>
+      onClose={onClose}
+      width="650px"
+      id={`testimonial-${company}-${jobDescription}`}
+      dockIcon={jobLogo && jobLogo[0] && jobLogo[0].url}
+      dockColor="linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+      actions={[
+        {
+          label: 'Close Details',
+          onClick: onClose,
+          size: 'medium'
+        }
+      ]}>
+      
+      <CompanySection>
         {website ? (
-          <Typography variant="h6">
-            Company / Client: &nbsp;
+          <Typography variant="h6" className="company-text">
+            Company: &nbsp;
             <Tooltip arrow placement="top" title="Visit company website">
               <a
-                className="link"
+                className="company-link"
                 target="_blank"
                 rel="noreferrer"
                 href={website}
@@ -96,15 +92,15 @@ function TestimonialMore({ testimonial, open, onClose }) {
             </Tooltip>
           </Typography>
         ) : (
-          <Typography variant="h6">Company / Client: {company}</Typography>
+          <Typography variant="h6" className="company-text">
+            Company: {company}
+          </Typography>
         )}
-      </StyledDialogContent>
+      </CompanySection>
 
-      <StyledDialogContent dividers>
-        <Typography
-          variant="h6"
-          style={{ marginLeft: '20px', marginBottom: '10px' }}>
-          Tech Used:
+      <TechSection>
+        <Typography variant="h6" className="tech-title">
+          Technologies Used:
         </Typography>
 
         <div className="skills-list">
@@ -122,90 +118,98 @@ function TestimonialMore({ testimonial, open, onClose }) {
             );
           })}
         </div>
-      </StyledDialogContent>
-
-      <DialogActions
-        style={{ display: 'flex', justifyContent: 'space-evenly' }}>
-        <Button variant="contained" color="primary" onClick={onClose}>
-          Exit
-        </Button>
-      </DialogActions>
-    </Dialog>
+      </TechSection>
+    </MacOSDialog>
   );
 }
 
-const StyledDialogContent = styled(DialogContent)`
-  .skills-list {
-    max-height: 280px;
-    overflow-y: auto;
-    overflow-x: hidden;
 
-    grid-gap: 20px;
-    align-items: center;
-
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-
-    padding: 20px;
-
-    img {
-      object-fit: contain;
-      min-width: 100px;
-      max-height: 100px;
-      height: 100px;
-      border-radius: 20px;
-      min-height: 100px;
-      width: 100%;
-      height: auto;
-      background: #fff;
-      cursor: help;
-      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-      padding: 10px;
-    }
+const CompanySection = styled.div`
+  margin-bottom: 24px;
+  
+  .company-text {
+    color: rgba(255, 255, 255, 0.95) !important;
+    font-weight: 500 !important;
   }
-
-  .link {
-    color: #000;
+  
+  .company-link {
+    color: #64b5f6 !important;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: all 0.2s ease;
+    
+    &:hover {
+      color: #90caf9 !important;
+      border-bottom-color: #64b5f6;
+    }
   }
 `;
 
-const styles = (theme) => ({
-  root: {
-    margin: 0,
-    padding: theme.spacing(2),
-    marginLeft: 10,
-  },
-  closeButton: {
-    position: 'absolute',
-    right: theme.spacing(1),
-    top: theme.spacing(1),
-    color: theme.palette.grey[500],
-  },
-});
+const TechSection = styled.div`
+  .tech-title {
+    color: rgba(255, 255, 255, 0.95) !important;
+    font-weight: 600 !important;
+    margin-bottom: 16px !important;
+  }
+  
+  .skills-list {
+    max-height: 320px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    grid-gap: 16px;
+    align-items: center;
+    padding: 16px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    
+    /* Custom scrollbar */
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+    
+    &::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 3px;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, 
+        rgba(102, 126, 234, 0.6) 0%, 
+        rgba(118, 75, 162, 0.6) 100%);
+      border-radius: 3px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      
+      &:hover {
+        background: linear-gradient(180deg, 
+          rgba(102, 126, 234, 0.8) 0%, 
+          rgba(118, 75, 162, 0.8) 100%);
+      }
+    }
 
-// code for dialog referenced from Material-ui's docs
-const DialogTitle = withStyles(styles)((props) => {
-  const { children, classes, onClose, ...other } = props;
-  return (
-    <MuiDialogTitle disableTypography className={classes.root} {...other}>
-      <Typography variant="h6">{children}</Typography>
-      {onClose ? (
-        <IconButton
-          aria-label="close"
-          className={classes.closeButton}
-          onClick={onClose}>
-          <CloseIcon />
-        </IconButton>
-      ) : null}
-    </MuiDialogTitle>
-  );
-});
+    img {
+      object-fit: contain;
+      width: 100%;
+      height: 80px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.95);
+      cursor: help;
+      padding: 8px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      
+      &:hover {
+        transform: translateY(-4px) scale(1.05);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        background: rgba(255, 255, 255, 1);
+      }
+    }
+  }
+`;
 
-const DialogActions = withStyles((theme) => ({
-  root: {
-    margin: 0,
-    padding: theme.spacing(1),
-  },
-}))(MuiDialogActions);
+
 
 export default memo(TestimonialMore);

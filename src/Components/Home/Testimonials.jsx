@@ -3,13 +3,14 @@ import styled from 'styled-components';
 import { getAllTestimonials } from '../../services/testimonials.js';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { getSortedProjects as getSortedTestimonials } from '../../utils/sortedProjects';
-import getRating from '../../utils/getRating.js';
-import { Box, Button, Tooltip, Typography } from '@material-ui/core';
+import { Typography, Chip } from '@material-ui/core';
 import QuoteIcon from '@material-ui/icons/FormatQuote';
+import StarIcon from '@material-ui/icons/Star';
 import { CloudStateContext } from '../../context/cloudContext.js';
 import Sparkles from '../shared/Animations/Sparkles.jsx';
 import TestimonialMore from './TestimonialMore';
-import { Fade } from 'react-awesome-reveal';
+import GlassButton from '../shared/GlassButton/GlassButton';
+import { Fade, Slide } from 'react-awesome-reveal';
 
 function Testimonials() {
   const [allTestimonials, setAllTestimonials] = useState([]);
@@ -28,64 +29,76 @@ function Testimonials() {
     fetchTestimonials();
   }, []);
 
-  const TESTIMONIALS = allTestimonials?.map((testimonial) => {
+  const TESTIMONIALS = allTestimonials?.map((testimonial, index) => {
     const {
       fields: { content, date, rating, company, person, image },
     } = testimonial;
 
-    // https://www.florin-pop.com/blog/2019/07/testimonial-card/
+    const renderStars = (rating) => {
+      return Array.from({ length: 5 }, (_, i) => (
+        <StarIcon
+          key={i}
+          className={`star ${i < rating ? 'filled' : 'empty'}`}
+        />
+      ));
+    };
 
     return (
-      <Testimonial
-        className="testimonial"
-        key={testimonial?.id}
-        cloudMode={cloudMode}>
-        <div className="testimonial-body">
-          <P>{content}</P>
-          <div className="quote-icon-container">
+      <Slide direction="up" delay={index * 100} triggerOnce key={testimonial?.id}>
+        <TestimonialCard
+          className="testimonial"
+          cloudMode={cloudMode}>
+          <QuoteIconContainer>
             <QuoteIcon className="quote-icon" />
-          </div>
-        </div>
-        <br />
-        <div className={'testimonial__darkShadow overflown'} />
+          </QuoteIconContainer>
+          
+          <TestimonialContent>
+            <ContentText>{content}</ContentText>
+          </TestimonialContent>
 
-        <footer>
-          <img src={image} alt={company} />
+          <TestimonialFooter>
+            <CompanyLogo src={image} alt={company} />
+            
+            <PersonInfo>
+              <PersonName>{person}</PersonName>
+              <CompanyName>{company}</CompanyName>
+            </PersonInfo>
 
-          <div className="testimonial__credits ">
-            <Typography>{`${person} @ ${company}`}</Typography>
-          </div>
+            {rating && (
+              <RatingSection>
+                <StarsContainer>
+                  {renderStars(Math.round(rating))}
+                </StarsContainer>
+                <RatingText>Rating: {rating}/5</RatingText>
+                <Chip 
+                  label="Upwork™ Verified" 
+                  size="small" 
+                  className="upwork-chip"
+                />
+              </RatingSection>
+            )}
 
-          <br />
+            <DateText>{date}</DateText>
 
-          {rating && (
-            <>
-              <Typography>Rating provided by Upwork™</Typography>
-              <Box my={1}>{getRating(rating, '⭐')}</Box>
-              <Typography>{date}</Typography>
-            </>
-          )}
-
-          <Tooltip
-            title="See job position and tech stack"
-            arrow
-            placement="top">
-            <Button
+            <GlassButton
               onClick={() => setViewMore(testimonial?.id)}
-              className="testimonial__more--button"
-              variant="contained"
-              color="secondary">
-              View More
-            </Button>
-          </Tooltip>
-        </footer>
+              size="medium"
+              variant="default"
+              iconHover="translate(2px, -2px)">
+              <span>View Details</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </GlassButton>
+          </TestimonialFooter>
 
-        <TestimonialMore
-          testimonial={testimonial}
-          open={viewMore === testimonial?.id}
-          onClose={() => setViewMore(false)}
-        />
-      </Testimonial>
+          <TestimonialMore
+            testimonial={testimonial}
+            open={viewMore === testimonial?.id}
+            onClose={() => setViewMore(false)}
+          />
+        </TestimonialCard>
+      </Slide>
     );
   });
 
@@ -323,5 +336,286 @@ const List = styled.ol`
     gap: 10px;
   }
 `;
+
+const TestimonialCard = styled.div`
+  @keyframes glassFloat {
+    0% {
+      transform: translateY(0px) rotateX(0deg);
+      box-shadow: 0 10px 40px rgba(31, 38, 135, 0.15);
+    }
+    50% {
+      transform: translateY(-15px) rotateX(2deg);
+      box-shadow: 0 25px 60px rgba(31, 38, 135, 0.25);
+    }
+    100% {
+      transform: translateY(0px) rotateX(0deg);
+      box-shadow: 0 10px 40px rgba(31, 38, 135, 0.15);
+    }
+  }
+
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  height: 520px; /* Fixed height for all cards */
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 20px 10px;
+  border-radius: 24px;
+  overflow: hidden;
+  
+  // Glassmorphic background
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.12) 0%, 
+    rgba(255, 255, 255, 0.06) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  
+  box-shadow: 0 15px 35px rgba(31, 38, 135, 0.2),
+              0 8px 15px rgba(31, 38, 135, 0.1),
+              inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  
+  animation: ${(props) =>
+    props.cloudMode ? 'glassFloat 8s ease-in-out infinite' : 'none'};
+  
+  // Gradient border effect
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, 
+      var(--primary, #667ee6) 0%, 
+      var(--secondary, #764ba2) 50%,
+      var(--accent, #f093fb) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  &:hover {
+    transform: translateY(-12px) scale(1.02);
+    background: linear-gradient(135deg, 
+      rgba(255, 255, 255, 0.18) 0%, 
+      rgba(255, 255, 255, 0.09) 100%);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 25px 50px rgba(31, 38, 135, 0.3),
+                0 15px 25px rgba(31, 38, 135, 0.15),
+                0 0 30px rgba(102, 126, 230, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    
+    &::before {
+      opacity: 1;
+    }
+  }
+  
+  @media screen and (max-width: 699px) {
+    margin: 15px 5px;
+    min-height: 450px;
+    max-width: 90vw;
+  }
+`;
+
+const QuoteIconContainer = styled.div`
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  z-index: 2;
+  
+  .quote-icon {
+    font-size: 32px;
+    color: rgba(255, 255, 255, 0.15);
+    transform: rotate(180deg);
+  }
+`;
+
+const TestimonialContent = styled.div`
+  padding: 40px 30px 20px;
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  overflow-y: auto;
+  
+  /* Custom scrollbar styling */
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, 
+      rgba(102, 126, 234, 0.6) 0%, 
+      rgba(118, 75, 162, 0.6) 100%);
+    border-radius: 3px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    
+    &:hover {
+      background: linear-gradient(180deg, 
+        rgba(102, 126, 234, 0.8) 0%, 
+        rgba(118, 75, 162, 0.8) 100%);
+    }
+  }
+`;
+
+const ContentText = styled.p`
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  text-align: left;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  
+  &::before {
+    content: '"';
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.4);
+    margin-right: 4px;
+  }
+  
+  &::after {
+    content: '"';
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.4);
+    margin-left: 4px;
+  }
+`;
+
+const TestimonialFooter = styled.div`
+  padding: 20px 30px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  margin-top: auto; /* Push to bottom of flex container */
+  flex-shrink: 0; /* Prevent shrinking */
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 30px;
+    right: 30px;
+    height: 1px;
+    background: linear-gradient(90deg, 
+      transparent 0%, 
+      rgba(255, 255, 255, 0.2) 50%, 
+      transparent 100%);
+  }
+`;
+
+const CompanyLogo = styled.img`
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: contain; /* Changed from cover to contain */
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.95); /* More opaque background */
+  padding: 1px; /* Increased padding for better fit */
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: scale(1.08);
+    border-color: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 1);
+  }
+`;
+
+const PersonInfo = styled.div`
+  text-align: center;
+`;
+
+const PersonName = styled.h4`
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 0 4px 0;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+`;
+
+const CompanyName = styled.p`
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+  letter-spacing: 0.5px;
+`;
+
+const RatingSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+`;
+
+const StarsContainer = styled.div`
+  display: flex;
+  gap: 4px;
+  
+  .star {
+    font-size: 18px;
+    transition: all 0.2s ease;
+    
+    &.filled {
+      color: #ffd700;
+      filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.4));
+    }
+    
+    &.empty {
+      color: rgba(255, 255, 255, 0.2);
+    }
+  }
+`;
+
+const RatingText = styled.span`
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: -4px;
+`;
+
+const DateText = styled.span`
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  font-style: italic;
+`;
+
+// Removed ViewMoreButton - now using reusable GlassButton component
+
+// Global styles for Material-UI components
+const globalStyles = `
+  .upwork-chip {
+    background: linear-gradient(90deg, #14a800, #00c41a) !important;
+    color: white !important;
+    font-size: 10px !important;
+    font-weight: 500 !important;
+    border-radius: 8px !important;
+    height: 20px !important;
+  }
+`;
+
+// Inject global styles
+if (typeof document !== 'undefined') {
+  const styleSheet = document.createElement('style');
+  styleSheet.innerText = globalStyles;
+  document.head.appendChild(styleSheet);
+}
 
 export default Testimonials;

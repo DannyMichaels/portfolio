@@ -1,8 +1,8 @@
-import Button from '@material-ui/core/Button';
 import styled from 'styled-components';
 import { SiGithub } from 'react-icons/si';
 import { SiLinkedin } from 'react-icons/si';
 import { SiUpwork } from 'react-icons/si';
+import GlassButton from '../shared/GlassButton/GlassButton';
 
 const Div = styled.div`
   font-family: 'montserrat', sans-serif;
@@ -26,26 +26,18 @@ const Div = styled.div`
   }
 
   .resume-button {
-    transition: transform 250ms ease-out;
-    background: #fff;
-    color: black;
     margin-left: -50px;
 
     @media screen and (max-width: 600px) {
       margin-left: -60px;
     }
   }
-  .resume-button:hover {
-    background: #fff;
-    color: black;
-  }
   a {
     display: block;
   }
   .github:hover,
   .linkedin:hover,
-  .upwork:hover,
-  .resume-button:hover {
+  .upwork:hover {
     transform: scale(1.05);
     transition: transform 250ms ease-in;
     cursor: pointer;
@@ -202,12 +194,12 @@ function About() {
                   href={
                     'https://drive.google.com/file/d/1sstPomtfMSs-5ci4tltEJyHIVkcZRgD4/view?usp=sharing'
                   }>
-                  <Button
-                    variant="contained"
-                    color="primary"
+                  <GlassButton
+                    variant="highlight"
+                    size="medium"
                     className="resume-button">
                     Resume
-                  </Button>
+                  </GlassButton>
                 </a>
               </div>
             </div>

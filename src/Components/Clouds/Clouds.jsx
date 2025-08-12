@@ -42,20 +42,21 @@ const Cloud = styled.img`
   filter: blur(${props => props.blur || '2px'});
   opacity: ${props => props.opacity || 0.6};
   user-select: none;
-  cursor: default;
+  cursor: pointer;
   transform: translateY(0px) scale(${props => props.scale || 1});
   animation: float ${props => props.floatDuration || '8s'} ease-in-out infinite;
   animation-delay: ${props => props.delay || '0s'};
   object-fit: contain;
   width: ${props => props.size || '200px'};
   height: auto;
-  pointer-events: none;
-  transition: all 0.3s ease;
+  pointer-events: auto;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   
   &:hover {
     filter: blur(0px);
-    opacity: 0.9;
-    transform: translateY(-10px) scale(1.1);
+    opacity: 0.95;
+    transform: translateY(-15px) scale(1.15);
+    animation-play-state: paused;
   }
 
   @keyframes float {
