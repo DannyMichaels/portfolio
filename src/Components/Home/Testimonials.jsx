@@ -284,7 +284,9 @@ const Span = styled.div`
   display: inline-flex;
   flex-direction: row;
   width: auto;
-  z-index: 1;
+  z-index: 100;  /* Increased to be above clouds */
+  position: relative;
+  isolation: isolate;  /* Prevents blur inheritance */
 
   &:hover {
     transform: translateY(-4.05px);

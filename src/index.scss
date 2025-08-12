@@ -4,14 +4,7 @@
   box-sizing: border-box;
 }
 @import url('https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css');
-@import url('https://fonts.googleapis.com/css?family=Poppins:600,700,500|Playfair+Display:700,900|Roboto:400|Montserrat:600,400,700,500');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css');
-@import url('https://fonts.googleapis.com/css?family=Poppins:600,500,700|Playfair+Display:900,700|Roboto:400|Montserrat:600,500,400,700');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css');
-@import url('https://fonts.googleapis.com/css?family=Poppins:700,500,600|Playfair+Display:700,900|Roboto:400|Montserrat:700,500,400,600');
-@import url('https://fonts.googleapis.com/css?family=Poppins:700,500,600|Playfair+Display:700,900|Roboto:400|Montserrat:700,500,400,600');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css');
-@import url('https://fonts.googleapis.com/css?family=Poppins:700,500,600|Playfair+Display:700,900|Roboto:400|Montserrat:700,500,400,600');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@400;500;600;700;800&display=swap');
 
 body,
 html {
@@ -23,13 +16,13 @@ body {
   flex-direction: column;
   min-height: 100vh;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+    'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #f7f7f7;
-  /*Fallback if gradeints don't work */
+  /*Fallback if gradients don't work */
 
   overflow-x: hidden;
 
@@ -61,8 +54,18 @@ code {
 }
 
 :root {
-  --vivid-tangerine: rgba(255, 163, 137, 1);
-  --awesome-blue: #0633bd;
+  // Modern color palette
+  --primary: #667eea;
+  --primary-dark: #5a67d8;
+  --secondary: #f093fb;
+  --accent: #feca57;
+  --glass-white: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --text-primary: #1a202c;
+  --text-secondary: #4a5568;
+  --shadow-soft: 0 8px 32px rgba(31, 38, 135, 0.15);
+  --shadow-medium: 0 8px 32px rgba(31, 38, 135, 0.25);
+  --blur: blur(10px);
 }
 
 $color: #985bb7; // purple

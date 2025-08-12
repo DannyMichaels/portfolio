@@ -11,28 +11,79 @@ import { Hidden } from '@material-ui/core';
 const Nav = styled.nav`
   width: 100%;
   position: fixed;
-  height: 60px;
-  background: none;
-  padding: 0 20px;
+  height: 70px;
+  background: ${props => props.scrolled 
+    ? 'rgba(255, 255, 255, 0.1)' 
+    : 'rgba(255, 255, 255, 0.05)'};
+  backdrop-filter: blur(${props => props.scrolled ? '20px' : '10px'});
+  -webkit-backdrop-filter: blur(${props => props.scrolled ? '20px' : '10px'});
+  border-bottom: 1px solid rgba(255, 255, 255, ${props => props.scrolled ? '0.2' : '0.1'});
+  padding: 0 30px;
   display: flex;
   z-index: 9999;
   margin: 0;
   justify-content: space-between;
   align-items: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: ${props => props.scrolled 
+    ? '0 8px 32px rgba(31, 38, 135, 0.15)' 
+    : 'none'};
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: linear-gradient(90deg, 
+      rgba(102, 126, 234, 0.1) 0%, 
+      rgba(240, 147, 251, 0.1) 100%);
+    opacity: ${props => props.scrolled ? 1 : 0};
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
 
   .logo {
     padding: 15px 0;
     color: white;
     cursor: pointer;
     display: flex;
-    font-size: 1.2rem;
-    font-family: 'Helvetica', sans-serif;
-    visibility: none;
+    font-size: 1.3rem;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    
+    &:hover {
+      transform: translateY(-2px);
+      text-shadow: 0 4px 20px rgba(255, 255, 255, 0.3);
+    }
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 12px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+      transition: width 0.3s ease;
+    }
+    
+    &:hover::after {
+      width: 100%;
+    }
   }
 
   @media screen and (max-width: 768px) {
     position: fixed;
     margin-top: 0;
+    height: 60px;
+    padding: 0 20px;
 
     .logo {
       display: none;
@@ -86,20 +137,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <Nav
-      style={
-        isCyanShowing
-          ? {
-              transition: '250ms ease-in-out',
-              background: 'rgba(148, 187, 233, 0.8)',
-              backdropFilter: 'blur(8px)',
-            }
-          : {
-              transition: '250ms ease-in-out',
-              background: 'inherit',
-              backdropFilter: 'inherit',
-            }
-      }>
+    <Nav scrolled={isCyanShowing}>
       <div className="logo">
         <Hidden smDown>
           <Link

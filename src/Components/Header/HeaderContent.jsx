@@ -41,6 +41,7 @@ const Div = styled.div`
   -ms-flex-negative: 1;
   flex-shrink: 1;
   position: absolute;
+  overflow: visible;  /* Allow content to extend beyond container */
 
   img {
     width: 1270px;

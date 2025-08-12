@@ -1,47 +1,70 @@
-$color: #985bb7; // purple
-$highlight: #6878c8; // blue
-$alternate: #e49996; // orangish
-$pad: 10px;
+$color: var(--primary);
+$highlight: var(--secondary);
+$alternate: var(--accent);
+$pad: 16px;
+$border-radius: 20px;
+$transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 12px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
   cursor: pointer !important;
-  box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
-  border-radius: 100px;
-  background: linear-gradient(180deg, #d0368a 0%, #708ad4 99%);
+  background: linear-gradient(180deg, var(--primary) 0%, var(--secondary) 100%);
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  
+  &:hover {
+    background: linear-gradient(180deg, var(--primary-dark) 0%, var(--secondary) 100%);
+  }
 }
 
 /* typography */
 @mixin loud-voice {
-  font-family: Sans-serif;
-  font-size: clamp(22px, 10vw, 80px);
-  /* https://developer.mozilla.org/en-US/docs/Web/CSS/clamp() */
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(32px, 8vw, 72px);
+  font-weight: 700;
   color: #fff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 @mixin attention-voice {
-  font-family: 'Helvetica', Helvetica, Arial, serif;
-  font-size: clamp(19px, 10vw, 40px);
+  font-family: 'Sora', sans-serif;
+  font-size: clamp(24px, 6vw, 40px);
+  font-weight: 600;
   color: #fff;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
 }
 
 @mixin title-font {
-  font-family: 'Helvetica', Helvetica, Arial, serif;
-  font-size: clamp(19px, 10vw, 32px);
-  color: #000;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(20px, 4vw, 28px);
+  font-weight: 600;
+  color: var(--text-primary);
 }
 
 @mixin calm-voice {
   font-size: 16px;
-  font-family: 'Helvetica', Helvetica, Arial, serif;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+// New glassmorphism mixin
+@mixin glassmorphism {
+  background: var(--glass-white);
+  backdrop-filter: var(--blur);
+  -webkit-backdrop-filter: var(--blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-soft);
 }
 
 .page-section {
@@ -73,45 +96,64 @@ picture img {
 .projects-h1 {
   display: flex;
   text-align: center;
-  font-size: 36px;
   cursor: default;
-  line-height: 84px;
-  z-index: 1;
+  z-index: 100;  /* Increased to ensure it's above clouds */
+  position: relative;
   flex-direction: row;
-  text-align: center;
-  padding: 20px;
+  padding: 40px 20px;
   justify-content: center;
   align-items: center;
   @include loud-voice();
+  animation: fadeInUp 0.8s ease;
+  isolation: isolate;  /* Creates new stacking context to prevent blur inheritance */
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 /* components */
 project-card {
   display: block;
+  position: relative;
+  overflow: hidden;
+  
   .title {
     @include calm-voice();
     text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
+  
   .picture {
     margin: 0 auto;
   }
+  
   .thumbnail {
     max-width: 300px;
     margin-top: $pad;
     margin: 0 auto;
-    transform: scale(0.98);
-    transition: 350ms ease-in-out;
+    transform: scale(1);
+    transition: $transition;
+    position: relative;
 
     img {
-      -moz-box-shadow: 10px 10px 5px #ccc;
-      -webkit-box-shadow: 10px 10px 5px #ccc;
-      box-shadow: 10px 10px 5px #ccc;
-      -moz-border-radius: 4px;
-      -webkit-border-radius: 4px;
-      border-radius: 4px;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      transition: $transition;
     }
 
     &:hover {
-      transform: scale(1);
+      transform: translateY(-5px) scale(1.02);
+      
+      img {
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+      }
     }
   }
 
@@ -146,11 +188,37 @@ project-card {
     padding: 10px;
   }
   @media (min-width: 0px) {
-    padding: $pad;
-    border-radius: 6px;
-    background-color: white;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+    padding: calc($pad * 1.5);
+    border-radius: $border-radius;
+    @include glassmorphism();
+    background: rgba(255, 255, 255, 0.95);
     min-height: 650px;
+    transition: $transition;
+    position: relative;
+    overflow: hidden;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+      transform-origin: left;
+    }
+    
+    &:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-medium);
+      background: rgba(255, 255, 255, 1);
+      
+      &::before {
+        transform: scaleX(1);
+      }
+    }
   }
 
   @media (max-width: 699px) {

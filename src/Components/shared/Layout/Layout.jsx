@@ -5,7 +5,7 @@ const Layout = ({ children }) => (
   <div className="layout">
     <Navbar />
     <div
-      style={{ overflowX: "hidden", overflowY: "hidden" }}
+      style={{ overflowX: "hidden", overflowY: "visible" }}
       className="layout-children">
       {children}
     </div>

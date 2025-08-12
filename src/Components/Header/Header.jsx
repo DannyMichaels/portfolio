@@ -4,7 +4,7 @@ import HeaderContent from './HeaderContent';
 
 const Div = styled.div`
   flex-shrink: 1;
-  overflow: hidden;
+  overflow: visible;  /* Changed from hidden to visible to prevent clipping */
   min-height: 100vh;
   display: ${({ isFireFox }) => !isFireFox && 'flex'};
   flex-direction: ${({ isFireFox }) => !isFireFox && 'column'};

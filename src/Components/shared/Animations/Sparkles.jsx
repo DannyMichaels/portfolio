@@ -133,7 +133,8 @@ const SparkleSvg = styled.svg`
 
 const ChildWrapper = styled.strong`
   position: relative;
-  z-index: 1;
+  z-index: 100;  /* Increased to ensure text is above all elements */
+  isolation: isolate;  /* Creates new stacking context */
   /* font-weight: bold; */
 `;
 export default Sparkles;
