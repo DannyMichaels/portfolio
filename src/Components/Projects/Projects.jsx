@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import Project from './Project';
+import { useState, useEffect } from 'react';
 import ProjectCarousel3D from './ProjectCarousel3D';
 import styled from 'styled-components';
 import { getAllProjects } from '../../services/projects.js';

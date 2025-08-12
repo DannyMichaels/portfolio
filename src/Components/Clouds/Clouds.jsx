@@ -42,14 +42,14 @@ const Cloud = styled.img`
   filter: blur(${props => props.blur || '2px'});
   opacity: ${props => props.opacity || 0.6};
   user-select: none;
-  cursor: pointer;
+  cursor: default;
   transform: translateY(0px) scale(${props => props.scale || 1});
   animation: float ${props => props.floatDuration || '8s'} ease-in-out infinite;
   animation-delay: ${props => props.delay || '0s'};
   object-fit: contain;
   width: ${props => props.size || '200px'};
   height: auto;
-  pointer-events: auto;
+  pointer-events: none;
   transition: all 0.3s ease;
   
   &:hover {

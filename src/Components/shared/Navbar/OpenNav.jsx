@@ -23,6 +23,8 @@ function OpenNav({ open, setOpen, toggleCloudMode }) {
   useResize(onResize); // check for akward animations with navbar when resizing
 
   useEffect(() => {
+    if (!open) return;
+
     blockBodyOnCondition(open);
   }, [open]);
 

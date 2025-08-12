@@ -48,6 +48,8 @@ const DialogActions = withStyles((theme) => ({
 }))(MuiDialogActions);
 
 export default function Video({ name, video, handleClose, openVideo }) {
+  if (!openVideo) return null;
+
   return (
     <Dialog
       onClose={handleClose}
