@@ -41,6 +41,7 @@ import FirebaseLogo from '../../assets/images/tech_skills/firebase.png';
 import ContentfulLogo from '../../assets/images/tech_skills/contentful.png';
 import GatsbyLogo from '../../assets/images/tech_skills/gatsby.png';
 import SequelizeLogo from '../../assets/images/tech_skills/sequelize.png';
+import DotNetLogo from '../../assets/images/tech_skills/dotnet.png';
 
 class Skill {
   constructor(name, logo, categories, website = null) {
@@ -83,6 +84,7 @@ const getSkills = () => [
   new Skill('jQuery', JQueryLogo, [FRONT_END]),
   new Skill('Ruby', RubyLogo, [BACK_END]),
   new Skill('Ruby on Rails', RubyOnRailsLogo, [BACK_END, FRONT_END]),
+  new Skill('.NET', DotNetLogo, [BACK_END, FRONT_END], 'https://dotnet.microsoft.com/'),
   new Skill('Firebase', FirebaseLogo, [BACK_END]),
 
   new Skill('Contentful', ContentfulLogo, [BACK_END]),
