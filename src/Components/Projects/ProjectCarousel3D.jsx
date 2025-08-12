@@ -3,21 +3,37 @@ import styled, { keyframes } from "styled-components";
 import { Button } from "@material-ui/core";
 import { PlayArrow, Code, Web } from "@material-ui/icons";
 
-const hologramGlow = keyframes`
+const cloudGlow = keyframes`
   0%, 100% { 
-    box-shadow: 0 0 30px rgba(0, 255, 255, 0.3),
-                0 0 60px rgba(102, 126, 234, 0.2);
+    box-shadow: 0 20px 60px rgba(155, 89, 182, 0.3),
+                0 0 80px rgba(52, 152, 219, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
   }
   50% { 
-    box-shadow: 0 0 50px rgba(0, 255, 255, 0.5),
-                0 0 100px rgba(102, 126, 234, 0.3);
+    box-shadow: 0 30px 80px rgba(155, 89, 182, 0.4),
+                0 0 120px rgba(52, 152, 219, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
   }
 `;
 
-const scanLine = keyframes`
-  0% { transform: translateX(-100%); opacity: 0; }
-  50% { opacity: 1; }
-  100% { transform: translateX(100%); opacity: 0; }
+const cloudFloat = keyframes`
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.02);
+  }
+`;
+
+const sparkleShimmer = keyframes`
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
 `;
 
 const CarouselStage = styled.div`
@@ -29,24 +45,7 @@ const CarouselStage = styled.div`
   overflow: visible;
   padding-bottom: 80px;
 
-  // Stage lighting effect
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 120%;
-    height: calc(100% - 80px);
-    background: radial-gradient(
-      ellipse at center top,
-      rgba(0, 255, 255, 0.1) 0%,
-      rgba(102, 126, 234, 0.05) 40%,
-      transparent 70%
-    );
-    pointer-events: none;
-    z-index: 1;
-  }
+
 
   @media (max-width: 768px) {
     height: 650px;
@@ -54,7 +53,7 @@ const CarouselStage = styled.div`
   }
 `;
 
-const ProjectHologram = styled.div`
+const EnchantedCard = styled.div`
   position: absolute;
   top: 40%;
   left: 50%;
@@ -81,54 +80,53 @@ const ProjectHologram = styled.div`
   }
 `;
 
-const HologramCard = styled.div`
+const CloudCard = styled.div`
   width: 100%;
   height: 100%;
   background: linear-gradient(
     135deg,
-    rgba(0, 20, 40, 0.95) 0%,
-    rgba(10, 30, 60, 0.9) 50%,
-    rgba(0, 20, 40, 0.95) 100%
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(248, 250, 252, 0.9) 50%,
+    rgba(240, 245, 251, 0.95) 100%
   );
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 2px solid rgba(0, 255, 255, 0.3);
-  border-radius: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 30px;
   overflow: hidden;
   display: flex;
   position: relative;
-  animation: ${(props) => (props.isActive ? hologramGlow : "none")} 4s
+  animation: ${(props) => (props.isActive ? cloudGlow : cloudFloat)} 8s
     ease-in-out infinite;
+  box-shadow: 0 25px 80px rgba(155, 89, 182, 0.25),
+              0 0 60px rgba(52, 152, 219, 0.15),
+              inset 0 2px 0 rgba(255, 255, 255, 0.4);
 
-  // Scanning line effect
+  // Subtle sparkle effects
   &::before {
-    content: "";
+    content: "✨";
     position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      90deg,
-      transparent 0%,
-      rgba(0, 255, 255, 0.1) 20%,
-      rgba(0, 255, 255, 0.3) 50%,
-      rgba(0, 255, 255, 0.1) 80%,
-      transparent 100%
-    );
-    animation: ${(props) => (props.isActive ? scanLine : "none")} 3s linear
-      infinite;
+    top: 20px;
+    right: 25px;
+    font-size: 1rem;
+    animation: ${(props) => (props.isActive ? sparkleShimmer : "none")} 3s
+      ease-in-out infinite;
     z-index: 10;
     pointer-events: none;
   }
 
-  // Corner accents
+  // Dreamy cloud-like inner glow
   &::after {
     content: "";
     position: absolute;
-    inset: 10px;
-    border: 1px solid rgba(0, 255, 255, 0.2);
-    border-radius: 15px;
+    inset: 12px;
+    border-radius: 25px;
+    background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.4) 0%,
+      rgba(52, 152, 219, 0.1) 30%,
+      rgba(155, 89, 182, 0.1) 70%,
+      rgba(255, 255, 255, 0.3) 100%);
+    opacity: 0.6;
     pointer-events: none;
   }
 `;
@@ -139,78 +137,37 @@ const ImageSection = styled.div`
   position: relative;
   background: linear-gradient(
     135deg,
-    rgba(102, 126, 234, 0.2) 0%,
-    rgba(240, 147, 251, 0.1) 50%,
-    rgba(254, 202, 87, 0.2) 100%
+    rgba(52, 152, 219, 0.15) 0%,
+    rgba(155, 89, 182, 0.1) 50%,
+    rgba(255, 255, 255, 0.2) 100%
   );
   display: flex;
   align-items: center;
   justify-content: center;
-  border-right: 1px solid rgba(0, 255, 255, 0.3);
+  border-right: 2px solid rgba(255, 255, 255, 0.3);
 
-  // Grid overlay
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: linear-gradient(
-        rgba(0, 255, 255, 0.1) 1px,
-        transparent 1px
-      ),
-      linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
-    background-size: 20px 20px;
-    opacity: 0.3;
-  }
+
 `;
 
 const ProjectImage = styled.div`
   width: 90%;
   height: 60%; /* Reduced height for more normal aspect ratio */
-  border: 1px solid rgba(0, 255, 255, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 12px 35px rgba(155, 89, 182, 0.2);
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   overflow: hidden;
-  background: ${(props) => `url(${props.imageUrl})`};
+  background: ${(props) => 
+    props.hasImage 
+      ? `url(${props.imageUrl})` 
+      : 'linear-gradient(45deg, rgba(255, 255, 255, 0.8) 0%, rgba(196, 181, 253, 0.3) 100%)'
+  };
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center;
-  // Placeholder content when no image
-  &::after {
-    content: ${(props) => (props.hasImage ? "''" : "'PROJECT\\AVIEWER'")};
-    font-family: "Courier New", monospace;
-    font-size: 1rem;
-    color: rgba(0, 255, 255, 0.8);
-    letter-spacing: 2px;
-    text-align: center;
-    line-height: 1.4;
-    white-space: pre;
-  }
-
-  // Corner brackets
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 5px;
-    border: 1px dashed rgba(0, 255, 255, 0.3);
-    border-radius: 8px;
-  }
-
-  // Overlay for better text readability on images
-  ${(props) =>
-    props.hasImage &&
-    `
-    &::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, 
-        rgba(0, 255, 255, 0.1) 0%,
-        rgba(102, 126, 234, 0.1) 100%);
-    }
-  `}
 `;
 
 const ContentSection = styled.div`
@@ -227,14 +184,14 @@ const ProjectHeader = styled.div`
 `;
 
 const ProjectTitle = styled.h2`
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "Sora", serif;
   font-size: 2.2rem;
-  font-weight: 700;
-  color: #00ffff;
+  font-weight: 600;
+  color: #6b46c1;
   margin: 0 0 10px 0;
-  text-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
-  letter-spacing: 2px;
-  text-transform: uppercase;
+  text-shadow: 0 2px 15px rgba(155, 89, 182, 0.3);
+  letter-spacing: 1px;
+  text-transform: capitalize;
 
   @media (max-width: 768px) {
     font-size: 1.6rem;
@@ -242,14 +199,14 @@ const ProjectTitle = styled.h2`
 `;
 
 const ProjectId = styled.div`
-  font-family: "Courier New", monospace;
-  font-size: 0.9rem;
-  color: rgba(0, 255, 255, 0.7);
-  letter-spacing: 1px;
+  font-family: "Inter", sans-serif;
+  font-size: 0.85rem;
+  color: rgba(52, 152, 219, 0.8);
+  letter-spacing: 0.5px;
+  font-style: italic;
 
   &::before {
-    content: "> ";
-    color: #00ffff;
+    content: "✨ ";
   }
 `;
 
@@ -266,16 +223,20 @@ const ProjectDescription = styled.div`
   }
 
   &::-webkit-scrollbar-track {
-    background: rgba(0, 255, 255, 0.1);
+    background: rgba(196, 181, 253, 0.1);
     border-radius: 2px;
   }
 
   &::-webkit-scrollbar-thumb {
-    background: rgba(0, 255, 255, 0.4);
+    background: linear-gradient(180deg, 
+      rgba(139, 92, 246, 0.4) 0%,
+      rgba(196, 181, 253, 0.4) 100%);
     border-radius: 2px;
 
     &:hover {
-      background: rgba(0, 255, 255, 0.6);
+      background: linear-gradient(180deg, 
+        rgba(139, 92, 246, 0.6) 0%,
+        rgba(196, 181, 253, 0.6) 100%);
     }
   }
 `;
@@ -284,7 +245,7 @@ const DescriptionText = styled.p`
   font-family: "Inter", sans-serif;
   font-size: 1.1rem;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(71, 85, 105, 0.9);
   margin: 0;
 
   @media (max-width: 768px) {
@@ -297,21 +258,15 @@ const TechStackSection = styled.div`
 `;
 
 const TechLabel = styled.div`
-  font-family: "Courier New", monospace;
-  font-size: 0.8rem;
-  color: rgba(0, 255, 255, 0.8);
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.85rem;
+  color: rgba(99, 102, 241, 0.8);
+  font-weight: 500;
+  letter-spacing: 1px;
   margin-bottom: 10px;
 
   &::before {
-    content: "[";
-    color: #00ffff;
-  }
-
-  &::after {
-    content: "]";
-    color: #00ffff;
+    content: "💫 ";
   }
 `;
 
@@ -322,20 +277,26 @@ const TechGrid = styled.div`
 `;
 
 const TechChip = styled.span`
-  font-family: "Courier New", monospace;
+  font-family: "Inter", sans-serif;
   font-size: 0.75rem;
-  color: #00ffff;
-  background: rgba(0, 255, 255, 0.1);
-  border: 1px solid rgba(0, 255, 255, 0.3);
+  color: #7c3aed;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(196, 181, 253, 0.3) 100%);
+  border: 1.5px solid rgba(139, 92, 246, 0.4);
   padding: 6px 12px;
-  border-radius: 6px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  border-radius: 20px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
   transition: all 0.3s ease;
+  box-shadow: 0 3px 12px rgba(139, 92, 246, 0.15);
 
   &:hover {
-    background: rgba(0, 255, 255, 0.2);
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    background: linear-gradient(135deg, 
+      rgba(255, 255, 255, 0.9) 0%,
+      rgba(196, 181, 253, 0.4) 100%);
+    box-shadow: 0 6px 20px rgba(139, 92, 246, 0.25);
+    transform: translateY(-2px);
   }
 `;
 
@@ -348,33 +309,35 @@ const ActionFooter = styled.div`
   align-items: center;
 `;
 
-const HologramButton = styled(Button)`
+const DreamyButton = styled(Button)`
   && {
     background: linear-gradient(
       45deg,
-      rgba(0, 255, 255, 0.1) 0%,
-      rgba(102, 126, 234, 0.1) 100%
+      rgba(255, 255, 255, 0.9) 0%,
+      rgba(196, 181, 253, 0.3) 100%
     );
-    border: 2px solid rgba(0, 255, 255, 0.4);
-    color: #00ffff;
-    font-family: "Courier New", monospace;
+    border: 2px solid rgba(139, 92, 246, 0.4);
+    color: #7c3aed;
+    font-family: "Inter", sans-serif;
     font-size: 0.8rem;
-    font-weight: bold;
+    font-weight: 600;
     padding: 10px 20px;
-    border-radius: 8px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    border-radius: 25px;
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
     transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 6px 20px rgba(139, 92, 246, 0.2);
 
     &:hover {
       background: linear-gradient(
         45deg,
-        rgba(0, 255, 255, 0.2) 0%,
-        rgba(102, 126, 234, 0.2) 100%
+        rgba(255, 255, 255, 0.95) 0%,
+        rgba(196, 181, 253, 0.4) 100%
       );
-      box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+      box-shadow: 0 8px 30px rgba(139, 92, 246, 0.3);
       transform: translateY(-2px);
-      border-color: rgba(0, 255, 255, 0.8);
+      border-color: rgba(139, 92, 246, 0.6);
     }
 
     .MuiButton-startIcon {
@@ -401,41 +364,44 @@ const NavigationControls = styled.div`
 const NavButton = styled.button`
   background: linear-gradient(
     45deg,
-    rgba(0, 20, 40, 0.9) 0%,
-    rgba(10, 30, 60, 0.8) 100%
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(248, 250, 252, 0.8) 100%
   );
-  border: 2px solid rgba(0, 255, 255, 0.4);
-  color: #00ffff;
+  border: 2px solid rgba(139, 92, 246, 0.4);
+  color: #7c3aed;
   padding: 15px 30px;
-  border-radius: 10px;
+  border-radius: 25px;
   cursor: pointer;
-  font-family: "Courier New", monospace;
+  font-family: "Space Grotesk", sans-serif;
   font-size: 0.9rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  font-weight: 600;
+  text-transform: capitalize;
+  letter-spacing: 1px;
   transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.2);
 
   &:hover {
     background: linear-gradient(
       45deg,
-      rgba(0, 255, 255, 0.2) 0%,
-      rgba(102, 126, 234, 0.2) 100%
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(196, 181, 253, 0.4) 100%
     );
-    box-shadow: 0 0 30px rgba(0, 255, 255, 0.6);
+    box-shadow: 0 15px 40px rgba(139, 92, 246, 0.3);
     transform: translateY(-3px);
-    border-color: rgba(0, 255, 255, 0.8);
+    border-color: rgba(139, 92, 246, 0.6);
   }
 
   &.active {
     background: linear-gradient(
       45deg,
-      rgba(0, 255, 255, 0.3) 0%,
-      rgba(102, 126, 234, 0.3) 100%
+      rgba(196, 181, 253, 0.6) 0%,
+      rgba(139, 92, 246, 0.3) 100%
     );
-    box-shadow: 0 0 40px rgba(0, 255, 255, 0.8);
+    box-shadow: 0 20px 50px rgba(139, 92, 246, 0.4);
+    color: #ffffff;
+    text-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
   }
 `;
 
@@ -443,21 +409,30 @@ const ProjectCounter = styled.div`
   position: absolute;
   top: 20px; /* Moved higher */
   right: 50px; /* Moved further from edge */
-  font-family: "Courier New", monospace;
-  color: rgba(0, 255, 255, 0.8);
+  font-family: "Sora", serif;
+  color: rgba(139, 92, 246, 0.8);
   font-size: 1.2rem;
   z-index: 100;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(248, 250, 252, 0.8) 100%);
+  padding: 12px 20px;
+  border-radius: 25px;
+  border: 2px solid rgba(196, 181, 253, 0.4);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 10px 35px rgba(139, 92, 246, 0.2);
 
   .current {
     font-size: 2rem;
-    font-weight: bold;
-    text-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
-    color: #00ffff;
+    font-weight: 700;
+    text-shadow: 0 2px 15px rgba(139, 92, 246, 0.3);
+    color: #7c3aed;
   }
 
   .separator {
     margin: 0 10px;
     opacity: 0.6;
+    color: rgba(196, 181, 253, 0.8);
   }
 
   .total {
@@ -468,6 +443,7 @@ const ProjectCounter = styled.div`
     top: 15px;
     right: 20px;
     font-size: 1rem;
+    padding: 8px 16px;
 
     .current {
       font-size: 1.5rem;
@@ -490,6 +466,23 @@ export default function ProjectCarousel3D({ projects }) {
 
     return () => clearInterval(interval);
   }, [isAutoRotating, totalProjects]);
+
+  // Arrow key navigation
+  useEffect(() => {
+    const handleKeyPress = (event) => {
+      if (event.key === 'ArrowLeft') {
+        handleNavigation('prev');
+      } else if (event.key === 'ArrowRight') {
+        handleNavigation('next');
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyPress);
+    
+    return () => {
+      window.removeEventListener('keydown', handleKeyPress);
+    };
+  }, [totalProjects]);
 
   const handleNavigation = (direction) => {
     setIsAutoRotating(false);
@@ -522,7 +515,7 @@ export default function ProjectCarousel3D({ projects }) {
         const isActive = index === currentIndex;
 
         return (
-          <ProjectHologram
+          <EnchantedCard
             key={project.id || index}
             rotation={offset}
             distance={distance}
@@ -530,7 +523,7 @@ export default function ProjectCarousel3D({ projects }) {
             zIndex={isActive ? 10 : Math.abs(index - currentIndex)}
             onClick={() => selectProject(index)}
           >
-            <HologramCard isActive={isActive}>
+            <CloudCard isActive={isActive}>
               <ImageSection>
                 <ProjectImage
                   hasImage={
@@ -584,19 +577,19 @@ export default function ProjectCarousel3D({ projects }) {
 
                 <ActionFooter>
                   {(project?.fields?.github || project?.github) && (
-                    <HologramButton
+                    <DreamyButton
                       startIcon={<Code />}
                       href={project?.fields?.github || project?.github}
                       target="_blank"
                     >
                       Source
-                    </HologramButton>
+                    </DreamyButton>
                   )}
                   {(project?.fields?.deployed ||
                     project?.fields?.website ||
                     project?.deployed ||
                     project?.website) && (
-                    <HologramButton
+                    <DreamyButton
                       startIcon={<Web />}
                       href={
                         project?.fields?.deployed ||
@@ -607,21 +600,21 @@ export default function ProjectCarousel3D({ projects }) {
                       target="_blank"
                     >
                       Live Site
-                    </HologramButton>
+                    </DreamyButton>
                   )}
                   {(project?.fields?.video || project?.video) && (
-                    <HologramButton
+                    <DreamyButton
                       startIcon={<PlayArrow />}
                       href={project?.fields?.video || project?.video}
                       target="_blank"
                     >
                       Demo
-                    </HologramButton>
+                    </DreamyButton>
                   )}
                 </ActionFooter>
               </ContentSection>
-            </HologramCard>
-          </ProjectHologram>
+            </CloudCard>
+          </EnchantedCard>
         );
       })}
 
