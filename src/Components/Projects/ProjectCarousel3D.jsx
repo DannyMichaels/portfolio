@@ -198,7 +198,7 @@ const ProjectTitle = styled.h2`
   }
 `;
 
-const ProjectId = styled.div`
+const ProjectDate = styled.div`
   font-family: "Inter", sans-serif;
   font-size: 0.85rem;
   color: rgba(52, 152, 219, 0.8);
@@ -206,7 +206,7 @@ const ProjectId = styled.div`
   font-style: italic;
 
   &::before {
-    content: "✨ ";
+    content: "📅 ";
   }
 `;
 
@@ -456,6 +456,13 @@ export default function ProjectCarousel3D({ projects }) {
   const [isAutoRotating, setIsAutoRotating] = useState(true);
   const totalProjects = projects.length;
 
+  const formatProjectDate = (dateString) => {
+    if (!dateString) return "Recent Project";
+    const date = new Date(dateString);
+    const options = { month: 'long', year: 'numeric' };
+    return date.toLocaleDateString('en-US', options);
+  };
+
   // Auto rotation
   useEffect(() => {
     if (!isAutoRotating || totalProjects <= 1) return;
@@ -544,9 +551,9 @@ export default function ProjectCarousel3D({ projects }) {
                       project?.fields?.name ||
                       `Project_${index + 1}`}
                   </ProjectTitle>
-                  <ProjectId>
-                    ID: {String(index + 1).padStart(3, "0")}_PORTFOLIO
-                  </ProjectId>
+                  <ProjectDate>
+                    {formatProjectDate(project?.createdTime || project?.fields?.date)}
+                  </ProjectDate>
                 </ProjectHeader>
 
                 <ProjectDescription>
