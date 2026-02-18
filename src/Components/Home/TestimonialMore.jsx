@@ -1,8 +1,7 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 import styled from 'styled-components';
 import { Tooltip } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
-import GlassButton from '../shared/GlassButton/GlassButton';
 import MacOSDialog from '../shared/MacOSDialog/MacOSDialog';
 
 // logos

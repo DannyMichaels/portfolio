@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useContext } from 'react';
+import  { useState, useEffect, useContext } from 'react';
 import styled from 'styled-components';
 import { getAllTestimonials } from '../../services/testimonials.js';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { getSortedProjects as getSortedTestimonials } from '../../utils/sortedProjects';
-import { Typography, Chip } from '@material-ui/core';
+import { Chip } from '@material-ui/core';
 import QuoteIcon from '@material-ui/icons/FormatQuote';
 import StarIcon from '@material-ui/icons/Star';
 import { CloudStateContext } from '../../context/cloudContext.js';
@@ -140,155 +140,6 @@ function Testimonials() {
   );
 }
 
-const Testimonial = styled.li`
-  @keyframes cardFloat {
-    0% {
-      box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
-      transform: translateY(0px);
-    }
-    50% {
-      box-shadow: 0 25px 15px 0px rgba(0, 0, 0, 0.2);
-      transform: translateY(-20px);
-    }
-    100% {
-      box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
-      transform: translateY(0px);
-    }
-  }
-
-  @media screen and (max-width: 699px) {
-    margin: 20px;
-  }
-
-  background-color: #fff;
-  border-radius: 20px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-  overflow: hidden;
-  max-width: 100%;
-  width: 400px;
-  transform: translatey(0px);
-  animation: ${(props) =>
-    props.cloudMode && 'cardFloat 6s ease-in-out infinite'};
-
-  .testimonial-body {
-    padding: 20px 20px 80px;
-
-    max-height: 340px;
-    min-height: 340px;
-    overflow-y: auto;
-
-    .quote-icon {
-      color: #eee;
-      font-size: 40px;
-      float: right;
-    }
-  }
-
-  .testimonial__darkShadow {
-    position: relative;
-    width: 100%;
-    height: 6em;
-    border-bottom: 2px solid #404040;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-    -moz-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-    margin: auto;
-    box-sizing: inherit;
-
-    &.hidden {
-      display: none;
-    }
-
-    &.overflown {
-      z-index: -1;
-      margin-top: -6em;
-      background-image: -webkit-gradient(
-        linear,
-        left bottom,
-        left top,
-        from(#181818),
-        color-stop(20%, rgba(24, 24, 24, 0.7)),
-        color-stop(30%, rgba(24, 24, 24, 0.4)),
-        color-stop(50%, transparent)
-      );
-      background-image: -webkit-linear-gradient(
-        bottom,
-        #181818 0,
-        rgba(24, 24, 24, 0.7) 20%,
-        rgba(24, 24, 24, 0.4) 30%,
-        transparent 50%
-      );
-      background-image: -moz-
-        oldlinear-gradient(
-          bottom,
-          #181818 0,
-          rgba(24, 24, 24, 0.7) 20%,
-          rgba(24, 24, 24, 0.4) 30%,
-          transparent 50%
-        );
-      background-image: -o-linear-gradient(
-        bottom,
-        #181818 0,
-        rgba(24, 24, 24, 0.7) 20%,
-        rgba(24, 24, 24, 0.4) 30%,
-        transparent 50%
-      );
-      background-image: linear-gradient(
-        to top,
-        #181818 0,
-        rgba(24, 24, 24, 0.7) 20%,
-        rgba(24, 24, 24, 0.4) 30%,
-        transparent 50%
-      );
-    }
-  }
-
-  footer {
-    background-color: #686de0;
-    color: #fff;
-    padding: 40px;
-    text-align: center;
-    z-index: 4;
-
-    .testimonial__person {
-      margin: 10px 0;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    .testimonial__more--button {
-      transition: transform 250ms ease-in-out;
-
-      &:hover {
-        transform: scale(1.05);
-        cursor: pointer;
-      }
-    }
-
-    img {
-      // company logo
-      background: #fff; // png fallback
-      object-fit: contain;
-      border-radius: 50%;
-      border: 5px solid #fff;
-      height: 120px;
-      width: 120px;
-      margin-top: -100px;
-      position: relative;
-    }
-  }
-`;
-
 const Span = styled.div`
   font-family: 'Roboto', sans-serif;
   transition: transform 250ms ease-out;
@@ -306,14 +157,6 @@ const Span = styled.div`
     transition: transform 250ms ease-in;
     cursor: pointer;
   }
-`;
-
-const P = styled(Typography)`
-  color: #555;
-  font-size: 20px;
-  line-height: 36px;
-  margin: 0;
-  padding: 10px;
 `;
 
 const List = styled.ol`

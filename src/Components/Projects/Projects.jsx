@@ -32,13 +32,13 @@ function Projects() {
   useEffect(() => {
     const fetchProjects = async () => {
       const projects = await getAllProjects();
-      setAllProjects(getSortedProjects(projects));
+      console.log('Fetched projects:', projects);
+      const filteredProjects = projects.filter(project => !project.fields.hidden);
+      setAllProjects(getSortedProjects(filteredProjects));
       setLoaded(true);
     };
     fetchProjects();
   }, []);
-
-  // Removed PROJECTS since we're using the 3D carousel instead
 
   return (
     <>

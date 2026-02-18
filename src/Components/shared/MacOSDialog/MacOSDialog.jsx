@@ -315,6 +315,8 @@ export default function MacOSDialog({
         document.removeEventListener('mouseup', handleMouseUp);
       };
     }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isDragging, dragStart]);
 
   // Reset position when dialog opens
@@ -327,6 +329,8 @@ export default function MacOSDialog({
         dockContext.removeMinimizedWindow(id || title);
       }
     }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open]);
 
   return (

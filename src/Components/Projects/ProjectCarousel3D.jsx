@@ -45,8 +45,6 @@ const CarouselStage = styled.div`
   overflow: visible;
   padding-bottom: 80px;
 
-
-
   @media (max-width: 768px) {
     height: 650px;
     padding-bottom: 60px;
@@ -98,9 +96,10 @@ const CloudCard = styled.div`
   position: relative;
   animation: ${(props) => (props.isActive ? cloudGlow : cloudFloat)} 8s
     ease-in-out infinite;
-  box-shadow: 0 25px 80px rgba(155, 89, 182, 0.25),
-              0 0 60px rgba(52, 152, 219, 0.15),
-              inset 0 2px 0 rgba(255, 255, 255, 0.4);
+  box-shadow:
+    0 25px 80px rgba(155, 89, 182, 0.25),
+    0 0 60px rgba(52, 152, 219, 0.15),
+    inset 0 2px 0 rgba(255, 255, 255, 0.4);
 
   // Subtle sparkle effects
   &::before {
@@ -121,11 +120,13 @@ const CloudCard = styled.div`
     position: absolute;
     inset: 12px;
     border-radius: 25px;
-    background: linear-gradient(135deg,
+    background: linear-gradient(
+      135deg,
       rgba(255, 255, 255, 0.4) 0%,
       rgba(52, 152, 219, 0.1) 30%,
       rgba(155, 89, 182, 0.1) 70%,
-      rgba(255, 255, 255, 0.3) 100%);
+      rgba(255, 255, 255, 0.3) 100%
+    );
     opacity: 0.6;
     pointer-events: none;
   }
@@ -145,8 +146,6 @@ const ImageSection = styled.div`
   align-items: center;
   justify-content: center;
   border-right: 2px solid rgba(255, 255, 255, 0.3);
-
-
 `;
 
 const ProjectImage = styled.div`
@@ -160,11 +159,10 @@ const ProjectImage = styled.div`
   justify-content: center;
   position: relative;
   overflow: hidden;
-  background: ${(props) => 
-    props.hasImage 
-      ? `url(${props.imageUrl})` 
-      : 'linear-gradient(45deg, rgba(255, 255, 255, 0.8) 0%, rgba(196, 181, 253, 0.3) 100%)'
-  };
+  background: ${(props) =>
+    props.hasImage
+      ? `url(${props.imageUrl})`
+      : "linear-gradient(45deg, rgba(255, 255, 255, 0.8) 0%, rgba(196, 181, 253, 0.3) 100%)"};
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center;
@@ -228,15 +226,19 @@ const ProjectDescription = styled.div`
   }
 
   &::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, 
+    background: linear-gradient(
+      180deg,
       rgba(139, 92, 246, 0.4) 0%,
-      rgba(196, 181, 253, 0.4) 100%);
+      rgba(196, 181, 253, 0.4) 100%
+    );
     border-radius: 2px;
 
     &:hover {
-      background: linear-gradient(180deg, 
+      background: linear-gradient(
+        180deg,
         rgba(139, 92, 246, 0.6) 0%,
-        rgba(196, 181, 253, 0.6) 100%);
+        rgba(196, 181, 253, 0.6) 100%
+      );
     }
   }
 `;
@@ -280,9 +282,11 @@ const TechChip = styled.span`
   font-family: "Inter", sans-serif;
   font-size: 0.75rem;
   color: #7c3aed;
-  background: linear-gradient(135deg, 
+  background: linear-gradient(
+    135deg,
     rgba(255, 255, 255, 0.8) 0%,
-    rgba(196, 181, 253, 0.3) 100%);
+    rgba(196, 181, 253, 0.3) 100%
+  );
   border: 1.5px solid rgba(139, 92, 246, 0.4);
   padding: 6px 12px;
   border-radius: 20px;
@@ -292,9 +296,11 @@ const TechChip = styled.span`
   box-shadow: 0 3px 12px rgba(139, 92, 246, 0.15);
 
   &:hover {
-    background: linear-gradient(135deg, 
+    background: linear-gradient(
+      135deg,
       rgba(255, 255, 255, 0.9) 0%,
-      rgba(196, 181, 253, 0.4) 100%);
+      rgba(196, 181, 253, 0.4) 100%
+    );
     box-shadow: 0 6px 20px rgba(139, 92, 246, 0.25);
     transform: translateY(-2px);
   }
@@ -413,9 +419,11 @@ const ProjectCounter = styled.div`
   color: rgba(139, 92, 246, 0.8);
   font-size: 1.2rem;
   z-index: 100;
-  background: linear-gradient(135deg, 
+  background: linear-gradient(
+    135deg,
     rgba(255, 255, 255, 0.9) 0%,
-    rgba(248, 250, 252, 0.8) 100%);
+    rgba(248, 250, 252, 0.8) 100%
+  );
   padding: 12px 20px;
   border-radius: 25px;
   border: 2px solid rgba(196, 181, 253, 0.4);
@@ -456,13 +464,6 @@ export default function ProjectCarousel3D({ projects }) {
   const [isAutoRotating, setIsAutoRotating] = useState(true);
   const totalProjects = projects.length;
 
-  const formatProjectDate = (dateString) => {
-    if (!dateString) return "Recent Project";
-    const date = new Date(dateString);
-    const options = { month: 'long', year: 'numeric' };
-    return date.toLocaleDateString('en-US', options);
-  };
-
   // Auto rotation
   useEffect(() => {
     if (!isAutoRotating || totalProjects <= 1) return;
@@ -477,18 +478,20 @@ export default function ProjectCarousel3D({ projects }) {
   // Arrow key navigation
   useEffect(() => {
     const handleKeyPress = (event) => {
-      if (event.key === 'ArrowLeft') {
-        handleNavigation('prev');
-      } else if (event.key === 'ArrowRight') {
-        handleNavigation('next');
+      if (event.key === "ArrowLeft") {
+        handleNavigation("prev");
+      } else if (event.key === "ArrowRight") {
+        handleNavigation("next");
       }
     };
 
-    window.addEventListener('keydown', handleKeyPress);
-    
+    window.addEventListener("keydown", handleKeyPress);
+
     return () => {
-      window.removeEventListener('keydown', handleKeyPress);
+      window.removeEventListener("keydown", handleKeyPress);
     };
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [totalProjects]);
 
   const handleNavigation = (direction) => {
@@ -547,12 +550,10 @@ export default function ProjectCarousel3D({ projects }) {
               <ContentSection>
                 <ProjectHeader>
                   <ProjectTitle>
-                    {project?.name ||
-                      project?.fields?.name ||
-                      `Project_${index + 1}`}
+                    {project?.fields?.name || `Project_${index + 1}`}
                   </ProjectTitle>
                   <ProjectDate>
-                    {formatProjectDate(project?.createdTime || project?.fields?.date)}
+                    {project?.fields?.date}
                   </ProjectDate>
                 </ProjectHeader>
 
