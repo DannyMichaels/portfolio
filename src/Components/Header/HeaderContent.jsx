@@ -13,7 +13,7 @@ const CloudBig = styled.img`
   filter: blur(4px);
   z-index: 0;
   opacity: 0.5;
-  cursor: pointer;
+  pointer-events: none;
   transform: translatey(0px);
   filter: drop-shadow(0 5px 15px 0px rgba(0, 0, 0, 0.6));
   animation: float 6s ease-in-out infinite;
@@ -42,6 +42,7 @@ const Div = styled.div`
   flex-shrink: 1;
   position: absolute;
   overflow: visible;  /* Allow content to extend beyond container */
+  pointer-events: none;
 
   img {
     width: 1270px;

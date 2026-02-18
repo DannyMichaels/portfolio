@@ -29,12 +29,9 @@ function OpenNav({ open, setOpen, toggleCloudMode }) {
   const [disabled, setDisabled] = useState(false);
 
   const handleDisable = (e) => {
-    e.preventDefault();
+    if (disabled) return;
     setDisabled(true);
-    if (disabled) {
-      document.querySelector('.layout-children').style.pointerEvents = 'none';
-    }
-    setTimeout(async () => {
+    setTimeout(() => {
       setDisabled(false);
     }, 600);
   };
